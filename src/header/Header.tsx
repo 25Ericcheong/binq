@@ -16,7 +16,9 @@ export const Header: React.VFC<HeaderProps> = ({
     <section className="header">
       <div>
         <h1>JAPAN SPOTS</h1>
-        <BiAlignRight />
+        <IconContext.Provider value={{ size: "1.5em" }}>
+          <BiAlignRight />
+        </IconContext.Provider>
       </div>
     </section>
   );
