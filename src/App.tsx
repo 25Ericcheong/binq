@@ -1,12 +1,15 @@
-import React from "react";
 import "./app.scss";
 
+import React, { useState } from "react";
+
+import { Header } from "./header/Header";
+
 function App() {
+  const [menuClicked, setMenuClicked] = useState(false);
+
   return (
-    <div className="app">
-      <header className="app-header">
-        <p>Test</p>
-      </header>
+    <div>
+      <Header menuClicked={menuClicked} setMenuClicked={setMenuClicked} />
     </div>
   );
 }
