@@ -19,25 +19,21 @@ export const Footer: React.FunctionComponent<Props> = ({
   return (
     <section className="footer">
       <div className="first-half">
-        <i>
-          <IconContext.Provider value={iconSize}>
-            <FaChevronUp />
-          </IconContext.Provider>
-          <IconContext.Provider value={iconSize}>
-            <FaChevronDown />
-          </IconContext.Provider>
-        </i>
+        <IconContext.Provider value={iconSize}>
+          <FaChevronUp />
+        </IconContext.Provider>
+        <IconContext.Provider value={iconSize}>
+          <FaChevronDown />
+        </IconContext.Provider>
         <button>MORE ABOUT JAPAN</button>
       </div>
       <div className="second-half">
-        <i>
-          <IconContext.Provider value={iconSize}>
-            <DiGithub />
-          </IconContext.Provider>
-          <IconContext.Provider value={iconSize}>
-            <DiCreativecommons />
-          </IconContext.Provider>
-        </i>
+        <IconContext.Provider value={iconSize}>
+          <DiGithub />
+        </IconContext.Provider>
+        <IconContext.Provider value={iconSize}>
+          <DiCreativecommons />
+        </IconContext.Provider>
       </div>
     </section>
   );
