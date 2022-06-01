@@ -2,6 +2,7 @@ import "./app.scss";
 
 import React, { useState } from "react";
 
+import { Footer } from "./footer/Footer";
 import { Header } from "./header/Header";
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
   return (
     <div>
       <Header menuClicked={menuClicked} setMenuClicked={setMenuClicked} />
+      <Footer sliderIndex={sliderIndex} setSliderIndex={setSliderIndex} />
     </div>
   );
 }
