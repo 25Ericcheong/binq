@@ -6,6 +6,7 @@ import { Header } from "./header/Header";
 
 function App() {
   const [menuClicked, setMenuClicked] = useState(false);
+  const [sliderIndex, setSliderIndex] = useState(0);
 
   return (
     <div>

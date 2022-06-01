@@ -3,12 +3,12 @@ import "./header.scss";
 import { BiAlignRight } from "react-icons/bi";
 import { IconContext } from "react-icons";
 
-interface HeaderProps {
+interface Props {
   menuClicked: boolean;
   setMenuClicked: (e: boolean) => void;
 }
 
-export const Header: React.FunctionComponent<HeaderProps> = ({
+export const Header: React.FunctionComponent<Props> = ({
   menuClicked,
   setMenuClicked,
 }) => {
