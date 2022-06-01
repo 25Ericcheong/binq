@@ -8,7 +8,7 @@ interface HeaderProps {
   setMenuClicked: (e: boolean) => void;
 }
 
-export const Header: React.VFC<HeaderProps> = ({
+export const Header: React.FunctionComponent<HeaderProps> = ({
   menuClicked,
   setMenuClicked,
 }) => {
