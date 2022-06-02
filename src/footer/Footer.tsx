@@ -14,26 +14,29 @@ export const Footer: React.FunctionComponent<Props> = ({
   sliderIndex,
   setSliderIndex,
 }) => {
-  const iconSize = { size: "1.5em" };
+  const arrowIconSize = { size: "1.4em" };
+  const otherIconSize = { size: "1.7em" };
 
   return (
     <div className="footer-body">
       <div className="first-half">
         <i>
-          <IconContext.Provider value={iconSize}>
+          <IconContext.Provider value={arrowIconSize}>
             <FaChevronUp />
           </IconContext.Provider>
-          <IconContext.Provider value={iconSize}>
+          <IconContext.Provider value={arrowIconSize}>
             <FaChevronDown />
           </IconContext.Provider>
         </i>
-        <button>MORE ABOUT JAPAN</button>
+        <div>
+          <button>MORE ABOUT JAPAN</button>
+        </div>
       </div>
       <div className="second-half">
-        <IconContext.Provider value={iconSize}>
+        <IconContext.Provider value={otherIconSize}>
           <DiGithub />
         </IconContext.Provider>
-        <IconContext.Provider value={iconSize}>
+        <IconContext.Provider value={otherIconSize}>
           <DiCreativecommons />
         </IconContext.Provider>
       </div>

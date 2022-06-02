@@ -1,22 +1,28 @@
 .footer-body {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   border: 1px solid black;
   position: fixed;
   bottom: 0;
   width: 50%;
+  padding: 1em;
 
   .first-half {
-    width: 50%;
+    width: 55%;
     display: flex;
+    justify-content: space-between;
 
     i {
+      width: 30%;
       display: flex;
-      justify-content: space-between;
+      justify-content: space-around;
     }
   }
 
   .second-half {
-    width: 50%;
+    width: 45%;
+    display: flex;
+    justify-content: flex-end;
   }
 }
