@@ -10,9 +10,11 @@ function App() {
   const [sliderIndex, setSliderIndex] = useState(0);
 
   return (
-    <div>
+    <div id="app">
       <Header menuClicked={menuClicked} setMenuClicked={setMenuClicked} />
-      <Footer sliderIndex={sliderIndex} setSliderIndex={setSliderIndex} />
+      <section id="footer">
+        <Footer sliderIndex={sliderIndex} setSliderIndex={setSliderIndex} />
+      </section>
     </div>
   );
 }

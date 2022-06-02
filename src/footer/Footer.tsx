@@ -17,7 +17,7 @@ export const Footer: React.FunctionComponent<Props> = ({
   const iconSize = { size: "1.5em" };
 
   return (
-    <section className="footer">
+    <div className="footer-body">
       <div className="first-half">
         <i>
           <IconContext.Provider value={iconSize}>
@@ -37,6 +37,6 @@ export const Footer: React.FunctionComponent<Props> = ({
           <DiCreativecommons />
         </IconContext.Provider>
       </div>
-    </section>
+    </div>
   );
 };
