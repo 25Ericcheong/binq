@@ -19,6 +19,9 @@ function App() {
         <section>
           <LeftSideBar sliderIndex={sliderIndex} />
         </section>
+        <section>
+          <p>BY ERIC CHEONG KAI KIT</p>
+        </section>
       </body>
       <section id="footer">
         <Footer sliderIndex={sliderIndex} setSliderIndex={setSliderIndex} />

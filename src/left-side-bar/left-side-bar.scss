@@ -1,6 +1,12 @@
 .left-side-bar-body {
   #container {
     height: 10em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+
+  #dynamic-bar {
+    background-color: black;
   }
 
   margin: 1em 1em 0 1em;

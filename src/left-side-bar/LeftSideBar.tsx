@@ -9,16 +9,15 @@ export const LeftSideBar: React.FunctionComponent<Props> = ({
 }) => {
   const dynamicBarStyling = {
     height: `${(sliderIndex / 5) * 100}%`,
-    backgroundColor: "black",
   };
 
   return (
     <div className="left-side-bar-body">
-      {`0${sliderIndex}`}
+      <div>{`0${sliderIndex}`}</div>
       <div id="container">
         <div id="dynamic-bar" style={dynamicBarStyling}></div>
       </div>
-      05
+      <div>05</div>
     </div>
   );
 };
