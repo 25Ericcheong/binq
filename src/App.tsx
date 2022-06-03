@@ -16,7 +16,9 @@ function App() {
         <Header menuClicked={menuClicked} setMenuClicked={setMenuClicked} />
       </section>
       <body>
-        <LeftSideBar sliderIndex={sliderIndex} />
+        <section>
+          <LeftSideBar sliderIndex={sliderIndex} />
+        </section>
       </body>
       <section id="footer">
         <Footer sliderIndex={sliderIndex} setSliderIndex={setSliderIndex} />
