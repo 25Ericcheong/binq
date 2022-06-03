@@ -4,6 +4,7 @@ import React, { useState } from "react";
 
 import { Footer } from "./footer/Footer";
 import { Header } from "./header/Header";
+import { LeftSideBar } from "./left-side-bar/LeftSideBar";
 
 function App() {
   const [menuClicked, setMenuClicked] = useState(false);
@@ -11,7 +12,12 @@ function App() {
 
   return (
     <div id="app">
-      <Header menuClicked={menuClicked} setMenuClicked={setMenuClicked} />
+      <section>
+        <Header menuClicked={menuClicked} setMenuClicked={setMenuClicked} />
+      </section>
+      <body>
+        <LeftSideBar sliderIndex={sliderIndex} />
+      </body>
       <section id="footer">
         <Footer sliderIndex={sliderIndex} setSliderIndex={setSliderIndex} />
       </section>

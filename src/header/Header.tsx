@@ -13,13 +13,13 @@ export const Header: React.FunctionComponent<Props> = ({
   setMenuClicked,
 }) => {
   return (
-    <section className="header">
+    <div className="header">
       <div>
         <h1>JAPAN SPOTS</h1>
         <IconContext.Provider value={{ size: "1.5em" }}>
           <BiAlignRight />
         </IconContext.Provider>
       </div>
-    </section>
+    </div>
   );
 };
