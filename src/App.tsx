@@ -19,7 +19,7 @@ function App() {
         <section>
           <LeftSideBar sliderIndex={sliderIndex} />
         </section>
-        <section>
+        <section id="owner">
           <p>BY ERIC CHEONG KAI KIT</p>
         </section>
       </body>
