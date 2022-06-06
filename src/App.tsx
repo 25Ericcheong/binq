@@ -12,9 +12,7 @@ function App() {
 
   return (
     <div id="app">
-      <section>
-        <Header menuClicked={menuClicked} setMenuClicked={setMenuClicked} />
-      </section>
+      <Header menuClicked={menuClicked} setMenuClicked={setMenuClicked} />
       <body>
         <section>
           <LeftSideBar sliderIndex={sliderIndex} />
