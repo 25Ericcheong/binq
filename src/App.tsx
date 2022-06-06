@@ -14,11 +14,13 @@ function App() {
     <div id="app">
       <Header menuClicked={menuClicked} setMenuClicked={setMenuClicked} />
       <body>
-        <section>
-          <LeftSideBar sliderIndex={sliderIndex} />
-        </section>
-        <section id="owner">
-          <p>BY ERIC CHEONG KAI KIT</p>
+        <section id="side-bars">
+          <div>
+            <LeftSideBar sliderIndex={sliderIndex} />
+          </div>
+          <div id="owner">
+            <p>BY ERIC CHEONG KAI KIT</p>
+          </div>
         </section>
       </body>
       <section id="footer">

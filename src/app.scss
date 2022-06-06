@@ -10,7 +10,23 @@
     justify-content: center;
   }
 
-  body #owner {
-    margin: 1em 1em 0 1em;
+  body {
+    width: 100%;
+
+    #owner {
+      margin: 1em 1em 0 1em;
+      display: block;
+      transform: rotate(90deg);
+
+      p {
+        display: block;
+      }
+    }
+  }
+
+  #side-bars {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 }
