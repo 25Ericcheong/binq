@@ -16,11 +16,9 @@
 
     #owner {
       margin: 1em 1em 0 1em;
-      display: block;
-      transform: rotate(90deg);
 
       p {
-        display: block;
+        position: absolute;
       }
     }
   }
