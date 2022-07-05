@@ -1,10 +1,9 @@
 import "./app.scss";
 
-import React, { useState } from "react";
-
 import { Footer } from "./footer/Footer";
 import { Header } from "./header/Header";
 import { LeftSideBar } from "./left-side-bar/LeftSideBar";
+import { useState } from "react";
 
 function App() {
   const [menuClicked, setMenuClicked] = useState(false);
@@ -12,7 +11,9 @@ function App() {
 
   return (
     <div id="app">
-      <Header menuClicked={menuClicked} setMenuClicked={setMenuClicked} />
+      <section id="header">
+        <Header menuClicked={menuClicked} setMenuClicked={setMenuClicked} />
+      </section>
       <body>
         <section id="side-bars">
           <div>

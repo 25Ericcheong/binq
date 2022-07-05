@@ -13,7 +13,7 @@ export const Header: React.FunctionComponent<Props> = ({
   setMenuClicked,
 }) => {
   return (
-    <div className="header">
+    <div className="header-body">
       <div>
         <h1>JAPAN SPOTS</h1>
         <IconContext.Provider value={{ size: "1.5em" }}>
