@@ -12,15 +12,13 @@
   }
 
   body {
-    width: 100%;
-
     #owner {
       margin: 1em 1em 0 1em;
-
-      p {
-        position: absolute;
-      }
     }
+
+    width: 100vw;
+    position: absolute;
+    top: 27vh;
   }
 
   #side-bars {
