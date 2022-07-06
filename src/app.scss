@@ -12,8 +12,10 @@
   }
 
   body {
+    
     #owner {
-      margin: 1em 1em 0 1em;
+      margin: 1em 2em 0 1em;
+      transform: rotate(90deg);
     }
 
     width: 100vw;
@@ -24,6 +26,5 @@
   #side-bars {
     display: flex;
     justify-content: space-between;
-    align-items: center;
   }
 }
