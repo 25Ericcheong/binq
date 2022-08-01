@@ -3,7 +3,7 @@ import "./app.scss";
 import { Footer } from "./footer/Footer";
 import { Header } from "./header/Header";
 import { LeftSideBar } from "./left-side-bar/LeftSideBar";
-import kyotoImage from "./assets/image/1-kyoto-bamboo-forest.jpg";
+import kyotoImage from "./assets/image/1-kyoto-fushimi-inari.jpg";
 import { useState } from "react";
 
 function App() {
