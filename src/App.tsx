@@ -12,7 +12,10 @@ function App() {
 
   const backgroundStyling = {
     backgroundImage: `url(${kyotoImage})`,
-    height: '100vh'
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    width: '100vw',
+    height: '100vh' 
   }
 
   return (
