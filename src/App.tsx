@@ -3,14 +3,20 @@ import "./app.scss";
 import { Footer } from "./footer/Footer";
 import { Header } from "./header/Header";
 import { LeftSideBar } from "./left-side-bar/LeftSideBar";
+import kyotoImage from "./assets/image/1-kyoto-bamboo-forest.jpg";
 import { useState } from "react";
 
 function App() {
   const [menuClicked, setMenuClicked] = useState(false);
   const [sliderIndex, setSliderIndex] = useState(0);
 
+  const backgroundStyling = {
+    backgroundImage: `url(${kyotoImage})`,
+    height: '100vh'
+  }
+
   return (
-    <div id="app">
+    <div id="app" style={backgroundStyling}>
       <section id="header">
         <Header menuClicked={menuClicked} setMenuClicked={setMenuClicked} />
       </section>
