@@ -1,8 +1,17 @@
 {
   "kyoto": {
-    "image": "./image/1-kyoto-fushimi-inari.jpg"
+    "image": "./assets/image/1-kyoto-fushimi-inari.jpg"
   },
   "tokyo": {
-    "image": "./image/2-tokyo-alley.jpg"
+    "image": "./assets/image/2-tokyo-alley.jpg"
+  },
+  "sensoji": {
+    "image": "./assets/image/3-sensoji-temple.jpg"
+  },
+  "osaka": {
+    "image": "./assets/image/4-osaka-castle.jpg"
+  },
+  "himeji": {
+    "image": "./assets/image/5-himeji-castle.jpg"
   }
 }
