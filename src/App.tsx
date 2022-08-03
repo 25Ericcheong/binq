@@ -3,7 +3,6 @@ import "./app.scss";
 import { Footer } from "./footer/Footer";
 import { Header } from "./header/Header";
 import { LeftSideBar } from "./left-side-bar/LeftSideBar";
-import kyotoImage from "./assets/image/1-kyoto-fushimi-inari.jpg";
 import { useState } from "react";
 
 function App() {
@@ -11,7 +10,7 @@ function App() {
   const [sliderIndex, setSliderIndex] = useState(0);
 
   const backgroundStyling = {
-    backgroundImage: `url(${kyotoImage})`,
+    backgroundImage: `url(${require("./assets/image/1-kyoto-fushimi-inari.jpg")})`,
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     width: '100vw',

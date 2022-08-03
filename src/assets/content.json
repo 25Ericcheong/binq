@@ -1,0 +1,8 @@
+{
+  "kyoto": {
+    "image": "./image/1-kyoto-fushimi-inari.jpg"
+  },
+  "tokyo": {
+    "image": "./image/2-tokyo-alley.jpg"
+  }
+}
