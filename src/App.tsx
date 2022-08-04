@@ -8,12 +8,19 @@ import { useState } from "react";
 function App() {
   const [menuClicked, setMenuClicked] = useState(false);
   const [sliderIndex, setSliderIndex] = useState(0);
-  const data = require("./assets/content.json")
+  const data = [
+    {
+      "imagePath": "/assets/image/1-kyoto-fushimi-inari.jpg"
+    },
+    {
+      "imagePath": "/assets/image/2-tokyo-alley.jpg"
+    },
+  ]
 
-  console.log(data["kyoto"]);
+  const { imagePath } = data[sliderIndex]
 
   const backgroundStyling = {
-    backgroundImage: `url(${require("./assets/image/1-kyoto-fushimi-inari.jpg")})`,
+    backgroundImage: `url(${imagePath})`,
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     width: '100vw',
