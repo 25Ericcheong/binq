@@ -8,6 +8,7 @@ import { useState } from "react";
 function App() {
   const [menuClicked, setMenuClicked] = useState(false);
   const [sliderIndex, setSliderIndex] = useState(0);
+
   const data = [
     {
       "imagePath": "/assets/image/1-kyoto-fushimi-inari.jpg"
@@ -18,7 +19,6 @@ function App() {
   ]
 
   const { imagePath } = data[sliderIndex]
-
   const backgroundStyling = {
     backgroundImage: `url(${imagePath})`,
     backgroundPosition: 'center',
