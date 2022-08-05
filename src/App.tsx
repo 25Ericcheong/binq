@@ -16,6 +16,15 @@ function App() {
     {
       "imagePath": "/assets/image/2-tokyo-alley.jpg"
     },
+    {
+      "imagePath": "/assets/image/3-sensoji-temple.jpg"
+    },
+    {
+      "imagePath": "/assets/image/4-osaka-castle.jpg"
+    },
+    {
+      "imagePath": "/assets/image/5-himeji-castle.jpg"
+    },
   ]
 
   const { imagePath } = data[sliderIndex]

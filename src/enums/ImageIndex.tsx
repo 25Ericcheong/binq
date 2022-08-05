@@ -1,4 +1,4 @@
 export enum ImageIndex {
-  Max = 5,
+  Max = 4,
   Min = 0,
 }
