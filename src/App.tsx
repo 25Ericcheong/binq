@@ -29,12 +29,12 @@ function App() {
 
   const { imagePath } = data[sliderIndex]
   const backgroundStyling = {
+    opacity: 0,
     backgroundImage: `url(${imagePath})`,
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     width: '100vw',
-    height: '100vh' ,
-    opacity: 0
+    height: '100vh',
   }
 
   return (
