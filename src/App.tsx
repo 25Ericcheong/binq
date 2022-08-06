@@ -33,7 +33,8 @@ function App() {
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     width: '100vw',
-    height: '100vh' 
+    height: '100vh' ,
+    opacity: 0
   }
 
   return (
