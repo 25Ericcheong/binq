@@ -4,6 +4,14 @@
 }
 
 #app {
+  position: relative;
+
+  #image-positioning {
+    height: 100vh;
+    height: 100vh;
+    object-fit: cover;
+    width: 100%;
+  }
 
   #footer {
     display: flex;

@@ -29,15 +29,16 @@ function App() {
 
   const { imagePath } = data[sliderIndex]
   const backgroundStyling = {
-    backgroundImage: `url(${imagePath})`,
-    backgroundPosition: 'center',
-    backgroundSize: 'cover',
-    width: '100vw',
-    height: '100vh',
+    // backgroundImage: `url(${imagePath})`,
+    // backgroundPosition: 'center',
+    // backgroundSize: 'cover',
+    // width: '100vw',
+    // height: '100vh',
   }
 
   return (
     <div id="app" style={backgroundStyling}>
+      <img src={imagePath} id="image-positioning" alt="Supposed to render Kyoto Fushimi Inari" />
       <section id="header">
         <Header menuClicked={menuClicked} setMenuClicked={setMenuClicked} />
       </section>
