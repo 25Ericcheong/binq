@@ -9,15 +9,12 @@ function App() {
   const [menuClicked, setMenuClicked] = useState(false);
   const [sliderIndex, setSliderIndex] = useState(0);
 
-  const kyotoImage = require("./assets/image/1-kyoto-fushimi-inari.jpg")
-  const TokyoImage = require("./assets/image/2-tokyo-alley.jpg")
-
   const data = [
     {
-      "imagePath": kyotoImage
+      "imagePath": "/assets/image/1-kyoto-fushimi-inari.jpg"
     },
     {
-      "imagePath": TokyoImage
+      "imagePath": "/assets/image/2-tokyo-alley.jpg"
     },
     {
       "imagePath": "/assets/image/3-sensoji-temple.jpg"
