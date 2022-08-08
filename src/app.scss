@@ -8,9 +8,10 @@
 
   #image-positioning {
     height: 100vh;
-    height: 100vh;
     object-fit: cover;
     width: 100%;
+    position: absolute;
+    z-index: -1;
   }
 
   #footer {
