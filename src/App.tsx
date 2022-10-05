@@ -14,21 +14,14 @@ function App() {
       "/assets/image/2-tokyo-alley.jpg", "/assets/image/3-sensoji-temple.jpg", "/assets/image/4-osaka-castle.jpg", "/assets/image/5-himeji-castle.jpg"
   ]
 
-  const imgToRender = data[sliderIndex]
-  const imgNextToRender = data[sliderIndex + 1]
-
-  const backgroundStyling = {
-    // backgroundImage: `url(${imagePath})`,
-    // backgroundPosition: 'center',
-    // backgroundSize: 'cover',
-    // width: '100vw',
-    // height: '100vh',
+  function renderImages() {
+    return data.map((path, imageRenderIndex) => { return <img src={path} id="image-positioning" alt="These are used as background decorations" className={sliderIndex === imageRenderIndex ? 'show-image' : 'hide-image'} />
+    })
   }
 
   return (
-    <div id="app" style={backgroundStyling}>
-      <img src={data[0]} id="image-positioning" alt="Supposed to render in current background" className={sliderIndex === 0 ? 'show-image' : 'hide-image'} />
-      <img src={data[1]} id="image-positioning" alt="Will be rendered as next background" className={sliderIndex === 1 ? 'show-image' : 'hide-image'} />
+    <div id="app">
+      {renderImages()}
       <section id="header">
         <Header menuClicked={menuClicked} setMenuClicked={setMenuClicked} />
       </section>
