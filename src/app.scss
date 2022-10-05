@@ -11,7 +11,14 @@
     object-fit: cover;
     width: 100%;
     position: absolute;
-    z-index: -1;
+  }
+
+  .show-image {
+    z-index: 0
+  }
+
+  .hide-image {
+    z-index: -1
   }
 
   #footer {

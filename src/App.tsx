@@ -10,24 +10,13 @@ function App() {
   const [sliderIndex, setSliderIndex] = useState(0);
 
   const data = [
-    {
-      "imagePath": "/assets/image/1-kyoto-fushimi-inari.jpg"
-    },
-    {
-      "imagePath": "/assets/image/2-tokyo-alley.jpg"
-    },
-    {
-      "imagePath": "/assets/image/3-sensoji-temple.jpg"
-    },
-    {
-      "imagePath": "/assets/image/4-osaka-castle.jpg"
-    },
-    {
-      "imagePath": "/assets/image/5-himeji-castle.jpg"
-    },
+      "/assets/image/1-kyoto-fushimi-inari.jpg",
+      "/assets/image/2-tokyo-alley.jpg", "/assets/image/3-sensoji-temple.jpg", "/assets/image/4-osaka-castle.jpg", "/assets/image/5-himeji-castle.jpg"
   ]
 
-  const { imagePath } = data[sliderIndex]
+  const imgToRender = data[sliderIndex]
+  const imgNextToRender = data[sliderIndex + 1]
+
   const backgroundStyling = {
     // backgroundImage: `url(${imagePath})`,
     // backgroundPosition: 'center',
@@ -38,7 +27,8 @@ function App() {
 
   return (
     <div id="app" style={backgroundStyling}>
-      <img src={imagePath} id="image-positioning" alt="Supposed to render Kyoto Fushimi Inari" />
+      <img src={data[0]} id="image-positioning" alt="Supposed to render in current background" className={sliderIndex === 0 ? 'show-image' : 'hide-image'} />
+      <img src={data[1]} id="image-positioning" alt="Will be rendered as next background" className={sliderIndex === 1 ? 'show-image' : 'hide-image'} />
       <section id="header">
         <Header menuClicked={menuClicked} setMenuClicked={setMenuClicked} />
       </section>
