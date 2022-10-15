@@ -21,7 +21,7 @@ function App() {
 
   return (
     <div id="app">
-      {renderImages()}
+      {/* {renderImages()} */}
       <section id="header">
         <Header menuClicked={menuClicked} setMenuClicked={setMenuClicked} />
       </section>
