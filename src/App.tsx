@@ -1,8 +1,5 @@
 import "./app.scss";
 
-import { Footer } from "./footer/Footer";
-import { Header } from "./header/Header";
-import { LeftSideBar } from "./left-side-bar/LeftSideBar";
 import { useState } from "react";
 
 function App() {
@@ -22,22 +19,8 @@ function App() {
   return (
     <div id="app">
       {/* {renderImages()} */}
-      <section id="header">
-        <Header menuClicked={menuClicked} setMenuClicked={setMenuClicked} />
-      </section>
       <body>
-        <section id="side-bars">
-          <div>
-            <LeftSideBar sliderIndex={sliderIndex} />
-          </div>
-          <div id="owner">
-            <p>BY ERIC CHEONG KAI KIT</p>
-          </div>
-        </section>
       </body>
-      <section id="footer">
-        <Footer sliderIndex={sliderIndex} setSliderIndex={setSliderIndex} />
-      </section>
     </div>
   );
 }
