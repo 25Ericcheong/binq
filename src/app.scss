@@ -53,15 +53,10 @@
 
 .order-body {
   display: flex;
+  flex: 3;
+  height: 100%;
 
   .order-body-part {
-    flex: 1 1 auto;
-    flex-direction: column;
+    flex: 2;
   }
-}
-
-.order-sidebar {
-  height: 84%;
-  direction: rtl;
-  writing-mode: vertical-lr;
 }
