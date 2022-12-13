@@ -3,10 +3,26 @@
   padding: 0;
 }
 
+// app height
+#app {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+}
+
+// temporary border or marking for reference
+.mark {
+  border: black 1px solid;
+}
+
 // applicable in multiple components
 
 .medium-spacing {
   padding: 2em;
+}
+
+.small-spacing {
+  padding: 1em;
 }
 
 .order-row {
@@ -26,9 +42,26 @@
   width: 100%;
 }
 
-// applicable in header component specifically
+// applicable in header component 
 
 .order-header {
   display: flex;
   justify-content: space-between;
+}
+
+// applicable in body component 
+
+.order-body {
+  display: flex;
+
+  .order-body-part {
+    flex: 1 1 auto;
+    flex-direction: column;
+  }
+}
+
+.order-sidebar {
+  height: 84%;
+  direction: rtl;
+  writing-mode: vertical-lr;
 }

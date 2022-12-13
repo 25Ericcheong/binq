@@ -15,7 +15,7 @@ function App() {
   // }
 
   function renderHeader() {
-    return <header className="medium-spacing order-header">
+    return <header className="medium-spacing order-header mark">
       <section>
         <p>
           ERIC CHEONG KAI KIT
@@ -35,10 +35,41 @@ function App() {
     </header>
   }
 
+  function renderBody() {
+
+    function renderSidebar() {
+      return <aside className="order-sidebar mark small-spacing">
+        <p>
+          JAPAN
+        </p>
+      </aside>
+    }
+
+    function renderContent() {
+      return <header>
+        <h1>The streets and alleways of Japan</h1>
+      </header>
+    }
+
+    function renderFooter() {
+      return <footer>
+        <p>Temporary footer content</p>
+      </footer>
+    }
+
+    return <body className="order-body">
+      {renderSidebar()}
+      <section className="order-body-part small-spacing mark">
+        {renderContent()}
+        {renderFooter()}
+      </section>
+    </body>
+  }
+
   return (
     <div id="app">
       {renderHeader()}
-      {/* {renderImages()} */}
+      {renderBody()}
       <body>
       </body>
     </div>
