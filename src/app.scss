@@ -2,3 +2,33 @@
   margin: 0;
   padding: 0;
 }
+
+// applicable in multiple components
+
+.medium-spacing {
+  padding: 2em;
+}
+
+.order-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.half-width {
+  width: 50%;
+}
+
+.quarter-width {
+  width: 25%;
+}
+
+.full-width {
+  width: 100%;
+}
+
+// applicable in header component specifically
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+}
