@@ -5,3 +5,10 @@ A mini project to put practice my frontend skills. Used React and SASS. This wil
 ## Running Locally
 
 `npm start` should do the trick.
+
+## Notes
+
+- To ensure that React components take up the entire screen space. Will need to ensure `height: 100vh` or `100%` is utilize. Without this, spaces will not be filled.
+
+- The class `.order-body` is a perfect example of having a wrapper around a component that you would want to take up the rest of the empty spaces of the screen vertically <b>while still ensuring the components are ordered in a different direction (horizontally)</b> with the use of second wrapper wrapper - `.order-body-main`.
+-This is important and it serves as a reminder that sometimes 2 different wrappers are needed; the first to ensure the second takes up the rest of the screen space vertically and the second to ensure content is ordered as preferred - horizontally.
