@@ -15,63 +15,62 @@ function App() {
   // }
 
   function renderHeader() {
-    return <header className="medium-spacing order-header mark">
-      <section>
-        <p>
-          ERIC CHEONG KAI KIT
-        </p>
-      </section>
-      <section className="quarter-width order-row">
-        <p>
-          PLACES
-        </p>
-        <p>
-          MAP
-        </p>
-        <p>
-          SOURCE CODE
-        </p>
-      </section>
-    </header>
+    return (
+      <header className="medium-spacing order-header mark">
+        <section>
+          <p>ERIC CHEONG KAI KIT</p>
+        </section>
+        <section className="quarter-width order-row-between">
+          <p>PLACES</p>
+          <p>MAP</p>
+          <p>SOURCE CODE</p>
+        </section>
+      </header>
+    );
   }
 
   function renderBody() {
-
     function renderSidebar() {
-      return <aside className="order-sidebar mark small-spacing">
-        <p>
-          JAPAN
-        </p>
-      </aside>
+      return (
+        <aside className="order-sidebar mark small-spacing">
+          <p>JAPAN</p>
+        </aside>
+      );
     }
 
     function renderContent() {
-      return <header>
-        <h1>The streets and alleways of Japan</h1>
-      </header>
+      return (
+        <body>
+          <h1>The streets and alleways of Japan</h1>
+        </body>
+      );
     }
 
     function renderFooter() {
-      return <footer>
-        <p>Temporary footer content</p>
-      </footer>
+      return (
+        <footer>
+          <p>Temporary footer content</p>
+        </footer>
+      );
     }
 
-    return <body className="order-body">
-      {renderSidebar()}
-      <section className="order-body-part small-spacing mark">
-        {renderContent()}
-        {renderFooter()}
-      </section>
-    </body>
+    return (
+      <body className="order-body">
+        <section className="order-body-main">
+          {renderSidebar()}
+          <div className="order-body-part small-spacing mark">
+            {renderContent()}
+            {renderFooter()}
+          </div>
+        </section>
+      </body>
+    );
   }
 
   return (
     <div id="app">
       {renderHeader()}
       {renderBody()}
-      <body>
-      </body>
     </div>
   );
 }
