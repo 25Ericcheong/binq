@@ -1,4 +1,4 @@
-import "./app.scss";
+import "./App.scss";
 
 function App() {
   // const [menuClicked, setMenuClicked] = useState(false);
