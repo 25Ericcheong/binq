@@ -58,6 +58,14 @@
     display: flex;
     flex: 1 0 auto;
 
+    .order-sidebar {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      writing-mode: vertical-rl;
+      transform: rotate(-180deg);
+    }
+
     .order-body-part {
       flex: 1 0 auto;
     }

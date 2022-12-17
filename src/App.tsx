@@ -32,7 +32,8 @@ function App() {
   function renderBody() {
     function renderSidebar() {
       return (
-        <aside className="order-sidebar mark small-spacing">
+        <aside>
+          <p>OSAKA</p>
           <p>JAPAN</p>
         </aside>
       );
@@ -57,7 +58,9 @@ function App() {
     return (
       <body className="order-body">
         <section className="order-body-main">
-          {renderSidebar()}
+          <div className="order-sidebar small-spacing mark">
+            {renderSidebar()}
+          </div>
           <div className="order-body-part small-spacing mark">
             {renderContent()}
             {renderFooter()}
