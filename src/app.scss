@@ -17,6 +17,10 @@
 }
 
 // can be reused across multiple components
+h1,
+p {
+}
+
 .medium-spacing {
   padding: 2em;
 }
@@ -57,6 +61,12 @@
   .order-body-main {
     display: flex;
     flex: 1 0 auto;
+
+    .order-body-part {
+      .order-body-part-content {
+        height: 70%;
+      }
+    }
 
     .order-sidebar {
       display: flex;

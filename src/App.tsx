@@ -41,7 +41,7 @@ function App() {
 
     function renderContent() {
       return (
-        <body>
+        <body className="order-body-part-content">
           <h1>The streets and alleways of Japan</h1>
         </body>
       );
@@ -49,7 +49,7 @@ function App() {
 
     function renderFooter() {
       return (
-        <footer>
+        <footer className="order-body-part-footer mark">
           <p>Temporary footer content</p>
         </footer>
       );
