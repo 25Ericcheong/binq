@@ -77,11 +77,10 @@ p {
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
-      writing-mode: vertical-rl;
-      transform: rotate(-180deg);
 
       aside {
-        display: flex;
+        button {
+        }
       }
     }
 

@@ -38,8 +38,8 @@ function App() {
     function renderSidebar() {
       return (
         <aside>
-          <p>OSAKA</p>
-          <p>JAPAN</p>
+          <button onClick={() => setImageIndex(0)}>OSAKA</button>
+          <button onClick={() => setImageIndex(1)}>JAPAN</button>
         </aside>
       );
     }
