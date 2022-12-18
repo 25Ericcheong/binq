@@ -38,8 +38,9 @@ function App() {
     function renderSidebar() {
       return (
         <aside>
-          <button onClick={() => setImageIndex(0)}>OSAKA</button>
-          <button onClick={() => setImageIndex(1)}>JAPAN</button>
+          <p onClick={() => setImageIndex(0)}>OSAKA</p>
+          <p onClick={() => setImageIndex(1)}>TOKYO BRIDGE</p>
+          <p onClick={() => setImageIndex(2)}>KYOTO</p>
         </aside>
       );
     }
@@ -63,7 +64,7 @@ function App() {
     return (
       <body className="order-body">
         <section className="order-body-main">
-          <div className="order-sidebar small-spacing mark">
+          <div className="order-sidebar mark small-spacing">
             {renderSidebar()}
           </div>
           <div className="order-body-part small-spacing mark">
@@ -80,7 +81,7 @@ function App() {
   };
 
   return (
-    <div id="app" className="image-background" style={imageBackground}>
+    <div id="app" className="image-background">
       {renderHeader()}
       {renderBody()}
     </div>

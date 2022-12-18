@@ -79,7 +79,16 @@ p {
       justify-content: flex-end;
 
       aside {
-        button {
+        display: flex;
+        writing-mode: vertical-lr;
+        transform: rotate(180deg);
+
+        p {
+          cursor: pointer;
+        }
+
+        p:not(:last-child) {
+          margin-bottom: 1.5em;
         }
       }
     }
