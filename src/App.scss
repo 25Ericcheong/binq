@@ -9,6 +9,11 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
+
+  .image-background {
+    background-size: cover;
+    background-position: center;
+  }
 }
 
 // marking for reference

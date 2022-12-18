@@ -1,13 +1,18 @@
 import "./App.scss";
 
+import { useState } from "react";
+
 function App() {
   // const [menuClicked, setMenuClicked] = useState(false);
-  // const [sliderIndex, setSliderIndex] = useState(0);
+  const [imageIndex, setImageIndex] = useState(0);
 
-  // const data = [
-  //     "/assets/image/1-tokyo-skytree.jpg",
-  //     "/assets/image/2-tokyo-alley.jpg", "/assets/image/3-shibuya-crossing.jpg", "/assets/image/4-tokyo-bridge.jpg", "/assets/image/5-tokyo-city.jpg"
-  // ]
+  const imagePaths = [
+    "/assets/image/1-tokyo-skytree.jpg",
+    "/assets/image/2-tokyo-alley.jpg",
+    "/assets/image/3-shibuya-crossing.jpg",
+    "/assets/image/4-tokyo-bridge.jpg",
+    "/assets/image/5-tokyo-city.jpg",
+  ];
 
   // function renderImages() {
   //   return data.map((path, imageRenderIndex) => { return <img src={path} id="image-positioning" alt="Missing data should be rendered here in the background" className={sliderIndex === imageRenderIndex ? 'show-image' : 'hide-image'} />
@@ -42,7 +47,7 @@ function App() {
     function renderContent() {
       return (
         <body className="order-body-part-content">
-          <h1>The streets and alleways of Japan</h1>
+          <h1>The Colorful Streets & Alleyways of Japan</h1>
         </body>
       );
     }
@@ -70,8 +75,12 @@ function App() {
     );
   }
 
+  const imageBackground = {
+    backgroundImage: `url(${imagePaths[imageIndex]})`,
+  };
+
   return (
-    <div id="app">
+    <div id="app" className="image-background" style={imageBackground}>
       {renderHeader()}
       {renderBody()}
     </div>
