@@ -76,16 +76,28 @@ function App() {
     );
   }
 
-  const imagePath = `${imagePaths[imageIndex]}`;
+  const imagepath2 = `${imagePaths[2]}`;
+  const imagepath1 = `${imagePaths[1]}`;
+  const imagePath0 = `${imagePaths[0]}`;
 
   return (
-    <div>
+    <div id="app">
       <img
-        className="image-fullsize"
-        src={imagePath}
+        className="image-fullsize image-show"
+        src={imagepath2}
         alt="City lanscape, temple or alleyways of Japan!"
       />
-      <div id="app">
+      <img
+        className="image-fullsize image-hide-down"
+        src={imagepath1}
+        alt="City lanscape, temple or alleyways of Japan!"
+      />
+      <img
+        className="image-fullsize image-hide-up"
+        src={imagePath0}
+        alt="City lanscape, temple or alleyways of Japan!"
+      />
+      <div id="content">
         {renderHeader()}
         {renderBody()}
       </div>

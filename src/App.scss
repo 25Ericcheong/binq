@@ -4,11 +4,15 @@
 }
 
 // ensure parent containers take full screen space
-#root,
-#app {
+#content {
   height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+#app {
+  overflow: hidden;
+  position: relative;
 
   .image-fullsize {
     width: 100vw;
@@ -19,14 +23,27 @@
   }
 }
 
+.image-hide-down {
+  top: 100vh;
+}
+
+.image-hide-up {
+  top: -100vh;
+}
+
+.image-show {
+  top: 0;
+}
+
 // marking for reference
 .mark {
-  border: black 1px solid;
+  border: white 1px solid;
 }
 
 // can be reused across multiple components
 h1,
 p {
+  color: white;
 }
 
 .medium-spacing {
