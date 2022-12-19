@@ -76,14 +76,19 @@ function App() {
     );
   }
 
-  const imageBackground = {
-    backgroundImage: `url(${imagePaths[imageIndex]})`,
-  };
+  const imagePath = `${imagePaths[imageIndex]}`;
 
   return (
-    <div id="app" className="image-background">
-      {renderHeader()}
-      {renderBody()}
+    <div>
+      <img
+        className="image-fullsize"
+        src={imagePath}
+        alt="City lanscape, temple or alleyways of Japan!"
+      />
+      <div id="app">
+        {renderHeader()}
+        {renderBody()}
+      </div>
     </div>
   );
 }
