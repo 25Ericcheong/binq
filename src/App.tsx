@@ -7,11 +7,10 @@ function App() {
   const [imageIndex, setImageIndex] = useState(0);
 
   const imagePaths = [
-    "/assets/image/1-tokyo-skytree.jpg",
-    "/assets/image/2-tokyo-alley.jpg",
-    "/assets/image/3-shibuya-crossing.jpg",
-    "/assets/image/4-tokyo-bridge.jpg",
-    "/assets/image/5-tokyo-city.jpg",
+    "/assets/image/1-mount-fuji.jpg",
+    "/assets/image/2-beach-tori-izu.jpg",
+    "/assets/image/3-fukuoka-river.jpg",
+    "/assets/image/4-kyoto-torii-gate.jpg",
   ];
 
   // function renderImages() {
@@ -38,8 +37,9 @@ function App() {
     function renderSidebar() {
       return (
         <aside>
-          <p onClick={() => setImageIndex(0)}>OSAKA</p>
-          <p onClick={() => setImageIndex(1)}>TOKYO BRIDGE</p>
+          <p onClick={() => setImageIndex(0)}>MT. FUJI</p>
+          <p onClick={() => setImageIndex(1)}>TORI</p>
+          <p onClick={() => setImageIndex(2)}>FUKUOKA</p>
           <p onClick={() => setImageIndex(2)}>KYOTO</p>
         </aside>
       );
@@ -76,7 +76,7 @@ function App() {
     );
   }
 
-  const imagepath2 = `${imagePaths[2]}`;
+  const imagepath2 = `${imagePaths[3]}`;
   const imagepath1 = `${imagePaths[1]}`;
   const imagePath0 = `${imagePaths[0]}`;
 
