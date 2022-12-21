@@ -95,6 +95,16 @@ p {
       .order-body-part-content {
         height: 70%;
       }
+
+      .order-body-part-footer {
+        display: flex;
+        height: 100%;
+        background-color: white;
+
+        p {
+          color: black;
+        }
+      }
     }
 
     .order-sidebar {
