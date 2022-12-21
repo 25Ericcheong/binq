@@ -54,6 +54,10 @@ p {
   padding: 1em;
 }
 
+.small-spacing-no-right {
+  padding: 1em 0 1em 1em;
+}
+
 .order-row-between {
   display: flex;
   justify-content: space-between;

@@ -67,7 +67,7 @@ function App() {
           <div className="order-sidebar mark small-spacing">
             {renderSidebar()}
           </div>
-          <div className="order-body-part small-spacing mark">
+          <div className="order-body-part small-spacing-no-right mark">
             {renderContent()}
             {renderFooter()}
           </div>
