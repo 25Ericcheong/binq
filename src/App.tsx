@@ -73,7 +73,7 @@ function App() {
         <footer className="order-body-part-footer mark">
           <div className="card-footer medium-spacing">
             <div className="card-image-part-footer">
-              <img className="card-image-footer" src={imagePath} alt={alt} />
+              <img src={imagePath} alt={alt} />
             </div>
             <div>
               <h2>Natural Wonder</h2>

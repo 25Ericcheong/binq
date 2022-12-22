@@ -110,9 +110,10 @@ p {
           width: 20%;
 
           .card-image-part-footer {
-            width: 50%;
+            width: 30%;
+            object-fit: cover;
 
-            .card-image-footer {
+            img {
               height: 100%;
               width: 100%;
             }
