@@ -6,17 +6,29 @@ function App() {
   // const [menuClicked, setMenuClicked] = useState(false);
   const [imageIndex, setImageIndex] = useState(0);
 
-  const imagePaths = [
-    "/assets/image/1-mount-fuji.jpg",
-    "/assets/image/2-beach-tori-izu.jpg",
-    "/assets/image/3-fukuoka-river.jpg",
-    "/assets/image/4-kyoto-torii-gate.jpg",
+  const imageData = [
+    {
+      path: "/assets/image/1-mount-fuji.jpg",
+      alt: "Mount Fuji is missing here",
+    },
+    {
+      path: "/assets/image/2-beach-tori-izu.jpg",
+      alt: "Warm beach Tori has to be here",
+    },
+    {
+      path: "/assets/image/3-fukuoka-river.jpg",
+      alt: "Perhaps a misplaced Fukuoka river here",
+    },
+    {
+      path: "/assets/image/4-kyoto-torii-gate.jpg",
+      alt: "Possible missing Kyoto Torii gate here",
+    },
   ];
 
-  // function renderImages() {
-  //   return data.map((path, imageRenderIndex) => { return <img src={path} id="image-positioning" alt="Missing data should be rendered here in the background" className={sliderIndex === imageRenderIndex ? 'show-image' : 'hide-image'} />
-  //   })
-  // }
+  const showImageClass = "image-show";
+  const imageFullSizeClass = "image-fullsize";
+  const hideImageUpClass = "image-hide-up";
+  const hideImageDownClass = "image-hide-down";
 
   function renderHeader() {
     return (
@@ -40,7 +52,7 @@ function App() {
           <p onClick={() => setImageIndex(0)}>MT. FUJI</p>
           <p onClick={() => setImageIndex(1)}>TORI</p>
           <p onClick={() => setImageIndex(2)}>FUKUOKA</p>
-          <p onClick={() => setImageIndex(2)}>KYOTO</p>
+          <p onClick={() => setImageIndex(3)}>KYOTO</p>
         </aside>
       );
     }
@@ -48,7 +60,7 @@ function App() {
     function renderContent() {
       return (
         <body className="order-body-part-content">
-          <h1>The Colorful Streets & Alleyways of Japan</h1>
+          <h1>Not just known for its Technological Advancement</h1>
         </body>
       );
     }
@@ -76,27 +88,25 @@ function App() {
     );
   }
 
-  const imagepath2 = `${imagePaths[3]}`;
-  const imagepath1 = `${imagePaths[1]}`;
-  const imagePath0 = `${imagePaths[0]}`;
+  function determineImgVisbility(index: number): string {
+    if (imageIndex === index) {
+      return showImageClass;
+    }
+    return imageIndex > index ? hideImageDownClass : hideImageUpClass;
+  }
+
+  function renderBackgroundImages() {
+    return imageData.map((img, index) => {
+      const imageVisbility = determineImgVisbility(index);
+      const style = `${imageFullSizeClass} ${imageVisbility}`;
+
+      return <img className={style} src={img.path} alt={img.alt} />;
+    });
+  }
 
   return (
     <div id="app">
-      <img
-        className="image-fullsize image-show"
-        src={imagepath2}
-        alt="City lanscape, temple or alleyways of Japan!"
-      />
-      <img
-        className="image-fullsize image-hide-down"
-        src={imagepath1}
-        alt="City lanscape, temple or alleyways of Japan!"
-      />
-      <img
-        className="image-fullsize image-hide-up"
-        src={imagePath0}
-        alt="City lanscape, temple or alleyways of Japan!"
-      />
+      {renderBackgroundImages()}
       <div id="content">
         {renderHeader()}
         {renderBody()}

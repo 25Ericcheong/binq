@@ -94,6 +94,9 @@ p {
     .order-body-part {
       .order-body-part-content {
         height: 70%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
       }
 
       .order-body-part-footer {
