@@ -65,10 +65,21 @@ function App() {
       );
     }
 
+    const imagePath = imageData[0].path;
+    const alt = imageData[0].alt;
+
     function renderFooter() {
       return (
         <footer className="order-body-part-footer mark">
-          <p>Temporary footer content</p>
+          <div className="card-footer medium-spacing">
+            <div className="card-image-part-footer">
+              <img className="card-image-footer" src={imagePath} alt={alt} />
+            </div>
+            <div>
+              <h2>Natural Wonder</h2>
+              <p>Mount Fuji </p>
+            </div>
+          </div>
         </footer>
       );
     }

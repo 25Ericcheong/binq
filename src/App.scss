@@ -102,7 +102,22 @@ p {
       .order-body-part-footer {
         display: flex;
         height: 100%;
+        width: 100%;
         background-color: white;
+
+        .card-footer {
+          display: flex;
+          width: 20%;
+
+          .card-image-part-footer {
+            width: 50%;
+
+            .card-image-footer {
+              height: 100%;
+              width: 100%;
+            }
+          }
+        }
 
         p {
           color: black;
