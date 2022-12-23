@@ -92,8 +92,11 @@ p {
     flex: 1 0 auto;
 
     .order-body-part {
+      display: flex;
+      flex-direction: column;
+
       .order-body-part-content {
-        height: 70%;
+        height: 65%;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -101,20 +104,26 @@ p {
 
       .order-body-part-footer {
         display: flex;
-        height: 100%;
+        flex-direction: row;
+        height: 35%;
         width: 100%;
         background-color: white;
 
         .card-footer {
-          width: 20%;
+          display: flex;
+          width: 10%;
 
           .card-image-part-footer {
-            width: 30%;
+            display: flex;
 
             img {
-              height: 100%;
-              width: 100%;
+              height: 20%;
+              width: 20%;
             }
+          }
+
+          .card-caption-part-footer {
+            padding-left: 1em;
           }
         }
 

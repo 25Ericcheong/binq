@@ -10,18 +10,26 @@ function App() {
     {
       path: "/assets/image/1-mount-fuji.jpg",
       alt: "Mount Fuji is missing here",
+      cardHeader: "Natural Wonder",
+      cardCaption: "Mount Fuji",
     },
     {
       path: "/assets/image/2-beach-tori-izu.jpg",
       alt: "Warm beach Tori has to be here",
+      cardHeader: "Sunny Beach",
+      cardCaption: "Tori Beach",
     },
     {
       path: "/assets/image/3-fukuoka-river.jpg",
       alt: "Perhaps a misplaced Fukuoka river here",
+      cardHeader: "Cool River",
+      cardCaption: "Fukuoka River",
     },
     {
       path: "/assets/image/4-kyoto-torii-gate.jpg",
       alt: "Possible missing Kyoto Torii gate here",
+      cardHeader: "The Timeless Gate",
+      cardCaption: "Torii Gate",
     },
   ];
 
@@ -75,8 +83,17 @@ function App() {
             <div className="card-image-part-footer">
               <img src={imagePath} alt={alt} />
             </div>
-            <div>
-              <h2>Natural Wonder</h2>
+            <div className="card-caption-part-footer">
+              <h3>Natural Wonder</h3>
+              <p>Mount Fuji </p>
+            </div>
+          </div>
+          <div className="card-footer medium-spacing">
+            <div className="card-image-part-footer">
+              <img src={imagePath} alt={alt} />
+            </div>
+            <div className="card-caption-part-footer">
+              <h3>Natural Wonder</h3>
               <p>Mount Fuji </p>
             </div>
           </div>
@@ -87,16 +104,32 @@ function App() {
     return (
       <body className="order-body">
         <section className="order-body-main">
-          <div className="order-sidebar mark small-spacing">
+          <div className="order-sidebar mark medium-spacing">
             {renderSidebar()}
           </div>
-          <div className="order-body-part small-spacing-no-right mark">
+          <div className="order-body-part mark">
             {renderContent()}
             {renderFooter()}
           </div>
         </section>
       </body>
     );
+  }
+
+  function renderCardFooters() {
+    return imageData.map((img) => {
+      return (
+        <>
+          <div className="card-image-part-footer">
+            <img src={img.path} alt={img.alt} />
+          </div>
+          <div className="card-caption-part-footer">
+            <h3>{img.cardHeader}</h3>
+            <p>{img.cardCaption}</p>
+          </div>
+        </>
+      );
+    });
   }
 
   function determineImgVisbility(index: number): string {
