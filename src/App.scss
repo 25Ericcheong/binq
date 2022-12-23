@@ -106,12 +106,10 @@ p {
         background-color: white;
 
         .card-footer {
-          display: flex;
           width: 20%;
 
           .card-image-part-footer {
             width: 30%;
-            object-fit: cover;
 
             img {
               height: 100%;
