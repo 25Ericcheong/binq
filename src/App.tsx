@@ -78,25 +78,8 @@ function App() {
 
     function renderFooter() {
       return (
-        <footer className="order-body-part-footer mark">
-          <div className="card-footer medium-spacing">
-            <div className="card-image-part-footer">
-              <img src={imagePath} alt={alt} />
-            </div>
-            <div className="card-caption-part-footer">
-              <h3>Natural Wonder</h3>
-              <p>Mount Fuji </p>
-            </div>
-          </div>
-          <div className="card-footer medium-spacing">
-            <div className="card-image-part-footer">
-              <img src={imagePath} alt={alt} />
-            </div>
-            <div className="card-caption-part-footer">
-              <h3>Natural Wonder</h3>
-              <p>Mount Fuji </p>
-            </div>
-          </div>
+        <footer className="order-body-part-footer mark medium-spacing">
+          {renderCardFooters()}
         </footer>
       );
     }
@@ -119,7 +102,7 @@ function App() {
   function renderCardFooters() {
     return imageData.map((img) => {
       return (
-        <>
+        <div className="card-footer">
           <div className="card-image-part-footer">
             <img src={img.path} alt={img.alt} />
           </div>
@@ -127,7 +110,7 @@ function App() {
             <h3>{img.cardHeader}</h3>
             <p>{img.cardCaption}</p>
           </div>
-        </>
+        </div>
       );
     });
   }
