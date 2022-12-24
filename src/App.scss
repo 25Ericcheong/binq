@@ -4,21 +4,46 @@
 }
 
 // ensure parent containers take full screen space
-#root,
-#app {
+#content {
   height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
+#app {
+  overflow: hidden;
+  position: relative;
+
+  .image-fullsize {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    position: absolute;
+    z-index: -1;
+  }
+}
+
+.image-hide-down {
+  top: 100vh;
+}
+
+.image-hide-up {
+  top: -100vh;
+}
+
+.image-show {
+  top: 0;
+}
+
 // marking for reference
 .mark {
-  border: black 1px solid;
+  border: white 1px solid;
 }
 
 // can be reused across multiple components
 h1,
 p {
+  color: white;
 }
 
 .medium-spacing {
@@ -27,6 +52,10 @@ p {
 
 .small-spacing {
   padding: 1em;
+}
+
+.small-spacing-no-right {
+  padding: 1em 0 1em 1em;
 }
 
 .order-row-between {
@@ -63,8 +92,47 @@ p {
     flex: 1 0 auto;
 
     .order-body-part {
+      display: flex;
+      flex-direction: column;
+      max-width: 100vw;
+
       .order-body-part-content {
-        height: 70%;
+        height: 80%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .order-body-part-footer {
+        display: flex;
+        flex-direction: row;
+        height: 20%;
+        background-color: white;
+
+        .card-footer {
+          display: flex;
+          max-width: 20%;
+          padding-right: 1em;
+
+          .card-image-part-footer {
+            display: flex;
+            max-width: 25%;
+
+            img {
+              height: 100%;
+              width: 100%;
+            }
+          }
+
+          .card-caption-part-footer {
+            padding-left: 1em;
+            width: 100%;
+          }
+        }
+
+        p {
+          color: black;
+        }
       }
     }
 
@@ -72,11 +140,19 @@ p {
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
-      writing-mode: vertical-rl;
-      transform: rotate(-180deg);
 
       aside {
         display: flex;
+        writing-mode: vertical-lr;
+        transform: rotate(180deg);
+
+        p {
+          cursor: pointer;
+        }
+
+        p:not(:last-child) {
+          margin-bottom: 1.5em;
+        }
       }
     }
 

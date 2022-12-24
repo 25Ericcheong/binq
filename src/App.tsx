@@ -1,18 +1,42 @@
 import "./App.scss";
 
+import { useState } from "react";
+
 function App() {
   // const [menuClicked, setMenuClicked] = useState(false);
-  // const [sliderIndex, setSliderIndex] = useState(0);
+  const [imageIndex, setImageIndex] = useState(0);
 
-  // const data = [
-  //     "/assets/image/1-tokyo-skytree.jpg",
-  //     "/assets/image/2-tokyo-alley.jpg", "/assets/image/3-shibuya-crossing.jpg", "/assets/image/4-tokyo-bridge.jpg", "/assets/image/5-tokyo-city.jpg"
-  // ]
+  const imageData = [
+    {
+      path: "/assets/image/1-mount-fuji.jpg",
+      alt: "Mount Fuji is missing here",
+      cardHeader: "Natural Wonder",
+      cardCaption: "Mount Fuji",
+    },
+    {
+      path: "/assets/image/2-beach-tori-izu.jpg",
+      alt: "Warm beach Tori has to be here",
+      cardHeader: "Sunny Beach",
+      cardCaption: "Tori Beach",
+    },
+    {
+      path: "/assets/image/3-fukuoka-river.jpg",
+      alt: "Perhaps a misplaced Fukuoka river here",
+      cardHeader: "Cool River",
+      cardCaption: "Fukuoka River",
+    },
+    {
+      path: "/assets/image/4-kyoto-torii-gate.jpg",
+      alt: "Possible missing Kyoto Torii gate here",
+      cardHeader: "The Timeless Gate",
+      cardCaption: "Torii Gate",
+    },
+  ];
 
-  // function renderImages() {
-  //   return data.map((path, imageRenderIndex) => { return <img src={path} id="image-positioning" alt="Missing data should be rendered here in the background" className={sliderIndex === imageRenderIndex ? 'show-image' : 'hide-image'} />
-  //   })
-  // }
+  const showImageClass = "image-show";
+  const imageFullSizeClass = "image-fullsize";
+  const hideImageUpClass = "image-hide-up";
+  const hideImageDownClass = "image-hide-down";
 
   function renderHeader() {
     return (
@@ -33,8 +57,10 @@ function App() {
     function renderSidebar() {
       return (
         <aside>
-          <p>OSAKA</p>
-          <p>JAPAN</p>
+          <p onClick={() => setImageIndex(0)}>MT. FUJI</p>
+          <p onClick={() => setImageIndex(1)}>TORI</p>
+          <p onClick={() => setImageIndex(2)}>FUKUOKA</p>
+          <p onClick={() => setImageIndex(3)}>KYOTO</p>
         </aside>
       );
     }
@@ -42,15 +68,18 @@ function App() {
     function renderContent() {
       return (
         <body className="order-body-part-content">
-          <h1>The streets and alleways of Japan</h1>
+          <h1>Not just known for its Technological Advancement</h1>
         </body>
       );
     }
 
+    const imagePath = imageData[0].path;
+    const alt = imageData[0].alt;
+
     function renderFooter() {
       return (
-        <footer className="order-body-part-footer mark">
-          <p>Temporary footer content</p>
+        <footer className="order-body-part-footer mark medium-spacing">
+          {renderCardFooters()}
         </footer>
       );
     }
@@ -58,10 +87,10 @@ function App() {
     return (
       <body className="order-body">
         <section className="order-body-main">
-          <div className="order-sidebar small-spacing mark">
+          <div className="order-sidebar mark medium-spacing">
             {renderSidebar()}
           </div>
-          <div className="order-body-part small-spacing mark">
+          <div className="order-body-part mark">
             {renderContent()}
             {renderFooter()}
           </div>
@@ -70,10 +99,45 @@ function App() {
     );
   }
 
+  function renderCardFooters() {
+    return imageData.map((img) => {
+      return (
+        <div className="card-footer">
+          <div className="card-image-part-footer">
+            <img src={img.path} alt={img.alt} />
+          </div>
+          <div className="card-caption-part-footer">
+            <h3>{img.cardHeader}</h3>
+            <p>{img.cardCaption}</p>
+          </div>
+        </div>
+      );
+    });
+  }
+
+  function determineImgVisbility(index: number): string {
+    if (imageIndex === index) {
+      return showImageClass;
+    }
+    return imageIndex > index ? hideImageDownClass : hideImageUpClass;
+  }
+
+  function renderBackgroundImages() {
+    return imageData.map((img, index) => {
+      const imageVisbility = determineImgVisbility(index);
+      const style = `${imageFullSizeClass} ${imageVisbility}`;
+
+      return <img className={style} src={img.path} alt={img.alt} />;
+    });
+  }
+
   return (
     <div id="app">
-      {renderHeader()}
-      {renderBody()}
+      {renderBackgroundImages()}
+      <div id="content">
+        {renderHeader()}
+        {renderBody()}
+      </div>
     </div>
   );
 }
