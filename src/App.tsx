@@ -10,26 +10,30 @@ function App() {
     {
       path: "/assets/image/1-mount-fuji.jpg",
       alt: "Mount Fuji is missing here",
-      cardHeader: "Natural Wonder",
-      cardCaption: "Mount Fuji",
+      cardHeader: "Mount Fuji",
+      cardCaption:
+        "An active sacred stratovolcano which is why it is a popular tourist destination",
     },
     {
       path: "/assets/image/2-beach-tori-izu.jpg",
       alt: "Warm beach Tori has to be here",
-      cardHeader: "Sunny Beach",
-      cardCaption: "Tori Beach",
+      cardHeader: "Tori Beach",
+      cardCaption:
+        "In addition to being a beach with multiple water sports available, it also comes with a beautiful coastline",
     },
     {
       path: "/assets/image/3-fukuoka-river.jpg",
-      alt: "Perhaps a misplaced Fukuoka river here",
-      cardHeader: "Cool River",
-      cardCaption: "Fukuoka River",
+      alt: "Perhaps a misplaced Fukuoka river scenery here",
+      cardHeader: "Fukuoka River",
+      cardCaption:
+        "A multi-funcitonal practical river - used for recreational activities that comes with parks and greenspaces",
     },
     {
       path: "/assets/image/4-kyoto-torii-gate.jpg",
       alt: "Possible missing Kyoto Torii gate here",
-      cardHeader: "The Timeless Gate",
-      cardCaption: "Torii Gate",
+      cardHeader: "Torii Gate",
+      cardCaption:
+        "Usually found at the entrace to a Shinto shrine, the Torri Gate carries significant spiritual meaning",
     },
   ];
 
@@ -72,9 +76,6 @@ function App() {
         </body>
       );
     }
-
-    const imagePath = imageData[0].path;
-    const alt = imageData[0].alt;
 
     function renderFooter() {
       return (

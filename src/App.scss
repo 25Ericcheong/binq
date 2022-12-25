@@ -127,11 +127,16 @@ p {
           .card-caption-part-footer {
             padding-left: 1em;
             width: 100%;
-          }
-        }
 
-        p {
-          color: black;
+            h3 {
+              padding-bottom: 0.5em;
+            }
+
+            p {
+              color: black;
+              line-height: 1.5;
+            }
+          }
         }
       }
     }
