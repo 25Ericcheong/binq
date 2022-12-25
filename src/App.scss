@@ -75,6 +75,10 @@ p {
   width: 100vw;
 }
 
+.not-selected {
+  opacity: 0.6;
+}
+
 // for header component
 .order-header {
   display: flex;

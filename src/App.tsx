@@ -13,6 +13,7 @@ function App() {
       cardHeader: "Mount Fuji",
       cardCaption:
         "An active sacred stratovolcano which is why it is a popular tourist destination",
+      buttonText: "MT. FUJI",
     },
     {
       path: "/assets/image/2-beach-tori-izu.jpg",
@@ -20,6 +21,7 @@ function App() {
       cardHeader: "Tori Beach",
       cardCaption:
         "In addition to being a beach with multiple water sports available, it also comes with a beautiful coastline",
+      buttonText: "TORI",
     },
     {
       path: "/assets/image/3-fukuoka-river.jpg",
@@ -27,13 +29,15 @@ function App() {
       cardHeader: "Fukuoka River",
       cardCaption:
         "A multi-funcitonal practical river - used for recreational activities that comes with parks and greenspaces",
+      buttonText: "MT. FUJI",
     },
     {
       path: "/assets/image/4-kyoto-torii-gate.jpg",
       alt: "Possible missing Kyoto Torii gate here",
-      cardHeader: "Torii Gate",
+      cardHeader: "FUKUOKA",
       cardCaption:
         "Usually found at the entrace to a Shinto shrine, the Torri Gate carries significant spiritual meaning",
+      buttonText: "KYOTO",
     },
   ];
 
@@ -59,14 +63,21 @@ function App() {
 
   function renderBody() {
     function renderSidebar() {
-      return (
-        <aside>
-          <p onClick={() => setImageIndex(0)}>MT. FUJI</p>
-          <p onClick={() => setImageIndex(1)}>TORI</p>
-          <p onClick={() => setImageIndex(2)}>FUKUOKA</p>
-          <p onClick={() => setImageIndex(3)}>KYOTO</p>
-        </aside>
-      );
+      const sideButtons = imageData.map((img, index) => {
+        const isSelected = index === imageIndex;
+        const style = !isSelected ? "not-selected" : undefined;
+
+        return (
+          <p
+            className={style ?? undefined}
+            onClick={() => setImageIndex(index)}
+          >
+            {img.buttonText}
+          </p>
+        );
+      });
+
+      return <aside>{sideButtons}</aside>;
     }
 
     function renderContent() {
@@ -98,6 +109,15 @@ function App() {
         </section>
       </body>
     );
+  }
+
+  function renderSideButtons() {
+    return imageData.map((img, index) => {
+      const imageVisbility = determineImgVisbility(index);
+      const style = `${imageFullSizeClass} ${imageVisbility}`;
+
+      return <img className={style} src={img.path} alt={img.alt} />;
+    });
   }
 
   function renderCardFooters() {
