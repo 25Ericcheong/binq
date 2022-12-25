@@ -111,19 +111,14 @@ function App() {
     );
   }
 
-  function renderSideButtons() {
-    return imageData.map((img, index) => {
-      const imageVisbility = determineImgVisbility(index);
-      const style = `${imageFullSizeClass} ${imageVisbility}`;
-
-      return <img className={style} src={img.path} alt={img.alt} />;
-    });
-  }
-
   function renderCardFooters() {
-    return imageData.map((img) => {
+    return imageData.map((img, index) => {
+      const isSelected = index === imageIndex;
+      const selectedStyle = !isSelected ? "not-selected" : undefined;
+      const footerStyle = `card-footer ${selectedStyle}`;
+
       return (
-        <div className="card-footer">
+        <div className={footerStyle}>
           <div className="card-image-part-footer">
             <img src={img.path} alt={img.alt} />
           </div>
