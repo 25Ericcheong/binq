@@ -55,7 +55,13 @@ function App() {
         <section className="quarter-width order-row-between">
           <p>PLACES</p>
           <p>MAP</p>
-          <p>SOURCE CODE</p>
+          <a
+            href="https://github.com/25Ericcheong/japan-slideshow"
+            target="_blank"
+            rel="noreferrer"
+          >
+            SOURCE CODE
+          </a>
         </section>
       </header>
     );

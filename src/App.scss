@@ -42,8 +42,10 @@
 
 // can be reused across multiple components
 h1,
-p {
+p,
+a {
   color: white;
+  text-decoration: none;
 }
 
 .medium-spacing {
