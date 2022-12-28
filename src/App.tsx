@@ -71,7 +71,7 @@ function App() {
     function renderSidebar() {
       const sideButtons = imageData.map((img, index) => {
         const isSelected = index === imageIndex;
-        const style = !isSelected ? "not-selected" : undefined;
+        const style = !isSelected ? "not-selected" : "selected";
 
         return (
           <p
@@ -120,7 +120,7 @@ function App() {
   function renderCardFooters() {
     return imageData.map((img, index) => {
       const isSelected = index === imageIndex;
-      const selectedStyle = !isSelected ? "not-selected" : undefined;
+      const selectedStyle = !isSelected ? "not-selected" : "selected";
       const footerStyle = `card-footer ${selectedStyle}`;
 
       return (

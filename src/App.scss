@@ -172,3 +172,32 @@ a {
     }
   }
 }
+
+// animation implementation
+@keyframes selected {
+  0% {
+    opacity: 0.6;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes not-selected {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.6;
+  }
+}
+
+.selected {
+  animation: selected 1s both;
+}
+
+.not-selected {
+  animation: not-selected 1s both;
+}
