@@ -1,17 +1,18 @@
 import "./App.scss";
 
+import produce from "immer";
 import { useState } from "react";
 
 interface ImagePositionDetails {
   index: number;
-  currentPositionClass?: string;
+  currentPositionClass: string;
 }
 
 function App() {
   const imageFullSizeClass = "image-fullsize";
   const showImageClass = "image-show";
-  const showImageClassFromUp = "image-show-from-up";
-  const showImageClassFromDown = "image-show-from-down";
+  const showImageFromUpClass = "image-show-from-up";
+  const showImageFromDownClass = "image-show-from-down";
   const hideImageUpClass = "image-hide-up";
   const hideImageDownClass = "image-hide-down";
 
@@ -22,15 +23,15 @@ function App() {
     },
     {
       index: 1,
-      currentPositionClass: undefined,
+      currentPositionClass: hideImageDownClass,
     },
     {
       index: 2,
-      currentPositionClass: undefined,
+      currentPositionClass: hideImageDownClass,
     },
     {
       index: 3,
-      currentPositionClass: undefined,
+      currentPositionClass: hideImageDownClass,
     },
   ];
 
@@ -62,7 +63,7 @@ function App() {
     {
       path: "/assets/image/4-kyoto-torii-gate.jpg",
       alt: "Possible missing Kyoto Torii gate here",
-      cardHeader: "FUKUOKA",
+      cardHeader: "Kyoto Torii Gate",
       cardCaption:
         "Usually found at the entrace to a Shinto shrine, the Torri Gate carries significant spiritual meaning",
       buttonText: "KYOTO",
@@ -71,6 +72,7 @@ function App() {
 
   // const [menuClicked, setMenuClicked] = useState(false);
   const [imageIndex, setImageIndex] = useState(0);
+  const [prevImageIndex, setPrevImageIndex] = useState(0);
   const [imagePositions, setImagePositions] = useState<ImagePositionDetails[]>(
     initialImagePositions
   );
@@ -117,9 +119,9 @@ function App() {
 
     function renderContent() {
       return (
-        <body className="order-body-part-content">
+        <div className="order-body-part-content">
           <h1>Not just known for its Technological Advancement</h1>
-        </body>
+        </div>
       );
     }
 
@@ -153,7 +155,7 @@ function App() {
       const footerStyle = `card-footer ${selectedStyle}`;
 
       return (
-        <div className={footerStyle}>
+        <div className={footerStyle} key={index}>
           <div className="card-image-part-footer">
             <img src={img.path} alt={img.alt} />
           </div>
@@ -168,17 +170,55 @@ function App() {
 
   function determineImgVisbility(imageDataIndex: number): string {
     if (imageIndex === imageDataIndex) {
+      const selectedImagePosition =
+        imagePositions[imageIndex].currentPositionClass;
+
+      if (selectedImagePosition === hideImageDownClass) {
+        return showImageFromDownClass;
+      }
+
+      if (selectedImagePosition === hideImageUpClass) {
+        return showImageFromUpClass;
+      }
+
       return showImageClass;
     }
-    return imageIndex > imageDataIndex ? hideImageDownClass : hideImageUpClass;
+    return imageIndex > imageDataIndex ? hideImageUpClass : hideImageDownClass;
+  }
+
+  function updateImagePosition(imageDataIndex: number): void {
+    // this should only occur on first render
+    if (prevImageIndex === imageIndex) {
+      return;
+    }
+
+    const hideImageUpOrDownClass =
+      imageIndex > imageDataIndex ? hideImageUpClass : hideImageDownClass;
+
+    const updatedImagePositions = produce(imagePositions, (draft) => {
+      draft[prevImageIndex].currentPositionClass = hideImageUpOrDownClass;
+    });
+    setImagePositions(updatedImagePositions);
+    setPrevImageIndex(imageIndex);
   }
 
   function renderBackgroundImages() {
+    console.log("new ===========");
     return imageData.map((img, imageDataIndex) => {
       const imageVisbility = determineImgVisbility(imageDataIndex);
+      updateImagePosition(imageDataIndex);
       const style = `${imageFullSizeClass} ${imageVisbility}`;
 
-      return <img className={style} src={img.path} alt={img.alt} />;
+      console.log(imagePositions);
+
+      return (
+        <img
+          className={style}
+          key={imageDataIndex}
+          src={img.path}
+          alt={img.alt}
+        />
+      );
     });
   }
 
