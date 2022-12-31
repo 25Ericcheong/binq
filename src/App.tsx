@@ -204,7 +204,10 @@ function App() {
           indexSkipped < draft.length;
           indexSkipped++
         ) {
-          const isIndexSkippedLarger = indexSkipped > imageIndex;
+          const isIndexCurrentSmaller = imageIndex < prevImageIndex;
+          const isIndexSkippedLarger = isIndexCurrentSmaller
+            ? imageIndex >= indexSkipped
+            : imageIndex > indexSkipped;
           const hideImageUpOrDownClass = isIndexSkippedLarger
             ? hideImageUpClass
             : hideImageDownClass;
