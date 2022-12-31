@@ -192,36 +192,28 @@ function App() {
       return;
     }
 
-    const isCurrentIndexLarger = imageIndex > prevImageIndex;
-    const indexDiff = Math.abs(imageIndex - prevImageIndex);
-    const isIndexDiffLarge = indexDiff > 1;
-    const hideImageUpOrDownClass = isCurrentIndexLarger
-      ? hideImageUpClass
-      : hideImageDownClass;
+    let indexDiff = Math.abs(imageIndex - prevImageIndex);
+    const isIndexDiffLargerThanOne = indexDiff > 1;
 
     const updatedImagePositions = produce(imagePositions, (draft) => {
-      draft[prevImageIndex].currentPositionClass = hideImageUpOrDownClass;
-
-      if (isIndexDiffLarge) {
-        if (isCurrentIndexLarger) {
-          for (
-            let skippedImageIndex = prevImageIndex + 1;
-            skippedImageIndex < indexDiff;
-            skippedImageIndex++
-          ) {
-            draft[skippedImageIndex].currentPositionClass =
-              hideImageUpOrDownClass;
-          }
-        } else {
-          for (
-            let skippedImageIndex = prevImageIndex - 1;
-            skippedImageIndex <= indexDiff;
-            skippedImageIndex++
-          ) {
-            draft[draft.length - skippedImageIndex].currentPositionClass =
-              hideImageUpOrDownClass;
-          }
+      if (isIndexDiffLargerThanOne) {
+        for (
+          let indexSkipped = 0;
+          indexSkipped < draft.length;
+          indexSkipped++
+        ) {
+          const isIndexSkippedLarger = indexSkipped > imageIndex;
+          const hideImageUpOrDownClass = isIndexSkippedLarger
+            ? hideImageUpClass
+            : hideImageDownClass;
+          draft[indexSkipped].currentPositionClass = hideImageUpOrDownClass;
         }
+      } else {
+        const isCurrentIndexLarger = imageIndex > prevImageIndex;
+        const hideImageUpOrDownClass = isCurrentIndexLarger
+          ? hideImageUpClass
+          : hideImageDownClass;
+        draft[prevImageIndex].currentPositionClass = hideImageUpOrDownClass;
       }
     });
 
