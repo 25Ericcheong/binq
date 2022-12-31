@@ -186,14 +186,14 @@ function App() {
     return imageIndex > imageDataIndex ? hideImageUpClass : hideImageDownClass;
   }
 
-  function updateImagePosition(imageDataIndex: number): void {
+  function updateImagePosition(): void {
     // this should only occur on first render
     if (prevImageIndex === imageIndex) {
       return;
     }
 
     const hideImageUpOrDownClass =
-      imageIndex > imageDataIndex ? hideImageUpClass : hideImageDownClass;
+      imageIndex > prevImageIndex ? hideImageUpClass : hideImageDownClass;
 
     const updatedImagePositions = produce(imagePositions, (draft) => {
       draft[prevImageIndex].currentPositionClass = hideImageUpOrDownClass;
@@ -203,10 +203,10 @@ function App() {
   }
 
   function renderBackgroundImages() {
-    console.log("new ===========");
+    updateImagePosition();
+
     return imageData.map((img, imageDataIndex) => {
       const imageVisbility = determineImgVisbility(imageDataIndex);
-      updateImagePosition(imageDataIndex);
       const style = `${imageFullSizeClass} ${imageVisbility}`;
 
       console.log(imagePositions);
