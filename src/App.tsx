@@ -15,6 +15,8 @@ function App() {
   const showImageFromDownClass = "image-show-from-down";
   const hideImageUpClass = "image-hide-up";
   const hideImageDownClass = "image-hide-down";
+  const notSelected = "not-selected";
+  const selected = "selected";
 
   const initialImagePositions = [
     {
@@ -102,7 +104,7 @@ function App() {
     function renderSidebar() {
       const sideButtons = imageData.map((img, index) => {
         const isSelected = index === imageIndex;
-        const style = !isSelected ? "not-selected" : "selected";
+        const style = !isSelected ? notSelected : selected;
 
         return (
           <p
@@ -151,7 +153,7 @@ function App() {
   function renderCardFooters() {
     return imageData.map((img, index) => {
       const isSelected = index === imageIndex;
-      const selectedStyle = !isSelected ? "not-selected" : "selected";
+      const selectedStyle = !isSelected ? notSelected : selected;
       const footerStyle = `card-footer ${selectedStyle}`;
 
       return (
@@ -222,9 +224,7 @@ function App() {
   }
 
   function renderBackgroundImages() {
-    console.log("==== render ====");
     updateImagePosition();
-    console.log(imagePositions);
 
     return imageData.map((img, imageDataIndex) => {
       const imageVisbility = determineImgVisbility(imageDataIndex);
