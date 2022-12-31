@@ -23,18 +23,6 @@
   }
 }
 
-.image-hide-down {
-  top: 100vh;
-}
-
-.image-hide-up {
-  top: -100vh;
-}
-
-.image-show {
-  top: 0;
-}
-
 // marking for reference
 .mark {
   border: white 1px solid;
@@ -174,7 +162,7 @@ a {
 }
 
 // animation implementation
-// animation for when different locations are selected
+// animation for when different locations are selected which then highlights clicked location
 @keyframes selected {
   0% {
     opacity: 0.6;
@@ -203,4 +191,62 @@ a {
   animation: not-selected 1s both;
 }
 
-//
+// animation for image sliding effect when different locations are selected
+@keyframes image-slide-show-from-up {
+  0% {
+    top: -100vh;
+  }
+
+  100% {
+    top: -0;
+  }
+}
+
+@keyframes image-slide-show-from-down {
+  0% {
+    top: 100vh;
+  }
+
+  100% {
+    top: 0;
+  }
+}
+
+@keyframes image-slide-down {
+  0% {
+    top: 0;
+  }
+
+  100% {
+    top: 100vh;
+  }
+}
+
+@keyframes image-slide-up {
+  0% {
+    top: 0;
+  }
+
+  100% {
+    top: -100vh;
+  }
+}
+
+.image-hide-down {
+  animation: image-slide-down 1s both;
+}
+
+.image-hide-up {
+  animation: image-slide-up 1s both;
+  // top: -100vh;
+}
+
+.image-show-from-down {
+  // top: 0;
+  animation: image-slide-show-from-down 1s both;
+}
+
+.image-show-from-up {
+  // top: 0;
+  animation: image-slide-show-from-up 1s both;
+}

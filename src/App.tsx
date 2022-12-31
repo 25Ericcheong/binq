@@ -2,9 +2,17 @@ import "./App.scss";
 
 import { useState } from "react";
 
+interface ImagePositionDetails {
+  index: number;
+  currentPosition?: string;
+}
+
 function App() {
   // const [menuClicked, setMenuClicked] = useState(false);
   const [imageIndex, setImageIndex] = useState(0);
+  const [imagePositions, setImagePositions] = useState<ImagePositionDetails[]>(
+    []
+  );
 
   const imageData = [
     {
@@ -41,8 +49,10 @@ function App() {
     },
   ];
 
-  const showImageClass = "image-show";
   const imageFullSizeClass = "image-fullsize";
+  const showImageClass = "image-show";
+  const showImageClassFromUp = "image-show-from-up";
+  const showImageClassFromDown = "image-show-from-down";
   const hideImageUpClass = "image-hide-up";
   const hideImageDownClass = "image-hide-down";
 
@@ -137,16 +147,16 @@ function App() {
     });
   }
 
-  function determineImgVisbility(index: number): string {
-    if (imageIndex === index) {
+  function determineImgVisbility(imageDataIndex: number): string {
+    if (imageIndex === imageDataIndex) {
       return showImageClass;
     }
-    return imageIndex > index ? hideImageDownClass : hideImageUpClass;
+    return imageIndex > imageDataIndex ? hideImageDownClass : hideImageUpClass;
   }
 
   function renderBackgroundImages() {
-    return imageData.map((img, index) => {
-      const imageVisbility = determineImgVisbility(index);
+    return imageData.map((img, imageDataIndex) => {
+      const imageVisbility = determineImgVisbility(imageDataIndex);
       const style = `${imageFullSizeClass} ${imageVisbility}`;
 
       return <img className={style} src={img.path} alt={img.alt} />;
