@@ -209,8 +209,6 @@ function App() {
       const imageVisbility = determineImgVisbility(imageDataIndex);
       const style = `${imageFullSizeClass} ${imageVisbility}`;
 
-      console.log(imagePositions);
-
       return (
         <img
           className={style}
