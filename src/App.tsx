@@ -4,15 +4,35 @@ import { useState } from "react";
 
 interface ImagePositionDetails {
   index: number;
-  currentPosition?: string;
+  currentPositionClass?: string;
 }
 
 function App() {
-  // const [menuClicked, setMenuClicked] = useState(false);
-  const [imageIndex, setImageIndex] = useState(0);
-  const [imagePositions, setImagePositions] = useState<ImagePositionDetails[]>(
-    []
-  );
+  const imageFullSizeClass = "image-fullsize";
+  const showImageClass = "image-show";
+  const showImageClassFromUp = "image-show-from-up";
+  const showImageClassFromDown = "image-show-from-down";
+  const hideImageUpClass = "image-hide-up";
+  const hideImageDownClass = "image-hide-down";
+
+  const initialImagePositions = [
+    {
+      index: 0,
+      currentPositionClass: showImageClass,
+    },
+    {
+      index: 1,
+      currentPositionClass: undefined,
+    },
+    {
+      index: 2,
+      currentPositionClass: undefined,
+    },
+    {
+      index: 3,
+      currentPositionClass: undefined,
+    },
+  ];
 
   const imageData = [
     {
@@ -49,12 +69,11 @@ function App() {
     },
   ];
 
-  const imageFullSizeClass = "image-fullsize";
-  const showImageClass = "image-show";
-  const showImageClassFromUp = "image-show-from-up";
-  const showImageClassFromDown = "image-show-from-down";
-  const hideImageUpClass = "image-hide-up";
-  const hideImageDownClass = "image-hide-down";
+  // const [menuClicked, setMenuClicked] = useState(false);
+  const [imageIndex, setImageIndex] = useState(0);
+  const [imagePositions, setImagePositions] = useState<ImagePositionDetails[]>(
+    initialImagePositions
+  );
 
   function renderHeader() {
     return (
