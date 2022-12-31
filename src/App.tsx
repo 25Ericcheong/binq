@@ -192,11 +192,37 @@ function App() {
       return;
     }
 
-    const hideImageUpOrDownClass =
-      imageIndex > prevImageIndex ? hideImageUpClass : hideImageDownClass;
+    const isCurrentIndexLarger = imageIndex > prevImageIndex;
+    const indexDiff = Math.abs(imageIndex - prevImageIndex);
+    const isIndexDiffLarge = indexDiff > 1;
+    const hideImageUpOrDownClass = isCurrentIndexLarger
+      ? hideImageUpClass
+      : hideImageDownClass;
 
     const updatedImagePositions = produce(imagePositions, (draft) => {
       draft[prevImageIndex].currentPositionClass = hideImageUpOrDownClass;
+
+      if (isIndexDiffLarge) {
+        if (isCurrentIndexLarger) {
+          for (
+            let skippedImageIndex = prevImageIndex + 1;
+            skippedImageIndex < indexDiff;
+            skippedImageIndex++
+          ) {
+            draft[skippedImageIndex].currentPositionClass =
+              hideImageUpOrDownClass;
+          }
+        } else {
+          for (
+            let skippedImageIndex = prevImageIndex - 1;
+            skippedImageIndex <= indexDiff;
+            skippedImageIndex++
+          ) {
+            draft[draft.length - skippedImageIndex].currentPositionClass =
+              hideImageUpOrDownClass;
+          }
+        }
+      }
     });
 
     setImagePositions(updatedImagePositions);
