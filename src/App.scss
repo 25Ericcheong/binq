@@ -219,6 +219,7 @@ a {
 
   100% {
     top: 100vh;
+    filter: blur(8px);
   }
 }
 
@@ -229,24 +230,25 @@ a {
 
   100% {
     top: -100vh;
+    filter: blur(8px);
   }
 }
 
 .image-hide-down {
-  animation: image-slide-down 1s both;
+  animation: image-slide-down 0.5s both;
 }
 
 .image-hide-up {
-  animation: image-slide-up 1s both;
+  animation: image-slide-up 0.5s both;
   // top: -100vh;
 }
 
 .image-show-from-down {
   // top: 0;
-  animation: image-slide-show-from-down 1s both;
+  animation: image-slide-show-from-down 0.5s both;
 }
 
 .image-show-from-up {
   // top: 0;
-  animation: image-slide-show-from-up 1s both;
+  animation: image-slide-show-from-up 0.5s both;
 }

@@ -198,12 +198,15 @@ function App() {
     const updatedImagePositions = produce(imagePositions, (draft) => {
       draft[prevImageIndex].currentPositionClass = hideImageUpOrDownClass;
     });
+
     setImagePositions(updatedImagePositions);
     setPrevImageIndex(imageIndex);
   }
 
   function renderBackgroundImages() {
+    console.log("==== render ====");
     updateImagePosition();
+    console.log(imagePositions);
 
     return imageData.map((img, imageDataIndex) => {
       const imageVisbility = determineImgVisbility(imageDataIndex);
