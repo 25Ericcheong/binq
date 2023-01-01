@@ -51,7 +51,7 @@ function App() {
       alt: "Warm beach Tori has to be here",
       cardHeader: "Tori Beach",
       cardCaption:
-        "In addition to being a beach with multiple water sports available, it also comes with a beautiful coastline",
+        "A beach with multiple water sports available and a beautiful coastline",
       buttonText: "TORI",
     },
     {
@@ -67,12 +67,11 @@ function App() {
       alt: "Possible missing Kyoto Torii gate here",
       cardHeader: "Kyoto Torii Gate",
       cardCaption:
-        "Usually found at the entrace to a Shinto shrine, the Torri Gate carries significant spiritual meaning",
+        "Found at the entrance of Shinto shrine, the Torri Gate carries significant spiritual meaning",
       buttonText: "KYOTO",
     },
   ];
 
-  // const [menuClicked, setMenuClicked] = useState(false);
   const [imageIndex, setImageIndex] = useState(0);
   const [prevImageIndex, setPrevImageIndex] = useState(0);
   const [imagePositions, setImagePositions] = useState<ImagePositionDetails[]>(
