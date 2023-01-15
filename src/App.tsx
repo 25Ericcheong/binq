@@ -1,5 +1,6 @@
 import "./App.scss";
 
+import { Header } from "./Header/Header";
 import produce from "immer";
 import { useState } from "react";
 
@@ -77,27 +78,6 @@ function App() {
   const [imagePositions, setImagePositions] = useState<ImagePositionDetails[]>(
     initialImagePositions
   );
-
-  function renderHeader() {
-    return (
-      <header className="medium-spacing order-header mark">
-        <section>
-          <p>ERIC CHEONG KAI KIT</p>
-        </section>
-        <section className="quarter-width order-row-between">
-          <p>PLACES</p>
-          <p>MAP</p>
-          <a
-            href="https://github.com/25Ericcheong/japan-slideshow"
-            target="_blank"
-            rel="noreferrer"
-          >
-            SOURCE CODE
-          </a>
-        </section>
-      </header>
-    );
-  }
 
   function renderBody() {
     function renderSidebar() {
@@ -247,7 +227,7 @@ function App() {
     <div id="app">
       {renderBackgroundImages()}
       <div id="content">
-        {renderHeader()}
+        <Header />
         {renderBody()}
       </div>
     </div>
