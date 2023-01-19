@@ -1,6 +1,6 @@
 import "../App.scss";
 
-export const BackgounrdImages = () => {
+export const BackgroundImages = () => {
   // function renderBackgroundImages() {
   //   updateImagePosition();
   //   return imageData.map((img, imageDataIndex) => {
