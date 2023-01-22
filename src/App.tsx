@@ -4,7 +4,7 @@ import { Header } from "./Header/Header";
 import produce from "immer";
 import { useState } from "react";
 
-interface ImagePositionDetails {
+export interface ImagePositionDetails {
   index: number;
   currentPositionClass: string;
 }
