@@ -8,52 +8,74 @@ import { ImagePositionDetails } from "../App";
 import produce from "immer";
 
 interface Props {
-  imageIndex: number;
-  prevImageIndex: number;
+  imageSelectedIndex: number;
+  prevSelectedImageIndex: number;
   imagePositions: ImagePositionDetails[];
   setImagePositions: (e: ImagePositionDetails[]) => void;
   setPrevImageIndex: (e: number) => void;
 }
 
 export const BackgroundImages = ({
-  imageIndex,
-  prevImageIndex,
+  imageSelectedIndex,
+  prevSelectedImageIndex,
   imagePositions,
   setImagePositions,
   setPrevImageIndex,
 }: Props) => {
   function updateImagePosition(): void {
     // this should only occur on first render
-    if (prevImageIndex === imageIndex) {
+    if (prevSelectedImageIndex === imageSelectedIndex) {
       return;
     }
 
-    let indexDiff = Math.abs(imageIndex - prevImageIndex);
+    let indexDiff = Math.abs(imageSelectedIndex - prevSelectedImageIndex);
     const isIndexDiffLargerThanOne = indexDiff > 1;
 
     const updatedImagePositions = produce(imagePositions, (draft) => {
       if (isIndexDiffLargerThanOne) {
         for (let i = 0; i < draft.length; i++) {
-          const isIndexCurrentSmaller = imageIndex < prevImageIndex;
+          const isIndexCurrentSmaller =
+            imageSelectedIndex < prevSelectedImageIndex;
           const isIndexSelectedLarger = isIndexCurrentSmaller
-            ? imageIndex >= i
-            : imageIndex > i;
-          const hideImageUpOrDownClass = isIndexSelectedLarger
+            ? imageSelectedIndex >= i
+            : imageSelectedIndex > i;
+          draft[i].currentPositionClass = isIndexSelectedLarger
             ? STYLE_IMAGE.toAnimate.hideToUp
             : STYLE_IMAGE.toAnimate.hideToDown;
-          draft[i].currentPositionClass = hideImageUpOrDownClass;
         }
       } else {
-        const isCurrentIndexLarger = imageIndex > prevImageIndex;
+        const isCurrentIndexLarger =
+          imageSelectedIndex > prevSelectedImageIndex;
         const hideImageUpOrDownClass = isCurrentIndexLarger
           ? STYLE_IMAGE.toAnimate.hideToUp
           : STYLE_IMAGE.toAnimate.hideToDown;
-        draft[prevImageIndex].currentPositionClass = hideImageUpOrDownClass;
+        draft[prevSelectedImageIndex].currentPositionClass =
+          hideImageUpOrDownClass;
       }
     });
 
     setImagePositions(updatedImagePositions);
-    setPrevImageIndex(imageIndex);
+    setPrevImageIndex(imageSelectedIndex);
+  }
+
+  function determineImageAnimation(imageDataIndex: number): string {
+    if (imageSelectedIndex === imageDataIndex) {
+      const selectedImagePosition =
+        imagePositions[imageSelectedIndex].currentPositionClass;
+
+      if (selectedImagePosition === STYLE_IMAGE.toAnimate.hideToDown) {
+        return STYLE_IMAGE.toAnimate.showFromDown;
+      }
+
+      if (selectedImagePosition === STYLE_IMAGE.toAnimate.hideToUp) {
+        return STYLE_IMAGE.toAnimate.showFromUp;
+      }
+
+      return STYLE_IMAGE.toShow.image;
+    }
+    return imageSelectedIndex > imageDataIndex
+      ? STYLE_IMAGE.toAnimate.hideToUp
+      : STYLE_IMAGE.toAnimate.hideToDown;
   }
 
   function renderBackgroundImages() {
@@ -70,26 +92,6 @@ export const BackgroundImages = ({
         />
       );
     });
-  }
-
-  function determineImageAnimation(imageDataIndex: number): string {
-    if (imageIndex === imageDataIndex) {
-      const selectedImagePosition =
-        imagePositions[imageIndex].currentPositionClass;
-
-      if (selectedImagePosition === STYLE_IMAGE.toAnimate.hideToDown) {
-        return STYLE_IMAGE.toAnimate.showFromDown;
-      }
-
-      if (selectedImagePosition === STYLE_IMAGE.toAnimate.hideToUp) {
-        return STYLE_IMAGE.toAnimate.showFromUp;
-      }
-
-      return STYLE_IMAGE.toShow.image;
-    }
-    return imageIndex > imageDataIndex
-      ? STYLE_IMAGE.toAnimate.hideToUp
-      : STYLE_IMAGE.toAnimate.hideToDown;
   }
 
   return renderBackgroundImages();
