@@ -1,5 +1,7 @@
 import "./App.scss";
 
+import { STYLE, STYLE_IMAGE } from "./Constants";
+
 import { BackgroundImages } from "./BackgounrdImages/BackgroundImages";
 import { Header } from "./Header/Header";
 import IMAGE_DATA from "./Data.json";
@@ -11,62 +13,22 @@ export interface ImagePositionDetails {
 }
 
 function App() {
-  const showImageClass = "image-show";
-  const hideImageDownClass = "image-hide-down";
-  const notSelected = "not-selected";
-  const selected = "selected";
-
   const initialImagePositions = [
     {
       index: 0,
-      currentPositionClass: showImageClass,
+      currentPositionClass: STYLE_IMAGE.toShow.image,
     },
     {
       index: 1,
-      currentPositionClass: hideImageDownClass,
+      currentPositionClass: STYLE_IMAGE.toAnimate.hideToDown,
     },
     {
       index: 2,
-      currentPositionClass: hideImageDownClass,
+      currentPositionClass: STYLE_IMAGE.toAnimate.hideToDown,
     },
     {
       index: 3,
-      currentPositionClass: hideImageDownClass,
-    },
-  ];
-
-  const imageData = [
-    {
-      path: "/assets/image/1-mount-fuji.jpg",
-      alt: "Mount Fuji is missing here",
-      cardHeader: "Mount Fuji",
-      cardCaption:
-        "An active sacred stratovolcano which is why it is a popular tourist destination",
-      buttonText: "MT. FUJI",
-    },
-    {
-      path: "/assets/image/2-beach-tori-izu.jpg",
-      alt: "Warm beach Tori has to be here",
-      cardHeader: "Tori Beach",
-      cardCaption:
-        "A beach with multiple water sports available and a beautiful coastline",
-      buttonText: "TORI",
-    },
-    {
-      path: "/assets/image/3-fukuoka-river.jpg",
-      alt: "Perhaps a misplaced Fukuoka river scenery here",
-      cardHeader: "Fukuoka River",
-      cardCaption:
-        "A multi-funcitonal practical river - used for recreational activities that comes with parks and greenspaces",
-      buttonText: "MT. FUJI",
-    },
-    {
-      path: "/assets/image/4-kyoto-torii-gate.jpg",
-      alt: "Possible missing Kyoto Torii gate here",
-      cardHeader: "Kyoto Torii Gate",
-      cardCaption:
-        "Found at the entrance of Shinto shrine, the Torri Gate carries significant spiritual meaning",
-      buttonText: "KYOTO",
+      currentPositionClass: STYLE_IMAGE.toAnimate.hideToDown,
     },
   ];
 
@@ -80,7 +42,7 @@ function App() {
     function renderSidebar() {
       const sideButtons = IMAGE_DATA.map((img, index) => {
         const isSelected = index === imageIndex;
-        const style = !isSelected ? notSelected : selected;
+        const style = !isSelected ? STYLE.notSelected : STYLE.selected;
 
         return (
           <p
@@ -127,9 +89,9 @@ function App() {
   }
 
   function renderCardFooters() {
-    return imageData.map((img, index) => {
+    return IMAGE_DATA.map((img, index) => {
       const isSelected = index === imageIndex;
-      const selectedStyle = !isSelected ? notSelected : selected;
+      const selectedStyle = !isSelected ? STYLE.notSelected : STYLE.selected;
       const footerStyle = `card-footer ${selectedStyle}`;
 
       return (
