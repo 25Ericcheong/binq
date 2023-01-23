@@ -2,7 +2,7 @@ import "../App.scss";
 
 import IMAGE_DATA from "../Data.json";
 import { ImagePositionDetails } from "../App";
-import { STYLE_IMAGE } from "./../Constants";
+import { STYLE_IMAGE } from "../Constants";
 import produce from "immer";
 
 interface Props {

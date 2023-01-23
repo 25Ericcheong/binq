@@ -2,9 +2,10 @@ import "./App.scss";
 
 import { STYLE, STYLE_IMAGE } from "./Constants";
 
-import { BackgroundImages } from "./BackgounrdImages/BackgroundImages";
+import { BackgroundImages } from "./BackgroundImages/BackgroundImages";
 import { Header } from "./Header/Header";
 import IMAGE_DATA from "./Data.json";
+import { Sidebar } from "./Sidebar/Sidebar";
 import { useState } from "react";
 
 export interface ImagePositionDetails {
@@ -39,24 +40,6 @@ function App() {
   );
 
   function renderBody() {
-    function renderSidebar() {
-      const sideButtons = IMAGE_DATA.map((img, index) => {
-        const isSelected = index === imageIndex;
-        const style = !isSelected ? STYLE.notSelected : STYLE.selected;
-
-        return (
-          <p
-            className={style ?? undefined}
-            onClick={() => setImageIndex(index)}
-          >
-            {img.buttonText}
-          </p>
-        );
-      });
-
-      return <aside>{sideButtons}</aside>;
-    }
-
     function renderContent() {
       return (
         <div className="order-body-part-content">
@@ -77,7 +60,7 @@ function App() {
       <body className="order-body">
         <section className="order-body-main">
           <div className="order-sidebar mark medium-spacing">
-            {renderSidebar()}
+            <Sidebar imageIndex={imageIndex} setImageIndex={setImageIndex} />
           </div>
           <div className="order-body-part mark">
             {renderContent()}
@@ -119,6 +102,9 @@ function App() {
       />
       <div id="content">
         <Header />
+        {/* <body className="order-body">
+          <section className="order-body-main"></section>
+        </body> */}
         {renderBody()}
       </div>
     </div>
