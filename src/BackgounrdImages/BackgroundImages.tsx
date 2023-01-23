@@ -1,10 +1,8 @@
 import "../App.scss";
 
-import * as imageData from "../Data.json";
-
-import { STYLE, STYLE_IMAGE } from "./../Constants";
-
+import IMAGE_DATA from "../Data.json";
 import { ImagePositionDetails } from "../App";
+import { STYLE_IMAGE } from "./../Constants";
 import produce from "immer";
 
 interface Props {
@@ -21,7 +19,7 @@ export const BackgroundImages = ({
   imagePositions,
   setImagePositions,
   setPrevImageIndex,
-}: Props) => {
+}: Props): JSX.Element => {
   function updateImagePosition(): void {
     // this should only occur on first render
     if (prevSelectedImageIndex === imageSelectedIndex) {
@@ -80,7 +78,7 @@ export const BackgroundImages = ({
 
   function renderBackgroundImages() {
     updateImagePosition();
-    return imageData.map((img, imageDataIndex) => {
+    return IMAGE_DATA.map((img, imageDataIndex) => {
       const imageAnimation = determineImageAnimation(imageDataIndex);
       const style = `${STYLE_IMAGE.toShow.fullSize} ${imageAnimation}`;
       return (
@@ -94,5 +92,5 @@ export const BackgroundImages = ({
     });
   }
 
-  return renderBackgroundImages();
+  return <>{renderBackgroundImages()}</>;
 };

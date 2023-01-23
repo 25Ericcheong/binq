@@ -1,7 +1,8 @@
 import "./App.scss";
 
+import { BackgroundImages } from "./BackgounrdImages/BackgroundImages";
 import { Header } from "./Header/Header";
-import produce from "immer";
+import IMAGE_DATA from "./Data.json";
 import { useState } from "react";
 
 export interface ImagePositionDetails {
@@ -10,11 +11,7 @@ export interface ImagePositionDetails {
 }
 
 function App() {
-  const imageFullSizeClass = "image-fullsize";
   const showImageClass = "image-show";
-  const showImageFromUpClass = "image-show-from-up";
-  const showImageFromDownClass = "image-show-from-down";
-  const hideImageUpClass = "image-hide-up";
   const hideImageDownClass = "image-hide-down";
   const notSelected = "not-selected";
   const selected = "selected";
@@ -81,7 +78,7 @@ function App() {
 
   function renderBody() {
     function renderSidebar() {
-      const sideButtons = imageData.map((img, index) => {
+      const sideButtons = IMAGE_DATA.map((img, index) => {
         const isSelected = index === imageIndex;
         const style = !isSelected ? notSelected : selected;
 
@@ -149,83 +146,15 @@ function App() {
     });
   }
 
-  function determineImgVisbility(imageDataIndex: number): string {
-    if (imageIndex === imageDataIndex) {
-      const selectedImagePosition =
-        imagePositions[imageIndex].currentPositionClass;
-
-      if (selectedImagePosition === hideImageDownClass) {
-        return showImageFromDownClass;
-      }
-
-      if (selectedImagePosition === hideImageUpClass) {
-        return showImageFromUpClass;
-      }
-
-      return showImageClass;
-    }
-    return imageIndex > imageDataIndex ? hideImageUpClass : hideImageDownClass;
-  }
-
-  function updateImagePosition(): void {
-    // this should only occur on first render
-    if (prevImageIndex === imageIndex) {
-      return;
-    }
-
-    let indexDiff = Math.abs(imageIndex - prevImageIndex);
-    const isIndexDiffLargerThanOne = indexDiff > 1;
-
-    const updatedImagePositions = produce(imagePositions, (draft) => {
-      if (isIndexDiffLargerThanOne) {
-        for (
-          let indexSkipped = 0;
-          indexSkipped < draft.length;
-          indexSkipped++
-        ) {
-          const isIndexCurrentSmaller = imageIndex < prevImageIndex;
-          const isIndexSkippedLarger = isIndexCurrentSmaller
-            ? imageIndex >= indexSkipped
-            : imageIndex > indexSkipped;
-          const hideImageUpOrDownClass = isIndexSkippedLarger
-            ? hideImageUpClass
-            : hideImageDownClass;
-          draft[indexSkipped].currentPositionClass = hideImageUpOrDownClass;
-        }
-      } else {
-        const isCurrentIndexLarger = imageIndex > prevImageIndex;
-        const hideImageUpOrDownClass = isCurrentIndexLarger
-          ? hideImageUpClass
-          : hideImageDownClass;
-        draft[prevImageIndex].currentPositionClass = hideImageUpOrDownClass;
-      }
-    });
-
-    setImagePositions(updatedImagePositions);
-    setPrevImageIndex(imageIndex);
-  }
-
-  function renderBackgroundImages() {
-    updateImagePosition();
-
-    return imageData.map((img, imageDataIndex) => {
-      const imageVisbility = determineImgVisbility(imageDataIndex);
-      const style = `${imageFullSizeClass} ${imageVisbility}`;
-
-      return (
-        <img
-          className={style}
-          key={imageDataIndex}
-          src={img.path}
-          alt={img.alt}
-        />
-      );
-    });
-  }
-
   return (
     <div id="app">
-      {renderBackgroundImages()}
+      <BackgroundImages
+        imageSelectedIndex={imageIndex}
+        prevSelectedImageIndex={prevImageIndex}
+        imagePositions={imagePositions}
+        setImagePositions={setImagePositions}
+        setPrevImageIndex={setPrevImageIndex}
+      />
       <div id="content">
         <Header />
         {renderBody()}
