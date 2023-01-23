@@ -1,3 +1,5 @@
+import "../App.scss";
+
 import IMAGE_DATA from "../Data.json";
 import { STYLE } from "../Constants";
 
