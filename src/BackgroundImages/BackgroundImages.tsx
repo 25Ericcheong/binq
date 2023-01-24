@@ -1,4 +1,5 @@
 import "../App.scss";
+import "./BackgroundImages.scss";
 
 import IMAGE_DATA from "../Data.json";
 import { ImagePositionDetails } from "../App";
