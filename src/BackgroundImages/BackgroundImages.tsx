@@ -22,7 +22,7 @@ export const BackgroundImages = ({
   setPrevImageIndex,
 }: Props): JSX.Element => {
   function updateImagePosition(): void {
-    // this should only occur on first render
+    // this should only occur on first render - any other interation; nothing
     if (prevSelectedImageIndex === imageSelectedIndex) {
       return;
     }
