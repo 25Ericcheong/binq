@@ -1,29 +1,41 @@
-.card-footer {
+.order-body-part-footer {
   display: flex;
-  max-width: 20%;
-  padding-right: 1em;
+  flex-direction: row;
+  height: 20%;
+  background-color: white;
 
-  .card-image-part-footer {
+  .card-footer {
     display: flex;
-    max-width: 25%;
+    max-width: 20%;
+    padding-right: 1em;
 
-    img {
-      height: 100%;
+    .card-image-part-footer {
+      display: flex;
+      max-width: 25%;
+
+      img {
+        height: 100%;
+        width: 100%;
+      }
+    }
+
+    .card-caption-part-footer {
+      padding-left: 1em;
       width: 100%;
+
+      h3 {
+        padding-bottom: 0.5em;
+      }
+
+      p {
+        color: black;
+        line-height: 1.35;
+      }
     }
   }
 
-  .card-caption-part-footer {
-    padding-left: 1em;
-    width: 100%;
-
-    h3 {
-      padding-bottom: 0.5em;
-    }
-
-    p {
-      color: black;
-      line-height: 1.35;
-    }
+  .icon-footer {
+    display: flex;
+    align-self: center;
   }
 }
