@@ -75,7 +75,7 @@ a {
   opacity: 0.6;
 }
 
-// for body component
+// for body component - this consist of header, sidebar, main body and the footer
 .order-body {
   display: flex;
   flex: 1 0 auto;
@@ -95,36 +95,6 @@ a {
         flex-direction: row;
         height: 20%;
         background-color: white;
-
-        .card-footer {
-          display: flex;
-          max-width: 20%;
-          padding-right: 1em;
-
-          .card-image-part-footer {
-            display: flex;
-            max-width: 25%;
-
-            img {
-              height: 100%;
-              width: 100%;
-            }
-          }
-
-          .card-caption-part-footer {
-            padding-left: 1em;
-            width: 100%;
-
-            h3 {
-              padding-bottom: 0.5em;
-            }
-
-            p {
-              color: black;
-              line-height: 1.35;
-            }
-          }
-        }
       }
     }
 

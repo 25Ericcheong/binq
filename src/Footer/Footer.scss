@@ -1,0 +1,29 @@
+.card-footer {
+  display: flex;
+  max-width: 20%;
+  padding-right: 1em;
+
+  .card-image-part-footer {
+    display: flex;
+    max-width: 25%;
+
+    img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  .card-caption-part-footer {
+    padding-left: 1em;
+    width: 100%;
+
+    h3 {
+      padding-bottom: 0.5em;
+    }
+
+    p {
+      color: black;
+      line-height: 1.35;
+    }
+  }
+}

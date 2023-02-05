@@ -1,4 +1,5 @@
 import "../App.scss";
+import "./Footer.scss";
 
 import IMAGE_DATA from "../Data.json";
 import { STYLE } from "../Constants";
