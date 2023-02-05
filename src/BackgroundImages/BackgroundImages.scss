@@ -1,3 +1,13 @@
+// ensure image takes up the full size of current container
+.image-fullsize {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  position: absolute;
+  z-index: -1;
+}
+
+// below produces the animation sliding effect
 @keyframes image-slide-show-from-down {
   0% {
     top: 100vh;

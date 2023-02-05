@@ -15,14 +15,6 @@
 #app {
   overflow: hidden;
   position: relative;
-
-  .image-fullsize {
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover;
-    position: absolute;
-    z-index: -1;
-  }
 }
 
 // marking for reference
