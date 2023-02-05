@@ -1,4 +1,5 @@
 import "../App.scss";
+import "./Body.scss";
 
 export const Body = () => {
   return (

@@ -75,12 +75,6 @@ a {
   opacity: 0.6;
 }
 
-// for header component
-.order-header {
-  display: flex;
-  justify-content: space-between;
-}
-
 // for body component
 .order-body {
   display: flex;
@@ -95,13 +89,6 @@ a {
       display: flex;
       flex-direction: column;
       max-width: 100vw;
-
-      .order-body-part-content {
-        height: 80%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-      }
 
       .order-body-part-footer {
         display: flex;
