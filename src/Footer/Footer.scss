@@ -3,6 +3,7 @@
   flex-direction: row;
   height: 20%;
   background-color: white;
+  position: absolute;
 
   .card-footer {
     display: flex;
@@ -22,20 +23,32 @@
     .card-caption-part-footer {
       padding-left: 1em;
       width: 100%;
+    }
+  }
 
-      h3 {
-        padding-bottom: 0.5em;
-      }
+  #button-footer {
+    cursor: pointer;
+    background-color: white;
+    border: none;
+    margin-right: 3em;
+    margin-left: -0.5em;
+
+    #caption {
+      writing-mode: vertical-lr;
+      transform: rotate(180deg);
 
       p {
-        color: black;
-        line-height: 1.35;
+        font-weight: 600;
       }
     }
   }
 
-  .icon-footer {
-    display: flex;
-    align-self: center;
+  h3 {
+    padding-bottom: 0.5em;
+  }
+
+  p {
+    color: black;
+    line-height: 1.35;
   }
 }
