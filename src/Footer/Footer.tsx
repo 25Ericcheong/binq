@@ -3,12 +3,16 @@ import "./Footer.scss";
 
 import IMAGE_DATA from "../Data.json";
 import { STYLE } from "../Constants";
+import { useState } from "react";
 
 interface Props {
   imageIndex: number;
 }
 
 export const Footer = ({ imageIndex }: Props) => {
+  const [hideFooter, setHideFooter] = useState(false);
+  const [moveButton, setMoveButton] = useState(false);
+
   function renderCards() {
     return IMAGE_DATA.map((img, index) => {
       const isSelected = index === imageIndex;
@@ -30,22 +34,35 @@ export const Footer = ({ imageIndex }: Props) => {
   }
 
   function renderButton() {
+    const captionText = hideFooter ? "SHOW" : "HIDE";
+
     return (
       <button
         id="button-footer"
         onClick={() => {
-          console.log("something");
+          setHideFooter((state) => !state);
         }}
       >
         <div id="caption">
-          <p>HIDE</p>
+          <p>{captionText}</p>
         </div>
       </button>
     );
   }
 
+  function _style() {
+    let footerStyle = "order-body-part-footer";
+
+    if (hideFooter) {
+      footerStyle += " hide";
+    }
+
+    footerStyle += " mark medium-spacing";
+    return footerStyle;
+  }
+
   return (
-    <footer className="order-body-part-footer mark medium-spacing">
+    <footer className={_style()}>
       {renderButton()}
       {renderCards()}
     </footer>
