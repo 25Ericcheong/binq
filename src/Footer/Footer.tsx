@@ -57,7 +57,7 @@ export const Footer = ({ imageIndex }: Props) => {
       footerStyle += " hide";
     }
 
-    footerStyle += " mark medium-spacing";
+    footerStyle += " medium-spacing";
     return footerStyle;
   }
 
