@@ -1,5 +1,5 @@
 .hide {
-  margin-left: 91.8vw;
+  margin-left: 91em;
 }
 
 .order-body-part-footer {
@@ -7,6 +7,11 @@
   flex-direction: row;
   max-height: 18%;
   background-color: white;
+  transition: 0.4s;
+
+  &.only-button-footer-show {
+    margin-left: 88em;
+  }
 
   .card-footer {
     display: flex;
@@ -34,6 +39,7 @@
     background-color: white;
     border: none;
     margin-right: 3em;
+    margin-left: -1.5em;
 
     #button-text {
       writing-mode: vertical-lr;
@@ -43,14 +49,6 @@
         font-weight: 600;
       }
     }
-  }
-
-  .button-show {
-    margin-left: -1.5em;
-  }
-
-  .button-hide {
-    margin-left: 1.5em;
   }
 
   h3 {

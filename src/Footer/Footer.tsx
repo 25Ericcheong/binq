@@ -11,7 +11,7 @@ interface Props {
 
 export const Footer = ({ imageIndex }: Props) => {
   const [hideFooter, setHideFooter] = useState(false);
-  const [hideButton, setHideButton] = useState(false);
+  const [showButton, setShowButton] = useState(false);
 
   function renderCards() {
     return IMAGE_DATA.map((img, index) => {
@@ -35,7 +35,7 @@ export const Footer = ({ imageIndex }: Props) => {
 
   function popupButtonLater() {
     setTimeout(() => {
-      setHideButton(false);
+      setShowButton(true);
     }, 1500);
   }
 
@@ -43,7 +43,7 @@ export const Footer = ({ imageIndex }: Props) => {
     setHideFooter((prevState) => !prevState);
 
     if (!hideFooter) {
-      setHideButton(true);
+      setShowButton(false);
       popupButtonLater();
       return;
     }
@@ -51,14 +51,9 @@ export const Footer = ({ imageIndex }: Props) => {
 
   function renderButton() {
     const buttonText = hideFooter ? "SHOW" : "HIDE";
-    const buttonPos = hideButton ? "button-hide" : "button-show";
 
     return (
-      <button
-        id="button-footer"
-        className={buttonPos}
-        onClick={handleFooterClick}
-      >
+      <button id="button-footer" onClick={handleFooterClick}>
         <div id="button-text">
           <p>{buttonText}</p>
         </div>
@@ -71,6 +66,10 @@ export const Footer = ({ imageIndex }: Props) => {
 
     if (hideFooter) {
       footerStyle += " hide";
+    }
+
+    if (showButton && hideFooter) {
+      footerStyle += " only-button-footer-show";
     }
 
     footerStyle += " medium-spacing";
