@@ -17,14 +17,14 @@
     "path": "/assets/image/3-fukuoka-river.jpg",
     "alt": "Perhaps a misplaced Fukuoka river scenery here",
     "cardHeader": "Fukuoka River",
-    "cardCaption": "A multi-funcitonal practical river - used for recreational activities that comes with parks and greenspaces",
+    "cardCaption": "A multi-funcitonal river - used for recreational activities and relaxing",
     "buttonText": "FUKUOKA"
   },
   {
     "path": "/assets/image/4-kyoto-torii-gate.jpg",
     "alt": "Possible missing Kyoto Torii gate here",
     "cardHeader": "Kyoto Torii Gate",
-    "cardCaption": "Found at the entrance of Shinto shrine, the Torri Gate carries significant spiritual meaning",
+    "cardCaption": "At the entrance of Shinto shrine, the Torri Gate carries significant spiritual meaning",
     "buttonText": "KYOTO"
   }
 ]
