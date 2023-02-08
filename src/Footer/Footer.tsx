@@ -11,7 +11,7 @@ interface Props {
 
 export const Footer = ({ imageIndex }: Props) => {
   const [hideFooter, setHideFooter] = useState(false);
-  const [moveButton, setMoveButton] = useState(false);
+  const [hideButton, setHideButton] = useState(false);
 
   function renderCards() {
     return IMAGE_DATA.map((img, index) => {
@@ -33,18 +33,34 @@ export const Footer = ({ imageIndex }: Props) => {
     });
   }
 
+  function popupButtonLater() {
+    setTimeout(() => {
+      setHideButton(false);
+    }, 1500);
+  }
+
+  function handleFooterClick() {
+    setHideFooter((prevState) => !prevState);
+
+    if (!hideFooter) {
+      setHideButton(true);
+      popupButtonLater();
+      return;
+    }
+  }
+
   function renderButton() {
-    const captionText = hideFooter ? "SHOW" : "HIDE";
+    const buttonText = hideFooter ? "SHOW" : "HIDE";
+    const buttonPos = hideButton ? "button-hide" : "button-show";
 
     return (
       <button
         id="button-footer"
-        onClick={() => {
-          setHideFooter((state) => !state);
-        }}
+        className={buttonPos}
+        onClick={handleFooterClick}
       >
-        <div id="caption">
-          <p>{captionText}</p>
+        <div id="button-text">
+          <p>{buttonText}</p>
         </div>
       </button>
     );

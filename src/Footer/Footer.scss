@@ -34,9 +34,8 @@
     background-color: white;
     border: none;
     margin-right: 3em;
-    margin-left: -1.5em;
 
-    #caption {
+    #button-text {
       writing-mode: vertical-lr;
       transform: rotate(180deg);
 
@@ -44,6 +43,14 @@
         font-weight: 600;
       }
     }
+  }
+
+  .button-show {
+    margin-left: -1.5em;
+  }
+
+  .button-hide {
+    margin-left: 1.5em;
   }
 
   h3 {
