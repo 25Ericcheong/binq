@@ -1,6 +1,6 @@
 # Description
 
-A mini project to practice my frontend skills. Used React and SASS. This will include a show list of the features which I implemented (which I thought was quite cool and would like to share just for fun and my reference!)
+A mini frontend project. Used React and SASS. This will include a show list of the features which I implemented (which I thought was quite cool and would like to share just for fun and my reference!)
 
 ## Running Locally
 
