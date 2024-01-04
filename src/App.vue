@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import HelloWorld from "./components/HelloWorld.vue";
+import Home from "./components/Home.vue";
 </script>
 
 <template>
   <header>
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+      <Home msg="Start of designing BINQ :)" />
 
       <nav></nav>
     </div>
