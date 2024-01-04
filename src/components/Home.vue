@@ -2,7 +2,7 @@
 import { reactive } from "vue";
 
 defineProps<{
-  msg: string;
+  title: string;
 }>();
 
 const testing = reactive({
@@ -12,9 +12,13 @@ const testing = reactive({
 
 <template>
   <div>
-    <h1>{{ msg }}</h1>
+    <h1 class="title">{{ title }}</h1>
     <p>{{ testing.text }}</p>
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.title {
+  color: #ff5733;
+}
+</style>

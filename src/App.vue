@@ -5,7 +5,7 @@ import Home from "./components/Home.vue";
 <template>
   <header>
     <div class="wrapper">
-      <Home msg="Start of designing BINQ :)" />
+      <Home title="BINQ BINQ BINQ" />
 
       <nav></nav>
     </div>
