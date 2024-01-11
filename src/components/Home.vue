@@ -21,6 +21,13 @@ function increment() {
 function decrement() {
   startingValue.value--;
 }
+
+// Practice form bindings
+const words = ref("");
+
+function onInput(e: Event) {
+  words.value = (e.target as HTMLInputElement).value;
+}
 </script>
 
 <template>
@@ -37,6 +44,11 @@ function decrement() {
     <button @click="decrement">
       Click to decrease count: {{ startingValue }}
     </button>
+  </div>
+  <div>
+    <h1>Form binding practice</h1>
+    <input :value="words" @input="onInput" placeholder="Type something here" />
+    <p>{{ words }}</p>
   </div>
 </template>
 
