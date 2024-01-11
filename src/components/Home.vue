@@ -28,6 +28,14 @@ const words = ref("");
 function onInput(e: Event) {
   words.value = (e.target as HTMLInputElement).value;
 }
+// instead of :value="words" @input="onInput" - this can be shorten to v-model="words" - which references the variable name of the affected ref
+
+// Practice condtional rendering
+const show = ref(true);
+
+function onClickShow() {
+  show.value = !show.value;
+}
 </script>
 
 <template>
@@ -49,6 +57,12 @@ function onInput(e: Event) {
     <h1>Form binding practice</h1>
     <input :value="words" @input="onInput" placeholder="Type something here" />
     <p>{{ words }}</p>
+  </div>
+  <div>
+    <h1>Conditionally render</h1>
+    <button @click="onClickShow">Click to show something else</button>
+    <p v-if="show">SHOWINGGGG</p>
+    <p v-else="show">NOT SHOWINGGGG</p>
   </div>
 </template>
 
