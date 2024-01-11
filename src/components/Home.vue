@@ -5,6 +5,7 @@ defineProps<{
   title: string;
 }>();
 
+const blueStyle = ref("title");
 const description = ref("More description here");
 const testing = reactive({
   text: "Someone has to start from somewhere",
@@ -13,7 +14,7 @@ const testing = reactive({
 
 <template>
   <div>
-    <h1 class="title">{{ title }}</h1>
+    <h1 :class="blueStyle">{{ title }}</h1>
     <p>{{ testing.text }}</p>
     <p>{{ description }}</p>
   </div>
@@ -21,6 +22,6 @@ const testing = reactive({
 
 <style scoped>
 .title {
-  color: #ff5733;
+  color: blue;
 }
 </style>
