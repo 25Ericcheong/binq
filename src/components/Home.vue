@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { reactive, ref } from "vue";
+import { reactive, ref, computed } from "vue";
 
 defineProps<{
   title: string;
@@ -37,22 +37,35 @@ function onClickShow() {
   show.value = !show.value;
 }
 
-// Practice list rendering
+// Practice list rendering and using computed for a ref basedo n other reactive data sources
 interface Todo {
   id: number;
   text: string;
+  done: boolean;
 }
 
 let id = 0;
 const newTodo = ref("");
+const hideCompleted = ref(false);
 const todos = ref([
-  { id: id++, text: "Learn HTML" },
-  { id: id++, text: "Learn JavaScript" },
-  { id: id++, text: "Learn Vue" },
+  { id: id++, text: "Learn HTML", done: true },
+  { id: id++, text: "Learn JavaScript", done: true },
+  { id: id++, text: "Learn Vue", done: false },
 ]);
 
+const filteredTodos = computed(() => {
+  if (hideCompleted.value) {
+    return todos.value.filter((t) => t.done !== hideCompleted.value);
+  }
+
+  return todos.value;
+});
+
 function addTodo() {
-  todos.value = [...todos.value, { id: id++, text: newTodo.value }];
+  todos.value = [
+    ...todos.value,
+    { id: id++, text: newTodo.value, done: false },
+  ];
   newTodo.value = "";
 }
 
@@ -97,16 +110,24 @@ function removeTodo(todo: Todo) {
       <button>Add Todo</button>
     </form>
     <ul>
-      <li v-for="todo in todos" :key="todo.id">
-        {{ todo.text }}
+      <li v-for="todo in filteredTodos" :key="todo.id">
+        <input type="checkbox" v-model="todo.done" />
+        <span :class="{ done: todo.done }">{{ todo.text }}</span>
         <button @click="removeTodo(todo)">X</button>
       </li>
     </ul>
+    <button @click="hideCompleted = !hideCompleted">
+      {{ hideCompleted ? "Show all" : "Hide completed" }}
+    </button>
   </div>
 </template>
 
 <style scoped>
 .title {
   color: blue;
+}
+
+.done {
+  text-decoration: line-through;
 }
 </style>
