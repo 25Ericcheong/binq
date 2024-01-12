@@ -62,7 +62,7 @@ function onClickShow() {
     <h1>Conditionally render</h1>
     <button @click="onClickShow">Click to show something else</button>
     <p v-if="show">SHOWINGGGG</p>
-    <p v-else="show">NOT SHOWINGGGG</p>
+    <p v-else>NOT SHOWINGGGG</p>
   </div>
 </template>
 
