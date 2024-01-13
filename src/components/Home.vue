@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { reactive, ref, computed, onMounted, watch } from "vue";
+import Child from "./Child.vue";
 
 defineProps<{
   title: string;
@@ -159,6 +160,11 @@ watch(todoId, fetchData);
     <button @click="todoId++" :disabled="!todoData">Fetch next todo</button>
     <p v-if="!todoData">Loading...</p>
     <pre v-else>{{ todoData }}</pre>
+  </div>
+
+  <div>
+    <h1>This is a child component</h1>
+    <Child />
   </div>
 </template>
 
