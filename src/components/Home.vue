@@ -169,7 +169,7 @@ const childMsg = ref('Will be replaced by child message emit')
 
   <div>
     <h1>This is a child component practice</h1>
-    <Child msg="something something" @response="(msg) => childMsg = msg" />
+    <Child msg="something something" @response="(msg) => childMsg = msg">This is the slot message</Child>
       <h1>Emits practice</h1>
       <p>{{ childMsg }}</p>
   </div>

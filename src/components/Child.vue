@@ -21,4 +21,8 @@ const message = props.msg
   <div>
     <p>{{ message }}</p>
   </div>
+  <div>
+    <h1>Slot practice</h1>
+    <slot>Callback message if no slot passed into child </slot>
+  </div>
 </template>
