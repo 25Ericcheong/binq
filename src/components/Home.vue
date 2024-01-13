@@ -98,8 +98,13 @@ async function fetchData() {
 // fetch data once
 fetchData();
 
-// button clicked - todoId changes and fetchData callback function is called
+// watch would execute callback the moment first arugment (todoId) changes; button clicked - todoId changes and fetchData callback function is called
 watch(todoId, fetchData);
+
+// Emits practice simple example
+// @response is the name of the event within child component
+const childMsg = ref('Will be replaced by child message emit')
+
 </script>
 
 <template>
@@ -163,8 +168,10 @@ watch(todoId, fetchData);
   </div>
 
   <div>
-    <h1>This is a child component</h1>
-    <Child msg="something something" />
+    <h1>This is a child component practice</h1>
+    <Child msg="something something" @response="(msg) => childMsg = msg" />
+      <h1>Emits practice</h1>
+      <p>{{ childMsg }}</p>
   </div>
 </template>
 
