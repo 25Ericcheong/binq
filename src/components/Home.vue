@@ -131,7 +131,7 @@ onMounted(() => {
   </div>
 
   <div>
-    <h1>Lifecycle and tempalte refs practice. Directly updating DOM our own</h1>
+    <h1>Lifecycle and template refs practice. Directly updating DOM our own</h1>
     <p ref="pElementRef">Something else</p>
   </div>
 </template>
