@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { reactive, ref, computed } from "vue";
+import { reactive, ref, computed, onMounted } from "vue";
 
 defineProps<{
   title: string;
@@ -72,6 +72,15 @@ function addTodo() {
 function removeTodo(todo: Todo) {
   todos.value = todos.value.filter((t) => t.id !== todo.id);
 }
+
+// Practice lifecycle and template refs. Directly updating DOM ourselves
+const pElementRef = ref<null | HTMLParagraphElement>(null);
+
+onMounted(() => {
+  if (pElementRef.value) {
+    pElementRef.value.textContent = "Mounted! Something else sssnow";
+  }
+});
 </script>
 
 <template>
@@ -104,7 +113,7 @@ function removeTodo(todo: Todo) {
   </div>
 
   <div>
-    <h1>List rendering prace</h1>
+    <h1>List rendering practice</h1>
     <form @submit.prevent="addTodo">
       <input v-model="newTodo" />
       <button>Add Todo</button>
@@ -119,6 +128,11 @@ function removeTodo(todo: Todo) {
     <button @click="hideCompleted = !hideCompleted">
       {{ hideCompleted ? "Show all" : "Hide completed" }}
     </button>
+  </div>
+
+  <div>
+    <h1>Lifecycle and tempalte refs practice. Directly updating DOM our own</h1>
+    <p ref="pElementRef">Something else</p>
   </div>
 </template>
 
