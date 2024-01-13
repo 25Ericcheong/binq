@@ -1,7 +1,18 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+
+// Props practice simple
+interface Props {
+  msg: string
+}
+
+const props = defineProps<Props>()
+
+const message = props.msg
+
+</script>
 
 <template>
   <div>
-    <p>Child component is here</p>
+    <p>{{ message }}</p>
   </div>
 </template>

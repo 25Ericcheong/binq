@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { reactive, ref, computed, onMounted, watch } from "vue";
+import { computed, onMounted, reactive, ref, watch } from "vue";
 import Child from "./Child.vue";
 
 defineProps<{
@@ -164,7 +164,7 @@ watch(todoId, fetchData);
 
   <div>
     <h1>This is a child component</h1>
-    <Child />
+    <Child msg="something something" />
   </div>
 </template>
 
