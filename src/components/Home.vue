@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { reactive, ref, computed, onMounted } from "vue";
+import { reactive, ref, computed, onMounted, watch } from "vue";
 
 defineProps<{
   title: string;
@@ -81,6 +81,24 @@ onMounted(() => {
     pElementRef.value.textContent = "Mounted! Something else sssnow";
   }
 });
+
+// Watchers for logging purposes
+const todoId = ref(1);
+const todoData = ref(null);
+
+async function fetchData() {
+  todoData.value = null;
+  const res = await fetch(
+    `https://jsonplaceholder.typicode.com/todos/${todoId.value}`
+  );
+  todoData.value = await res.json();
+}
+
+// fetch data once
+fetchData();
+
+// button clicked - todoId changes and fetchData callback function is called
+watch(todoId, fetchData);
 </script>
 
 <template>
@@ -133,6 +151,14 @@ onMounted(() => {
   <div>
     <h1>Lifecycle and template refs practice. Directly updating DOM our own</h1>
     <p ref="pElementRef">Something else</p>
+  </div>
+
+  <div>
+    <h1>Watcher practice - practical example</h1>
+    <p>Todo id: {{ todoId }}</p>
+    <button @click="todoId++" :disabled="!todoData">Fetch next todo</button>
+    <p v-if="!todoData">Loading...</p>
+    <pre v-else>{{ todoData }}</pre>
   </div>
 </template>
 
