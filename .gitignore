@@ -1,3 +1,6 @@
+# output of tailwind
+/src/output.css
+
 # for sass
 .sass-cache/
 *.css.map
