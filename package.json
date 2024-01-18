@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "concurrently \"npm run watch-css\" \"vite --open\"",
-    "build-css": "npx tailwindcss build -i ./src/input.css -o ./public/output.css",
-    "watch-css": "npx tailwindcss build -i ./src/input.css -o ./public/output.css --watch",
+    "build-css": "npx tailwindcss build -i ./src/input.css -o ./src/output.css",
+    "watch-css": "npx tailwindcss -i ./src/input.css -o ./src/output.css --watch",
     "build": "run-p type-check \"build-only {@}\" --",
     "preview": "vite preview",
     "test:unit": "vitest",

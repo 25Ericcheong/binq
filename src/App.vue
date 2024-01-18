@@ -1,15 +1,12 @@
 <script setup lang="ts">
-import Home from "./components/Home.vue";
+import LandingPageHeader from "./components/LandingPageHeader.vue";
+import "./output.css";
 </script>
 
 <template>
-  <header>
-    <div class="wrapper">
-      <Home title="BINQ BINQ BINQ" />
-
-      <nav></nav>
+    <div>
+      <LandingPageHeader />
     </div>
-  </header>
 </template>
 
 <style scoped></style>
