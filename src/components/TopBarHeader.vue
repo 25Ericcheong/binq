@@ -1,16 +1,14 @@
 <script setup lang="ts"></script>
 
 <template>
-  <nav class="grid grid-cols-10 grid-rows-1 h-20 py-1">
-    <div class="col-span-9 flex justify-center items-center">
-      <div
-        class="px-1 py-4 secondary-bg rounded-full flex justify-center items-center"
-      >
-        <img class="object-contain h-10" src="../assets/logo/binq.png" />
+  <nav class="flex items-center justify-between h-20">
+    <div class="w-10"></div>
+    <div
+      class="w-40 text-center flex items-center justify-center primary-bg pt-1 pb-4 blob-border-radius-icon"
+    >
+      <div class="p-1 flex justify-center items-center">
+        <img class="rounded-full h-14" src="../assets/logo/binq.jpg" />
       </div>
-    </div>
-    <div class="text-center flex items-center justify-center">
-      <p>ICE</p>
     </div>
   </nav>
 </template>

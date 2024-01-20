@@ -4,11 +4,10 @@ import TopBarHeader from "./TopBarHeader.vue";
 </script>
 
 <template>
-  <header class="primary-bg font-bold">
-    <TopBarHeader/>
+  <header>
+    <TopBarHeader />
   </header>
   <Child />
 </template>
 
-<style scoped>
-</style>
+<style scoped></style>
