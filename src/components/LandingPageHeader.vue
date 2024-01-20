@@ -4,11 +4,8 @@ import TopBarHeader from "./TopBarHeader.vue";
 </script>
 
 <template>
-  <header class="bg-blue-50 font-bold">
+  <header class="primary-bg font-bold">
     <TopBarHeader/>
-    <div>
-      <h1 >BINQ BINQ BINQ</h1>
-    </div>
   </header>
   <Child />
 </template>
