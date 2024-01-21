@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import Child from "./Child.vue";
+import MainHeader from "./MainHeader.vue";
 import TopBarHeader from "./TopBarHeader.vue";
 </script>
 
 <template>
   <header>
     <TopBarHeader />
+    <MainHeader />
   </header>
-  <Child />
 </template>
 
 <style scoped></style>

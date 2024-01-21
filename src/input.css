@@ -1,13 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Average+Sans&family=Rufina:wght@400;700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* color theme to follow */
+/* color theme and font pairing to follow */
 :root {
   --primary-color: #fb8b24;
   --secondary-color: #ffffff;
   --tertiary-color: #faf0e6;
   --quarternary-color: #003b40;
+  --header-font: "Rufina", Georgia, Serif;
+  --body-font: "Average Sans", Verdana, sans-serif;
 }
 
 .primary-bg {
@@ -16,4 +20,12 @@
 
 .secondary-bg {
   background-color: var(--secondary-color);
+}
+
+.header-font {
+  font-family: var(--header-font);
+}
+
+.body-font {
+  font-family: var(--body-font);
 }
