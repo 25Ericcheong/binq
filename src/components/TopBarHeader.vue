@@ -1,16 +1,14 @@
 <script setup lang="ts"></script>
 
 <template>
-  <nav class="flex items-center justify-between h-20">
-    <div class="w-10"></div>
-    <div
-      class="w-40 text-center flex items-center justify-center primary-bg pt-1 pb-4 blob-border-radius-icon"
-    >
-      <div class="p-1 flex justify-center items-center">
-        <img class="rounded-full h-14" src="../assets/logo/binq.jpg" />
-      </div>
+  <div class="flex justify-between marg mb-2 mx-3 mt-4">
+    <div class="bg-orangebq text-whitebq p-1 rounded-full">
+      <img class="rounded-full h-12" src="../assets/logo/binq.jpg" />
     </div>
-  </nav>
+    <button class="bg-orangebq text-whitebq p-2 rounded-full font-bold">
+      MORE BINQ
+    </button>
+  </div>
 </template>
 
 <style scoped></style>
