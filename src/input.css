@@ -8,8 +8,8 @@
 :root {
   --primary-color: #fb8b24;
   --secondary-color: #ffffff;
-  --tertiary-color: #faf0e6;
-  --quarternary-color: #003b40;
+  --tertiary-color: #f8f8f8;
+  --quarternary-color: #01232b;
   --header-font: "Rufina", Georgia, Serif;
   --body-font: "Average Sans", Verdana, sans-serif;
 }
@@ -20,6 +20,14 @@
 
 .secondary-bg {
   background-color: var(--secondary-color);
+}
+
+.tertiary-bg {
+  background-color: var(--tertiary-color);
+}
+
+.quarternary-bg {
+  background-color: var(--quarternary-color);
 }
 
 .header-font {

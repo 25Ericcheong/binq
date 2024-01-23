@@ -4,7 +4,7 @@ import TopBarHeader from "./TopBarHeader.vue";
 </script>
 
 <template>
-  <header>
+  <header class="max-h-screen">
     <TopBarHeader />
     <MainHeader />
   </header>

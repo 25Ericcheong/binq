@@ -5,7 +5,7 @@ export default {
     colors: {
       orangebq: "#fb8b24",
       whitebq: "#ffffff",
-      greybq: "#faf0e6",
+      creambq: "#F8F0C6",
       greenbq: "#003b40",
     },
   },
