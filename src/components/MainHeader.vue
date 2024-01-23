@@ -9,9 +9,7 @@ const TITLE = "Binq";
         <h1 class="md:text-9xl sm:text-6xl header-font">{{ TITLE }}</h1>
       </div>
       <div class="ml-10 mt-4 body-font">
-        <p>
-          A selection of flavorful homemade Binq ice - Crave More, It's So Nice!
-        </p>
+        <p>A selection of flavorful homemade Binq Su!</p>
       </div>
     </div>
     <div class="w-1/3 mr-10">
