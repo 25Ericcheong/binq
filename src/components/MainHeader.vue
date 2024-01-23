@@ -21,7 +21,7 @@ const TITLE = "Binq";
       <div class="flex-col">
         <div class="flex h-4/5 justify-center">
           <div
-            class="flex items-start secondary-bg p-3 rounded-full border-solid border-2 border-b-greenbq"
+            class="flex items-start secondary-bg p-3 rounded-full border-solid border-2 border-b-greenbq drop-shadow-2xl"
           >
             <img
               class="h-full"
@@ -45,9 +45,9 @@ const TITLE = "Binq";
           </button>
         </div>
       </div>
-      <article class="flex ml-3">
+      <article class="flex ml-3 mt-5">
         <div
-          class="secondary-bg p-2 border-solid border-2 border-b-greenbq flex flex-col h-5/6 w-11/12 rounded-lg"
+          class="secondary-bg p-2 border-solid border-2 border-b-greenbq flex flex-col h-fit w-11/12 rounded-lg drop-shadow-2xl"
         >
           <div>
             <h2 class="text-5xl header-font underline mb-3">Best Seller</h2>
@@ -57,7 +57,7 @@ const TITLE = "Binq";
             <h3 class="text-5xl header-font underline mb-3">Side Dishes</h3>
             <p class="mt-2 text-2xl">Cream infused with Kinako</p>
             <p class="mt-2 text-2xl">Natural sugar jelly</p>
-            <p class="mt-2 text-2xl">Kinako handmade coated mochi</p>
+            <p class="mt-2 text-2xl">Handmade Kinako mochi</p>
             <p class="mt-2 text-2xl">Flakey crunchy butter crisp</p>
           </div>
         </div>
