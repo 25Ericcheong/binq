@@ -45,6 +45,23 @@ const TITLE = "Binq";
           </button>
         </div>
       </div>
+      <article class="flex ml-3">
+        <div
+          class="secondary-bg p-2 border-solid border-2 border-b-greenbq flex flex-col h-5/6 w-11/12 rounded-lg"
+        >
+          <div>
+            <h2 class="text-5xl header-font underline mb-3">Best Seller</h2>
+            <p class="body-font text-2xl">Soybean Oolong from the bean</p>
+          </div>
+          <div class="body-font text-4xl mt-7">
+            <h3 class="text-5xl header-font underline mb-3">Side Dishes</h3>
+            <p class="mt-2 text-2xl">Cream infused with Kinako</p>
+            <p class="mt-2 text-2xl">Natural sugar jelly</p>
+            <p class="mt-2 text-2xl">Kinako handmade coated mochi</p>
+            <p class="mt-2 text-2xl">Flakey crunchy butter crisp</p>
+          </div>
+        </div>
+      </article>
     </div>
   </section>
 </template>
