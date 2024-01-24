@@ -37,12 +37,16 @@ const TITLE = "Binq";
         </div>
         <div class="flex justify-evenly body-font mt-5">
           <button
-            class="mr-3 p-3 rounded-lg tertiary-bg font-bold text-darkorangebq"
+            class="mr-3 p-3 rounded-lg tertiary-bg font-black text-darkorangebq"
           >
             Soybean Oolong</button
-          ><button class="flex-1 mr-3 rounded-lg tertiary-bg text-darkorangebq">
+          ><button
+            class="flex-1 mr-3 rounded-lg tertiary-bg font-medium text-darkorangebq"
+          >
             Matcha</button
-          ><button class="flex-1 tertiary-bg p-3 rounded-lg text-darkorangebq">
+          ><button
+            class="flex-1 tertiary-bg p-3 rounded-lg font-medium text-darkorangebq"
+          >
             Hoji Cha
           </button>
         </div>
