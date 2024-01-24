@@ -3,14 +3,16 @@ const TITLE = "Binq";
 </script>
 
 <template>
-  <section class="flex max-h-screen primary-bg pt-12 pb-10">
+  <section
+    class="flex max-h-screen pt-12 pb-10 bg-gradient-to-tr from-darkorangebq from-15% via-orangebq via-40% to-dullorangebq"
+  >
     <div class="w-5/12">
       <div class="ml-20 text-6xl sm:text-3xl body-font pb-4">
-        <h2 class="text-whitebq pb-1">A selection of unique refreshing</h2>
+        <h2 class="text-whitebq pb-1">A <i>mountain</i> of delicious</h2>
         <button
-          class="border-solid font-bold border-2 border-b-2 p-3 rounded-full bg-whitebq"
+          class="ml-16 border-solid font-bold border-2 border-b-2 p-5 rounded-full text-whitebq"
         >
-          Binq Su!
+          Binq Su
         </button>
       </div>
       <div class="ml-20" v-for="n in 3">
@@ -33,7 +35,7 @@ const TITLE = "Binq";
             />
           </div>
         </div>
-        <div class="flex justify-evenly body-font mt-5">
+        <div class="flex justify-evenly body-font mt-5 max-h-80">
           <button class="mr-3 p-3 rounded-lg tertiary-bg font-bold underline">
             Soybean Oolong</button
           ><button class="flex-1 mr-3 rounded-lg tertiary-bg">Matcha</button

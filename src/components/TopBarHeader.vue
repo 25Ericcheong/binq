@@ -6,7 +6,7 @@
       <button
         class="py-2 px-4 rounded-lg body-font border-solid border-2 bg-orangebq text-whitebq text-xl"
       >
-        More
+        +
       </button>
     </div>
     <div class="rounded-full flex justify-end items-center w-1/2 pr-32">
