@@ -7,7 +7,7 @@ export default {
       whitebq: "#ffffff",
       creambq: "#f8e182",
       dullorangebq: "#f59b3e",
-      darkorangebq: "#993000",
+      darkorangebq: "#d26624",
     },
   },
   plugins: [],
