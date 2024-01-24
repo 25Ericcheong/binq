@@ -3,10 +3,10 @@ export default {
   content: ["./src/**/*.{html,js,vue}", "./index.html"],
   theme: {
     colors: {
-      orangebq: "#fb8b24",
+      orangebq: "#f05b1b",
       whitebq: "#ffffff",
-      creambq: "#F8F0C6",
-      greenbq: "#003b40",
+      creambq: "#f8e182",
+      dullorangebq: "#f59b3e",
     },
   },
   plugins: [],

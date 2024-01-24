@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Average+Sans&family=Rufina:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800&family=Source+Sans+3:ital,wght@0,300;0,400;0,700;1,400&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -6,12 +6,12 @@
 
 /* color theme and font pairing to follow */
 :root {
-  --primary-color: #fb8b24;
+  --primary-color: #f05b1b;
   --secondary-color: #ffffff;
-  --tertiary-color: #f8f8f8;
-  --quarternary-color: #01232b;
-  --header-font: "Rufina", Georgia, Serif;
-  --body-font: "Average Sans", Verdana, sans-serif;
+  --tertiary-color: #f8e182;
+  --quarternary-color: #f59b3e;
+  --header-font: "Raleway", Georgia, Serif;
+  --body-font: "Source Sans 3", Verdana, sans-serif;
 }
 
 .primary-bg {

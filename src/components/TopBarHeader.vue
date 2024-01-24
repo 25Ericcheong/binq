@@ -1,19 +1,16 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div class="flex justify-between h-1/4 w-full">
-    <div class="quarternary-bg px-3 pt-3 pb-4 w-1/3">
+  <div class="flex h-1/4 w-full">
+    <div class="pl-32 py-3 w-1/2">
       <button
-        class="text-whitebq p-2 rounded-full body-font border-solid border-2 border-whitebq"
+        class="py-2 px-4 rounded-lg body-font border-solid border-2 bg-orangebq text-whitebq text-xl"
       >
         More
       </button>
     </div>
-    <div class="p-1 rounded-full flex justify-center w-1/2 relative bottom-0">
-      <img
-        class="rounded-full h-20 z-20 absolute border-solid border-2 border-b-greenbq"
-        src="../assets/logo/binq.jpg"
-      />
+    <div class="rounded-full flex justify-end items-center w-1/2 pr-32">
+      <img class="rounded-full h-16" src="../assets/logo/binq.jpg" />
     </div>
   </div>
 </template>
