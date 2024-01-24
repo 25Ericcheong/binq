@@ -23,11 +23,11 @@ const TITLE = "Binq";
         </h1>
       </div>
     </div>
-    <div class="flex h-full">
+    <div class="flex h-full relative">
       <div class="flex-col">
         <div class="flex h-4/5 justify-center">
           <div
-            class="flex items-start secondary-bg p-3 rounded-full border-b-2 drop-shadow-2xl tertiary-bg"
+            class="flex items-start secondary-bg p-3 rounded-full drop-shadow-2xl tertiary-bg"
           >
             <img
               class="h-full"
@@ -35,30 +35,27 @@ const TITLE = "Binq";
             />
           </div>
         </div>
-        <div class="flex justify-evenly body-font mt-5 max-h-80">
+        <div class="flex justify-evenly body-font mt-5">
           <button class="mr-3 p-3 rounded-lg tertiary-bg font-bold underline">
             Soybean Oolong</button
           ><button class="flex-1 mr-3 rounded-lg tertiary-bg">Matcha</button
           ><button class="flex-1 tertiary-bg p-3 rounded-lg">Hoji Cha</button>
         </div>
       </div>
-      <article class="flex ml-3 mt-5">
-        <div
-          class="secondary-bg p-2 border-solid border-2 border-b-2 flex flex-col h-fit w-11/12 rounded-lg drop-shadow-2xl"
-        >
-          <div>
-            <h2 class="text-5xl body-font underline mb-3">Best Seller</h2>
-            <p class="body-font text-2xl">Soybean Oolong from the bean</p>
-          </div>
-          <div class="body-font text-4xl mt-7">
-            <h3 class="text-5xl body-font underline mb-3">Side Dishes</h3>
-            <p class="mt-2 text-2xl">Cream infused with Kinako</p>
-            <p class="mt-2 text-2xl">Natural sugar jelly</p>
-            <p class="mt-2 text-2xl">Handmade Kinako mochi</p>
-            <p class="mt-2 text-2xl">Flakey crunchy butter crisp</p>
-          </div>
-        </div>
-      </article>
+      <div
+        class="p-2 max-w-80 rounded-lg drop-shadow-2xl absolute top-10 -right-48 text-xl backdrop-blur-lg bg-darkorangebq bg-opacity-30 text-whitebq"
+      >
+        <h2 class="header-font font-semibold mb-2">Best Seller</h2>
+        <p class="body-font">Soybean Oolong from the bean</p>
+      </div>
+      <div
+        class="text-xl mt-7 p-2 max-w-64 rounded-lg drop-shadow-2xl absolute bottom-32 -right-48 backdrop-blur-lg bg-darkorangebq bg-opacity-30 text-whitebq"
+      >
+        <h2 class="mb-2 header-font font-semibold">Sides</h2>
+        <p class="mt-2 body-font">
+          Sweet jelly, Kinako cream cheese mochi and buttery crisp
+        </p>
+      </div>
     </div>
   </section>
 </template>
