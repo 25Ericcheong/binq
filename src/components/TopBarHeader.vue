@@ -1,16 +1,16 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div class="flex h-1/4 w-full">
-    <div class="pl-32 py-3 w-1/2">
+  <div class="flex h-1/4 w-full px-5 sm:px-32 py-3 justify-between">
+    <div class="w-5/12 flex justify-start">
       <button
-        class="py-2 px-4 rounded-lg body-font border-solid border-2 bg-orangebq text-whitebq text-xl"
+        class="py-2 px-4 rounded-lg body-font border-solid border-2 bg-dullorangebq text-whitebq text-xl"
       >
         +
       </button>
     </div>
-    <div class="rounded-full flex justify-end items-center w-1/2 pr-32">
-      <img class="rounded-full h-16" src="../assets/logo/binq.jpg" />
+    <div class="w-5/12 flex justify-end items-center">
+      <img class="h-10" src="../assets/logo/binq.jpg" />
     </div>
   </div>
 </template>
