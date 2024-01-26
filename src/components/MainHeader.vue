@@ -4,7 +4,7 @@ const TITLE = "Binq";
 
 <template>
   <section
-    class="flex max-h-screen pt-12 pb-10 px-24 bg-gradient-to-tr from-darkorangebq from-15% via-orangebq via-40% to-dullorangebq"
+    class="flex flex-col sm:flex-row max-h-screen pt-12 pb-10 px-24 bg-gradient-to-tr from-darkorangebq from-15% via-orangebq via-40% to-dullorangebq"
   >
     <div class="w-5/12">
       <div class="ml-20 text-6xl sm:text-3xl body-font pb-4">
