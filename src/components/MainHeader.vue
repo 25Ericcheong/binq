@@ -46,14 +46,16 @@ const TITLE = "Binq";
         </button>
       </div>
     </section>
-    <section class="sm:py-44 sm:pr-32 sm:pl-40 text-whitebq sm:w-1/3">
+    <section
+      class="sm:py-44 sm:pr-32 sm:pl-40 text-whitebq sm:w-1/3 flex flex-col justify-center"
+    >
       <div>
         <h2 class="text-6xl sm:text-3xl header-font font-bold">
           "What is <i>Binqsu</i>?
         </h2>
         <p class="body-font text-3xl sm:text-2xl mt-3">
-          <b>Bingsu </b>(빙수) or bingsoo is a milk-based Korean shaved ice
-          dessert. <b>Binqsu</b> however, is a variation with a Binq twist
+          <b>Bingsu </b>빙수 is a milk-based Korean shaved ice dessert.
+          <b>Binqsu</b> however, is a variation with a Binq twist
         </p>
       </div>
       <div class="mt-10">
@@ -64,21 +66,25 @@ const TITLE = "Binq";
       </div>
       <div>
         <div
-          class="p-2 rounded-lg drop-shadow-2xl text-xl backdrop-blur-lg bg-darkorangebq bg-opacity-55 text-whitebq flex justify-between mb-14 w-3/4"
+          class="p-2 rounded-lg drop-shadow-2xl text-xl backdrop-blur-lg bg-darkorangebq bg-opacity-55 text-whitebq flex justify-between mb-14 w-3/4 mt-2"
         >
           <p class="w-4/5">
-            Visiting us and experience Binq process firsthand where it is
+            Visiting us and experience the Binq process firsthand where it is
             freshly made to perfection!
           </p>
           <img class="w-1/5" src="../assets/pictures/bingsu-in-store.png" />
         </div>
-        <hr class="bg-whitebq" />
+        <div class="flex w-3/4 justify-center items-center">
+          <hr class="w-2/5" />
+          <p class="px-2 body-font text-3xl sm:text-2xl">OR</p>
+          <hr class="w-2/5" />
+        </div>
         <div
           class="p-2 rounded-lg drop-shadow-2xl text-xl backdrop-blur-lg bg-darkorangebq bg-opacity-55 text-whitebq flex mt-16 w-3/4"
         >
           <p class="w-4/5">
-            Watching this space and telling us what you think but beware as it
-            tastes as good as it looks
+            Watching this space and imagine what it could have been but beware
+            as it tastes as good as it looks
           </p>
           <img class="w-1/5" src="../assets/pictures/bingsu-in-store.png" />
         </div>
