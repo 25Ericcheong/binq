@@ -86,7 +86,7 @@ const TITLE = "Binq";
             Watching this space and imagine what it could have been but beware
             as it tastes as good as it looks
           </p>
-          <img class="w-1/5" src="../assets/pictures/bingsu-in-store.png" />
+          <img class="w-1/5" src="../assets/pictures/bingsu-instagram.png" />
         </div>
       </div>
     </section>
