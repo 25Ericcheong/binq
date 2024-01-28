@@ -7,7 +7,7 @@ const TITLE = "Binq";
     class="flex flex-col sm:flex-row sm:justify-between bg-gradient-to-tr from-darkorangebq from-15% via-orangebq via-40% to-dullorangebq overflow-x-hidden"
   >
     <section
-      class="sm:w-1/3 sm:py-44 sm:pr-40 sm:pl-32 flex flex-col justify-center"
+      class="sm:w-1/3 sm:py-44 sm:pr-40 sm:pl-32 flex flex-col justify-center items-center"
     >
       <div class="text-6xl sm:text-3xl body-font mb-10">
         <h2 class="text-whitebq pb-3">A <i>mountain</i> of delicious</h2>
@@ -26,7 +26,7 @@ const TITLE = "Binq";
       </div>
     </section>
     <section class="sm:w-2/5 flex flex-col sm:py-28">
-      <div class="m-10">
+      <div class="my-10">
         <div
           class="flex justify-center rounded-full drop-shadow-2xl tertiary-bg"
         >
