@@ -9,7 +9,7 @@ const TITLE = "Binq";
     <section
       class="sm:w-1/3 sm:py-44 sm:pr-40 sm:pl-32 flex flex-col justify-center items-center"
     >
-      <div class="text-6xl sm:text-3xl body-font mb-10">
+      <div class="text-3xl sm:text-6xl body-font mb-10">
         <h2 class="text-whitebq pb-3">A <i>mountain</i> of delicious</h2>
         <button
           class="ml-16 border-solid font-bold border-2 border-b-2 p-5 rounded-full text-whitebq"
@@ -19,7 +19,7 @@ const TITLE = "Binq";
       </div>
       <div v-for="n in 3">
         <h1
-          class="md:text-9xl sm:text-6xl header-font font-extrabold text-whitebq"
+          class="text-5xl sm:text-9xl header-font font-extrabold text-whitebq"
         >
           {{ TITLE }}
         </h1>
@@ -50,16 +50,16 @@ const TITLE = "Binq";
       class="sm:py-44 sm:pr-32 sm:pl-40 text-whitebq sm:w-1/3 flex flex-col justify-center"
     >
       <div>
-        <h2 class="text-6xl sm:text-3xl header-font font-bold">
+        <h2 class="text-3xl sm:text-6xl header-font font-bold">
           "What is <i>Binqsu</i>?
         </h2>
-        <p class="body-font text-3xl sm:text-2xl mt-3">
+        <p class="body-font text-2xl sm:text-3xl mt-3">
           <b>Bingsu </b>빙수 is a milk-based Korean shaved ice dessert.
           <b>Binqsu</b> however, is a variation with a Binq twist
         </p>
       </div>
       <div class="mt-10">
-        <h2 class="text-6xl sm:text-3xl header-font font-bold">
+        <h2 class="text-3xl sm:text-6xl header-font font-bold">
           "Bingsu with a Binq twist?
         </h2>
         <p class="body-font text-3xl sm:text-2xl mt-3">Find out more by</p>
