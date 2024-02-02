@@ -9,6 +9,11 @@ export default {
       dullorangebq: "#f59b3e",
       darkorangebq: "#d26624",
     },
+    extend: {
+      fontSize: {
+        "10xl": "11rem",
+      },
+    },
   },
   plugins: [],
 };

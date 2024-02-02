@@ -4,7 +4,7 @@ const TITLE = "Binq";
 
 <template>
   <section
-    class="flex flex-col sm:flex-row sm:justify-between bg-gradient-to-tr from-darkorangebq from-15% via-orangebq via-40% to-dullorangebq overflow-x-hidden"
+    class="flex flex-col sm:flex-row sm:justify-between bg-gradient-to-tr from-darkorangebq from-15% via-orangebq via-25% to-dullorangebq overflow-x-hidden"
   >
     <section
       class="sm:w-1/3 sm:py-28 sm:pr-40 sm:pl-32 flex flex-col justify-center items-center"
@@ -21,7 +21,7 @@ const TITLE = "Binq";
       </div>
       <div v-for="n in 3">
         <h1
-          class="text-5xl sm:text-9xl header-font font-extrabold text-whitebq"
+          class="text-5xl sm:text-10xl header-font font-extrabold text-whitebq"
         >
           {{ TITLE }}
         </h1>
