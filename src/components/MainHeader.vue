@@ -6,9 +6,11 @@ const TITLE = "Binq";
   <section
     class="flex flex-col lg:flex-row lg:justify-between bg-gradient-to-tr from-darkorangebq from-15% via-orangebq via-25% to-dullorangebq overflow-x-hidden"
   >
-    <section class="lg:w-1/3 flex flex-col justify-center items-center">
+    <section
+      class="my-64 lg:my-0 lg:w-1/3 flex flex-col justify-center items-center"
+    >
       <div
-        class="text-xl lg:text-2xl xl:text-3xl xxl:text-5xl body-font mb-10 flex flex-col items-center"
+        class="text-2xl lg:text-2xl xl:text-3xl xxl:text-5xl body-font mb-10 flex flex-col items-center"
       >
         <h2 class="text-whitebq pb-3">A <i>mountain</i> of deliciousness</h2>
         <button
@@ -19,13 +21,13 @@ const TITLE = "Binq";
       </div>
       <div v-for="n in 3">
         <h1
-          class="text-6xl xl:text-8xl xxl:text-10xl header-font font-extrabold text-whitebq"
+          class="text-7xl xl:text-8xl xxl:text-10xl header-font font-extrabold text-whitebq"
         >
           {{ TITLE }}
         </h1>
       </div>
     </section>
-    <section class="lg:w-2/5 flex flex-col">
+    <section class="mb-72 lg:mb-0 lg:w-2/5 flex flex-col">
       <div class="lg:-mt-32">
         <div
           class="flex justify-center rounded-b-full drop-shadow-2xl tertiary-bg"
