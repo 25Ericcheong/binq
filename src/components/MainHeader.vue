@@ -55,28 +55,28 @@ const TITLE = "Binq";
           <b>Binqsu</b> however, is a variation with a Binq twist
         </p>
       </div>
-      <div class="w-full lg:w-10/12 mt-16 lg:mt-4 xl:mt-10">
+      <div class="w-full lg:w-10/12 mt-32 lg:mt-4 xl:mt-10">
         <h2
           class="text-4xl lg:text-xl xl:text-2xl xxl:text-4xl header-font font-bold"
         >
           "Bingsu with a Binq twist?
         </h2>
         <p
-          class="body-font text-4xl lg:text-base xl:text-xl xxl:text-2xl mt-5 lg:mt-1 xl:mt-2 tracking-wide"
+          class="body-font text-2xl lg:text-base xl:text-xl xxl:text-2xl my-5 lg:mt-1 xl:mt-2 tracking-wide"
         >
-          Find out more by
+          Find out more!
         </p>
       </div>
       <div class="lg:w-10/12">
         <div
-          class="p-2 rounded-lg drop-shadow-2xl text-xl lg:text-sm xl:text-xl backdrop-blur-lg bg-darkorangebq bg-opacity-55 text-whitebq flex justify-between mb-5 xl:mb-14 mt-2 w-full xl:w-3/4"
+          class="p-4 lg:p-2 rounded-lg drop-shadow-2xl text-xl lg:text-sm xl:text-xl backdrop-blur-lg bg-darkorangebq bg-opacity-55 text-whitebq flex justify-between mb-14 lg:mb-5 xl:mb-14 mt-2 w-full xl:w-3/4"
         >
           <p class="w-full xl:w-4/5 tracking-wide">
-            Visiting us and experience the Binq process firsthand where it is
+            Visit us and experience the Binq process firsthand where it is
             freshly made to perfection!
           </p>
           <img
-            class="block lg:hidden xl:block xl:w-1/5"
+            class="block lg:hidden xl:block w-1/12 xl:w-1/5"
             src="../assets/pictures/header-bingsu-in-store.png"
           />
         </div>
@@ -86,14 +86,14 @@ const TITLE = "Binq";
           <hr class="w-2/5" />
         </div>
         <div
-          class="p-2 rounded-lg drop-shadow-2xl text-xl lg:text-sm xl:text-xl backdrop-blur-lg bg-darkorangebq bg-opacity-55 text-whitebq flex mt-5 xl:mt-14 w-full xl:w-3/4"
+          class="p-4 lg:p-2 rounded-lg drop-shadow-2xl text-xl lg:text-sm xl:text-xl backdrop-blur-lg bg-darkorangebq bg-opacity-55 text-whitebq flex mt-14 lg:mt-5 xl:mt-14 w-full xl:w-3/4"
         >
           <p class="w-full xl:w-4/5 tracking-wide">
-            Watching this space and imagine what it could have been but beware
-            as it tastes as good as it looks
+            Watch this space and imagine what it could have been but beware as
+            it tastes as good as it looks
           </p>
           <img
-            class="block lg:hidden xl:block xl:w-1/5"
+            class="block lg:hidden xl:block w-1/12 xl:w-1/5"
             src="../assets/pictures/header-bingsu.png"
           />
         </div>
