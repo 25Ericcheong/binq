@@ -1,4 +1,4 @@
-# binq
+# Binq Binq Binq 
 
 Frontend project for BINQ - a homemade, unique and tasty bingsu shop.
 
@@ -44,10 +44,4 @@ But it's still recommended to test the production build with `test:e2e` before d
 ```sh
 npm run build
 npm run test:e2e
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
 ```
