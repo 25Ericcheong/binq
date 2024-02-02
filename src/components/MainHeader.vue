@@ -40,32 +40,36 @@ const TITLE = "Binq";
       </div>
     </section>
     <section
-      class="text-whitebq lg:w-1/3 flex flex-col justify-center items-center"
+      class="text-whitebq mx-24 lg:mx-0 lg:w-1/3 flex flex-col justify-center items-center"
     >
       <div class="lg:w-10/12">
-        <h2 class="lg:text-xl xl:text-2xl xxl:text-4xl header-font font-bold">
+        <h2
+          class="text-4xl lg:text-xl xl:text-2xl xxl:text-4xl header-font font-bold"
+        >
           "What is <i>Binqsu</i>?
         </h2>
         <p
-          class="body-font lg:text-sm xl:text-xl xxl:text-2xl mt-1 xl:mt-3 tracking-wide"
+          class="body-font text-2xl lg:text-sm xl:text-xl xxl:text-2xl mt-5 lg:mt-1 xl:mt-3 tracking-wide"
         >
           <b>Bingsu </b>빙수 is a milk-based Korean shaved ice dessert.
           <b>Binqsu</b> however, is a variation with a Binq twist
         </p>
       </div>
-      <div class="lg:w-10/12 mt-4 xl:mt-10">
-        <h2 class="lg:text-xl xl:text-2xl xxl:text-4xl header-font font-bold">
+      <div class="w-full lg:w-10/12 mt-16 lg:mt-4 xl:mt-10">
+        <h2
+          class="text-4xl lg:text-xl xl:text-2xl xxl:text-4xl header-font font-bold"
+        >
           "Bingsu with a Binq twist?
         </h2>
         <p
-          class="body-font lg:text-base xl:text-xl xxl:text-2xl mt-1 xl:mt-2 tracking-wide"
+          class="body-font text-4xl lg:text-base xl:text-xl xxl:text-2xl mt-5 lg:mt-1 xl:mt-2 tracking-wide"
         >
           Find out more by
         </p>
       </div>
       <div class="lg:w-10/12">
         <div
-          class="p-2 rounded-lg drop-shadow-2xl lg:text-sm xl:text-xl backdrop-blur-lg bg-darkorangebq bg-opacity-55 text-whitebq flex justify-between mb-5 xl:mb-14 mt-2 w-full xl:w-3/4"
+          class="p-2 rounded-lg drop-shadow-2xl text-xl lg:text-sm xl:text-xl backdrop-blur-lg bg-darkorangebq bg-opacity-55 text-whitebq flex justify-between mb-5 xl:mb-14 mt-2 w-full xl:w-3/4"
         >
           <p class="w-full xl:w-4/5 tracking-wide">
             Visiting us and experience the Binq process firsthand where it is
@@ -82,7 +86,7 @@ const TITLE = "Binq";
           <hr class="w-2/5" />
         </div>
         <div
-          class="p-2 rounded-lg drop-shadow-2xl lg:text-sm xl:text-xl backdrop-blur-lg bg-darkorangebq bg-opacity-55 text-whitebq flex mt-5 xl:mt-14 w-full xl:w-3/4"
+          class="p-2 rounded-lg drop-shadow-2xl text-xl lg:text-sm xl:text-xl backdrop-blur-lg bg-darkorangebq bg-opacity-55 text-whitebq flex mt-5 xl:mt-14 w-full xl:w-3/4"
         >
           <p class="w-full xl:w-4/5 tracking-wide">
             Watching this space and imagine what it could have been but beware
