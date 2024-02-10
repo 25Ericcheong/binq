@@ -10,7 +10,7 @@
       </button>
     </div>
     <div class="w-5/12 flex justify-end items-center">
-      <img class="h-10" src="../assets/logo/binq.jpg" />
+      <img class="h-10" src="../../assets/logo/binq.jpg" />
     </div>
   </div>
 </template>
