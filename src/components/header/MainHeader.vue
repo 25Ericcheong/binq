@@ -34,7 +34,7 @@ const TITLE = "Binq";
         >
           <img
             class="h-full w-full drop-shadow-2xl"
-            src="../../assets/pictures/header-cheese-bingsu.png"
+            src="../../assets/images/header/cheesey-bingsu.png"
           />
         </div>
       </div>
@@ -77,7 +77,7 @@ const TITLE = "Binq";
           </p>
           <img
             class="block lg:hidden xl:block w-full sm:w-1/12 xl:w-1/5 mt-5 sm:mt-0"
-            src="../../assets/pictures/header-bingsu-in-store.png"
+            src="../../assets/images/header/bingsu-in-store.png"
           />
         </div>
         <div class="flex w-full xl:w-3/4 justify-center items-center">
@@ -94,7 +94,7 @@ const TITLE = "Binq";
           </p>
           <img
             class="block lg:hidden xl:block w-full sm:w-1/12 xl:w-1/5 mt-5 sm:mt-0"
-            src="../../assets/pictures/header-bingsu.png"
+            src="../../assets/images/header/bingsu.png"
           />
         </div>
       </div>
