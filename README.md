@@ -1,6 +1,6 @@
 # Binq Binq Binq 
 
-Frontend project for BINQ - a homemade, unique and tasty bingsu shop.
+Frontend project for BINQ - a homemade, unique and tasty binqsu shop.
 
 ## Customize configuration
 
