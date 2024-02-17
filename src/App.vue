@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import LandingPageHeader from "./components/header/LandingPageHeader.vue";
+import Products from "./components/Products.vue";
 import TopBar from "./components/TopBar.vue";
 import "./output.css";
 </script>
@@ -9,7 +10,7 @@ import "./output.css";
     <TopBar />
     <LandingPageHeader />
   </div>
-  <div></div>
+  <div><Products /></div>
 </template>
 
 <style scoped></style>
