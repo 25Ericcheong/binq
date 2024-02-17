@@ -9,6 +9,7 @@ import "./output.css";
     <TopBar />
     <LandingPageHeader />
   </div>
+  <div></div>
 </template>
 
 <style scoped></style>

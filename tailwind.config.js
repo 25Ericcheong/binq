@@ -23,7 +23,7 @@ export default {
       // => @media (min-width: 1320px) { ... }
 
       xxl: "1900px",
-      // => @media (min-width: 2050px) { ... }
+      // => @media (min-width: 1900px) { ... }
     },
     extend: {
       fontSize: {
