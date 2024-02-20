@@ -73,7 +73,7 @@ const products = ref<Product[]>([
   <section></section>
   <section>
     <div v-for="product in products">
-      <img src="{{" product.imagePath }} />
+      <img :src="product.imagePath" />
       <h2>{{ product.name }}</h2>
       <div>
         <p v-for="side in product.sides">{{ side }}</p>
