@@ -8,7 +8,7 @@ enum Group {
 
 type Product = {
   name: string;
-  imagePath: string;
+  image: string;
   sides: string[];
   group: Group;
 };
@@ -16,29 +16,25 @@ type Product = {
 const products = ref<Product[]>([
   {
     name: "Roasted Soybean Oolong",
-    imagePath:
-      "../assets/images/products/bingsu-set/roasted-soybean-oolong-removebg-preview.png",
+    image: "roasted-soybean-oolong-removebg-preview",
     sides: ["Brown Sugar Jelly", "Soybean-Coated Mochi Cube", "Butter Crisp"],
     group: Group.Popular,
   },
   {
     name: "White Peach Oolong",
-    imagePath:
-      "../assets/images/products/bingsu-set/white-peach-oolong-removebg-preview.png",
+    image: "white-peach-oolong-removebg-preview",
     sides: ["Brown Sugar Jelly", "Peach Popping Boba", "Taro Ball"],
     group: Group.Popular,
   },
   {
     name: "The Dark Knight",
-    imagePath:
-      "../assets/images/products/bingsu-set/the-dark-knight-removebg-preview.png",
+    image: "the-dark-knight-removebg-preview",
     sides: ["White Sugar Jelly", "Milo Coated Mochi Cube", "Butter Crisp"],
     group: Group.All,
   },
   {
     name: "Matcha",
-    imagePath:
-      "../assets/images/products/bingsu-set/matcha-removebg-preview.png",
+    image: "matcha-removebg-preview",
     sides: [
       "Brown Sugar Jelly",
       "Soybean-Coated Mochi Cube",
@@ -49,15 +45,13 @@ const products = ref<Product[]>([
   },
   {
     name: "Kumquat Jasmine",
-    imagePath:
-      "../assets/images/products/bingsu-set/kumquat-jasmine-removebg-preview.png",
+    image: "kumquat-jasmine-removebg-preview",
     sides: ["Passionfruit Popping Boba", "Nata De Coco", "Aiyu Jelly"],
     group: Group.All,
   },
   {
     name: "Hoji Cha Cha",
-    imagePath:
-      "../assets/images/products/bingsu-set/hojicha-cha-removebg-preview.png",
+    image: "hojicha-cha-removebg-preview",
     sides: [
       "Brown Sugar Jelly",
       "Soybean-Coated Mochi Cube",
@@ -67,13 +61,20 @@ const products = ref<Product[]>([
     group: Group.All,
   },
 ]);
+
+function getImageUrl(name: string) {
+  return new URL(
+    `/src/assets/images/products/bingsu-set/${name}.png`,
+    import.meta.url
+  ).href;
+}
 </script>
 
 <template>
   <section></section>
   <section>
     <div v-for="product in products">
-      <img :src="product.imagePath" />
+      <img :src="getImageUrl(product.image)" />
       <h2>{{ product.name }}</h2>
       <div>
         <p v-for="side in product.sides">{{ side }}</p>
