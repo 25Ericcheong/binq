@@ -95,6 +95,36 @@ const products = ref<Product[]>([
     toppings: ["Passionfruit Popping Boba", "Nata De Coco", "Aiyu Jelly"],
     groupType: Group.BingsuSet,
   },
+  {
+    name: "Taro Ball",
+    image: "taro-ball-removebg-preview",
+    groupType: Group.Topping,
+  },
+  {
+    name: "Soybean Coated Mochi Cube",
+    image: "soybean-coated-mochi-cube-removebg-preview",
+    groupType: Group.Topping,
+  },
+  {
+    name: "Lychee",
+    image: "lychee-removebg-preview",
+    groupType: Group.Topping,
+  },
+  {
+    name: "Mango",
+    image: "mango-removebg-preview",
+    groupType: Group.Topping,
+  },
+  {
+    name: "Peech Popping Boba",
+    image: "peech-popping-boba-removebg-preview",
+    groupType: Group.Topping,
+  },
+  {
+    name: "Red Bean",
+    image: "red-bean-removebg-preview",
+    groupType: Group.Topping,
+  },
 ]);
 
 function getImageUrl(name: string, groupType: Group) {
