@@ -116,8 +116,8 @@ const products = ref<Product[]>([
     groupType: Group.Topping,
   },
   {
-    name: "Peech Popping Boba",
-    image: "peech-popping-boba-removebg-preview",
+    name: "Peach Popping Boba",
+    image: "peach-popping-boba-removebg-preview",
     groupType: Group.Topping,
   },
   {
@@ -144,14 +144,22 @@ function getImageUrl(name: string, groupType: Group) {
 </script>
 
 <template>
-  <section></section>
-  <section>
-    <div v-for="product in products">
-      <img :src="getImageUrl(product.image, product.groupType)" />
-      <h2>{{ product.name }}</h2>
-      <div v-if="product.toppings !== undefined">
-        <p v-for="topping in product.toppings">{{ topping }}</p>
+  <div section class="flex">
+    <section class="flex">
+      <h1
+        class="text-7xl xl:text-8xl xxl:text-10xl header-font font-extrabold text-creamwhitebq"
+      >
+        Discover the taste
+      </h1>
+    </section>
+    <section class="flex items-center">
+      <div v-for="product in products">
+        <img :src="getImageUrl(product.image, product.groupType)" />
+        <h2>{{ product.name }}</h2>
+        <div v-if="product.toppings !== undefined">
+          <p v-for="topping in product.toppings">{{ topping }}</p>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </div>
 </template>

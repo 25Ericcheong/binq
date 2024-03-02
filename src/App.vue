@@ -6,11 +6,13 @@ import "./output.css";
 </script>
 
 <template>
-  <div>
-    <TopBar />
-    <LandingPageHeader />
+  <div class="bg-creamwhitebq">
+    <div>
+      <TopBar />
+      <LandingPageHeader />
+    </div>
+    <div><Products /></div>
   </div>
-  <div><Products /></div>
 </template>
 
 <style scoped></style>
