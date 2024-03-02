@@ -5,7 +5,6 @@ export default {
     colors: {
       orangebq: "#f05b1b",
       creamwhitebq: "#fff5ea",
-      creambq: "#f8e182",
       dullorangebq: "#f59b3e",
       darkorangebq: "#d26624",
     },

@@ -4,7 +4,7 @@ import MainHeader from "./MainHeader.vue";
 
 <template>
   <header
-    class="py-20 lg:py-0 flex flex-col lg:flex-row lg:justify-between bg-gradient-to-tr from-darkorangebq from-15% via-orangebq via-25% to-dullorangebq overflow-x-hidden"
+    class="pb-20 lg:pb-0 flex flex-col lg:flex-row lg:justify-between bg-gradient-to-tr from-darkorangebq from-15% via-orangebq via-25% to-dullorangebq overflow-x-hidden"
   >
     <MainHeader />
   </header>

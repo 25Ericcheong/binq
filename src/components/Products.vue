@@ -144,13 +144,16 @@ function getImageUrl(name: string, groupType: Group) {
 </script>
 
 <template>
-  <div section class="flex">
-    <section class="flex">
+  <div
+    class="mx-10 my-72 bg-gradient-to-tr from-darkorangebq from-15% via-orangebq via-25% to-dullorangebq rounded-lg"
+  >
+    <section class="flex rounded-tl-lg">
       <h1
-        class="text-7xl xl:text-8xl xxl:text-10xl header-font font-extrabold text-creamwhitebq"
+        class="text-7xl xl:text-8xl xxl:text-10xl header-font font-extrabold text-creamwhitebq bg-dullorangebq pl-32 py-28 pr-56 rounded-r-full"
       >
-        Discover the taste
+        Discover Binq
       </h1>
+      <div></div>
     </section>
     <section class="flex items-center">
       <div v-for="product in products">
