@@ -11,7 +11,7 @@ const TITLE = "Binq";
     >
       <h2 class="text-creamwhitebq pb-3">A <i>mountain</i> of deliciousness</h2>
       <button
-        class="border-solid font-bold border-2 border-b-2 p-5 rounded-full text-creamwhitebq"
+        class="border-solid font-bold border-2 p-5 rounded-full text-creamwhitebq"
       >
         Binqsu
       </button>

@@ -145,15 +145,23 @@ function getImageUrl(name: string, groupType: Group) {
 
 <template>
   <div
-    class="mx-10 my-72 bg-gradient-to-tr from-darkorangebq from-15% via-orangebq via-25% to-dullorangebq rounded-lg"
+    class="mx-10 my-72 bg-gradient-to-tl from-darkorangebq from-30% via-orangebq via-40% to-dullorangebq rounded-lg"
   >
     <section class="flex rounded-tl-lg">
-      <h1
-        class="text-7xl xl:text-8xl xxl:text-10xl header-font font-extrabold text-creamwhitebq bg-dullorangebq pl-32 py-28 pr-56 rounded-r-full"
+      <div
+        class="text-creamwhitebq border-creamwhitebq border-2 ml-11 mt-11 pl-16 pr-24 py-28 rounded-r-full"
       >
-        Discover Binq
-      </h1>
-      <div></div>
+        <h1
+          class="text-7xl xl:text-8xl xxl:text-10xl header-font font-extrabold pb-3"
+        >
+          Discover Binq
+        </h1>
+        <h2
+          class="text-2xl lg:text-2xl xl:text-3xl xxl:text-5xl body-font mb-10 text-creamwhitebq"
+        >
+          With an assortment flavors available, the combination is endless
+        </h2>
+      </div>
     </section>
     <section class="flex items-center">
       <div v-for="product in products">
