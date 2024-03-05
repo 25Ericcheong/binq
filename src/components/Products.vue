@@ -14,7 +14,7 @@ type Product = {
   groupType: Group;
 };
 
-const products = ref<Product[]>([
+const bingsu = ref<Product[]>([
   {
     name: "Roasted Soybean Oolong",
     image: "roasted-soybean-oolong-bingsu-removebg-preview",
@@ -45,6 +45,9 @@ const products = ref<Product[]>([
     image: "dark-knight-bingsu-removebg-preview",
     groupType: Group.Bingsu,
   },
+]);
+
+const bingsuSet = ref<Product[]>([
   {
     name: "Roasted Soybean Oolong",
     image: "roasted-soybean-oolong-removebg-preview",
@@ -95,6 +98,9 @@ const products = ref<Product[]>([
     toppings: ["Passionfruit Popping Boba", "Nata De Coco", "Aiyu Jelly"],
     groupType: Group.BingsuSet,
   },
+]);
+
+const toppings = ref<Product[]>([
   {
     name: "Taro Ball",
     image: "taro-ball-removebg-preview",
@@ -127,6 +133,8 @@ const products = ref<Product[]>([
   },
 ]);
 
+const toShowIndex = ref<number>(0);
+
 function getImageUrl(name: string, groupType: Group) {
   let productInnerDir = "bingsu-set";
 
@@ -141,16 +149,21 @@ function getImageUrl(name: string, groupType: Group) {
     import.meta.url
   ).href;
 }
+
+function getImageProductPath(
+  products: Product[],
+  currentIndexToShow: number
+): string {
+  return products[currentIndexToShow].image;
+}
 </script>
 
 <template>
   <div
-    class="mx-10 my-72 bg-gradient-to-tl from-darkorangebq from-30% via-orangebq via-40% to-dullorangebq rounded-lg"
+    class="my-72 bg-gradient-to-tl from-darkorangebq from-30% via-orangebq via-40% to-dullorangebq rounded-lg"
   >
-    <section class="flex rounded-tl-lg">
-      <div
-        class="text-creamwhitebq border-creamwhitebq border-2 ml-11 mt-11 pl-16 pr-24 py-28 rounded-r-full"
-      >
+    <section class="flex rounded-tl-lg mx-20">
+      <div class="text-creamwhitebq mt-11 pl-16 pr-24 py-28 rounded-r-full">
         <h1
           class="text-7xl xl:text-8xl xxl:text-10xl header-font font-extrabold pb-3"
         >
@@ -159,11 +172,19 @@ function getImageUrl(name: string, groupType: Group) {
         <h2
           class="text-2xl lg:text-2xl xl:text-3xl xxl:text-5xl body-font mb-10 text-creamwhitebq"
         >
-          With an assortment flavors available, the combination is endless
+          With an assortment of flavors available, the combination is endless
         </h2>
       </div>
     </section>
-    <section class="flex items-center">
+    <section class="flex">
+      <div class="w-1/5 flex flex-col">
+        <h2>Heavenly bingsu</h2>
+        <img src="{{" toppings[toShowIndex].image }} />
+      </div>
+      <div></div>
+      <div></div>
+    </section>
+    <!-- <section class="flex items-center">
       <div v-for="product in products">
         <img :src="getImageUrl(product.image, product.groupType)" />
         <h2>{{ product.name }}</h2>
@@ -171,6 +192,6 @@ function getImageUrl(name: string, groupType: Group) {
           <p v-for="topping in product.toppings">{{ topping }}</p>
         </div>
       </div>
-    </section>
+    </section> -->
   </div>
 </template>
