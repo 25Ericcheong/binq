@@ -9,48 +9,50 @@ enum Group {
 
 type Product = {
   name: string;
-  image: string;
+  imageName: string;
   toppings?: string[];
   groupType: Group;
 };
 
-const bingsu = ref<Product[]>([
+const toShowIndex = ref<number>(0);
+
+const bingsus = ref<Product[]>([
   {
     name: "Roasted Soybean Oolong",
-    image: "roasted-soybean-oolong-bingsu-removebg-preview",
+    imageName: "roasted-soybean-oolong-bingsu-removebg-preview",
     groupType: Group.Bingsu,
   },
   {
     name: "White Peach",
-    image: "white-peach-bingsu-removebg-preview",
+    imageName: "white-peach-bingsu-removebg-preview",
     groupType: Group.Bingsu,
   },
   {
     name: "Matcha",
-    image: "matcha-bingsu-removebg-preview",
+    imageName: "matcha-bingsu-removebg-preview",
     groupType: Group.Bingsu,
   },
   {
     name: "Hojicha",
-    image: "hojicha-bingsu-removebg-preview",
+    imageName: "hojicha-bingsu-removebg-preview",
     groupType: Group.Bingsu,
   },
   {
     name: "Kumquat Jasmine",
-    image: "kumquat-jasmine-bingsu-removebg-preview",
+    imageName: "kumquat-jasmine-bingsu-removebg-preview",
     groupType: Group.Bingsu,
   },
   {
     name: "Dark Knight",
-    image: "dark-knight-bingsu-removebg-preview",
+    imageName: "dark-knight-bingsu-removebg-preview",
     groupType: Group.Bingsu,
   },
 ]);
 
-const bingsuSet = ref<Product[]>([
+const bingsuSets = ref<Product[]>([
   {
     name: "Roasted Soybean Oolong",
-    image: "roasted-soybean-oolong-removebg-preview",
+    imageName: "roasted-soybean-oolong-removebg-preview",
     toppings: [
       "Brown Sugar Jelly",
       "Soybean-Coated Mochi Cube",
@@ -60,7 +62,7 @@ const bingsuSet = ref<Product[]>([
   },
   {
     name: "Matcha",
-    image: "matcha-removebg-preview",
+    imageName: "matcha-removebg-preview",
     toppings: [
       "Brown Sugar Jelly",
       "Soybean-Coated Mochi Cube",
@@ -71,7 +73,7 @@ const bingsuSet = ref<Product[]>([
   },
   {
     name: "Hoji Cha Cha",
-    image: "hojicha-cha-removebg-preview",
+    imageName: "hojicha-cha-removebg-preview",
     toppings: [
       "Brown Sugar Jelly",
       "Soybean-Coated Mochi Cube",
@@ -82,19 +84,19 @@ const bingsuSet = ref<Product[]>([
   },
   {
     name: "White Peach Oolong",
-    image: "white-peach-oolong-removebg-preview",
+    imageName: "white-peach-oolong-removebg-preview",
     toppings: ["Brown Sugar Jelly", "Peach Popping Boba", "Taro Ball"],
     groupType: Group.BingsuSet,
   },
   {
     name: "The Dark Knight",
-    image: "the-dark-knight-removebg-preview",
+    imageName: "the-dark-knight-removebg-preview",
     toppings: ["White Sugar Jelly", "Milo Coated Mochi Cube", "Butter Crisp"],
     groupType: Group.BingsuSet,
   },
   {
     name: "Kumquat Jasmine",
-    image: "kumquat-jasmine-removebg-preview",
+    imageName: "kumquat-jasmine-removebg-preview",
     toppings: ["Passionfruit Popping Boba", "Nata De Coco", "Aiyu Jelly"],
     groupType: Group.BingsuSet,
   },
@@ -103,39 +105,37 @@ const bingsuSet = ref<Product[]>([
 const toppings = ref<Product[]>([
   {
     name: "Taro Ball",
-    image: "taro-ball-removebg-preview",
+    imageName: "taro-ball-removebg-preview",
     groupType: Group.Topping,
   },
   {
     name: "Soybean Coated Mochi Cube",
-    image: "soybean-coated-mochi-cube-removebg-preview",
+    imageName: "soybean-coated-mochi-cube-removebg-preview",
     groupType: Group.Topping,
   },
   {
     name: "Lychee",
-    image: "lychee-removebg-preview",
+    imageName: "lychee-removebg-preview",
     groupType: Group.Topping,
   },
   {
     name: "Mango",
-    image: "mango-removebg-preview",
+    imageName: "mango-removebg-preview",
     groupType: Group.Topping,
   },
   {
     name: "Peach Popping Boba",
-    image: "peach-popping-boba-removebg-preview",
+    imageName: "peach-popping-boba-removebg-preview",
     groupType: Group.Topping,
   },
   {
     name: "Red Bean",
-    image: "red-bean-removebg-preview",
+    imageName: "red-bean-removebg-preview",
     groupType: Group.Topping,
   },
 ]);
 
-const toShowIndex = ref<number>(0);
-
-function getImageUrl(name: string, groupType: Group) {
+function getImageUrl(pathSubset: string, groupType: Group) {
   let productInnerDir = "bingsu-set";
 
   if (groupType === Group.Bingsu) {
@@ -145,16 +145,17 @@ function getImageUrl(name: string, groupType: Group) {
   }
 
   return new URL(
-    `/src/assets/images/products/${productInnerDir}/${name}.png`,
+    `/src/assets/images/products/${productInnerDir}/${pathSubset}.png`,
     import.meta.url
   ).href;
 }
 
 function getImageProductPath(
-  products: Product[],
-  currentIndexToShow: number
+  indexItemToShow: number,
+  products: Product[]
 ): string {
-  return products[currentIndexToShow].image;
+  const product: Product = products[indexItemToShow];
+  return getImageUrl(product.imageName, product.groupType);
 }
 </script>
 
@@ -179,7 +180,7 @@ function getImageProductPath(
     <section class="flex">
       <div class="w-1/5 flex flex-col">
         <h2>Heavenly bingsu</h2>
-        <img src="{{" toppings[toShowIndex].image }} />
+        <!-- <img :src="getImageProductPath(toShowIndex, bingsus)" /> -->
       </div>
       <div></div>
       <div></div>
