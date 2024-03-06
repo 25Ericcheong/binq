@@ -180,7 +180,7 @@ function getImageProductPath(
     <section class="flex">
       <div class="w-1/5 flex flex-col">
         <h2>Heavenly bingsu</h2>
-        <!-- <img :src="getImageProductPath(toShowIndex, bingsus)" /> -->
+        <img :src="getImageProductPath(toShowIndex, bingsus)" />
       </div>
       <div></div>
       <div></div>
