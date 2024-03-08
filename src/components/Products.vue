@@ -14,7 +14,7 @@ type Product = {
   groupType: Group;
 };
 
-const toShowIndex = ref<number>(0);
+const showProductIndex = ref<number>(0);
 
 const bingsus = ref<Product[]>([
   {
@@ -163,8 +163,8 @@ function getImageProductPath(
   <div
     class="my-72 bg-gradient-to-tl from-darkorangebq from-30% via-orangebq via-40% to-dullorangebq rounded-lg"
   >
-    <section class="flex rounded-tl-lg mx-20">
-      <div class="text-creamwhitebq mt-11 pl-16 pr-24 py-28 rounded-r-full">
+    <section class="flex rounded-tl-lg mx-12">
+      <div class="text-creamwhitebq mt-11 pr-24 py-28 rounded-r-full">
         <h1
           class="text-7xl xl:text-8xl xxl:text-10xl header-font font-extrabold pb-3"
         >
@@ -177,10 +177,25 @@ function getImageProductPath(
         </h2>
       </div>
     </section>
-    <section class="flex">
+    <section class="flex mx-12">
       <div class="w-1/5 flex flex-col">
-        <h2>Heavenly bingsu</h2>
-        <img :src="getImageProductPath(toShowIndex, bingsus)" />
+        <h2
+          class="text-creamwhitebq text-2xl lg:text-2xl xl:text-3xl xxl:text-5xl body-font mb-10"
+        >
+          As fresh and light as heaven
+        </h2>
+        <div>
+          <img :src="getImageProductPath(showProductIndex, toppings)" />
+        </div>
+      </div>
+      <div class="w-1/2 flex mx-28">
+        <div class="flex flex-col items-center">
+          <img :src="getImageProductPath(showProductIndex, bingsuSets)" />
+          <p>{{ bingsus[showProductIndex].name }}</p>
+        </div>
+      </div>
+      <div class="w- flex flex-col">
+        <img :src="getImageProductPath(showProductIndex, bingsus)" />
       </div>
       <div></div>
       <div></div>
