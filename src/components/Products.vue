@@ -14,6 +14,8 @@ type Product = {
   groupType: Group;
 };
 
+const FIRST_PRODUCT_INDEX = 0;
+const LAST_PRODUCT_INDEX = 5;
 const showProductIndex = ref<number>(0);
 
 const bingsus = ref<Product[]>([
@@ -177,7 +179,7 @@ function getImageProductPath(
     </section>
     <section class="flex justify-between pt-10">
       <div
-        class="flex flex-col w-1/2 mr-10 tertiary-bg py-40 pr-10 rounded-r-full drop-shadow-2xl overflow-hidden border-solid border-creamwhitebq border-2 text-wrap"
+        class="flex flex-col w-1/2 mr-10 tertiary-bg py-40 pr-10 rounded-r-full drop-shadow-2xl overflow-hidden border-solid border-creamwhitebq border-2"
       >
         <h2
           class="text-5xl xl:text-6xl xxl:text-8xl header-font font-extrabold mb-14 pl-12 py-3 text-creamwhitebq bg-orangebq"
@@ -192,28 +194,40 @@ function getImageProductPath(
       <div
         class="text-creamwhitebq flex flex-col items-center justify-center text-2xl lg:text-2xl xl:text-3xl xxl:text-5xl body-font"
       >
-        <button>Next</button>
+        <button
+          :disabled="showProductIndex === LAST_PRODUCT_INDEX"
+          @click="showProductIndex++"
+          class="p-5 mb-5 rounded-full border-solid border-creamwhitebq border-2"
+        >
+          Next
+        </button>
         <p>{{ showProductIndex + 1 }} / {{ bingsus.length }}</p>
-        <button>Back</button>
+        <button
+          :disabled="showProductIndex === FIRST_PRODUCT_INDEX"
+          @click="showProductIndex--"
+          class="p-5 mt-5 rounded-full border-solid border-creamwhitebq border-2"
+        >
+          Back
+        </button>
       </div>
-      <div class="w- flex flex-col w-1/3 mr-12">
+      <div class="w- flex flex-col w-1/3 mr-12 self-center">
         <div class="flex flex-col pb-5 justify-center">
           <h2
-            class="text-creamwhitebq text-2xl lg:text-2xl xl:text-3xl xxl:text-5xl body-font mb-10"
+            class="text-creamwhitebq text-2xl lg:text-2xl xl:text-3xl xxl:text-5xl body-font mb-10 text-center"
           >
             Fresh and light as heaven
           </h2>
 
           <div class="flex justify-center">
             <img
-              class="drop-shadow-2xl w-3/4 border-solid border-creamwhitebq border-2 rounded-t-full p-10"
+              class="drop-shadow-2xl w-2/3 border-solid border-creamwhitebq border-2 rounded-t-full p-10"
               :src="getImageProductPath(showProductIndex, toppings)"
             />
           </div>
         </div>
         <div class="flex justify-center">
           <img
-            class="drop-shadow-2xl border-solid border-creamwhitebq border-2 rounded-b-full p-24"
+            class="drop-shadow-2xl border-solid border-creamwhitebq border-2 rounded-b-full p-20"
             :src="getImageProductPath(showProductIndex, bingsus)"
           />
         </div>
