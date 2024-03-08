@@ -160,11 +160,9 @@ function getImageProductPath(
 </script>
 
 <template>
-  <div
-    class="my-72 bg-gradient-to-tl from-darkorangebq from-30% via-orangebq via-40% to-dullorangebq rounded-lg"
-  >
+  <div class="my-72 bg-orangebq rounded-lg py-28">
     <section class="flex rounded-tl-lg mx-12">
-      <div class="text-creamwhitebq mt-11 pr-24 py-28 rounded-r-full">
+      <div class="text-creamwhitebq pr-24">
         <h1
           class="text-7xl xl:text-8xl xxl:text-10xl header-font font-extrabold pb-3"
         >
@@ -173,41 +171,53 @@ function getImageProductPath(
         <h2
           class="text-2xl lg:text-2xl xl:text-3xl xxl:text-5xl body-font mb-10 text-creamwhitebq"
         >
-          With an assortment of flavors available, the combination is endless
+          With an assortment of flavors available, the combination is limitless
         </h2>
       </div>
     </section>
-    <section class="flex mx-12">
-      <div class="w-1/5 flex flex-col">
+    <section class="flex justify-between pt-10">
+      <div
+        class="flex flex-col w-1/2 mr-10 tertiary-bg py-40 pr-10 rounded-r-full drop-shadow-2xl overflow-hidden border-solid border-creamwhitebq border-2 text-wrap"
+      >
         <h2
-          class="text-creamwhitebq text-2xl lg:text-2xl xl:text-3xl xxl:text-5xl body-font mb-10"
+          class="text-5xl xl:text-6xl xxl:text-8xl header-font font-extrabold mb-14 pl-12 py-3 text-creamwhitebq bg-orangebq"
         >
-          As fresh and light as heaven
+          {{ bingsus[showProductIndex].name }}
         </h2>
-        <div>
-          <img :src="getImageProductPath(showProductIndex, toppings)" />
+        <img
+          class="drop-shadow-2xl w-full -m-10"
+          :src="getImageProductPath(showProductIndex, bingsuSets)"
+        />
+      </div>
+      <div class="text-creamwhitebq flex items-center">
+        <p
+          class="text-2xl lg:text-2xl xl:text-3xl xxl:text-5xl body-font mb-10 text-creamwhitebq"
+        >
+          {{ showProductIndex + 1 }} / {{ bingsus.length }}
+        </p>
+      </div>
+      <div class="w- flex flex-col w-1/3 mr-12">
+        <div class="flex flex-col pb-5 justify-center">
+          <h2
+            class="text-creamwhitebq text-2xl lg:text-2xl xl:text-3xl xxl:text-5xl body-font mb-10"
+          >
+            Fresh and light as heaven
+          </h2>
+
+          <div class="flex justify-center">
+            <img
+              class="drop-shadow-2xl w-3/4 border-solid border-creamwhitebq border-2 rounded-t-full p-10"
+              :src="getImageProductPath(showProductIndex, toppings)"
+            />
+          </div>
+        </div>
+        <div class="flex justify-center">
+          <img
+            class="drop-shadow-2xl border-solid border-creamwhitebq border-2 rounded-b-full p-24"
+            :src="getImageProductPath(showProductIndex, bingsus)"
+          />
         </div>
       </div>
-      <div class="w-1/2 flex mx-28">
-        <div class="flex flex-col items-center">
-          <img :src="getImageProductPath(showProductIndex, bingsuSets)" />
-          <p>{{ bingsus[showProductIndex].name }}</p>
-        </div>
-      </div>
-      <div class="w- flex flex-col">
-        <img :src="getImageProductPath(showProductIndex, bingsus)" />
-      </div>
-      <div></div>
-      <div></div>
     </section>
-    <!-- <section class="flex items-center">
-      <div v-for="product in products">
-        <img :src="getImageUrl(product.image, product.groupType)" />
-        <h2>{{ product.name }}</h2>
-        <div v-if="product.toppings !== undefined">
-          <p v-for="topping in product.toppings">{{ topping }}</p>
-        </div>
-      </div>
-    </section> -->
   </div>
 </template>
