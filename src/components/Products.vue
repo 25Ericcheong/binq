@@ -195,6 +195,7 @@ function getImageProductPath(
         class="text-creamwhitebq flex flex-col items-center justify-center text-2xl lg:text-2xl xl:text-3xl xxl:text-5xl body-font"
       >
         <button
+          :class="{ 'disable-button': showProductIndex === LAST_PRODUCT_INDEX }"
           :disabled="showProductIndex === LAST_PRODUCT_INDEX"
           @click="showProductIndex++"
           class="p-5 mb-5 rounded-full border-solid border-creamwhitebq border-2"
@@ -203,6 +204,9 @@ function getImageProductPath(
         </button>
         <p>{{ showProductIndex + 1 }} / {{ bingsus.length }}</p>
         <button
+          :class="{
+            'disable-button': showProductIndex === FIRST_PRODUCT_INDEX,
+          }"
           :disabled="showProductIndex === FIRST_PRODUCT_INDEX"
           @click="showProductIndex--"
           class="p-5 mt-5 rounded-full border-solid border-creamwhitebq border-2"
@@ -235,3 +239,9 @@ function getImageProductPath(
     </section>
   </div>
 </template>
+
+<style scoped>
+.disable-button {
+  opacity: 0.33;
+}
+</style>
