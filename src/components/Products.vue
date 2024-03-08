@@ -182,19 +182,19 @@ function getImageProductPath(
         <h2
           class="text-5xl xl:text-6xl xxl:text-8xl header-font font-extrabold mb-14 pl-12 py-3 text-creamwhitebq bg-orangebq"
         >
-          {{ bingsus[showProductIndex].name }}
+          {{ bingsuSets[showProductIndex].name }}
         </h2>
         <img
           class="drop-shadow-2xl w-full -m-10"
           :src="getImageProductPath(showProductIndex, bingsuSets)"
         />
       </div>
-      <div class="text-creamwhitebq flex items-center">
-        <p
-          class="text-2xl lg:text-2xl xl:text-3xl xxl:text-5xl body-font mb-10 text-creamwhitebq"
-        >
-          {{ showProductIndex + 1 }} / {{ bingsus.length }}
-        </p>
+      <div
+        class="text-creamwhitebq flex flex-col items-center justify-center text-2xl lg:text-2xl xl:text-3xl xxl:text-5xl body-font"
+      >
+        <button>Next</button>
+        <p>{{ showProductIndex + 1 }} / {{ bingsus.length }}</p>
+        <button>Back</button>
       </div>
       <div class="w- flex flex-col w-1/3 mr-12">
         <div class="flex flex-col pb-5 justify-center">
