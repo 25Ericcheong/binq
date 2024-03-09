@@ -153,10 +153,10 @@ function getImageUrl(pathSubset: string, groupType: Group) {
 }
 
 function getImageProductPath(
-  indexItemToShow: number,
+  productIndex: number,
   products: Product[]
 ): string {
-  const product: Product = products[indexItemToShow];
+  const product: Product = products[productIndex];
   return getImageUrl(product.imageName, product.groupType);
 }
 </script>
@@ -177,73 +177,33 @@ function getImageProductPath(
         </h2>
       </div>
     </section>
-    <section class="flex justify-between pt-10 h-screen">
+    <section class="flex items-center">
       <div
-        class="flex flex-col w-1/2 h-full bg-creamyellowbq py-40 pr-10 rounded-r-full drop-shadow-2xl static overflow-hidden"
+        class="flex flex-row-reverse bg-creamyellowbq py-20 rounded-r-full drop-shadow-2xl overflow-x-scroll w-1/2 mt-20"
       >
         <img
-          v-if="showProductIndex > 0"
-          class="drop-shadow-2xl w-2/3 absolute -top-64 -left-64 opacity-50"
-          :src="getImageProductPath(showProductIndex - 1, bingsuSets)"
-        />
-        <img
-          class="drop-shadow-2xl w-2/3 absolute bottom-1/4 right-0"
-          :src="getImageProductPath(showProductIndex, bingsuSets)"
-        />
-        <img
-          v-if="showProductIndex < 5"
-          class="drop-shadow-2xl w-2/3 absolute -bottom-20 -left-64 opacity-50"
-          :src="getImageProductPath(showProductIndex + 1, bingsuSets)"
+          v-for="bingsuSet in bingsuSets"
+          class="drop-shadow-2xl pr-20 w-full"
+          :src="getImageUrl(bingsuSet.imageName, bingsuSet.groupType)"
         />
       </div>
       <div
-        class="w-1/4 text-creamwhitebq flex flex-col items-center justify-center text-2xl lg:text-2xl xl:text-3xl xxl:text-5xl body-font"
+        class="w-1/4 text-creamwhitebq flex items-center justify-center text-2xl lg:text-2xl xl:text-3xl xxl:text-5xl body-font"
       >
-        <h2
-          class="text-2xl lg:text-2xl xl:text-3xl xxl:text-4xl body-font mb-10 px-20 py-3 bg-creamyellowbq rounded-l-full text-darkorangebq"
-        >
-          {{ bingsuSets[showProductIndex].name }}
-        </h2>
-        <button
-          :class="{ 'disable-button': showProductIndex === LAST_PRODUCT_INDEX }"
-          :disabled="showProductIndex === LAST_PRODUCT_INDEX"
-          @click="showProductIndex++"
-          class="p-5 mb-5 rounded-full border-solid border-creamwhitebq border-2"
-        >
-          Next
-        </button>
-        <p>{{ showProductIndex + 1 }} / {{ bingsus.length }}</p>
-        <button
-          :class="{
-            'disable-button': showProductIndex === FIRST_PRODUCT_INDEX,
-          }"
-          :disabled="showProductIndex === FIRST_PRODUCT_INDEX"
-          @click="showProductIndex--"
-          class="p-5 mt-5 rounded-full border-solid border-creamwhitebq border-2"
-        >
-          Back
-        </button>
+        <h2>Our favorite sets or customize your own</h2>
       </div>
-      <div class="w- flex flex-col w-1/3 h-full items-center justify-evenly">
-        <div class="flex flex-col pb-5 items-center h-1/3 w-3/5">
-          <h2
-            class="text-creamwhitebq text-2xl lg:text-2xl xl:text-3xl xxl:text-5xl body-font mb-10 text-center"
-          >
-            Fresh and light as heaven
-          </h2>
-
-          <div class="flex w-3/5">
+      <div class="flex flex-col w-1/3 h-full items-center justify-center">
+        <div class="flex flex-col pb-5 items-center h-full w-3/5">
+          <div class="w-full h-1/2 flex flex-row bg-creamyellowbq items-center">
             <img
-              class="drop-shadow-2xl border-solid border-creamwhitebq border-2 rounded-t-full p-10"
+              class="drop-shadow-2xl h-1/2 w-1/2"
               :src="getImageProductPath(showProductIndex, toppings)"
             />
+            <img
+              class="drop-shadow-2xl"
+              :src="getImageProductPath(showProductIndex, bingsus)"
+            />
           </div>
-        </div>
-        <div class="flex flex-col items-center h-full w-2/3">
-          <img
-            class="flex drop-shadow-2xl border-solid border-creamwhitebq border-2 rounded-b-full p-20"
-            :src="getImageProductPath(showProductIndex, bingsus)"
-          />
         </div>
       </div>
     </section>
