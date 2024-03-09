@@ -163,7 +163,7 @@ function getImageProductPath(
 
 <template>
   <div class="my-72 bg-orangebq rounded-lg py-28">
-    <section class="flex rounded-tl-lg mx-12">
+    <section class="flex mx-12">
       <div class="text-creamwhitebq pr-24">
         <h1
           class="text-7xl xl:text-8xl xxl:text-10xl header-font font-extrabold pb-3"
@@ -177,23 +177,33 @@ function getImageProductPath(
         </h2>
       </div>
     </section>
-    <section class="flex justify-between pt-10">
+    <section class="flex justify-between pt-10 h-screen">
       <div
-        class="flex flex-col w-1/2 mr-10 tertiary-bg py-40 pr-10 rounded-r-full drop-shadow-2xl overflow-hidden border-solid border-creamwhitebq border-2"
+        class="flex flex-col w-1/2 h-full bg-creamyellowbq py-40 pr-10 rounded-r-full drop-shadow-2xl static overflow-hidden"
       >
-        <h2
-          class="text-5xl xl:text-6xl xxl:text-8xl header-font font-extrabold mb-14 pl-12 py-3 text-creamwhitebq bg-orangebq"
-        >
-          {{ bingsuSets[showProductIndex].name }}
-        </h2>
         <img
-          class="drop-shadow-2xl w-full -m-10"
+          v-if="showProductIndex > 0"
+          class="drop-shadow-2xl w-2/3 absolute -top-64 -left-64 opacity-50"
+          :src="getImageProductPath(showProductIndex - 1, bingsuSets)"
+        />
+        <img
+          class="drop-shadow-2xl w-2/3 absolute bottom-1/4 right-0"
           :src="getImageProductPath(showProductIndex, bingsuSets)"
+        />
+        <img
+          v-if="showProductIndex < 5"
+          class="drop-shadow-2xl w-2/3 absolute -bottom-20 -left-64 opacity-50"
+          :src="getImageProductPath(showProductIndex + 1, bingsuSets)"
         />
       </div>
       <div
-        class="text-creamwhitebq flex flex-col items-center justify-center text-2xl lg:text-2xl xl:text-3xl xxl:text-5xl body-font"
+        class="w-1/4 text-creamwhitebq flex flex-col items-center justify-center text-2xl lg:text-2xl xl:text-3xl xxl:text-5xl body-font"
       >
+        <h2
+          class="text-2xl lg:text-2xl xl:text-3xl xxl:text-4xl body-font mb-10 px-20 py-3 bg-creamyellowbq rounded-l-full text-darkorangebq"
+        >
+          {{ bingsuSets[showProductIndex].name }}
+        </h2>
         <button
           :class="{ 'disable-button': showProductIndex === LAST_PRODUCT_INDEX }"
           :disabled="showProductIndex === LAST_PRODUCT_INDEX"
@@ -214,24 +224,24 @@ function getImageProductPath(
           Back
         </button>
       </div>
-      <div class="w- flex flex-col w-1/3 mr-12 self-center">
-        <div class="flex flex-col pb-5 justify-center">
+      <div class="w- flex flex-col w-1/3 h-full items-center justify-evenly">
+        <div class="flex flex-col pb-5 items-center h-1/3 w-3/5">
           <h2
             class="text-creamwhitebq text-2xl lg:text-2xl xl:text-3xl xxl:text-5xl body-font mb-10 text-center"
           >
             Fresh and light as heaven
           </h2>
 
-          <div class="flex justify-center">
+          <div class="flex w-3/5">
             <img
-              class="drop-shadow-2xl w-2/3 border-solid border-creamwhitebq border-2 rounded-t-full p-10"
+              class="drop-shadow-2xl border-solid border-creamwhitebq border-2 rounded-t-full p-10"
               :src="getImageProductPath(showProductIndex, toppings)"
             />
           </div>
         </div>
-        <div class="flex justify-center">
+        <div class="flex flex-col items-center h-full w-2/3">
           <img
-            class="drop-shadow-2xl border-solid border-creamwhitebq border-2 rounded-b-full p-20"
+            class="flex drop-shadow-2xl border-solid border-creamwhitebq border-2 rounded-b-full p-20"
             :src="getImageProductPath(showProductIndex, bingsus)"
           />
         </div>
