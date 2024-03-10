@@ -27,7 +27,7 @@ const TITLE = "Binq";
   <section class="mb-72 lg:mb-0 lg:w-2/5 flex flex-col">
     <div class="lg:-mt-32">
       <div
-        class="flex justify-center rounded-b-full drop-shadow-2xl tertiary-bg"
+        class="flex justify-center rounded-b-full drop-shadow-2xl bg-creamyellowbq"
       >
         <img
           class="h-full w-full drop-shadow-2xl"
