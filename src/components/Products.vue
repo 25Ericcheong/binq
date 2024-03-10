@@ -14,9 +14,15 @@ type Product = {
   groupType: Group;
 };
 
-const bingsu = ref<Product>({
+const oolongBingsu = ref<Product>({
   name: "Roasted Soybean Oolong",
   imageName: "roasted-soybean-oolong-bingsu-removebg-preview",
+  groupType: Group.Bingsu,
+});
+
+const matchaBingsu = ref<Product>({
+  name: "Matcha",
+  imageName: "matcha-bingsu-removebg-preview",
   groupType: Group.Bingsu,
 });
 
@@ -27,44 +33,17 @@ const bingsuSet = ref<Product>({
   groupType: Group.BingsuSet,
 });
 
-const topping = ref<Product>({
+const taroTopping = ref<Product>({
   name: "Taro Ball",
   imageName: "taro-ball-removebg-preview",
   groupType: Group.Topping,
 });
 
-const toppings = ref<Product[]>([
-  {
-    name: "Taro Ball",
-    imageName: "taro-ball-removebg-preview",
-    groupType: Group.Topping,
-  },
-  {
-    name: "Soybean Coated Mochi Cube",
-    imageName: "soybean-coated-mochi-cube-removebg-preview",
-    groupType: Group.Topping,
-  },
-  {
-    name: "Lychee",
-    imageName: "lychee-removebg-preview",
-    groupType: Group.Topping,
-  },
-  {
-    name: "Mango",
-    imageName: "mango-removebg-preview",
-    groupType: Group.Topping,
-  },
-  {
-    name: "Peach Popping Boba",
-    imageName: "peach-popping-boba-removebg-preview",
-    groupType: Group.Topping,
-  },
-  {
-    name: "Red Bean",
-    imageName: "red-bean-removebg-preview",
-    groupType: Group.Topping,
-  },
-]);
+const lycheeTopping = ref<Product>({
+  name: "Lychee",
+  imageName: "lychee-removebg-preview",
+  groupType: Group.Topping,
+});
 
 function getImageUrl(pathSubset: string, groupType: Group) {
   let productInnerDir = "bingsu-set";
@@ -83,7 +62,9 @@ function getImageUrl(pathSubset: string, groupType: Group) {
 </script>
 
 <template>
-  <div class="my-72 bg-orangebq py-28">
+  <div
+    class="my-72 bg-gradient-to-tl from-darkorangebq from-5% via-orangebq via-50% to-dullorangebq py-40"
+  >
     <section class="flex mx-12">
       <div class="text-creamwhitebq pr-24">
         <h1
@@ -98,35 +79,75 @@ function getImageUrl(pathSubset: string, groupType: Group) {
         </h2>
       </div>
     </section>
-    <section class="flex mx-28 w-11/12 justify-center overflow-x-hidden">
-      <div class="bg-creamyellowbq w-[20rem] h-1/2 p-5 rounded-t-full">
+    <section
+      class="flex mx-28 w-11/12 justify-center overflow-x-hidden items-center pt-24"
+    >
+      <div
+        class="bg-creamyellowbq w-[20rem] h-1/2 p-5 rounded-t-full flex-col items-center mr-10"
+      >
         <img
           class="drop-shadow-2xl"
-          :src="getImageUrl(topping.imageName, topping.groupType)"
+          :src="getImageUrl(lycheeTopping.imageName, lycheeTopping.groupType)"
         />
-        <div class="flex justify-between mt-5">
-          <h2>Toppings</h2>
-          <h2>Over 10 Items</h2>
+        <div
+          class="flex justify-center body-font text-xl sm:text-2xl lg:text-sm xl:text-xl xxl:text-2xl mt-5 bg-orangebq text-creamwhitebq p-3 rounded-lg"
+        >
+          <h2>Homemade lychee</h2>
         </div>
       </div>
-      <div class="bg-creamyellowbq mx-20">
+      <div
+        class="bg-creamyellowbq w-[20rem] h-1/2 p-5 rounded-t-full flex-col items-center"
+      >
+        <img
+          class="drop-shadow-2xl"
+          :src="getImageUrl(taroTopping.imageName, taroTopping.groupType)"
+        />
+        <div
+          class="flex justify-between body-font text-xl sm:text-2xl lg:text-sm xl:text-xl xxl:text-2xl mt-5 bg-orangebq text-creamwhitebq p-3 rounded-lg"
+        >
+          <h2>Toppings</h2>
+          <h2>10+ Items</h2>
+        </div>
+      </div>
+      <div
+        class="bg-creamyellowbq w-[45rem] h-full p-5 rounded-t-full mx-20 flex flex-col items-center"
+      >
         <img
           class="drop-shadow-2xl"
           :src="getImageUrl(bingsuSet.imageName, bingsuSet.groupType)"
         />
-        <div class="flex justify-between">
+        <div
+          class="flex justify-between body-font text-xl sm:text-2xl lg:text-sm xl:text-xl xxl:text-2xl mt-5 bg-orangebq text-creamwhitebq p-3 rounded-lg w-full"
+        >
           <h2>Bingsu Sets</h2>
           <h2>6 Items</h2>
         </div>
       </div>
-      <div class="bg-creamyellowbq">
+      <div
+        class="bg-creamyellowbq w-[25rem] p-5 rounded-t-full flex flex-col items-center"
+      >
         <img
-          class="drop-shadow-2xl"
-          :src="getImageUrl(bingsu.imageName, bingsu.groupType)"
+          class="drop-shadow-2xl h-[24rem]"
+          :src="getImageUrl(oolongBingsu.imageName, oolongBingsu.groupType)"
         />
-        <div class="flex justify-between">
+        <div
+          class="flex justify-between body-font text-xl sm:text-2xl lg:text-sm xl:text-xl xxl:text-2xl mt-5 bg-orangebq text-creamwhitebq p-3 rounded-lg w-full"
+        >
           <h2>Bingsus</h2>
           <h2>6 Items</h2>
+        </div>
+      </div>
+      <div
+        class="bg-creamyellowbq w-[25rem] p-5 rounded-t-full flex flex-col items-center ml-10"
+      >
+        <img
+          class="drop-shadow-2xl h-[24rem]"
+          :src="getImageUrl(matchaBingsu.imageName, matchaBingsu.groupType)"
+        />
+        <div
+          class="flex justify-center body-font text-xl sm:text-2xl lg:text-sm xl:text-xl xxl:text-2xl mt-5 bg-orangebq text-creamwhitebq p-3 rounded-lg w-full"
+        >
+          <h2>Leafy matcha bingsu</h2>
         </div>
       </div>
     </section>
