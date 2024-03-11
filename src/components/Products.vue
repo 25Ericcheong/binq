@@ -79,6 +79,14 @@ function getImageUrl(pathSubset: string, groupType: Group) {
         </h2>
       </div>
     </section>
+    <section class="flex pt-24 h-screen">
+      <div class="bg-creamyellowbq w-2/5 h-3/4 py-5 rounded-lg">
+        <img
+          class="drop-shadow-2xl h-full -ml-20"
+          :src="getImageUrl(bingsuSet.imageName, bingsuSet.groupType)"
+        />
+      </div>
+    </section>
     <section
       class="flex mx-28 w-11/12 justify-center overflow-x-hidden items-center pt-24"
     >
