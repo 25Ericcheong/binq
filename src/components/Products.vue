@@ -79,12 +79,19 @@ function getImageUrl(pathSubset: string, groupType: Group) {
         </h2>
       </div>
     </section>
-    <section class="flex pt-24 h-screen">
-      <div class="bg-creamyellowbq w-2/5 h-3/4 py-5 rounded-lg">
+    <section class="flex pt-40 h-screen">
+      <div class="bg-creamyellowbq w-[60rem] h-3/4 py-5 rounded-lg relative">
         <img
-          class="drop-shadow-2xl h-full -ml-20"
+          class="drop-shadow-2xl h-full -ml-32"
           :src="getImageUrl(bingsuSet.imageName, bingsuSet.groupType)"
         />
+        <div
+          class="text-6xl xl:text-7xl xxl:text-9xl header-font font-extrabold p-3 text-darkorangebq absolute right-0 top-0 text-right"
+        >
+          <h1>Our</h1>
+          <h1>Bestseller</h1>
+          <h1>OG</h1>
+        </div>
       </div>
     </section>
     <section
