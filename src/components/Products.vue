@@ -80,13 +80,15 @@ function getImageUrl(pathSubset: string, groupType: Group) {
       </div>
     </section>
     <section class="flex pt-40 h-screen">
-      <div class="bg-creamyellowbq w-2/5 h-4/5 py-5 rounded-lg relative">
+      <div
+        class="bg-creamyellowbq w-2/5 py-5 rounded-lg relative flex items-end"
+      >
         <img
-          class="drop-shadow-2xl h-full -ml-32"
+          class="drop-shadow-2xl h-5/6 -ml-32"
           :src="getImageUrl(bingsuSet.imageName, bingsuSet.groupType)"
         />
         <div
-          class="text-6xl xl:text-7xl xxl:text-9xl header-font font-extrabold p-3 text-darkorangebq absolute right-0 top-0 text-right"
+          class="text-6xl xl:text-7xl xxl:text-9xl header-font font-extrabold p-3 text-darkorangebq absolute right-20 top-0 text-right"
         >
           <h1>Our</h1>
           <h1>Bestseller</h1>
@@ -99,18 +101,53 @@ function getImageUrl(pathSubset: string, groupType: Group) {
           <h1>Our</h1>
           <h1>Collection</h1>
         </div>
-        <div class="flex h-4/5">
-          <div>
-            <h1>Favorite sets</h1>
-            <p>6+</p>
-            <p>These are our own handpick favorites - perfect for everyone</p>
+        <div class="flex h-4/5 text-creamwhitebq">
+          <div class="mt-24 flex flex-col">
+            <div class="mt-20">
+              <p
+                class="text-2xl lg:text-2xl xl:text-3xl xxl:text-5xl body-font body-font"
+              >
+                6
+              </p>
+              <h2
+                class="text-2xl lg:text-2xl xl:text-3xl xxl:text-5xl body-font body-font"
+              >
+                CRAFTED SETS
+              </h2>
+            </div>
+            <div class="mt-20">
+              <p
+                class="text-2xl lg:text-2xl xl:text-3xl xxl:text-5xl body-font body-font"
+              >
+                6
+              </p>
+              <h2
+                class="text-2xl lg:text-2xl xl:text-3xl xxl:text-5xl body-font body-font"
+              >
+                UNIQUE BINGSUS
+              </h2>
+            </div>
+            <div class="mt-20">
+              <p
+                class="text-2xl lg:text-2xl xl:text-3xl xxl:text-5xl body-font body-font"
+              >
+                15
+              </p>
+              <h2
+                class="text-2xl lg:text-2xl xl:text-3xl xxl:text-5xl body-font body-font"
+              >
+                TOPPINGS
+              </h2>
+            </div>
           </div>
-          <div class="flex items-end mt-20 ml-20 bg-creamyellowbq rounded-lg">
+          <div
+            class="flex items-end justify-items-end mt-20 ml-40 pl-20 bg-creamyellowbq rounded-lg w-full"
+          >
             <img
-              class="drop-shadow-2xl w-full"
+              class="drop-shadow-2xl h-4/5"
               :src="getImageUrl(oolongBingsu.imageName, oolongBingsu.groupType)"
             /><img
-              class="drop-shadow-2xl w-1/3"
+              class="drop-shadow-2xl h-1/3"
               :src="getImageUrl(taroTopping.imageName, taroTopping.groupType)"
             />
           </div>
