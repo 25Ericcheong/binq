@@ -102,7 +102,7 @@ function getImageUrl(pathSubset: string, groupType: Group) {
           <h1>Collection</h1>
         </div>
         <div class="flex h-4/5 text-creamwhitebq">
-          <div class="mt-24 flex flex-col">
+          <div class="mt-24 flex flex-col w-2/5">
             <div class="mt-20">
               <p
                 class="text-2xl lg:text-2xl xl:text-3xl xxl:text-5xl body-font body-font"
@@ -141,13 +141,13 @@ function getImageUrl(pathSubset: string, groupType: Group) {
             </div>
           </div>
           <div
-            class="flex items-end justify-items-end mt-20 ml-40 pl-20 bg-creamyellowbq rounded-lg w-full"
+            class="flex flex-grow items-end justify-items-end mt-20 ml-40 pl-20 bg-creamyellowbq rounded-lg relative overflow-hidden"
           >
             <img
               class="drop-shadow-2xl h-4/5"
               :src="getImageUrl(oolongBingsu.imageName, oolongBingsu.groupType)"
             /><img
-              class="drop-shadow-2xl h-1/3"
+              class="drop-shadow-2xl h-1/3 absolute bottom-0 -right-16"
               :src="getImageUrl(taroTopping.imageName, taroTopping.groupType)"
             />
           </div>
