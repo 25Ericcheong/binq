@@ -92,85 +92,28 @@ function getImageUrl(pathSubset: string, groupType: Group) {
           <h1>Bestseller</h1>
         </div>
       </div>
-      <div class="border-2 border-creamwhitebq pl-20 grow">
+      <div class="pl-20 grow flex flex-col h-full">
         <div
           class="text-6xl xl:text-7xl xxl:text-9xl header-font font-extrabold p-3 text-creamwhitebq"
         >
           <h1>Our</h1>
           <h1>Collection</h1>
         </div>
-        <div></div>
-      </div>
-    </section>
-    <section
-      class="flex mx-28 w-11/12 justify-center overflow-x-hidden items-center pt-24"
-    >
-      <div
-        class="bg-creamyellowbq w-[20rem] h-1/2 p-5 rounded-t-full flex-col items-center mr-10"
-      >
-        <img
-          class="drop-shadow-2xl"
-          :src="getImageUrl(lycheeTopping.imageName, lycheeTopping.groupType)"
-        />
-        <div
-          class="flex justify-center body-font text-xl sm:text-2xl lg:text-sm xl:text-xl xxl:text-2xl mt-5 bg-orangebq text-creamwhitebq p-3 rounded-lg"
-        >
-          <h2>Homemade lychee</h2>
-        </div>
-      </div>
-      <div
-        class="bg-creamyellowbq w-[20rem] h-1/2 p-5 rounded-t-full flex-col items-center"
-      >
-        <img
-          class="drop-shadow-2xl"
-          :src="getImageUrl(taroTopping.imageName, taroTopping.groupType)"
-        />
-        <div
-          class="flex justify-between body-font text-xl sm:text-2xl lg:text-sm xl:text-xl xxl:text-2xl mt-5 bg-orangebq text-creamwhitebq p-3 rounded-lg"
-        >
-          <h2>Toppings</h2>
-          <h2>10+ Items</h2>
-        </div>
-      </div>
-      <div
-        class="bg-creamyellowbq w-[45rem] h-full p-5 rounded-t-full mx-20 flex flex-col items-center"
-      >
-        <img
-          class="drop-shadow-2xl"
-          :src="getImageUrl(bingsuSet.imageName, bingsuSet.groupType)"
-        />
-        <div
-          class="flex justify-between body-font text-xl sm:text-2xl lg:text-sm xl:text-xl xxl:text-2xl mt-5 bg-orangebq text-creamwhitebq p-3 rounded-lg w-full"
-        >
-          <h2>Bingsu Sets</h2>
-          <h2>6 Items</h2>
-        </div>
-      </div>
-      <div
-        class="bg-creamyellowbq w-[25rem] p-5 rounded-t-full flex flex-col items-center"
-      >
-        <img
-          class="drop-shadow-2xl h-[24rem]"
-          :src="getImageUrl(oolongBingsu.imageName, oolongBingsu.groupType)"
-        />
-        <div
-          class="flex justify-between body-font text-xl sm:text-2xl lg:text-sm xl:text-xl xxl:text-2xl mt-5 bg-orangebq text-creamwhitebq p-3 rounded-lg w-full"
-        >
-          <h2>Bingsus</h2>
-          <h2>6 Items</h2>
-        </div>
-      </div>
-      <div
-        class="bg-creamyellowbq w-[25rem] p-5 rounded-t-full flex flex-col items-center ml-10"
-      >
-        <img
-          class="drop-shadow-2xl h-[24rem]"
-          :src="getImageUrl(matchaBingsu.imageName, matchaBingsu.groupType)"
-        />
-        <div
-          class="flex justify-center body-font text-xl sm:text-2xl lg:text-sm xl:text-xl xxl:text-2xl mt-5 bg-orangebq text-creamwhitebq p-3 rounded-lg w-full"
-        >
-          <h2>Leafy matcha bingsu</h2>
+        <div class="flex h-4/5">
+          <div>
+            <h1>Favorite sets</h1>
+            <p>6+</p>
+            <p>These are our own handpick favorites - perfect for everyone</p>
+          </div>
+          <div class="flex items-end mt-20 ml-20 bg-creamyellowbq rounded-lg">
+            <img
+              class="drop-shadow-2xl w-full"
+              :src="getImageUrl(oolongBingsu.imageName, oolongBingsu.groupType)"
+            /><img
+              class="drop-shadow-2xl w-1/3"
+              :src="getImageUrl(taroTopping.imageName, taroTopping.groupType)"
+            />
+          </div>
         </div>
       </div>
     </section>
