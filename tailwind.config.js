@@ -4,8 +4,8 @@ export default {
   theme: {
     colors: {
       orangebq: "#f05b1b",
-      whitebq: "#ffffff",
-      creambq: "#f8e182",
+      creamwhitebq: "#fff5ea",
+      creamyellowbq: "#fbe8b5",
       dullorangebq: "#f59b3e",
       darkorangebq: "#d26624",
     },

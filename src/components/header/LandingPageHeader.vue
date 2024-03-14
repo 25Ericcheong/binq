@@ -3,7 +3,9 @@ import MainHeader from "./MainHeader.vue";
 </script>
 
 <template>
-  <header class="max-h-screen">
+  <header
+    class="pb-20 lg:pb-0 flex flex-col lg:flex-row lg:justify-between bg-gradient-to-tr from-darkorangebq from-15% via-orangebq via-25% to-dullorangebq overflow-x-hidden"
+  >
     <MainHeader />
   </header>
 </template>
