@@ -26,7 +26,7 @@ function getImageUrl(imageName: string, productDir: string) {
       </div>
     </section>
     <section class="flex pt-40 mx-64">
-      <div class="flex text-creamwhitebq relative">
+      <div class="flex text-creamwhitebq">
         <div class="mr-64">
           <h2
             class="text-2xl lg:text-2xl xl:text-3xl xxl:text-5xl body-font mb-10"
@@ -56,10 +56,6 @@ function getImageUrl(imageName: string, productDir: string) {
             :src="getImageUrl('topping-product-intro', 'intro')"
           />
           <div class="flex justify-between">
-            <img
-              class="w-1/3 self-center rounded-full absolute bottom-0 left-0"
-              :src="getImageUrl('watermelon-topping-product-intro', 'intro')"
-            />
             <img
               class="rounded-full"
               :src="getImageUrl('lychee-topping-product-intro', 'intro')"
