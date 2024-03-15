@@ -43,16 +43,16 @@ function getImageUrl(imageName: string, productDir: string) {
           </p>
           <div class="flex justify-between">
             <img
-              class="h-1/4 w-2/5 rounded-lg"
+              class="h-1/2 w-1/2"
               :src="getImageUrl('prep-bingsu-product-intro', 'intro')"
             />
             <img
-              class="h-1/4 w-1/2 self-center rounded-lg"
+              class="h-1/4 w-1/2 self-center"
               :src="getImageUrl('more-prep-bing-product-intro', 'intro')"
             />
           </div>
           <img
-            class="my-40 rounded-lg"
+            class="my-40"
             :src="getImageUrl('topping-product-intro', 'intro')"
           />
           <div class="flex justify-between">
@@ -65,6 +65,31 @@ function getImageUrl(imageName: string, productDir: string) {
         <img
           :src="getImageUrl('bingsus-product-intro', 'intro')"
           class="h-1/3 rounded-full sticky top-0"
+        />
+      </div>
+    </section>
+    <section class="flex pt-56 mx-64">
+      <div
+        class="bg-creamyellowbq p-10 rounded-lg text-darkorangebq flex-col flex-initial"
+      >
+        <h1
+          class="text-7xl xl:text-8xl xxl:text-10xl header-font font-extrabold pb-3"
+        >
+          Don't forget
+        </h1>
+        <h2
+          class="text-2xl lg:text-2xl xl:text-3xl xxl:text-5xl body-font mb-10"
+        >
+          We have 6 kinds of bingsus, over 10 toppings and 6 bingsu-topping
+          pairings available.
+        </h2>
+      </div>
+      <div class="flex">
+        <img class="w-1/2" :src="getImageUrl('bingsu-set-product', 'detail')" />
+        <img class="w-1/4" :src="getImageUrl('topping-product', 'detail')" />
+        <img
+          class="w-1/4"
+          :src="getImageUrl('watermelon-topping-product', 'detail')"
         />
       </div>
     </section>
