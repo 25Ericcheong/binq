@@ -68,30 +68,34 @@ function getImageUrl(imageName: string, productDir: string) {
         />
       </div>
     </section>
-    <section class="flex pt-56 mx-64">
-      <div
-        class="bg-creamyellowbq p-10 rounded-lg text-darkorangebq flex-col flex-initial"
-      >
-        <h1
-          class="text-7xl xl:text-8xl xxl:text-10xl header-font font-extrabold pb-3"
+    <section class="flex pt-80 mx-64 justify-between">
+      <div class="flex flex-col w-2/5">
+        <div
+          class="bg-creamyellowbq p-10 rounded-lg text-darkorangebq flex-col"
         >
-          Don't forget
-        </h1>
-        <h2
-          class="text-2xl lg:text-2xl xl:text-3xl xxl:text-5xl body-font mb-10"
-        >
-          We have 6 kinds of bingsus, over 10 toppings and 6 bingsu-topping
-          pairings available.
-        </h2>
-      </div>
-      <div class="flex">
-        <img class="w-1/2" :src="getImageUrl('bingsu-set-product', 'detail')" />
-        <img class="w-1/4" :src="getImageUrl('topping-product', 'detail')" />
+          <h1
+            class="text-7xl xl:text-8xl xxl:text-10xl header-font font-extrabold pb-3"
+          >
+            Don't forget
+          </h1>
+          <h2 class="text-2xl lg:text-2xl xl:text-3xl xxl:text-5xl body-font">
+            We have 6 kinds of bingsus, over 10 toppings and 6 bingsu-topping
+            pairings available.
+          </h2>
+        </div>
         <img
-          class="w-1/4"
+          class="w-3/4 rounded-full p-16 self-center"
           :src="getImageUrl('watermelon-topping-product', 'detail')"
         />
+        <img
+          class="w-fit rounded-full mt-10 self-center"
+          :src="getImageUrl('topping-product', 'detail')"
+        />
       </div>
+      <img
+        class="w-1/2 rounded-full"
+        :src="getImageUrl('bingsu-set-product', 'detail')"
+      />
     </section>
   </div>
 </template>
