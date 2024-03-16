@@ -14,7 +14,7 @@ function getImageUrl(imageName: string, productDir: string) {
     <section class="flex">
       <div class="text-creamwhitebq">
         <h1
-          class="text-7xl xl:text-8xl xxl:text-10xl header-font font-extrabold pb-3"
+          class="text-5xl sm:text-7xl xl:text-8xl xxl:text-10xl header-font font-extrabold pb-3"
         >
           Discover Binq
         </h1>
@@ -52,17 +52,17 @@ function getImageUrl(imageName: string, productDir: string) {
         </div>
         <img
           :src="getImageUrl('bingsus-product-intro', 'intro')"
-          class="h-1/3 rounded-full mb-32 lg-pb-0 lg:sticky lg:top-0"
+          class="h-1/3 rounded-full mb-32 lg:sticky lg:top-0"
         />
       </div>
     </section>
-    <section class="flex mt-80 justify-between">
-      <div class="flex flex-col w-2/5">
+    <section class="flex flex-col lg:flex-row mt-80 justify-between">
+      <div class="flex flex-col w-full lg:w-2/5">
         <div
           class="bg-creamyellowbq p-10 rounded-lg text-darkorangebq flex-col"
         >
           <h1
-            class="text-7xl xl:text-8xl xxl:text-10xl header-font font-extrabold pb-3"
+            class="text-5xl sm:text-7xl xl:text-8xl xxl:text-10xl header-font font-extrabold pb-3"
           >
             Don't forget
           </h1>
@@ -72,16 +72,16 @@ function getImageUrl(imageName: string, productDir: string) {
           </h2>
         </div>
         <img
-          class="w-3/4 rounded-full p-16 self-center"
+          class="w-fit rounded-full pt-12 self-center"
           :src="getImageUrl('watermelon-topping-product', 'detail')"
         />
         <img
-          class="w-fit rounded-full mt-10 self-center"
+          class="w-fit rounded-full pt-6 self-center"
           :src="getImageUrl('topping-product', 'detail')"
         />
       </div>
       <img
-        class="w-1/2 rounded-full"
+        class="w-fit lg:w-1/2 rounded-full pt-20 lg:pt-0"
         :src="getImageUrl('bingsu-set-product', 'detail')"
       />
     </section>
