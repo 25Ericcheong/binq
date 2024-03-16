@@ -9,7 +9,7 @@ function getImageUrl(imageName: string, productDir: string) {
 
 <template>
   <div
-    class="my-72 bg-gradient-to-tl from-darkorangebq from-5% via-orangebq via-50% to-dullorangebq py-40 px-40 xxl:px-64"
+    class="my-72 bg-gradient-to-tl from-darkorangebq from-5% via-orangebq via-50% to-dullorangebq py-40 px-12 sm:px-28 md:px-40 xxl:px-64"
   >
     <section class="flex">
       <div class="text-creamwhitebq">
