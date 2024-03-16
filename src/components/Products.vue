@@ -1,15 +1,10 @@
 <script setup lang="ts">
-function getImageUrl(imageName: string, productDir: string) {
-  return new URL(
-    `/src/assets/images/products/${productDir}/${imageName}.jpg`,
-    import.meta.url
-  ).href;
-}
+import { getImageUrl } from "@/util/Image.js";
 </script>
 
 <template>
   <div
-    class="my-72 bg-gradient-to-tl from-darkorangebq from-5% via-orangebq via-50% to-dullorangebq py-40 px-12 sm:px-28 md:px-40 xxl:px-64"
+    class="py-72 bg-gradient-to-tl from-darkorangebq from-5% via-orangebq via-50% to-dullorangebq px-12 sm:px-28 md:px-40 xxl:px-64"
   >
     <section class="flex">
       <div class="text-creamwhitebq">
@@ -39,19 +34,23 @@ function getImageUrl(imageName: string, productDir: string) {
           </p>
           <img
             class="h-1/4"
-            :src="getImageUrl('more-prep-bing-product-intro', 'intro')"
+            :src="
+              getImageUrl('more-prep-bing-product-intro', 'products', 'intro')
+            "
           />
           <img
             class="my-20 xxl:my-40"
-            :src="getImageUrl('topping-product-intro', 'intro')"
+            :src="getImageUrl('topping-product-intro', 'products', 'intro')"
           />
           <img
             class="rounded-full w-full lg:w-fit lg:h-fit self-center"
-            :src="getImageUrl('lychee-topping-product-intro', 'intro')"
+            :src="
+              getImageUrl('lychee-topping-product-intro', 'products', 'intro')
+            "
           />
         </div>
         <img
-          :src="getImageUrl('bingsus-product-intro', 'intro')"
+          :src="getImageUrl('bingsus-product-intro', 'products', 'intro')"
           class="h-1/3 rounded-full mb-32 lg:sticky lg:top-0"
         />
       </div>
@@ -73,16 +72,16 @@ function getImageUrl(imageName: string, productDir: string) {
         </div>
         <img
           class="w-fit rounded-full pt-12 self-center"
-          :src="getImageUrl('watermelon-topping-product', 'detail')"
+          :src="getImageUrl('watermelon-topping-product', 'products', 'detail')"
         />
         <img
           class="w-fit rounded-full pt-6 self-center"
-          :src="getImageUrl('topping-product', 'detail')"
+          :src="getImageUrl('topping-product', 'products', 'detail')"
         />
       </div>
       <img
         class="w-fit lg:w-1/2 rounded-full pt-20 lg:pt-0"
-        :src="getImageUrl('bingsu-set-product', 'detail')"
+        :src="getImageUrl('bingsu-set-product', 'products', 'detail')"
       />
     </section>
   </div>

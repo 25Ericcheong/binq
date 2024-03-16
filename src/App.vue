@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import AboutUs from "./components/AboutUs.vue";
 import LandingPageHeader from "./components/header/LandingPageHeader.vue";
 import Products from "./components/Products.vue";
 import TopBar from "./components/TopBar.vue";
@@ -7,11 +8,10 @@ import "./output.css";
 
 <template>
   <div class="bg-creamwhitebq">
-    <div>
-      <TopBar />
-      <LandingPageHeader />
-    </div>
-    <div><Products /></div>
+    <TopBar />
+    <LandingPageHeader />
+    <AboutUs />
+    <Products />
   </div>
 </template>
 
