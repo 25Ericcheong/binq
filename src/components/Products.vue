@@ -26,8 +26,8 @@ function getImageUrl(imageName: string, productDir: string) {
       </div>
     </section>
     <section class="flex pt-16 xl:pt-28 xxl:pt-40">
-      <div class="flex text-creamwhitebq">
-        <div class="flex flex-col mr-20 xl:mr-40 xxl:mr-64">
+      <div class="flex flex-col-reverse lg:flex-row text-creamwhitebq">
+        <div class="flex flex-col mr-0 lg:mr-20 xl:mr-40 xxl:mr-64 h-full">
           <h2 class="text-2xl xl:text-3xl xxl:text-5xl body-font mb-10">
             For all to have the best experience, we take preparation and taste
             to the next level;
@@ -46,13 +46,13 @@ function getImageUrl(imageName: string, productDir: string) {
             :src="getImageUrl('topping-product-intro', 'intro')"
           />
           <img
-            class="rounded-full w-4/5 h-1/4 self-center"
+            class="rounded-full w-full lg:w-fit lg:h-fit self-center"
             :src="getImageUrl('lychee-topping-product-intro', 'intro')"
           />
         </div>
         <img
           :src="getImageUrl('bingsus-product-intro', 'intro')"
-          class="h-1/3 rounded-full sticky top-0"
+          class="h-1/3 rounded-full mb-32 lg-pb-0 lg:sticky lg:top-0"
         />
       </div>
     </section>
