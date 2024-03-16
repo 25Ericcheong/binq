@@ -15,7 +15,7 @@ import { getImageUrl } from "@/util/Image.js";
         Beginning
       </h1>
       <p
-        class="text-center body-font text-xl sm:text-2xl lg:text-sm xl:text-xl xxl:text-2xl my-10 lg:my-2 xl:my-6 tracking-wide"
+        class="body-font text-xl sm:text-2xl lg:text-sm xl:text-xl xxl:text-2xl my-10 lg:my-2 xl:my-6 tracking-wide"
       >
         What started of as a habit that happened on a weekly basis turned into
         an obsession to create something that we can call our own. After

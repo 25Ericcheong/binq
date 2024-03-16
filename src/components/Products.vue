@@ -43,10 +43,8 @@ import { getImageUrl } from "@/util/Image.js";
             :src="getImageUrl('topping-product-intro', 'products', 'intro')"
           />
           <img
-            class="rounded-full w-full lg:w-fit lg:h-fit self-center"
-            :src="
-              getImageUrl('lychee-topping-product-intro', 'products', 'intro')
-            "
+            class="w-full lg:w-fit lg:h-fit self-center"
+            :src="getImageUrl('binq-store-product-intro', 'products', 'intro')"
           />
         </div>
         <img
@@ -75,7 +73,7 @@ import { getImageUrl } from "@/util/Image.js";
           :src="getImageUrl('watermelon-topping-product', 'products', 'detail')"
         />
         <img
-          class="w-fit rounded-full pt-6 self-center"
+          class="w-fit rounded-full pt-16 self-center"
           :src="getImageUrl('topping-product', 'products', 'detail')"
         />
       </div>
