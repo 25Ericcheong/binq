@@ -3,10 +3,15 @@ import { getImageUrl } from "@/util/Image.js";
 </script>
 
 <template>
-  <div class="bg-creamyellowbq flex h-full py-72 px-12 sm:px-14 md:px-20">
-    <img class="w-1/2" :src="getImageUrl('bingsu-about-us', 'about-us')" />
+  <div
+    class="bg-creamyellowbq flex flex-col lg:flex-row h-full py-32 lg:py-72 px-12 sm:px-14 md:px-20"
+  >
+    <img
+      class="w-fit lg:w-1/2"
+      :src="getImageUrl('bingsu-about-us', 'about-us')"
+    />
     <div
-      class="flex flex-col justify-center items-center pl-32 text-darkorangebq"
+      class="flex flex-col justify-center items-center pt-10 lg:pt-0 pl-0 lg:pl-32 text-darkorangebq"
     >
       <h1 class="text-6xl xl:text-7xl xxl:text-9xl header-font font-bold">
         Binq
@@ -20,7 +25,7 @@ import { getImageUrl } from "@/util/Image.js";
         What started of as a habit that happened on a weekly basis turned into
         an obsession to create something that we can call our own. After
         countless of hours, days and perhaps even months; Binq was born. From
-        then on it manifested to providing the one and only Binq-experience for
+        then on, it manifested to providing the one and only Binq-experience for
         everyone to be a part of. This, is our beginning.
       </p>
       <h2
