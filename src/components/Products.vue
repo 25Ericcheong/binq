@@ -4,24 +4,20 @@ import { getImageUrl } from "@/util/Image.js";
 
 <template>
   <div
-    class="py-72 bg-gradient-to-tl from-darkorangebq from-5% via-orangebq via-50% to-dullorangebq px-12 sm:px-28 md:px-40 xxl:px-64"
+    class="py-72 bg-gradient-to-tl from-darkorangebq from-5% via-orangebq via-50% to-dullorangebq px-12 sm:px-28 md:px-40 xxl:px-64 text-creamwhitebq"
   >
-    <section class="flex">
-      <div class="text-creamwhitebq">
-        <h1
-          class="text-5xl sm:text-7xl xl:text-8xl xxl:text-10xl header-font font-extrabold pb-3"
-        >
-          Discover Binq
-        </h1>
-        <h2
-          class="text-2xl xl:text-3xl xxl:text-5xl body-font mb-10 text-creamwhitebq"
-        >
-          With an assortment of flavors available, the combination is limitless
-        </h2>
-      </div>
+    <section class="flex flex-col">
+      <h1
+        class="text-5xl sm:text-7xl xl:text-8xl xxl:text-10xl header-font font-extrabold pb-3"
+      >
+        Discover Binq
+      </h1>
+      <h2 class="text-2xl xl:text-3xl xxl:text-5xl body-font mb-10">
+        With an assortment of flavors available, the combination is limitless
+      </h2>
     </section>
     <section class="flex pt-16 xl:pt-28 xxl:pt-40">
-      <div class="flex flex-col-reverse lg:flex-row text-creamwhitebq">
+      <div class="flex flex-col-reverse lg:flex-row">
         <div class="flex flex-col mr-0 lg:mr-20 xl:mr-40 xxl:mr-64 h-full">
           <h2 class="text-2xl xl:text-3xl xxl:text-5xl body-font mb-10">
             For all to have the best experience, we take preparation and taste
@@ -84,5 +80,3 @@ import { getImageUrl } from "@/util/Image.js";
     </section>
   </div>
 </template>
-
-<style scoped></style>

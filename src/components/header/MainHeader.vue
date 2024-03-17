@@ -97,5 +97,3 @@ const TITLE = "Binq";
     </div>
   </section>
 </template>
-
-<style scoped></style>

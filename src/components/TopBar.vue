@@ -16,5 +16,3 @@
     </div>
   </section>
 </template>
-
-<style scoped></style>

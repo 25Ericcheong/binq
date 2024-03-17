@@ -9,5 +9,3 @@ import MainHeader from "./MainHeader.vue";
     <MainHeader />
   </header>
 </template>
-
-<style scoped></style>
