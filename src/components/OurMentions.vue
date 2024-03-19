@@ -53,8 +53,8 @@ import { getImageUrl } from "@/util/Image.js";
         <div
           class="flex flex-row justify-between body-font text-xl sm:text-2xl lg:text-sm xl:text-xl xxl:text-2xl tracking-wide"
         >
-          <p>J K - 12/03/2024</p>
           <p>Source</p>
+          <p>J K - 12/03/2024</p>
         </div>
       </div>
       <div class="flex flex-col w-1/3 pr-32">
@@ -79,8 +79,8 @@ import { getImageUrl } from "@/util/Image.js";
         <div
           class="flex flex-row justify-between body-font text-xl sm:text-2xl lg:text-sm xl:text-xl xxl:text-2xl tracking-wide"
         >
-          <p>Kathryn Chong - 18/01/2024</p>
           <p>Source</p>
+          <p>Kathryn Chong - 18/01/2024</p>
         </div>
       </div>
       <div class="flex flex-col w-1/3">
@@ -112,8 +112,8 @@ import { getImageUrl } from "@/util/Image.js";
         <div
           class="flex flex-row justify-between body-font text-xl sm:text-2xl lg:text-sm xl:text-xl xxl:text-2xl tracking-wide"
         >
-          <p>Lizzie - 18/01/2024</p>
           <p>Source</p>
+          <p>Lizzie - 18/01/2024</p>
         </div>
       </div>
     </section>
