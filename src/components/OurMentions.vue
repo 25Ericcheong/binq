@@ -24,15 +24,13 @@ import { getImageUrl } from "@/util/Image.js";
         :src="getImageUrl('bingsu-our-mentions', 'our-mentions')"
       />
     </section>
-    <section class="flex justify-between py-20 font-medium">
-      <div class="flex flex-col w-1/4 flex-shrink-0">
-        <div
-          class="flex flex-row justify-between text-xl xl:text-2xl xxl:text-2xl body-font mb-5"
-        >
-          <h2>"11/10 Can confidently recommend this to anyone"</h2>
-        </div>
+    <section class="flex justify-between pt-40 pb-56 font-medium">
+      <div class="w-1/4">
+        <h2 class="text-xl xl:text-2xl xxl:text-2xl body-font mb-5">
+          "11/10 Can confidently recommend this to anyone"
+        </h2>
         <p
-          class="body-font text-xl sm:text-2xl lg:text-sm xl:text-xl xxl:text-2xl tracking-wide h-1/3 overflow-hidden"
+          class="body-font text-xl sm:text-2xl lg:text-sm xl:text-xl xxl:text-2xl tracking-wide overflow-hidden"
         >
           Especially to all the bingsu lovers out there. They&apos;ve got
           several choices of flavour which none are too sweet so it&apos;s also
@@ -42,13 +40,7 @@ import { getImageUrl } from "@/util/Image.js";
           suggestions if you&apos;re not sure what to try. Bingsu wise: Hoji Cha
           10/10 - As a hojicha lover this hit the spot perfectly, with the
           alternative oatmilk option it was super rich in flavour but also
-          balanced so it wasn&apos;t too much. Roasted Soybean 10/10 - Slightly
-          a bit on the sweeter side but balanced out perfectly with the cream
-          cheese. Matcha 9/10 - Full of matcha flavour on every taste, would
-          definitely satisfy the matcha lovers. Generally a great spot to visit
-          with friends and family for dessert after a meal. Have heard nothing
-          but complements when bringing people to try for the first time (and
-          like me becoming regulars after)
+          balanced ...
         </p>
         <div
           class="flex flex-row justify-between body-font text-xl sm:text-2xl lg:text-sm xl:text-xl xxl:text-2xl tracking-wide mt-5"
@@ -63,14 +55,12 @@ import { getImageUrl } from "@/util/Image.js";
           <p>J K - 12/03/2024</p>
         </div>
       </div>
-      <div class="flex flex-col w-1/4">
-        <div class="text-xl xl:text-2xl xxl:text-2xl body-font mb-5">
-          <h2>
-            "Perfect hangout place with friends & family with good dessert!"
-          </h2>
-        </div>
+      <div class="w-1/4">
+        <h2 class="text-xl xl:text-2xl xxl:text-2xl body-font mb-5">
+          "Perfect hangout place with friends & family with good dessert!"
+        </h2>
         <p
-          class="body-font text-xl sm:text-2xl lg:text-sm xl:text-xl xxl:text-2xl tracking-wide h-1/3 overflow-hidden"
+          class="body-font text-xl sm:text-2xl lg:text-sm xl:text-xl xxl:text-2xl tracking-wide overflow-hidden"
         >
           Love their hojicha bingsu!!! By far the richest taste I&apos;ve tried!
           And every time I come here this is a confirmed repeat order. (This is
@@ -79,8 +69,7 @@ import { getImageUrl } from "@/util/Image.js";
           injeolmi) - matcha Each bingsu comes with 3-4 toppings. U can also
           modify ur toppings. But I think the combination is already good so I
           never modify. Environment is chill and cozy, also provide drinking
-          water. Overall a perfect hangout place with ur friends and family with
-          good dessert!
+          water. Overall a perfect hangout place ...
         </p>
         <div
           class="flex flex-row justify-between body-font text-xl sm:text-2xl lg:text-sm xl:text-xl xxl:text-2xl tracking-wide mt-5"
@@ -95,12 +84,12 @@ import { getImageUrl } from "@/util/Image.js";
           <p>Kathryn Chong - 18/01/2024</p>
         </div>
       </div>
-      <div class="flex flex-col w-1/4">
-        <div class="text-xl xl:text-2xl xxl:text-2xl body-font mb-5">
-          <h2>"Flavors were different than other bingsu places"</h2>
-        </div>
+      <div class="w-1/4">
+        <h2 class="text-xl xl:text-2xl xxl:text-2xl body-font mb-5">
+          "Flavors were different than other bingsu places"
+        </h2>
         <p
-          class="body-font text-xl sm:text-2xl lg:text-sm xl:text-xl xxl:text-2xl tracking-wide h-1/3 overflow-hidden"
+          class="body-font text-xl sm:text-2xl lg:text-sm xl:text-xl xxl:text-2xl tracking-wide overflow-hidden"
         >
           Tried Binq for the first time and had a pleasant experience. Flavors
           were different than other bingsu places, worth trying because so far
@@ -109,17 +98,7 @@ import { getImageUrl } from "@/util/Image.js";
           refreshing. Appreciate the fact that we can change toppings if we
           like. Space was quite clean, if there&apos;s any space to improve..the
           tables were a little sticky. I noticed the guy owner cleaning up
-          constantly, looking around and keeping the place neat - which is
-          really rare, impressive and much appreciated. Usually bingsu places
-          (and even many cafes in general) are kinda dirty and messy, the staff
-          don&apos;t really pay attention to customer service and leave it all
-          to their customers to do everything but the guy owner here was very
-          detailed and helped removed our bowls and trays once we were done so
-          my friends and I could chat more comfortably. Really, really
-          appreciate that and hope that he keeps up the good work. It&apos;s
-          quite rare to have someone be proactive and pay attention to details
-          like that. Nice place to chill and portions were good too, would come
-          back again.
+          constantly, looking around and keeping the place ...
         </p>
         <div
           class="flex flex-row justify-between body-font text-xl sm:text-2xl lg:text-sm xl:text-xl xxl:text-2xl tracking-wide mt-5"
@@ -140,7 +119,7 @@ import { getImageUrl } from "@/util/Image.js";
         <h1
           class="text-5xl sm:text-7xl xl:text-8xl xxl:text-10xl header-font font-extrabold"
         >
-          Buzzworthy Binq moments
+          Buzzworthy moments
         </h1>
       </div>
       <div class="w-1/2 scroller">
