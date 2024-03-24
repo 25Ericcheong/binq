@@ -1,13 +1,31 @@
 <script setup lang="ts">
 import { getImageUrl } from "@/util/Image.js";
+import { ref } from "vue";
+
+const moments = ref<string[]>([
+  "Several choices of flavour which are not too sweet - making them perfect",
+  "Hoji Cha 10/10 - As a hijocha lover; this hit the spot perfectly",
+  "My 4th time being here and I love their oolong peach, soybean and matcha",
+  "Roasted Soybean 10/10 - Slightly sweeter but balanced",
+  "My first time trying Binq and flavors were unique and different; making them refreshing!",
+  "Matcha 9/10 - Full of matcha flavour in every bite",
+  "Roasted soybean oolong paired really well with cream chees",
+  "Perhaps one of the best bingsu in town in terms of that fine snowflake like texture",
+  "Shaved ice was light and soybean mochi cube was springy and nicely paired with lots of brown sugar jelly",
+  "One of the most delicious bingsu I’ve tried",
+  "Their soya bean coated mochi cubes were absolutely delish!",
+  "Roasted soybean oolong 4.75 out of 5 on flavour alone!",
+  "My favourite will be their signature oolong and soya",
+  "Tried their roasted soybean oolong and so satisfied with it. It has the perfect fragrant, taste, and texture",
+]);
 </script>
 
 <template>
   <div
     class="bg-creamyellowbq w-full py-32 lg:py-72 px-12 sm:px-14 md:px-20 text-darkorangebq"
   >
-    <section class="flex">
-      <div class="w-1/4">
+    <section class="flex justify-between">
+      <div class="w-1/5">
         <h1
           class="text-5xl sm:text-7xl xl:text-8xl xxl:text-10xl header-font font-extrabold pb-3"
         >
@@ -20,7 +38,7 @@ import { getImageUrl } from "@/util/Image.js";
         </h2>
       </div>
       <img
-        class="w-3/4 pl-20"
+        class="w-3/4 pl-40"
         :src="getImageUrl('bingsu-our-mentions', 'our-mentions')"
       />
     </section>
@@ -122,41 +140,15 @@ import { getImageUrl } from "@/util/Image.js";
           Buzzworthy moments
         </h1>
       </div>
-      <div class="w-1/2 scroller">
+      <div
+        class="w-1/2 scroller body-font text-xl sm:text-2xl lg:text-sm xl:text-xl xxl:text-2xl tracking-wide"
+      >
         <ul>
-          <li>
-            Several choices of flavour which are not too sweet - making them
-            perfect
-          </li>
-          <li>
-            Hoji Cha 10/10 - As a hijocha lover; this hit the spot perfectly
-          </li>
-          <li>
-            My 4th time being here and I love their oolong peach, soybean and
-            matcha
-          </li>
-          <li>Roasted Soybean 10/10 - Slightly sweeter but balanced</li>
-          <li>
-            My first time trying Binq and flavors were unique and different;
-            making them refreshing!
-          </li>
-          <li>Matcha 9/10 - Full of matcha flavour in every bite</li>
-          <li>Roasted soybean oolong paired really well with cream cheese</li>
-          <li>
-            Perhaps one of the best bingsu in town in terms of that fine
-            snowflake like texture
-          </li>
-          <li>
-            Shaved ice was light and soybean mochi cube was springy and nicely
-            paired with lots of brown sugar jelly
-          </li>
-          <li>One of the most delicious bingsu I’ve tried</li>
-          <li>Their soya bean coated mochi cubes were absolutely delish!</li>
-          <li>Roasted soybean oolong 4.75 out of 5 on flavour alone!</li>
-          <li>My favourite will be their signature oolong and soya</li>
-          <li>
-            Tried their roasted soybean oolong and so satisfied with it. It has
-            perfect fragrant, taste, and texture
+          <li
+            class="text-creamwhitebq bg-darkorangebq p-2 rounded-lg"
+            v-for="moment in moments"
+          >
+            {{ moment }}
           </li>
         </ul>
       </div>
