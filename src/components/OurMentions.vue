@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { getImageUrl } from "@/util/Image.js";
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 
 const moments = ref<string[]>([
   "Several choices of flavour which are not too sweet - making them perfect",
@@ -18,6 +18,20 @@ const moments = ref<string[]>([
   "My favourite will be their signature oolong and soya",
   "Tried their roasted soybean oolong and so satisfied with it. It has the perfect fragrant, taste, and texture",
 ]);
+
+const scroller = ref<Element>();
+
+function addAnimation() {
+  if (scroller.value !== undefined) {
+    scroller.value.setAttribute("data-aniamted", "true");
+  }
+}
+
+onMounted(() => {
+  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    addAnimation();
+  }
+});
 </script>
 
 <template>
@@ -141,11 +155,12 @@ const moments = ref<string[]>([
         </h1>
       </div>
       <div
-        class="w-1/2 scroller body-font text-xl sm:text-2xl lg:text-sm xl:text-xl xxl:text-2xl tracking-wide"
+        ref="scroller"
+        class="w-1/2 body-font text-xl sm:text-2xl lg:text-sm xl:text-xl xxl:text-2xl tracking-wide"
       >
-        <ul>
+        <ul class="scroller-inner flex flex-wrap gap-10">
           <li
-            class="text-creamwhitebq bg-darkorangebq p-2 rounded-lg"
+            class="text-creamwhitebq bg-darkorangebq p-1 rounded-lg whitespace-nowrap shadow-2xl"
             v-for="moment in moments"
           >
             {{ moment }}
