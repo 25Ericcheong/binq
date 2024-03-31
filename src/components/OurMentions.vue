@@ -19,7 +19,10 @@ const moments = ref<string[]>([
   "Tried their roasted soybean oolong and so satisfied with it. It has the perfect fragrant, taste, and texture",
 ]);
 
-const scroller = ref<Element>();
+const isReducedMotion = ref<boolean>(
+  window.matchMedia("(prefers-reduced-motion: reduce)").matches
+);
+console.log(isReducedMotion.value);
 
 function addAnimation() {
   const scrollers = document.querySelectorAll(".scroller");
@@ -30,7 +33,7 @@ function addAnimation() {
 }
 
 onMounted(() => {
-  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  if (!isReducedMotion.value) {
     addAnimation();
   }
 });
@@ -157,16 +160,36 @@ onMounted(() => {
         </h1>
       </div>
       <div
-        class="scroller w-1/2 body-font text-xl sm:text-2xl lg:text-sm xl:text-xl xxl:text-2xl tracking-wide"
+        class="scroller max-w-[50%] body-font text-xl sm:text-2xl lg:text-sm xl:text-xl xxl:text-2xl tracking-wide"
       >
-        <ul class="scroller-inner">
-          <li
-            class="text-creamwhitebq bg-darkorangebq p-1 rounded-lg shadow-xl"
-            v-for="moment in moments"
-          >
-            {{ moment }}
-          </li>
-        </ul>
+        <div v-if="isReducedMotion">
+          <ul class="scroller-inner">
+            <li
+              class="text-creamwhitebq bg-darkorangebq p-1 rounded-lg shadow-xl"
+              v-for="moment in moments"
+            >
+              {{ moment }}
+            </li>
+          </ul>
+        </div>
+        <div v-else>
+          <ul class="scroller-inner">
+            <li
+              class="text-creamwhitebq bg-darkorangebq p-1 rounded-lg shadow-xl"
+              v-for="moment in moments"
+            >
+              {{ moment }}
+            </li>
+          </ul>
+          <ul class="scroller-inner">
+            <li
+              class="text-creamwhitebq bg-darkorangebq p-1 rounded-lg shadow-xl"
+              v-for="moment in moments"
+            >
+              {{ moment }}
+            </li>
+          </ul>
+        </div>
       </div>
     </section>
   </div>
@@ -183,8 +206,23 @@ onMounted(() => {
 .scroller[data-animated="true"] {
   overflow: hidden;
 
+  /* fadding effect on each tag */
+  -webkit-mask: linear-gradient(
+    90deg,
+    transparent,
+    white 20%,
+    white 80%,
+    transparent
+  );
+  mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+
   .scroller-inner {
     flex-wrap: nowrap;
+    padding-block: 0.5rem;
+
+    li {
+      white-space: nowrap;
+    }
   }
 }
 </style>
