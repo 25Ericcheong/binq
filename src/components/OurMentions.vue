@@ -217,12 +217,22 @@ onMounted(() => {
   mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
 
   .scroller-inner {
+    width: max-content;
     flex-wrap: nowrap;
     padding-block: 0.5rem;
+    animation: scroll 80s linear infinite;
 
     li {
       white-space: nowrap;
     }
+  }
+}
+
+/* will be in effect when reduced motion is not selected by user */
+@keyframes scroll {
+  to {
+    /* -0.5rem came from the 1rem gap for each tag where 0.5rem is used per side of tag */
+    transform: translate(calc(-100% - 0.5rem));
   }
 }
 </style>
