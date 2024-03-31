@@ -22,9 +22,11 @@ const moments = ref<string[]>([
 const scroller = ref<Element>();
 
 function addAnimation() {
-  if (scroller.value !== undefined) {
-    scroller.value.setAttribute("data-aniamted", "true");
-  }
+  const scrollers = document.querySelectorAll(".scroller");
+
+  scrollers.forEach((scroller) => {
+    scroller.setAttribute("data-animated", "true");
+  });
 }
 
 onMounted(() => {
@@ -155,12 +157,11 @@ onMounted(() => {
         </h1>
       </div>
       <div
-        ref="scroller"
-        class="w-1/2 body-font text-xl sm:text-2xl lg:text-sm xl:text-xl xxl:text-2xl tracking-wide"
+        class="scroller w-1/2 body-font text-xl sm:text-2xl lg:text-sm xl:text-xl xxl:text-2xl tracking-wide"
       >
-        <ul class="scroller-inner flex flex-wrap gap-10">
+        <ul class="scroller-inner">
           <li
-            class="text-creamwhitebq bg-darkorangebq p-1 rounded-lg whitespace-nowrap shadow-2xl"
+            class="text-creamwhitebq bg-darkorangebq p-1 rounded-lg shadow-xl"
             v-for="moment in moments"
           >
             {{ moment }}
@@ -171,4 +172,19 @@ onMounted(() => {
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.scroller-inner {
+  padding-block: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.scroller[data-animated="true"] {
+  overflow: hidden;
+
+  .scroller-inner {
+    flex-wrap: nowrap;
+  }
+}
+</style>
