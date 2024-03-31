@@ -3,20 +3,36 @@ import { getImageUrl } from "@/util/Image.js";
 import { onMounted, ref } from "vue";
 
 const moments = ref<string[]>([
-  "Several choices of flavour which are not too sweet - making them perfect",
-  "Hoji Cha 10/10 - As a hijocha lover; this hit the spot perfectly",
-  "My 4th time being here and I love their oolong peach, soybean and matcha",
-  "Roasted Soybean 10/10 - Slightly sweeter but balanced",
-  "My first time trying Binq and flavors were unique and different; making them refreshing!",
+  "A variety of flavour that aren't too sweet - making them perfect",
+  "Hoji Cha 10/10 - As a hijocha lover, this hits the spot perfectly",
+  "My 4th time here and I still love their oolong peach, soybean and matcha",
+  "Roasted Soybean 10/10 - Sweet but balanced",
+  "First time trying Binq and flavors were unique and different; making them refreshing!",
   "Matcha 9/10 - Full of matcha flavour in every bite",
-  "Roasted soybean oolong paired really well with cream chees",
-  "Perhaps one of the best bingsu in town in terms of that fine snowflake like texture",
-  "Shaved ice was light and soybean mochi cube was springy and nicely paired with lots of brown sugar jelly",
-  "One of the most delicious bingsu I’ve tried",
+  "Roasted soybean oolong paired really well with cream cheese",
+  "Soybean mochi cube was springy and nicely paired with sugar jelly",
   "Their soya bean coated mochi cubes were absolutely delish!",
-  "Roasted soybean oolong 4.75 out of 5 on flavour alone!",
+  "Roasted soybean oolong 4.75/5 on flavour alone!",
+  "One of the most delicious bingsu I’ve tried",
+  "Perhaps one of the best bingsu in town",
   "My favourite will be their signature oolong and soya",
-  "Tried their roasted soybean oolong and so satisfied with it. It has the perfect fragrant, taste, and texture",
+  "Roasted soybean oolong has perfect fragrant, taste, and texture",
+  "Can confidently recommend this to all the bingsu lovers",
+  "As a korean, it is similar to Korean red bean shaved ice - tastes just like home",
+  "Flavors are unique from other bingsu places",
+  "Their bingsu is very unique and not too sweet",
+  "Hojicha is by far the richest bingsu I have ever tried!",
+  "Their soya bean coated mochi cubes were absolutely delish",
+]);
+
+// only used for/when animation is in effect
+const momentsParts = ref<string[][]>([
+  moments.value.slice(0, 3),
+  moments.value.slice(3, 6),
+  moments.value.slice(6, 9),
+  moments.value.slice(9, 13),
+  moments.value.slice(13, 16),
+  moments.value.slice(16),
 ]);
 
 const isReducedMotion = ref<boolean>(
@@ -29,6 +45,21 @@ function addAnimation() {
 
   scrollers.forEach((scroller) => {
     scroller.setAttribute("data-animated", "true");
+
+    const scrollerInner = scroller.querySelector(".scroller-inner");
+
+    if (scrollerInner !== null) {
+      const scrollerContent = Array.from(scrollerInner.children);
+
+      scrollerContent.forEach((item) => {
+        // so animated translation has no odd gap in repeating translation animation
+        const duplicatedItem = item.cloneNode(true) as Element;
+
+        // ensure this doesn't show up for screen readers
+        duplicatedItem.setAttribute("aria-hidden", "true");
+        scrollerInner.appendChild(duplicatedItem);
+      });
+    }
   });
 }
 
@@ -160,9 +191,9 @@ onMounted(() => {
         </h1>
       </div>
       <div
-        class="scroller max-w-[50%] body-font text-xl sm:text-2xl lg:text-sm xl:text-xl xxl:text-2xl tracking-wide"
+        class="max-w-[50%] body-font text-xl sm:text-2xl lg:text-sm xl:text-xl xxl:text-2xl tracking-wide"
       >
-        <div v-if="isReducedMotion">
+        <div class="scroller" v-if="isReducedMotion">
           <ul class="scroller-inner">
             <li
               class="text-creamwhitebq bg-darkorangebq p-1 rounded-lg shadow-xl"
@@ -172,19 +203,11 @@ onMounted(() => {
             </li>
           </ul>
         </div>
-        <div v-else>
+        <div v-else v-for="momentPart in momentsParts" class="scroller">
           <ul class="scroller-inner">
             <li
               class="text-creamwhitebq bg-darkorangebq p-1 rounded-lg shadow-xl"
-              v-for="moment in moments"
-            >
-              {{ moment }}
-            </li>
-          </ul>
-          <ul class="scroller-inner">
-            <li
-              class="text-creamwhitebq bg-darkorangebq p-1 rounded-lg shadow-xl"
-              v-for="moment in moments"
+              v-for="moment in momentPart"
             >
               {{ moment }}
             </li>
@@ -219,7 +242,7 @@ onMounted(() => {
   .scroller-inner {
     width: max-content;
     flex-wrap: nowrap;
-    padding-block: 0.5rem;
+    padding-block: 0.75rem;
     animation: scroll 80s linear infinite;
 
     li {
@@ -232,7 +255,7 @@ onMounted(() => {
 @keyframes scroll {
   to {
     /* -0.5rem came from the 1rem gap for each tag where 0.5rem is used per side of tag */
-    transform: translate(calc(-100% - 0.5rem));
+    transform: translate(calc(-50% - 0.5rem));
   }
 }
 </style>
