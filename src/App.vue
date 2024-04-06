@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import AboutUs from "./components/AboutUs.vue";
-import LandingPageHeader from "./components/header/LandingPageHeader.vue";
-import OurMentions from "./components/OurMentions.vue";
-import Products from "./components/Products.vue";
-import TopBar from "./components/TopBar.vue";
+import AboutUs from "./components/about-us.vue";
+import LandingPageHeader from "./components/header/wrapper-header.vue";
+import OurMentions from "./components/our-mentions.vue";
+import Products from "./components/products.vue";
+import TopBar from "./components/top-bar.vue";
 import "./output.css";
 </script>
 

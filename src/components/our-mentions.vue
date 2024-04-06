@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { getImageUrl } from "@/util/Image.js";
 import { onMounted, ref } from "vue";
+import { getImageUrl } from "../util/Image";
 
 const moments = ref<string[]>([
   "A variety of flavour that aren't too sweet - making them perfect",
@@ -13,7 +13,7 @@ const moments = ref<string[]>([
   "Soybean mochi cube was springy and nicely paired with sugar jelly",
   "Their soya bean coated mochi cubes were absolutely delish!",
   "Roasted soybean oolong 4.75/5 on flavour alone!",
-  "One of the most delicious bingsu I’ve tried",
+  "One of the most delicious bingsu I&apos;ve tried",
   "Perhaps one of the best bingsu in town",
   "My favourite will be their signature oolong and soya",
   "Roasted soybean oolong has perfect fragrant, taste, and texture",
@@ -71,10 +71,10 @@ onMounted(() => {
 
 <template>
   <div
-    class="bg-creamyellowbq w-full py-32 lg:py-72 px-12 sm:px-14 md:px-20 text-darkorangebq"
+    class="bg-creamyellowbq w-full py-52 lg:py-72 px-12 sm:px-14 md:px-20 text-darkorangebq"
   >
-    <section class="flex justify-between">
-      <div class="w-1/5">
+    <section class="flex flex-col lg:flex-row lg:justify-between">
+      <div class="lg:w-1/5">
         <h1
           class="text-5xl sm:text-7xl xl:text-8xl xxl:text-10xl header-font font-extrabold pb-3"
         >
@@ -87,7 +87,7 @@ onMounted(() => {
         </h2>
       </div>
       <img
-        class="w-3/4 pl-40"
+        class="lg:w-3/4 p-0 lg:pl-40"
         :src="getImageUrl('bingsu-our-mentions', 'our-mentions')"
       />
     </section>
