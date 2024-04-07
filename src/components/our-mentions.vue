@@ -91,8 +91,10 @@ onMounted(() => {
         :src="getImageUrl('bingsu-our-mentions', 'our-mentions')"
       />
     </section>
-    <section class="flex justify-between pt-40 pb-56 font-medium">
-      <div class="w-2/5 xl:w-1/4">
+    <section
+      class="flex flex-col md:flex-row md:justify-between pt-40 pb-56 font-medium"
+    >
+      <div class="md:w-2/5 xl:w-1/4">
         <h2 class="text-2xl xl:text-3xl xxl:text-5xl body-font mb-5">
           "11/10 Can confidently recommend this to anyone"
         </h2>
@@ -147,7 +149,7 @@ onMounted(() => {
           <p>Kathryn - 18/01/2024</p>
         </div>
       </div>
-      <div class="w-2/5 xl:w-1/4">
+      <div class="mt-16 md:mt-0 md:w-2/5 xl:w-1/4">
         <h2 class="text-2xl xl:text-3xl xxl:text-5xl body-font mb-5">
           "Flavors were different than other bingsu places"
         </h2>
@@ -183,7 +185,9 @@ onMounted(() => {
           Buzzworthy moments
         </h1>
       </div>
-      <div class="lg:max-w-[50%] text-xl xxl:text-2xl body-font tracking-wide">
+      <div
+        class="mt-10 lg:mt-0 lg:max-w-[50%] text-sm sm:text-base lg:text-xl xxl:text-2xl body-font tracking-wide"
+      >
         <div class="scroller" v-if="isReducedMotion">
           <ul class="scroller-inner">
             <li
