@@ -35,12 +35,17 @@ const email = ref("");
     </section>
     <section class="w-1/2">
       <input
-        class="bg-orangebq"
+        class="bg-orangebq border-solid border-2 border-creamwhitebq p-3"
         v-model="userInfo.name"
         placeholder="Name"
         type="input"
       />
-      <input v-model="userInfo.email" placeholder="Email" type="input" />
+      <input
+        class="bg-orangebq border-solid border-2 border-creamwhitebq p-3"
+        v-model="userInfo.email"
+        placeholder="Email"
+        type="input"
+      />
     </section>
   </div>
 </template>
