@@ -10,8 +10,8 @@ const userInfo = ref<UserInfo>({
   name: "",
   email: "",
 });
-// const name = ref("")
-// const email = ref("")
+const name = ref("");
+const email = ref("");
 </script>
 
 <template>
@@ -34,10 +34,13 @@ const userInfo = ref<UserInfo>({
       </p>
     </section>
     <section class="w-1/2">
-      <input v-model="userInfo.name" placeholder="Name" /><input
-        v-model="userInfo.email"
-        placeholder="Email"
+      <input
+        class="bg-orangebq"
+        v-model="userInfo.name"
+        placeholder="Name"
+        type="input"
       />
+      <input v-model="userInfo.email" placeholder="Email" type="input" />
     </section>
   </div>
 </template>
