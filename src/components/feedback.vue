@@ -44,13 +44,40 @@ const email = ref("");
         />
       </div>
       <div>
-        <label>Name</label>
+        <label>Email</label>
         <input
           class="bg-orangebq border-solid border-2 border-creamwhitebq p-3"
           v-model="userInfo.email"
-          placeholder="Your name"
+          placeholder="Your email"
           type="input"
         />
+      </div>
+      <div>
+        <label>Location of dine-in</label>
+        <input
+          class="bg-orangebq border-solid border-2 border-creamwhitebq p-3"
+          v-model="userInfo.email"
+          placeholder="Select relevant branch"
+          type="input"
+        />
+      </div>
+      <div>
+        <label>Feedback topic</label>
+        <input
+          class="bg-orangebq border-solid border-2 border-creamwhitebq p-3"
+          v-model="userInfo.email"
+          placeholder="The scope of your feedback"
+          type="input"
+        />
+      </div>
+      <div>
+        <label>Message</label>
+        <textarea
+          class="bg-orangebq border-solid border-2 border-creamwhitebq p-3"
+          v-model="userInfo.email"
+          placeholder="Your feedback can be about new bingsus you are interested in, service that we could improve on or anything you would like Binq to do more of. Your opinion matters!"
+          type="input"
+        ></textarea>
       </div>
     </section>
   </div>
