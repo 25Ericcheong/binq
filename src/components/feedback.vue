@@ -1,17 +1,21 @@
 <script setup lang="ts">
 import { ref } from "vue";
 
-interface UserInfo {
+interface FeedbackRequest {
   name: string;
   email: string;
+  branch: string;
+  scope: string;
+  message: string;
 }
 
-const userInfo = ref<UserInfo>({
+const request = ref<FeedbackRequest>({
   name: "",
   email: "",
+  branch: "",
+  scope: "",
+  message: "",
 });
-const name = ref("");
-const email = ref("");
 </script>
 
 <template>
@@ -35,19 +39,10 @@ const email = ref("");
     </section>
     <section class="w-1/2">
       <div>
-        <label>Name</label>
-        <input
-          class="bg-orangebq border-solid border-2 border-creamwhitebq p-3"
-          v-model="userInfo.email"
-          placeholder="Your name"
-          type="input"
-        />
-      </div>
-      <div>
         <label>Email</label>
         <input
           class="bg-orangebq border-solid border-2 border-creamwhitebq p-3"
-          v-model="userInfo.email"
+          v-model="request.email"
           placeholder="Your email"
           type="input"
         />
@@ -56,7 +51,7 @@ const email = ref("");
         <label>Location of dine-in</label>
         <input
           class="bg-orangebq border-solid border-2 border-creamwhitebq p-3"
-          v-model="userInfo.email"
+          v-model="request.branch"
           placeholder="Select relevant branch"
           type="input"
         />
@@ -65,7 +60,7 @@ const email = ref("");
         <label>Feedback topic</label>
         <input
           class="bg-orangebq border-solid border-2 border-creamwhitebq p-3"
-          v-model="userInfo.email"
+          v-model="request.scope"
           placeholder="The scope of your feedback"
           type="input"
         />
@@ -74,7 +69,7 @@ const email = ref("");
         <label>Message</label>
         <textarea
           class="bg-orangebq border-solid border-2 border-creamwhitebq p-3"
-          v-model="userInfo.email"
+          v-model="request.message"
           placeholder="Your feedback can be about new bingsus you are interested in, service that we could improve on or anything you would like Binq to do more of. Your opinion matters!"
           type="input"
         ></textarea>
