@@ -20,9 +20,9 @@ const request = ref<FeedbackRequest>({
 
 <template>
   <div
-    class="py-72 bg-gradient-to-br from-darkorangebq from-5% via-orangebq via-50% to-dullorangebq px-12 sm:px-28 md:px-40 xxl:px-64 text-creamwhitebq flex justify-between h-full"
+    class="py-72 bg-gradient-to-br from-darkorangebq from-5% via-orangebq via-50% to-dullorangebq px-12 sm:px-14 md:px-20 text-creamwhitebq flex justify-between h-full"
   >
-    <section class="flex flex-col justify-center items-center w-1/2">
+    <section class="flex flex-col justify-center items-center w-[40%]">
       <h1
         class="text-5xl sm:text-7xl xl:text-8xl xxl:text-10xl header-font font-extrabold"
       >
@@ -38,7 +38,7 @@ const request = ref<FeedbackRequest>({
       </p>
     </section>
     <section
-      class="w-[40%] body-font text-xl sm:text-2xl lg:text-sm xl:text-xl xxl:text-2xl tracking-wide"
+      class="w-[50%] body-font text-xl sm:text-2xl lg:text-sm xl:text-xl xxl:text-2xl tracking-wide"
     >
       <div class="flex justify-between mb-10">
         <div class="flex flex-col w-[45%]">

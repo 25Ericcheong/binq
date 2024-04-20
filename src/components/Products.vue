@@ -4,7 +4,7 @@ import { getImageUrl } from "@/util/Image.js";
 
 <template>
   <div
-    class="py-72 bg-gradient-to-tl from-darkorangebq from-5% via-orangebq via-50% to-dullorangebq px-12 sm:px-28 md:px-40 xxl:px-64 text-creamwhitebq"
+    class="py-72 bg-gradient-to-tl from-darkorangebq from-5% via-orangebq via-50% to-dullorangebq px-12 sm:px-14 md:px-20 text-creamwhitebq"
   >
     <section class="flex flex-col">
       <h1
@@ -51,9 +51,7 @@ import { getImageUrl } from "@/util/Image.js";
     </section>
     <section class="flex flex-col lg:flex-row mt-80 justify-between">
       <div class="flex flex-col w-full lg:w-2/5">
-        <div
-          class="bg-creamyellowbq p-10 rounded-lg text-darkorangebq flex-col"
-        >
+        <div class="p-10 rounded-lg flex-col">
           <h1
             class="text-5xl sm:text-7xl xl:text-8xl xxl:text-10xl header-font font-extrabold pb-3"
           >
