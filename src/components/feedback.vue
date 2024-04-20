@@ -20,7 +20,7 @@ const request = ref<FeedbackRequest>({
 
 <template>
   <div
-    class="py-72 bg-gradient-to-br from-darkorangebq from-5% via-orangebq via-50% to-dullorangebq px-12 sm:px-28 md:px-40 xxl:px-64 text-creamwhitebq flex h-full"
+    class="py-72 bg-gradient-to-br from-darkorangebq from-5% via-orangebq via-50% to-dullorangebq px-12 sm:px-28 md:px-40 xxl:px-64 text-creamwhitebq flex justify-between h-full"
   >
     <section class="flex flex-col justify-center items-center w-1/2">
       <h1
@@ -37,10 +37,12 @@ const request = ref<FeedbackRequest>({
         improvements you would like to see in Binq!
       </p>
     </section>
-    <section class="w-1/2">
-      <div class="flex">
-        <div class="flex flex-col w-1/2 mr-5">
-          <label>Email</label>
+    <section
+      class="w-[40%] body-font text-xl sm:text-2xl lg:text-sm xl:text-xl xxl:text-2xl tracking-wide"
+    >
+      <div class="flex justify-between mb-10">
+        <div class="flex flex-col w-[45%]">
+          <label class="mb-3">Email</label>
           <input
             class="bg-orangebq border-solid border-2 border-creamwhitebq p-2 placeholder:text-creamwhitebq"
             v-model="request.email"
@@ -48,8 +50,8 @@ const request = ref<FeedbackRequest>({
             type="input"
           />
         </div>
-        <div class="flex flex-col w-1/2">
-          <label>Location of dine-in</label>
+        <div class="flex flex-col w-[45%]">
+          <label class="mb-3">Location of dine-in</label>
           <input
             class="bg-orangebq border-solid border-2 border-creamwhitebq p-2 placeholder:text-creamwhitebq"
             v-model="request.branch"
@@ -58,8 +60,8 @@ const request = ref<FeedbackRequest>({
           />
         </div>
       </div>
-      <div class="flex flex-col">
-        <label>Topic of subject</label>
+      <div class="flex flex-col mb-10">
+        <label class="mb-3">Topic of subject</label>
         <input
           class="bg-orangebq border-solid border-2 border-creamwhitebq p-2 placeholder:text-creamwhitebq"
           v-model="request.scope"
@@ -68,9 +70,9 @@ const request = ref<FeedbackRequest>({
         />
       </div>
       <div class="flex flex-col">
-        <label>Message</label>
+        <label class="mb-3">Message</label>
         <textarea
-          class="bg-orangebq border-solid border-2 border-creamwhitebq p-2 placeholder:text-creamwhitebq"
+          class="bg-orangebq border-solid border-2 border-creamwhitebq p-2 placeholder:text-creamwhitebq h-96"
           v-model="request.message"
           placeholder="Your feedback can be about new bingsus you are interested in, service that we could improve on or anything you would like Binq to do more of. Your opinion matters!"
           type="input"
