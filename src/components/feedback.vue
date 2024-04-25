@@ -42,9 +42,11 @@ function trySubmit(event: Event) {
 
 <template>
   <div
-    class="py-72 bg-gradient-to-tl from-darkorangebq from-5% via-orangebq via-50% to-dullorangebq px-12 sm:px-14 md:px-20 text-creamwhitebq flex justify-between h-full"
+    class="py-72 bg-gradient-to-tl from-darkorangebq from-5% via-orangebq via-50% to-dullorangebq px-12 sm:px-14 md:px-20 text-creamwhitebq flex flex-col lg:flex-row justify-between h-full"
   >
-    <section class="flex flex-col justify-center items-center w-[40%]">
+    <section
+      class="flex flex-col justify-center items-center w-full lg:w-[40%]"
+    >
       <h1
         class="text-5xl sm:text-7xl xl:text-8xl xxl:text-10xl header-font font-extrabold"
       >
@@ -60,10 +62,10 @@ function trySubmit(event: Event) {
       </p>
     </section>
     <form
-      class="w-[50%] body-font text-xl sm:text-2xl lg:text-sm xl:text-xl xxl:text-2xl tracking-wide"
+      class="w-full lg:w-[50%] body-font text-xl sm:text-2xl lg:text-sm xl:text-xl xxl:text-2xl tracking-wide pt-20 lg:pt-0"
     >
-      <div class="flex justify-between mb-10">
-        <div class="flex flex-col w-[45%]">
+      <div class="flex flex-col lg:flex-row justify-between mb-10">
+        <div class="flex flex-col w-full lg:w-[45%] mb-10 lg:mb-0">
           <label class="mb-3">Name</label>
           <input
             class="bg-orangebq border-solid border-2 border-creamwhitebq p-2 placeholder:text-creamwhitebq"
@@ -72,7 +74,7 @@ function trySubmit(event: Event) {
             type="text"
           />
         </div>
-        <div class="flex flex-col w-[45%]">
+        <div class="flex flex-col w-full lg:w-[45%]">
           <label class="mb-3">Location of dine-in</label>
           <select
             class="bg-orangebq border-solid border-2 border-creamwhitebq p-2 placeholder:text-creamwhitebq"
@@ -116,7 +118,7 @@ function trySubmit(event: Event) {
         </p>
         <button
           @click="(e) => trySubmit(e)"
-          class="w-full border-solid border-2"
+          class="w-full border-solid border-2 p-2"
         >
           Submit
         </button>
