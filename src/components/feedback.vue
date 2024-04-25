@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, watch } from "vue";
+
+const BRANCHES = ["Desa Sri Hartamas", "Subang Jaya"];
 
 interface FeedbackRequest {
   name: string;
-  email: string;
   branch: string;
   scope: string;
   message: string;
@@ -11,10 +12,15 @@ interface FeedbackRequest {
 
 const request = ref<FeedbackRequest>({
   name: "",
-  email: "",
   branch: "",
   scope: "",
   message: "",
+});
+
+watch(request.value, (newValue, oldValue) => {
+  console.log(
+    `The state changed from ${oldValue.branch} to ${newValue.branch}`
+  );
 });
 </script>
 
@@ -37,27 +43,32 @@ const request = ref<FeedbackRequest>({
         improvements you would like to see in Binq!
       </p>
     </section>
-    <section
+    <form
       class="w-[50%] body-font text-xl sm:text-2xl lg:text-sm xl:text-xl xxl:text-2xl tracking-wide"
     >
       <div class="flex justify-between mb-10">
         <div class="flex flex-col w-[45%]">
-          <label class="mb-3">Email</label>
+          <label class="mb-3">Name</label>
           <input
             class="bg-orangebq border-solid border-2 border-creamwhitebq p-2 placeholder:text-creamwhitebq"
-            v-model="request.email"
-            placeholder="Your email"
-            type="input"
+            v-model="request.name"
+            placeholder="Your name"
+            type="text"
           />
         </div>
         <div class="flex flex-col w-[45%]">
           <label class="mb-3">Location of dine-in</label>
-          <input
+          <select
             class="bg-orangebq border-solid border-2 border-creamwhitebq p-2 placeholder:text-creamwhitebq"
             v-model="request.branch"
             placeholder="Select relevant branch"
-            type="input"
-          />
+            type="search"
+          >
+            <option value="" disabled selected hidden>Select branch</option>
+            <option v-for="branch in BRANCHES" :value="branch">
+              {{ branch }}
+            </option>
+          </select>
         </div>
       </div>
       <div class="flex flex-col mb-10">
@@ -65,8 +76,8 @@ const request = ref<FeedbackRequest>({
         <input
           class="bg-orangebq border-solid border-2 border-creamwhitebq p-2 placeholder:text-creamwhitebq"
           v-model="request.scope"
-          placeholder="The scope of your feedback"
-          type="input"
+          placeholder="May it be about food, ideas, etc"
+          type="text"
         />
       </div>
       <div class="flex flex-col">
@@ -75,9 +86,9 @@ const request = ref<FeedbackRequest>({
           class="bg-orangebq border-solid border-2 border-creamwhitebq p-2 placeholder:text-creamwhitebq h-96"
           v-model="request.message"
           placeholder="Your feedback can be about new bingsus you are interested in, service that we could improve on or anything you would like Binq to do more of. Your opinion matters!"
-          type="input"
+          type="text"
         ></textarea>
       </div>
-    </section>
+    </form>
   </div>
 </template>
