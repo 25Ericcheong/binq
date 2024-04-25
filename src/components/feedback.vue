@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { ref, watch } from "vue";
+import { ref } from "vue";
 
 const BRANCHES = ["Desa Sri Hartamas", "Subang Jaya"];
+const SCOPES = ["Food", "Service"];
 
 interface FeedbackRequest {
   name: string;
@@ -16,17 +17,32 @@ const request = ref<FeedbackRequest>({
   scope: "",
   message: "",
 });
+const hasError = ref<boolean>(false);
 
-watch(request.value, (newValue, oldValue) => {
-  console.log(
-    `The state changed from ${oldValue.branch} to ${newValue.branch}`
-  );
-});
+function trySubmit(event: Event) {
+  if (event) {
+    event.preventDefault();
+  }
+
+  const req = request.value;
+
+  if (
+    req.name === "" ||
+    req.branch === "" ||
+    req.scope === "" ||
+    req.message === ""
+  ) {
+    hasError.value = true;
+    return;
+  }
+
+  hasError.value = false;
+}
 </script>
 
 <template>
   <div
-    class="py-72 bg-gradient-to-br from-darkorangebq from-5% via-orangebq via-50% to-dullorangebq px-12 sm:px-14 md:px-20 text-creamwhitebq flex justify-between h-full"
+    class="py-72 bg-gradient-to-tl from-darkorangebq from-5% via-orangebq via-50% to-dullorangebq px-12 sm:px-14 md:px-20 text-creamwhitebq flex justify-between h-full"
   >
     <section class="flex flex-col justify-center items-center w-[40%]">
       <h1
@@ -77,8 +93,12 @@ watch(request.value, (newValue, oldValue) => {
           class="bg-orangebq border-solid border-2 border-creamwhitebq p-2 placeholder:text-creamwhitebq"
           v-model="request.scope"
           placeholder="May it be about food, ideas, etc"
-          type="text"
+          type="search"
+          list="scope-data-list"
         />
+        <datalist id="scope-data-list">
+          <option v-for="scope in SCOPES" :value="scope">{{ scope }}</option>
+        </datalist>
       </div>
       <div class="flex flex-col">
         <label class="mb-3">Message</label>
@@ -88,6 +108,18 @@ watch(request.value, (newValue, oldValue) => {
           placeholder="Your feedback can be about new bingsus you are interested in, service that we could improve on or anything you would like Binq to do more of. Your opinion matters!"
           type="text"
         ></textarea>
+      </div>
+      <div class="pt-10">
+        <p v-if="hasError" class="pb-5">
+          Ensure name, location of dine-in, subject and message inputs are
+          filled
+        </p>
+        <button
+          @click="(e) => trySubmit(e)"
+          class="w-full border-solid border-2"
+        >
+          Submit
+        </button>
       </div>
     </form>
   </div>
