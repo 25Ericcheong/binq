@@ -72,6 +72,7 @@ function trySubmit(event: Event) {
             v-model="request.name"
             placeholder="Your name"
             type="text"
+            name="name"
           />
         </div>
         <div class="flex flex-col w-full lg:w-[45%]">
@@ -81,6 +82,7 @@ function trySubmit(event: Event) {
             v-model="request.branch"
             placeholder="Select relevant branch"
             type="search"
+            name="branch"
           >
             <option value="" disabled selected hidden>Select branch</option>
             <option v-for="branch in BRANCHES" :value="branch">
@@ -97,6 +99,7 @@ function trySubmit(event: Event) {
           placeholder="May it be about food, ideas, etc"
           type="search"
           list="scope-data-list"
+          name="subject-of-feedback"
         />
         <datalist id="scope-data-list">
           <option v-for="scope in SCOPES" :value="scope">{{ scope }}</option>
@@ -109,6 +112,7 @@ function trySubmit(event: Event) {
           v-model="request.message"
           placeholder="Your feedback can be about new bingsus you are interested in, service that we could improve on or anything you would like Binq to do more of. Your opinion matters!"
           type="text"
+          name="message"
         ></textarea>
       </div>
       <div class="pt-10">
