@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { computed, ref } from "vue";
 
 const BRANCHES = ["Desa Sri Hartamas", "Subang Jaya"];
 const SCOPES = ["Food", "Service"];
@@ -17,13 +17,7 @@ const request = ref<FeedbackRequest>({
   scope: "",
   message: "",
 });
-const hasError = ref<boolean>(false);
-
-function trySubmit(event: Event) {
-  if (event) {
-    event.preventDefault();
-  }
-
+const hasError = computed(() => {
   const req = request.value;
 
   if (
@@ -32,12 +26,11 @@ function trySubmit(event: Event) {
     req.scope === "" ||
     req.message === ""
   ) {
-    hasError.value = true;
-    return;
+    return true;
   }
 
-  hasError.value = false;
-}
+  return false;
+});
 </script>
 
 <template>
@@ -61,8 +54,11 @@ function trySubmit(event: Event) {
         improvements you would like to see in Binq!
       </p>
     </section>
+    <!-- purpose of gform within class is to allow feedback information to be processed with the provided js handler to store information on dedicated sheet -->
     <form
-      class="w-full lg:w-[50%] body-font text-xl sm:text-2xl lg:text-sm xl:text-xl xxl:text-2xl tracking-wide pt-20 lg:pt-0"
+      class="w-full lg:w-[50%] body-font text-xl sm:text-2xl lg:text-sm xl:text-xl xxl:text-2xl tracking-wide pt-20 lg:pt-0 gform"
+      method="POST"
+      action="https://script.google.com/macros/s/AKfycbzRwO6OwpPO3Pq2yjGAs5cuZUlkkb6Ivb7PNAUfYj-CpYwlDSz6KjhfV-6ylk2Uw-1U6w/exec"
     >
       <div class="flex flex-col lg:flex-row justify-between mb-10">
         <div class="flex flex-col w-full lg:w-[45%] mb-10 lg:mb-0">
@@ -121,7 +117,8 @@ function trySubmit(event: Event) {
           filled
         </p>
         <button
-          @click="(e) => trySubmit(e)"
+          :disabled="hasError"
+          :style="hasError ? { opacity: 0.5 } : { opacity: 1 }"
           class="w-full border-solid border-2 p-2"
         >
           Submit
