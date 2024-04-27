@@ -17,6 +17,7 @@ const request = ref<FeedbackRequest>({
   scope: "",
   message: "",
 });
+
 const hasError = computed(() => {
   const req = request.value;
 
@@ -31,6 +32,10 @@ const hasError = computed(() => {
 
   return false;
 });
+
+function trySubmit(event: Event) {
+  event.preventDefault();
+}
 </script>
 
 <template>
@@ -54,9 +59,8 @@ const hasError = computed(() => {
         improvements you would like to see in Binq!
       </p>
     </section>
-    <!-- purpose of gform within class is to allow feedback information to be processed with the provided js handler to store information on dedicated sheet -->
     <form
-      class="w-full lg:w-[50%] body-font text-xl sm:text-2xl lg:text-sm xl:text-xl xxl:text-2xl tracking-wide pt-20 lg:pt-0 gform"
+      class="w-full lg:w-[50%] body-font text-xl sm:text-2xl lg:text-sm xl:text-xl xxl:text-2xl tracking-wide pt-20 lg:pt-0"
       method="POST"
       action="https://script.google.com/macros/s/AKfycbzRwO6OwpPO3Pq2yjGAs5cuZUlkkb6Ivb7PNAUfYj-CpYwlDSz6KjhfV-6ylk2Uw-1U6w/exec"
     >
@@ -117,6 +121,7 @@ const hasError = computed(() => {
           filled
         </p>
         <button
+          @click="(e: Event) => trySubmit(e)"
           :disabled="hasError"
           :style="hasError ? { opacity: 0.5 } : { opacity: 1 }"
           class="w-full border-solid border-2 p-2"
