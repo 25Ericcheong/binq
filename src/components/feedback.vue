@@ -113,7 +113,7 @@ function trySubmit(event: Event) {
 
 <template>
   <div
-    class="py-72 bg-gradient-to-tl from-darkorangebq from-5% via-orangebq via-50% to-dullorangebq px-12 sm:px-14 md:px-20 text-creamwhitebq flex flex-col lg:flex-row justify-between h-full"
+    class="py-72 bg-orangebq px-12 sm:px-14 md:px-20 text-creamwhitebq flex flex-col lg:flex-row justify-between h-full"
   >
     <section
       class="flex flex-col justify-center items-center w-full lg:w-[40%]"
