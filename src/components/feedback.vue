@@ -3,12 +3,15 @@ import { computed, ref } from "vue";
 
 const BRANCHES = ["Desa Sri Hartamas", "Subang Jaya"];
 const SCOPES = ["Food", "Service"];
+const TIMEZONE = "Asia/Kuala_Lumpur";
+const LOCALES = "en-GB";
 
 interface Feedback {
   email: string;
   branch: string;
   scope: string;
   message: string;
+  submissionTime: string;
 }
 
 // this is structured based on provided instructions' request data structure: https://github.com/dwyl/learn-to-send-email-via-google-script-html-no-server/blob/master/form-submission-handler.js#L94
@@ -28,9 +31,18 @@ const request = ref<Feedback>({
   branch: "",
   scope: "",
   message: "",
+  submissionTime: new Date().toLocaleString(LOCALES, {
+    timeZone: TIMEZONE,
+  }),
 });
+const hasSubmitted = ref<boolean>(false);
 
 const hasError = computed(() => {
+  function validateEmail(email: string) {
+    var re = /\S+@\S+\.\S+/;
+    return re.test(email);
+  }
+
   const req = request.value;
 
   if (
@@ -42,13 +54,23 @@ const hasError = computed(() => {
     return true;
   }
 
+  if (!validateEmail(req.email)) {
+    return true;
+  }
+
   return false;
 });
 
 function createRequest(): Request {
   const data: FormRequestData = {
-    formDataNameOrder: JSON.stringify(["name", "scope", "branch", "message"]),
-    formGoogleSheetName: "Dev Binq Feedback",
+    formDataNameOrder: JSON.stringify([
+      "submissionTime",
+      "email",
+      "branch",
+      "scope",
+      "message",
+    ]),
+    formGoogleSheetName: "responses",
     formGoogleSendEmail: "ericcheongkaikit@gmail.com",
     ...request.value,
   };
@@ -56,7 +78,6 @@ function createRequest(): Request {
 }
 
 function trySubmit(event: Event) {
-  console.log("trying to submit");
   event.preventDefault();
 
   const request = createRequest();
@@ -67,7 +88,7 @@ function trySubmit(event: Event) {
   }
 
   const URL =
-    "https://script.google.com/macros/s/AKfycbzRwO6OwpPO3Pq2yjGAs5cuZUlkkb6Ivb7PNAUfYj-CpYwlDSz6KjhfV-6ylk2Uw-1U6w/exec";
+    "https://script.google.com/macros/s/AKfycbxDmKwpYWbm_zI0gRREp1QQS01r7ervHBVJo0DT5lA9rT7jpxPJbNyT6UgH-4SbB_TPCA/exec";
   const xhr = new XMLHttpRequest();
   const data = request.data;
 
@@ -85,6 +106,8 @@ function trySubmit(event: Event) {
     .join("&");
 
   xhr.send(encoded);
+
+  hasSubmitted.value = true;
 }
 </script>
 
@@ -164,13 +187,17 @@ function trySubmit(event: Event) {
       </div>
       <div class="pt-10">
         <p v-if="hasError" class="pb-5">
-          Ensure name, location of dine-in, subject and message inputs are
-          filled
+          Ensure email (correct format), location of dine-in, subject and
+          message inputs are filled
+        </p>
+        <p v-if="hasSubmitted" class="pb-5">
+          Thank you for taking the time to submit your feedback! We appreciate
+          it!
         </p>
         <button
           @click="(e: Event) => trySubmit(e)"
-          :disabled="hasError"
-          :style="hasError ? { opacity: 0.5 } : { opacity: 1 }"
+          :disabled="hasSubmitted || hasError"
+          :style="hasSubmitted || hasError ? { opacity: 0.5 } : { opacity: 1 }"
           class="w-full border-solid border-2 p-2"
         >
           Submit
