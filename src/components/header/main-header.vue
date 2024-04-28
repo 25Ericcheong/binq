@@ -1,5 +1,9 @@
 <script setup lang="ts">
 const TITLE = "Binq";
+
+function openNewTab(url: string) {
+  window.open(url, "_blank", "");
+}
 </script>
 
 <template>
@@ -66,7 +70,8 @@ const TITLE = "Binq";
     </div>
     <div class="lg:w-10/12">
       <div
-        class="p-4 lg:p-2 rounded-lg drop-shadow-2xl text-lg sm:text-xl lg:text-sm xl:text-xl backdrop-blur-lg bg-darkorangebq bg-opacity-55 text-creamwhitebq flex flex-col sm:flex-row sm:justify-between mb-14 lg:mb-5 xl:mb-14 mt-2 w-full xl:w-3/4"
+        v-on:click="openNewTab('https://www.instagram.com/binqdessert/')"
+        class="p-4 lg:p-2 rounded-lg drop-shadow-2xl text-lg sm:text-xl lg:text-sm xl:text-xl backdrop-blur-lg bg-darkorangebq bg-opacity-55 text-creamwhitebq flex flex-col sm:flex-row sm:justify-between mb-14 lg:mb-5 xl:mb-14 mt-2 w-full xl:w-3/4 border-solid border-2 border-creamwhitebq cursor-pointer"
       >
         <p class="w-full xl:w-4/5 tracking-wide">
           Visit us and experience the Binq process firsthand where it is freshly
@@ -83,7 +88,10 @@ const TITLE = "Binq";
         <hr class="w-2/5" />
       </div>
       <div
-        class="p-4 lg:p-2 rounded-lg drop-shadow-2xl text-xl lg:text-sm xl:text-xl backdrop-blur-lg bg-darkorangebq bg-opacity-55 text-creamwhitebq flex flex-col sm:flex-row sm:justify-between mt-14 lg:mt-5 xl:mt-14 w-full xl:w-3/4"
+        v-on:click="
+          openNewTab('https://www.facebook.com/profile.php?id=100095187967073')
+        "
+        class="p-4 lg:p-2 rounded-lg drop-shadow-2xl text-xl lg:text-sm xl:text-xl backdrop-blur-lg bg-darkorangebq bg-opacity-55 text-creamwhitebq flex flex-col sm:flex-row sm:justify-between mt-14 lg:mt-5 xl:mt-14 w-full xl:w-3/4 border-solid border-2 border-creamwhitebq cursor-pointer"
       >
         <p class="w-full xl:w-4/5 tracking-wide">
           Watch this space and imagine what it could have been but beware as it
