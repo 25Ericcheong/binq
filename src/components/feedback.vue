@@ -4,15 +4,27 @@ import { computed, ref } from "vue";
 const BRANCHES = ["Desa Sri Hartamas", "Subang Jaya"];
 const SCOPES = ["Food", "Service"];
 
-interface FeedbackRequest {
-  name: string;
+interface Feedback {
+  email: string;
   branch: string;
   scope: string;
   message: string;
 }
 
-const request = ref<FeedbackRequest>({
-  name: "",
+// this is structured based on provided instructions' request data structure: https://github.com/dwyl/learn-to-send-email-via-google-script-html-no-server/blob/master/form-submission-handler.js#L94
+interface FormRequestData extends Feedback {
+  formDataNameOrder: string;
+  formGoogleSheetName: string;
+  formGoogleSendEmail: string;
+}
+
+interface Request {
+  data: FormRequestData;
+  honeypot?: string;
+}
+
+const request = ref<Feedback>({
+  email: "",
   branch: "",
   scope: "",
   message: "",
@@ -22,7 +34,7 @@ const hasError = computed(() => {
   const req = request.value;
 
   if (
-    req.name === "" ||
+    req.email === "" ||
     req.branch === "" ||
     req.scope === "" ||
     req.message === ""
@@ -33,8 +45,46 @@ const hasError = computed(() => {
   return false;
 });
 
+function createRequest(): Request {
+  const data: FormRequestData = {
+    formDataNameOrder: JSON.stringify(["name", "scope", "branch", "message"]),
+    formGoogleSheetName: "Dev Binq Feedback",
+    formGoogleSendEmail: "ericcheongkaikit@gmail.com",
+    ...request.value,
+  };
+  return { data: data };
+}
+
 function trySubmit(event: Event) {
+  console.log("trying to submit");
   event.preventDefault();
+
+  const request = createRequest();
+
+  // spam bot; do not send email
+  if (request.honeypot !== undefined) {
+    return;
+  }
+
+  const URL =
+    "https://script.google.com/macros/s/AKfycbzRwO6OwpPO3Pq2yjGAs5cuZUlkkb6Ivb7PNAUfYj-CpYwlDSz6KjhfV-6ylk2Uw-1U6w/exec";
+  const xhr = new XMLHttpRequest();
+  const data = request.data;
+
+  xhr.open("POST", URL);
+  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+  type formRequestDataKeys = keyof typeof data;
+  const encoded = Object.keys(data)
+    .map(
+      (key) =>
+        encodeURIComponent(key) +
+        "=" +
+        encodeURIComponent(data[key as formRequestDataKeys])
+    )
+    .join("&");
+
+  xhr.send(encoded);
 }
 </script>
 
@@ -61,18 +111,16 @@ function trySubmit(event: Event) {
     </section>
     <form
       class="w-full lg:w-[50%] body-font text-xl sm:text-2xl lg:text-sm xl:text-xl xxl:text-2xl tracking-wide pt-20 lg:pt-0"
-      method="POST"
-      action="https://script.google.com/macros/s/AKfycbzRwO6OwpPO3Pq2yjGAs5cuZUlkkb6Ivb7PNAUfYj-CpYwlDSz6KjhfV-6ylk2Uw-1U6w/exec"
     >
       <div class="flex flex-col lg:flex-row justify-between mb-10">
         <div class="flex flex-col w-full lg:w-[45%] mb-10 lg:mb-0">
-          <label class="mb-3">Name</label>
+          <label class="mb-3">Email</label>
           <input
             class="bg-orangebq border-solid border-2 border-creamwhitebq p-2 placeholder:text-creamwhitebq"
-            v-model="request.name"
-            placeholder="Your name"
+            v-model="request.email"
+            placeholder="Your email"
             type="text"
-            name="name"
+            name="email"
           />
         </div>
         <div class="flex flex-col w-full lg:w-[45%]">
@@ -81,7 +129,6 @@ function trySubmit(event: Event) {
             class="bg-orangebq border-solid border-2 border-creamwhitebq p-2 placeholder:text-creamwhitebq"
             v-model="request.branch"
             placeholder="Select relevant branch"
-            type="search"
             name="branch"
           >
             <option value="" disabled selected hidden>Select branch</option>
