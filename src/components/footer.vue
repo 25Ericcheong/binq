@@ -18,8 +18,18 @@ const CURRENT_YEAR = new Date().getFullYear();
         class="body-font text-xl sm:text-2xl lg:text-sm xl:text-xl xxl:text-2xl my-3 tracking-wide"
       >
         <p>Bingsus like no other. Take a peak at our creations</p>
-        <a class="block">Instagram</a>
-        <a class="block">Facebook</a>
+        <a
+          class="block pt-2"
+          href="https://www.instagram.com/binqdessert/"
+          target="_blank"
+          >Instagram</a
+        >
+        <a
+          class="block pt-2"
+          href="https://www.facebook.com/profile.php?id=100095187967073"
+          target="_blank"
+          >Facebook</a
+        >
       </div>
       <div
         class="body-font text-lg sm:text-xl lg:text-xs xl:text-l xxl:text-xl"
