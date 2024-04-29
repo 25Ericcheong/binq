@@ -93,7 +93,7 @@ const CURRENT_YEAR = new Date().getFullYear();
       </div>
       <div class="w-full lg:w-[10%] flex justify-end pt-20 lg:pt-0">
         <div
-          class="w-[40%] h-full lg:w-[80%] lg:h-1/4 rounded-full bg-creamwhitebq flex justify-center items-center py-5 lg:py-1"
+          class="w-[30%] h-full lg:w-[80%] lg:h-1/4 rounded-full bg-creamwhitebq flex justify-center items-center py-5 lg:py-1"
         >
           <img
             class="w-[60%] h-full lg:h-1/4 xxl:h-1/2"
