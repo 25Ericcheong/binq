@@ -6,10 +6,12 @@ const CURRENT_YEAR = new Date().getFullYear();
   <footer
     class="px-12 sm:px-14 md:px-20 text-creamwhitebq flex flex-col lg:flex-row justify-between bg-orangebq pt-40 pb-20"
   >
-    <section class="w-[30%] border-solid border-t-2 pt-10">
+    <section
+      class="w-full lg:w-[20%] xl:w-[30%] border-solid border-t-2 pt-20 lg:pt-10 pb-20 lg:pb-0"
+    >
       <div>
         <h1
-          class="text-7xl xl:text-8xl xxl:text-10xl header-font font-extrabold text-creamwhitebq pb-10"
+          class="text-7xl xl:text-8xl xxl:text-10xl header-font font-extrabold text-creamwhitebq pb-10 text-center"
         >
           Binq
         </h1>
@@ -39,9 +41,9 @@ const CURRENT_YEAR = new Date().getFullYear();
       </div>
     </section>
     <section
-      class="w-[60%] flex flex-col lg:flex-row justify-between border-solid border-t-2 pt-10"
+      class="w-full lg:w-[70%] xl:w-[60%] flex flex-col lg:flex-row justify-between border-solid border-t-2 pt-20 lg:pt-10"
     >
-      <div class="w-[25%]">
+      <div class="w-full lg:w-[25%]">
         <h2
           class="text-2xl lg:text-2xl xl:text-3xl xxl:text-5xl body-font pb-2"
         >
@@ -55,7 +57,7 @@ const CURRENT_YEAR = new Date().getFullYear();
           <p class="pt-2">0169007070</p>
         </div>
       </div>
-      <div class="w-[25%]">
+      <div class="w-full lg:w-[25%] pt-10 lg:pt-0">
         <h2
           class="text-2xl lg:text-2xl xl:text-3xl xxl:text-5xl body-font pb-2"
         >
@@ -68,7 +70,7 @@ const CURRENT_YEAR = new Date().getFullYear();
           <p class="pt-2">Fri - Sat: 1:00 PM to 11:30 PM</p>
         </div>
       </div>
-      <div class="w-[25 %]">
+      <div class="w-full lg:w-[25%] pt-10 lg:pt-0">
         <h2
           class="text-2xl lg:text-2xl xl:text-3xl xxl:text-5xl body-font pb-2"
         >
@@ -89,11 +91,14 @@ const CURRENT_YEAR = new Date().getFullYear();
           </a>
         </div>
       </div>
-      <div class="w-[10%] flex justify-end">
+      <div class="w-full lg:w-[10%] flex justify-end pt-20 lg:pt-0">
         <div
-          class="w-1/2 h-1/5 rounded-full bg-creamwhitebq flex justify-center items-center"
+          class="w-[40%] h-full lg:w-[80%] lg:h-1/4 rounded-full bg-creamwhitebq flex justify-center items-center py-5 lg:py-1"
         >
-          <img class="w-1/2 h-1/2" src="../assets/logo/binq.png" />
+          <img
+            class="w-[60%] h-full lg:h-1/4 xxl:h-1/2"
+            src="../assets/logo/binq.png"
+          />
         </div>
       </div>
     </section>
