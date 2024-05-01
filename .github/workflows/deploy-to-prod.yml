@@ -1,6 +1,11 @@
-name: GitHub Actions Demo
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
-on: [push]
+name: Build and Deploy Bing Static Web
+run-name: Building and Deployiing
+on:
+  pull_request:
+    branches:
+      - "dev"
+      - "master"
+      - "!feature-**/"
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
