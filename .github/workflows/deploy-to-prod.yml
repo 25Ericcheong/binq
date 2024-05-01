@@ -8,10 +8,10 @@ on:
       - "!feature-**/"
 
 env:
-  NODE_VERSION: "20.x"
+  NODE_VERSION: "20.10.0"
 
 jobs:
-  Build-Project:
+  build:
     runs-on: ubuntu-latest
     steps:
       - run: echo "Attempting to install required tools and build project"
