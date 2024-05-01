@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { getImageUrl } from "@/util/Image";
+import { getImageUrl } from "../util/Image";
 </script>
 
 <template>

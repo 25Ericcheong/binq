@@ -4,7 +4,6 @@ import Feedback from "./components/feedback.vue";
 import Footer from "./components/footer.vue";
 import LandingPageHeader from "./components/header/wrapper-header.vue";
 import OurMentions from "./components/our-mentions.vue";
-// import Products from "./components/products.vue";
 import "./output.css";
 </script>
 

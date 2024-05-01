@@ -26,6 +26,7 @@ jobs:
       - name: Install Dependencies and Build project
         run: |
           npm ci
+          npx tailwindcss build -i ./src/input.css -o ./src/output.css --minify
           npm run build
 
       - run: echo "🍏 This job's status is ${{ job.status }}."
