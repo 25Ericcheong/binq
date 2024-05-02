@@ -7,26 +7,26 @@ on:
       - "master"
       - "!feature-**/"
 
-env:
-  NODE_VERSION: "20.10.0"
-  ARTIFACT_RETENTION_DAYS: 90
-  REPO_UPDATED_TIMESTAMP: github.event.repository.updated_at | sed 's/:/-/g'
-  IS_MASTER_BRANCH: github.ref == 'refs/heads/master'
-  IS_PR_MERGED: github.event.pull_request.merged
-
 jobs:
   job_1_build:
     name: Build and Upload Production Artifact
-
+    env:
+      NODE_VERSION: "20.10.0"
+      ARTIFACT_RETENTION_DAYS: "90"
+      REPO_UPDATED_TIMESTAMP: github.event.repository.updated_at | sed 's/:/-/g'
     runs-on: ubuntu-latest
+
+    outputs:
+      artifact_name: "artifact_$REPO_UPDATED_TIMESTAMP"
+
     steps:
       - run: echo "Attempting to install required tools and build project"
       - uses: actions/checkout@v4
 
-      - name: Use Node.js ${{ env.NODE_VERSION }}
+      - name: "Use Node.js $NODE_VERSION"
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ env.NODE_VERSION }}
+          node-version: "$NODE_VERSION"
           cache: "npm"
 
       - name: Install Dependencies and Build project
@@ -38,20 +38,24 @@ jobs:
       - name: Store production artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: artifact_${{ env.REPO_UPDATED_TIMESTAMP }}
+          name: "artifact_$REPO_UPDATED_TIMESTAMP"
           path: |
             dist
             !dist/**/*.md
-          retention-days: ${{ env.ARTIFACT_RETENTION_DAYS }}
+          retention-days: "$ARTIFACT_RETENTION_DAYS"
 
       - run: echo "🍏 Build and save artifact status is ${{ job.status }}."
   job_2_deploy:
-    name: Attepmt to Deploy Project
+    name: Attempt to Deploy Project
+    env:
+      IS_MERGING_TO_MASTER: github.ref == 'refs/heads/master'
+      HAS_PR_MERGING: github.event.pull_request.merged
+      ARTIFACT_NAME: ${{ needs.job_1_build.outputs.artifact_name }}
 
-    if: ${{ env.IS_MASTER_BRANCH }} && ${{ env.IS_PR_MERGED }}
+    if: ${{ IS_MERGING_TO_MASTER }} && ${{ HAS_PR_MERGING }}
     runs-on: ubuntu-latest
     steps:
       - run: Download Latest Artifact
       - uses: actions/download-artifact@v4
         with:
-          name: artifact_${{ env.REPO_UPDATED_TIMESTAMP }}
+          name: "artifact_${{ ARTIFACT_NAME }}"
