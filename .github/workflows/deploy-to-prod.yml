@@ -52,10 +52,13 @@ jobs:
       HAS_PR_MERGING: github.event.pull_request.merged
       ARTIFACT_NAME: ${{ needs.job_1_build.outputs.artifact_name }}
 
-    if: ${{ IS_MERGING_TO_MASTER }} && ${{ HAS_PR_MERGING }}
+    if: $IS_MERGING_TO_MASTER && $HAS_PR_MERGING
     runs-on: ubuntu-latest
     steps:
-      - run: Download Latest Artifact
-      - uses: actions/download-artifact@v4
+      - name: Download Latest Artifact
+        uses: actions/download-artifact@v4
         with:
-          name: "artifact_${{ ARTIFACT_NAME }}"
+          name: "artifact_$ARTIFACT_NAME"
+      - name: Deploy to Azure
+        if: $IS_MERGING_TO_MASTER && $HAS_PR_MERGING
+        run: echo "Deploy to Azure is a success!"
