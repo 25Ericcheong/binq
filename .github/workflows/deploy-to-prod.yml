@@ -10,9 +10,14 @@ on:
 env:
   NODE_VERSION: "20.10.0"
   ARTIFACT_RETENTION_DAYS: 90
+  REPO_UPDATED_TIMESTAMP: github.event.repository.updated_at | sed 's/:/-/g'
+  IS_MASTER_BRANCH: github.ref == 'refs/heads/master'
+  IS_PR_MERGED: github.event.pull_request.merged
 
 jobs:
-  build:
+  job_1_build:
+    name: Build and Upload Production Artifact
+
     runs-on: ubuntu-latest
     steps:
       - run: echo "Attempting to install required tools and build project"
@@ -33,10 +38,20 @@ jobs:
       - name: Store production artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: artifact_${{ github.event.repository.updated_at}}
+          name: artifact_${{ env.REPO_UPDATED_TIMESTAMP }}
           path: |
             dist
             !dist/**/*.md
           retention-days: ${{ env.ARTIFACT_RETENTION_DAYS }}
 
-      - run: echo "🍏 This job's status is ${{ job.status }}."
+      - run: echo "🍏 Build and save artifact status is ${{ job.status }}."
+  job_2_deploy:
+    name: Attepmt to Deploy Project
+
+    if: ${{ env.IS_MASTER_BRANCH }} && ${{ env.IS_PR_MERGED }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: Download Latest Artifact
+      - uses: actions/download-artifact@v4
+        with:
+          name: artifact_${{ env.REPO_UPDATED_TIMESTAMP }}
