@@ -1,5 +1,5 @@
 name: Build and Deploy Binq Static Web
-run-name: Building and Deployiing
+run-name: Building and Deploying
 on:
   pull_request:
     branches:
@@ -8,9 +8,10 @@ on:
       - "!feature-**/"
 
 env:
-  NODE_VERSION: "20.10.0"
-  ARTIFACT_RETENTION_DAYS: "90"
-  REPO_UPDATED_TIMESTAMP: github.event.repository.updated_at | sed 's/:/-/g'
+  NODE_VERSION: 20.10.0
+  ARTIFACT_RETENTION_DAYS: 90
+  TIMESTAMP: "(date +%Y-%m-%d-%H-%M-%S)"
+  RUN_NUM: "github.run_number"
 
 jobs:
   job_1_build:
@@ -18,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
 
     outputs:
-      artifact_name: "artifact_$REPO_UPDATED_TIMESTAMP"
+      artifact_name: "build_${{ env.TIMESTAMP }}"
 
     steps:
       - run: echo "Attempting to install required tools and build project"
@@ -39,7 +40,7 @@ jobs:
       - name: Store production artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: "artifact_${{ env.REPO_UPDATED_TIMESTAMP }}"
+          name: "artifact_${{ env.RUN_NUM }}_${{ env.TIMESTAMP }}"
           path: |
             dist
             !dist/**/*.md
