@@ -7,13 +7,14 @@ on:
       - "master"
       - "!feature-**/"
 
+env:
+  NODE_VERSION: "20.10.0"
+  ARTIFACT_RETENTION_DAYS: "90"
+  REPO_UPDATED_TIMESTAMP: github.event.repository.updated_at | sed 's/:/-/g'
+
 jobs:
   job_1_build:
     name: Build and Upload Production Artifact
-    env:
-      NODE_VERSION: "20.10.0"
-      ARTIFACT_RETENTION_DAYS: "90"
-      REPO_UPDATED_TIMESTAMP: github.event.repository.updated_at | sed 's/:/-/g'
     runs-on: ubuntu-latest
 
     outputs:
