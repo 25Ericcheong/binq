@@ -24,10 +24,10 @@ jobs:
       - run: echo "Attempting to install required tools and build project"
       - uses: actions/checkout@v4
 
-      - name: "Use Node.js $NODE_VERSION"
+      - name: "Use Node.js ${{ env.NODE_VERSION }}"
         uses: actions/setup-node@v4
         with:
-          node-version: "$NODE_VERSION"
+          node-version: ${{ env.NODE_VERSION }}
           cache: "npm"
 
       - name: Install Dependencies and Build project
@@ -39,11 +39,11 @@ jobs:
       - name: Store production artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: "artifact_$REPO_UPDATED_TIMESTAMP"
+          name: "artifact_${{ env.REPO_UPDATED_TIMESTAMP }}"
           path: |
             dist
             !dist/**/*.md
-          retention-days: "$ARTIFACT_RETENTION_DAYS"
+          retention-days: ${{ env.ARTIFACT_RETENTION_DAYS }}
 
       - run: echo "🍏 Build and save artifact status is ${{ job.status }}."
   job_2_deploy:
