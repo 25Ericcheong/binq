@@ -7,7 +7,7 @@ import { getImageUrl } from "../util/Image";
     class="bg-creamyellowbq flex flex-col lg:flex-row h-full py-32 lg:py-72 px-12 sm:px-14 md:px-20"
   >
     <img
-      class="w-fit lg:w-1/2"
+      class="w-full h-full lg:w-1/2"
       :src="getImageUrl('bingsu-about-us', 'about-us')"
     />
     <div

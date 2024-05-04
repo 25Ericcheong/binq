@@ -10,7 +10,7 @@ import MainHeader from "./main-header.vue";
     <div
       class="flex justify-center h-[4rem] w-[5rem] bg-creamwhitebq absolute top-0 right-0 m-5 rounded-full"
     >
-      <img class="p-5" src="../../assets/logo/binq.png" />
+      <img class="p-5 h-fit w-fit" src="../../assets/logo/binq.png" />
     </div>
   </header>
 </template>

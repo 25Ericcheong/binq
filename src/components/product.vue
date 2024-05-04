@@ -29,17 +29,17 @@ import { getImageUrl } from "../util/Image";
             every single order is made to perfection for all to enjoy.
           </p>
           <img
-            class="h-1/4"
+            class="h-1/4 w-fit"
             :src="
               getImageUrl('more-prep-bing-product-intro', 'products', 'intro')
             "
           />
           <img
-            class="my-20 xxl:my-40"
+            class="my-20 w-fit h-fit xxl:my-40"
             :src="getImageUrl('topping-product-intro', 'products', 'intro')"
           />
           <img
-            class="w-full lg:w-fit lg:h-fit self-center"
+            class="w-full lg:w-fit h-fit self-center"
             :src="getImageUrl('binq-store-product-intro', 'products', 'intro')"
           />
         </div>
@@ -49,9 +49,11 @@ import { getImageUrl } from "../util/Image";
         />
       </div>
     </section>
-    <section class="flex flex-col lg:flex-row mt-80 justify-between">
+    <section
+      class="flex flex-col lg:flex-row mt-80 justify-between items-center"
+    >
       <div class="flex flex-col w-full lg:w-2/5">
-        <div class="p-10 rounded-lg flex-col">
+        <div class="py-10 rounded-lg flex-col">
           <h1
             class="text-5xl sm:text-7xl xl:text-8xl xxl:text-10xl header-font font-extrabold pb-3"
           >
@@ -63,16 +65,16 @@ import { getImageUrl } from "../util/Image";
           </h2>
         </div>
         <img
-          class="w-fit rounded-full pt-12 self-center"
+          class="w-fit h-3/4 pt-12 self-center"
           :src="getImageUrl('watermelon-topping-product', 'products', 'detail')"
         />
         <img
-          class="w-fit rounded-full pt-16 self-center"
+          class="w-fit h-3/4 pt-16 self-center"
           :src="getImageUrl('topping-product', 'products', 'detail')"
         />
       </div>
       <img
-        class="w-fit lg:w-1/2 rounded-full pt-20 lg:pt-0"
+        class="w-fit h-full lg:w-1/2 rounded-full pt-20 lg:pt-0"
         :src="getImageUrl('bingsu-set-product', 'products', 'detail')"
       />
     </section>

@@ -87,7 +87,7 @@ onMounted(() => {
         </h2>
       </div>
       <img
-        class="lg:w-3/4 p-0 lg:pl-40"
+        class="h-fit w-full lg:w-3/4 p-0 lg:pl-40"
         :src="getImageUrl('bingsu-our-mentions', 'our-mentions')"
       />
     </section>

@@ -78,7 +78,7 @@ function openNewTab(url: string) {
           made to perfection!
         </p>
         <img
-          class="block lg:hidden xl:block w-full sm:w-1/12 xl:w-1/5 mt-5 sm:mt-0"
+          class="block lg:hidden xl:block h-full w-full sm:w-1/12 xl:w-1/5 mt-5 sm:mt-0"
           src="../../assets/images/header/bingsu-in-store.jpg"
         />
       </div>
@@ -98,7 +98,7 @@ function openNewTab(url: string) {
           tastes as good as it looks
         </p>
         <img
-          class="block lg:hidden xl:block w-full sm:w-1/12 xl:w-1/5 mt-5 sm:mt-0"
+          class="lg:hidden xl:block w-full h-full sm:w-1/12 xl:w-1/5 mt-5 sm:mt-0"
           src="../../assets/images/header/bingsu.jpg"
         />
       </div>
