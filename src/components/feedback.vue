@@ -88,7 +88,7 @@ function trySubmit(event: Event) {
   }
 
   const URL =
-    "https://script.google.com/macros/s/AKfycbxDmKwpYWbm_zI0gRREp1QQS01r7ervHBVJo0DT5lA9rT7jpxPJbNyT6UgH-4SbB_TPCA/exec";
+    "https://script.google.com/macros/s/AKfycbzlBE6wXJsec6YMKlo3anu0wHQDZiJE3Ox3AC6KKk_oNf_AwKBgGFNdh7L_Fp67qUNH6g/exec";
   const xhr = new XMLHttpRequest();
   const data = request.data;
 
