@@ -56,7 +56,7 @@ jobs:
       pages: write
       id-token: write
 
-    if: github.ref == 'refs/heads/master' && github.event.pull_request.merged
+    if: github.ref == 'refs/heads/master'
     runs-on: ubuntu-latest
 
     environment:
