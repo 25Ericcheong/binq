@@ -4,6 +4,7 @@ import Feedback from "./components/feedback.vue";
 import Footer from "./components/footer.vue";
 import LandingPageHeader from "./components/header/wrapper-header.vue";
 import OurMentions from "./components/our-mentions.vue";
+import Product from "./components/product.vue";
 import "./output.css";
 </script>
 
@@ -11,7 +12,7 @@ import "./output.css";
   <div class="bg-creamwhitebq">
     <LandingPageHeader />
     <AboutUs />
-    <!-- <Products /> -->
+    <Product />
     <OurMentions />
     <Feedback />
     <Footer />
