@@ -45,7 +45,7 @@ jobs:
         with:
           path: "."
 
-      - run: echo "🍏 Build and save artifact status is a ${{ job.status }}"
+      - run: echo "🍏 Build and save artifact status is a ${{ job.status }} on ${{ github.ref }} branch"
 
   job_2_deploy:
     name: Deploy Website to GitHub Pages
