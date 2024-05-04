@@ -53,7 +53,7 @@ jobs:
       pages: write
       id-token: write
 
-    # if: github.ref == 'refs/heads/master' && github.event.pull_request.merged
+    if: github.ref == 'refs/heads/master' && github.event.pull_request.merged
     runs-on: ubuntu-latest
 
     environment:
@@ -63,6 +63,8 @@ jobs:
       - name: Deploy to GitHub pages
         id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Job status of deployment
         run: echo "🍏 Deploy to GitHub pages is a ${{ job.status }} to ${{ steps.deployment.outputs.page_url }}"
