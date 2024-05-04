@@ -1,0 +1,70 @@
+name: Build and Deploy Binq Static Web
+
+concurrency:
+  group: production
+  cancel-in-progress: true
+
+run-name: Building and Deploying
+on:
+  pull_request:
+    branches:
+      - "dev"
+      - "master"
+      - "!feature-**/"
+
+env:
+  NODE_VERSION: 20.10.0
+  RUN_NUM: github.run_number
+
+jobs:
+  job_1_build:
+    name: Build and Upload Production Artifact
+    runs-on: ubuntu-latest
+
+    steps:
+      - run: echo "Attempting to install required tools and build project"
+      - uses: actions/checkout@v4
+
+      - name: "Use Node.js ${{ env.NODE_VERSION }}"
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: "npm"
+
+      - name: Install Dependencies and Build project
+        run: |
+          npm ci
+          npx tailwindcss build -i ./src/input.css -o ./src/output.css --minify
+          npm run build --f-present
+
+      - name: Upload Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "."
+
+      - run: echo "🍏 Build and save artifact status is a ${{ job.status }}"
+
+  job_2_deploy:
+    name: Deploy Website to GitHub Pages
+    needs: job_1_build
+
+    # Grant GITHUB_TOKEN permissions required to make pages deployment
+    permissions:
+      pages: write
+      id-token: write
+
+    if: github.ref == 'refs/heads/master' && github.event.pull_request.merged
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+
+    steps:
+      - name: Deploy to GitHub pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Job status of deployment
+        run: echo "🍏 Deploy to GitHub pages is a ${{ job.status }} to ${{ steps.deployment.outputs.page_url }}"
