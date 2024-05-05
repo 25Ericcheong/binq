@@ -98,6 +98,7 @@ const CURRENT_YEAR = new Date().getFullYear();
           <img
             class="w-[60%] h-full lg:h-1/4 xxl:h-1/2"
             src="../assets/logo/binq.png"
+            alt="Binq logo representing our store and brand"
           />
         </div>
       </div>

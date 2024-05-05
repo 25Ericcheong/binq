@@ -9,6 +9,7 @@ import { getImageUrl } from "../util/Image";
     <img
       class="w-full h-full lg:w-1/2"
       :src="getImageUrl('bingsu-about-us', 'about-us')"
+      alt="Owner carrying a tray containing a typical bingsu set at Binq"
     />
     <div
       class="flex flex-col justify-center items-center pt-10 lg:pt-0 pl-0 lg:pl-32 text-darkorangebq"

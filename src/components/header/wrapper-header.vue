@@ -10,7 +10,11 @@ import MainHeader from "./main-header.vue";
     <div
       class="flex justify-center h-[64px] w-[80px] bg-creamwhitebq absolute top-0 right-0 m-5 rounded-full"
     >
-      <img class="p-5 h-full w-full" src="../../assets/logo/binq.png" />
+      <img
+        class="p-5 h-full w-full"
+        src="../../assets/logo/binq.png"
+        alt="Binq logo that signifies a bingsu dessert"
+      />
     </div>
   </header>
 </template>
