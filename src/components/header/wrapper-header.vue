@@ -15,6 +15,7 @@ import MainHeader from "./main-header.vue";
         src="../../assets/logo/binq.png"
         alt="Binq logo that signifies a bingsu dessert"
       />
+      <RouterLink to="/menu">Menu</RouterLink>
     </div>
   </header>
 </template>

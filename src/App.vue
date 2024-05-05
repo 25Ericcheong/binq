@@ -17,6 +17,7 @@ import "./output.css";
     <Feedback />
     <Footer />
   </div>
+  <RouterView />
 </template>
 
 <style scoped></style>
