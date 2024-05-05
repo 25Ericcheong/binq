@@ -71,7 +71,7 @@ onMounted(() => {
 
 <template>
   <div
-    class="bg-creamyellowbq w-full py-52 lg:py-72 px-12 sm:px-14 md:px-20 text-darkorangebq"
+    class="bg-creamyellowbq w-full h-full py-52 lg:py-72 px-12 sm:px-14 md:px-20 text-darkorangebq"
   >
     <section class="flex flex-col lg:flex-row lg:justify-between">
       <div class="lg:w-1/5">

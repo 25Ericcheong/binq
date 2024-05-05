@@ -4,7 +4,7 @@ import { getImageUrl } from "../util/Image";
 
 <template>
   <div
-    class="py-72 bg-gradient-to-tl from-darkorangebq from-5% via-orangebq via-50% to-dullorangebq px-12 sm:px-14 md:px-20 text-creamwhitebq"
+    class="py-72 bg-gradient-to-tl from-darkorangebq from-5% via-orangebq via-50% to-dullorangebq px-12 sm:px-14 md:px-20 text-creamwhitebq w-full"
   >
     <section class="flex flex-col">
       <h1
@@ -29,17 +29,17 @@ import { getImageUrl } from "../util/Image";
             every single order is made to perfection for all to enjoy.
           </p>
           <img
-            class="h-1/4 w-fit"
+            class="w-full md:w-4/5 h-1/4 self-center"
             :src="
               getImageUrl('more-prep-bing-product-intro', 'products', 'intro')
             "
           />
           <img
-            class="my-20 w-fit h-fit xxl:my-40"
+            class="my-20 w-full md:w-4/5 h-1/4 xxl:my-40 self-center"
             :src="getImageUrl('topping-product-intro', 'products', 'intro')"
           />
           <img
-            class="w-full lg:w-fit h-fit self-center"
+            class="w-full md:w-4/5 h-1/4 self-center"
             :src="getImageUrl('binq-store-product-intro', 'products', 'intro')"
           />
         </div>
@@ -65,16 +65,16 @@ import { getImageUrl } from "../util/Image";
           </h2>
         </div>
         <img
-          class="w-fit h-3/4 pt-12 self-center"
+          class="w-full h-3/4 pt-12 self-center"
           :src="getImageUrl('watermelon-topping-product', 'products', 'detail')"
         />
         <img
-          class="w-fit h-3/4 pt-16 self-center"
+          class="w-full h-3/4 pt-16 self-center"
           :src="getImageUrl('topping-product', 'products', 'detail')"
         />
       </div>
       <img
-        class="w-fit h-full lg:w-1/2 rounded-full pt-20 lg:pt-0"
+        class="w-full h-3/4 lg:w-1/2 rounded-full pt-20 lg:pt-0"
         :src="getImageUrl('bingsu-set-product', 'products', 'detail')"
       />
     </section>

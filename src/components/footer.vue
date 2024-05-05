@@ -17,7 +17,7 @@ const CURRENT_YEAR = new Date().getFullYear();
         </h1>
       </div>
       <div
-        class="body-font text-xl sm:text-2xl lg:text-sm xl:text-xl xxl:text-2xl my-3 tracking-wide"
+        class="body-font text-xl sm:text-2xl lg:text-sm xl:text-xl xxl:text-2xl my-3 tracking-wide text-center"
       >
         <p>Bingsus like no other. Take a peak at our creations</p>
         <a
@@ -34,7 +34,7 @@ const CURRENT_YEAR = new Date().getFullYear();
         >
       </div>
       <div
-        class="body-font text-lg sm:text-xl lg:text-xs xl:text-l xxl:text-xl"
+        class="body-font text-lg sm:text-xl lg:text-xs xl:text-l xxl:text-xl text-center"
       >
         &#169; {{ CURRENT_YEAR }} BINQ DESSERT SDN. BHD. 202301021089
         (1515011-M)
