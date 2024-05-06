@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, watch } from "vue";
+import { computed, ref, watch } from "vue";
 import { useRoute } from "vue-router";
 import { PATHS } from "../router";
 
@@ -12,13 +12,23 @@ watch(
     relativePath.value = newId;
   }
 );
+
+const condBgColor = computed(() => ({
+  "bg-creamwhitebq": relativePath.value == PATHS.MENU,
+}));
+
+const condLogoPosition = computed(() => ({
+  absolute: relativePath.value == PATHS.HOME,
+  fixed: relativePath.value == PATHS.MENU,
+}));
 </script>
 <template>
-  <section class="flex justify-between w-full">
+  <section class="flex justify-between w-full" :class="condBgColor">
     <div
+      v-if="relativePath == PATHS.HOME"
       class="flex justify-center h-[60px] w-[60px] bg-creamwhitebq m-5 rounded-full fixed top-0"
     >
-      <RouterLink v-if="relativePath == PATHS.HOME" to="/menu"
+      <RouterLink :to="PATHS.MENU"
         ><img
           class="p-5 h-full w-full"
           src="../assets/icons/menu.jpg"
@@ -26,9 +36,10 @@ watch(
       /></RouterLink>
     </div>
     <div
-      class="flex justify-center h-[60px] w-[64px] bg-creamwhitebq m-5 rounded-full absolute top-0 right-0"
+      class="flex justify-center h-[60px] w-[64px] bg-creamwhitebq m-5 rounded-full top-0 right-0"
+      :class="condLogoPosition"
     >
-      <RouterLink to="/"
+      <RouterLink :to="PATHS.HOME"
         ><img
           class="p-5 h-full w-full"
           src="../assets/logo/binq.jpg"
