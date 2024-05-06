@@ -2,6 +2,6 @@
 import "../../output.css";
 </script>
 <template>
-  <RouterLink to="/">Home</RouterLink>
+  <section class="bg-creamwhitebq"></section>
 </template>
 <style scoped></style>
