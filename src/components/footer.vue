@@ -37,7 +37,8 @@ const CURRENT_YEAR = new Date().getFullYear();
         class="body-font text-lg sm:text-xl lg:text-xs xl:text-l xxl:text-xl text-center"
       >
         &#169; {{ CURRENT_YEAR }} BINQ DESSERT SDN. BHD. 202301021089
-        (1515011-M)
+        (1515011-M). Icons by
+        <a target="_blank" href="https://icons8.com">Icons8</a>
       </div>
     </section>
     <section
@@ -97,7 +98,7 @@ const CURRENT_YEAR = new Date().getFullYear();
         >
           <img
             class="w-[60%] h-full lg:h-1/4 xxl:h-1/2"
-            src="../assets/logo/binq.png"
+            src="../assets/logo/binq.jpg"
             alt="Binq logo representing our store and brand"
           />
         </div>

@@ -1,8 +1,10 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import NavBar from "./components/nav-bar.vue";
+import "./output.css";
+</script>
 
-<template>
-  <RouterLink to="/">Go to Home</RouterLink>
-  <RouterLink to="/menu">Go to About</RouterLink>
+<template class="relative">
+  <NavBar></NavBar>
   <RouterView />
 </template>
 

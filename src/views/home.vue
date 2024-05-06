@@ -18,4 +18,4 @@ import "../output.css";
     <Footer />
   </div>
 </template>
-<style lang=""></style>
+<style scoped></style>
