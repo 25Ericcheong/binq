@@ -13,17 +13,13 @@ watch(
   }
 );
 
-const condBgColor = computed(() => ({
-  "bg-creamwhitebq": relativePath.value == PATHS.MENU,
-}));
-
 const condLogoPosition = computed(() => ({
   absolute: relativePath.value == PATHS.HOME,
   fixed: relativePath.value == PATHS.MENU,
 }));
 </script>
 <template>
-  <section class="flex justify-between w-full" :class="condBgColor">
+  <section class="flex justify-between w-full">
     <div
       v-if="relativePath == PATHS.HOME"
       class="flex justify-center h-[60px] w-[60px] bg-creamwhitebq m-5 rounded-full fixed top-0"
