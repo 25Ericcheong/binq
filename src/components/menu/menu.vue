@@ -1,5 +1,28 @@
 <script setup lang="ts">
 import "../../output.css";
+
+enum MenuItemType {
+  Bingsu = "Bingsu",
+  Drink = "Drink",
+  Topping = "Topping",
+}
+
+interface MenuItemBase {
+  price: number;
+  name: string;
+}
+
+interface Bingsu extends MenuItemBase {
+  recommendedToppings: string[];
+}
+
+interface Menu {
+  [MenuItemType.Bingsu]: Bingsu;
+  [MenuItemType.Drink]: MenuItemBase;
+  [MenuItemType.Topping]: MenuItemBase;
+}
+
+const MENU: Menu = {};
 </script>
 <template>
   <section
