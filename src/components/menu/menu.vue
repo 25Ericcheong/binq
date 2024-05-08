@@ -271,7 +271,12 @@ function handleTypeUpdate(newType: MenuItemType) {
           <button
             v-for="type in MenuItemType"
             @click="() => handleTypeUpdate(type)"
-            class="p-5 mr-10 bg-darkorangebq text-creamwhitebq"
+            class="p-5 mr-10 rounded-full"
+            :class="
+              type === selectedType
+                ? 'bg-darkorangebq text-creamwhitebq'
+                : ' text-darkorangebq border-solid border-2 border-darkorangebq'
+            "
           >
             {{ type }}
           </button>
