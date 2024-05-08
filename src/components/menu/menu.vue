@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ref } from "vue";
 import "../../output.css";
 
 enum MenuItemType {
@@ -220,18 +221,66 @@ const MENU: Menu = {
       name: "Mango",
       imagePath: "../../assets/images/menu/toppings/mango.jpg",
     },
+    {
+      price: 2.0,
+      name: "Grapefruit",
+      imagePath: "../../assets/images/menu/toppings/grapefruit.jpg",
+    },
+    {
+      price: 2.0,
+      name: "Passionfruit Popping Boba",
+      imagePath:
+        "../../assets/images/menu/toppings/passionfruit-popping-boba.jpg",
+    },
+    {
+      price: 2.0,
+      name: "Soybean Mochi Cube",
+      imagePath: "../../assets/images/menu/toppings/soybean-mochi-cube.jpg",
+    },
   ],
 };
+
+const selectedType = ref<MenuItemType>(MenuItemType.Bingsu);
+const specificMenuItems = MENU[selectedType.value];
+
+function handleTypeUpdate(newType: MenuItemType) {
+  selectedType.value = newType;
+}
 </script>
 <template>
   <section
     class="bg-gradient-to-tr from-darkorangebq from-15% via-orangebq via-25% to-dullorangebq"
   >
     <h1
-      class="p-5 text-7xl xl:text-8xl header-font font-extrabold text-creamwhitebq text-center"
+      class="p-10 text-7xl xl:text-8xl header-font font-extrabold text-creamwhitebq"
     >
-      Binq Menu
+      Menu
     </h1>
+  </section>
+  <section class="px-5 py-24 bg-creamyellowbq flex justify-center">
+    <div
+      class="w-full xl:max-w-[1320px] body-font text-xl sm:text-2xl lg:text-sm xl:text-xl xxl:text-2xl text-darkorangebq"
+    >
+      <div>
+        <h2
+          class="text-center text-7xl xl:text-8xl header-font pb-10 font-bold"
+        >
+          {{ selectedType }}
+        </h2>
+        <div class="flex justify-center">
+          <button
+            v-for="type in MenuItemType"
+            @click="() => handleTypeUpdate(type)"
+            class="p-5 mr-10 bg-darkorangebq text-creamwhitebq"
+          >
+            {{ type }}
+          </button>
+        </div>
+      </div>
+      <div>
+        <h3>{{ MENU[selectedType].length }} available</h3>
+      </div>
+    </div>
   </section>
 </template>
 <style scoped></style>
