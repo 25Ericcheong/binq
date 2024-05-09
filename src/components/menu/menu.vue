@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { getImageUrlForMenu } from "@/util/Image";
 import { ref } from "vue";
 import "/src/output.css";
 
@@ -285,13 +286,16 @@ function handleTypeUpdate(newType: MenuItemType) {
       <section class="grid grid-cols-3 gap-4">
         <div
           v-for="item in specificMenuItems"
-          class="grid-cols-subgrid gap-4 col-span-3"
+          class="grid grid-cols-subgrid gap-4 col-span-3"
         >
           <div class="col-span-2">
             {{ item.name }}
           </div>
           <div>
-            <img class="h-full w-full" :src="item.imagePath" />
+            <img
+              class="h-full w-1/2 rounded-2xl"
+              :src="getImageUrlForMenu(item.imagePath)"
+            />
           </div>
         </div>
       </section>

@@ -15,3 +15,7 @@ export function getImageUrl(
     import.meta.url
   ).href;
 }
+
+export function getImageUrlForMenu(imagePath: string) {
+  return new URL(imagePath, import.meta.url).href;
+}
