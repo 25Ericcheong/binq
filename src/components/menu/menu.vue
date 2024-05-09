@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { getImageUrlForMenu } from "@/util/Image";
-import { ref } from "vue";
+import { ref, watch } from "vue";
 import "/src/output.css";
 
 enum MenuItemType {
@@ -242,11 +242,18 @@ const MENU: Menu = {
 };
 
 const selectedType = ref<MenuItemType>(MenuItemType.Bingsu);
-const specificMenuItems = MENU[selectedType.value];
+const specificMenuItems = ref<MenuItemBase[]>(MENU[selectedType.value]);
 
 function handleTypeUpdate(newType: MenuItemType) {
   selectedType.value = newType;
 }
+
+watch(
+  () => selectedType.value,
+  (newType, _) => {
+    specificMenuItems.value = MENU[newType];
+  }
+);
 </script>
 <template>
   <section
