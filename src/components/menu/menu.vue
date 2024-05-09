@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import "../../output.css";
+import "/src/output.css";
 
 enum MenuItemType {
   Bingsu = "Bingsu",
@@ -29,7 +29,7 @@ const MENU: Menu = {
     {
       price: 28.5,
       name: "White Peach Oolong",
-      imagePath: "../../assets/images/menu/bingsus/white-peach-oolong.jpg",
+      imagePath: "/src/assets/images/menu/bingsus/white-peach-oolong.jpg",
       recommendedToppings: [
         "Brown sugar jelly",
         "Peach popping boba",
@@ -39,7 +39,7 @@ const MENU: Menu = {
     {
       price: 30.0,
       name: "The Dark Knight",
-      imagePath: "../../assets/images/menu/bingsus/the-dark-knight.jpg",
+      imagePath: "/src/assets/images/menu/bingsus/the-dark-knight.jpg",
       recommendedToppings: [
         "White sugar jelly",
         "Soybean mochi",
@@ -49,7 +49,7 @@ const MENU: Menu = {
     {
       price: 26.5,
       name: "Roasted Soybean Oolong",
-      imagePath: "../../assets/images/menu/bingsus/roasted-soybean-oolong.jpg",
+      imagePath: "/src/assets/images/menu/bingsus/roasted-soybean-oolong.jpg",
       recommendedToppings: [
         "Brown sugar jelly",
         "Soybean mochi cube",
@@ -60,7 +60,7 @@ const MENU: Menu = {
     {
       price: 30.0,
       name: "Matcha",
-      imagePath: "../../assets/images/menu/bingsus/matcha.jpg",
+      imagePath: "/src/assets/images/menu/bingsus/matcha.jpg",
       recommendedToppings: [
         "Brown sugar jelly",
         "Soybean mochi cube",
@@ -71,7 +71,7 @@ const MENU: Menu = {
     {
       price: 32.0,
       name: "Mango",
-      imagePath: "../../assets/images/menu/bingsus/mango.jpg",
+      imagePath: "/src/assets/images/menu/bingsus/mango.jpg",
       recommendedToppings: [
         "Passionfruit popping boba",
         "Nata de coco",
@@ -81,7 +81,7 @@ const MENU: Menu = {
     {
       price: 28.5,
       name: "Kamquat Jasmine",
-      imagePath: "../../assets/images/menu/bingsus/kumquat-jasmine.jpg",
+      imagePath: "/src/assets/images/menu/bingsus/kumquat-jasmine.jpg",
       recommendedToppings: [
         "Nata de coco",
         "Passionfruit popping boba",
@@ -91,7 +91,7 @@ const MENU: Menu = {
     {
       price: 32.0,
       name: "Hoji Cha Cha",
-      imagePath: "../../assets/images/menu/bingsus/hoji-cha-cha.jpg",
+      imagePath: "/src/assets/images/menu/bingsus/hoji-cha-cha.jpg",
       recommendedToppings: [
         "Brown sugar jelly",
         "Soybean mochi cube",
@@ -103,139 +103,139 @@ const MENU: Menu = {
     {
       price: 15.0,
       name: "Watermelon Cheezo",
-      imagePath: "../../assets/images/menu/drinks/watermelon-cheezo.jpg",
+      imagePath: "/src/assets/images/menu/drinks/watermelon-cheezo.jpg",
     },
     {
       price: 15.0,
       name: "Signature Binq Tea",
-      imagePath: "../../assets/images/menu/drinks/signature-binq-tea.jpg",
+      imagePath: "/src/assets/images/menu/drinks/signature-binq-tea.jpg",
     },
     {
       price: 15.0,
       name: "Lychee Cheezo",
-      imagePath: "../../assets/images/menu/drinks/lychee-cheezo.jpg",
+      imagePath: "/src/assets/images/menu/drinks/lychee-cheezo.jpg",
     },
     {
       price: 15.0,
       name: "Grape Cheezo",
-      imagePath: "../../assets/images/menu/drinks/grape-cheezo.jpg",
+      imagePath: "/src/assets/images/menu/drinks/grape-cheezo.jpg",
     },
     {
       price: 13.0,
       name: "Roasted Da Hong Pao Milk Tea",
       imagePath:
-        "../../assets/images/menu/drinks/roasted-da-hong-pao-milk-tea.jpg",
+        "/src/assets/images/menu/drinks/roasted-da-hong-pao-milk-tea.jpg",
     },
   ],
   Topping: [
     {
       price: 2.0,
       name: "White Crystal Jelly",
-      imagePath: "../../assets/images/menu/toppings/white-crystal-jelly.jpg",
+      imagePath: "/src/assets/images/menu/toppings/white-crystal-jelly.jpg",
     },
     {
       price: 2.0,
       name: "Cream Cheese",
-      imagePath: "../../assets/images/menu/toppings/cream-cheese.jpg",
+      imagePath: "/src/assets/images/menu/toppings/cream-cheese.jpg",
     },
     {
       price: 2.0,
       name: "Nata De Coco",
-      imagePath: "../../assets/images/menu/toppings/nata-de-coco.jpg",
+      imagePath: "/src/assets/images/menu/toppings/nata-de-coco.jpg",
     },
     {
       price: 2.0,
       name: "Peach Popping Boba",
-      imagePath: "../../assets/images/menu/toppings/peach-popping-boba.jpg",
+      imagePath: "/src/assets/images/menu/toppings/peach-popping-boba.jpg",
     },
     {
       price: 2.0,
       name: "Passionfruit Popping Boba",
       imagePath:
-        "../../assets/images/menu/toppings/passionfruit-popping-boba.jpg",
+        "/src/assets/images/menu/toppings/passionfruit-popping-boba.jpg",
     },
     {
       price: 2.0,
       name: "Lychee Popping Boba",
-      imagePath: "../../assets/images/menu/toppings/lychee-popping-boba.jpg",
+      imagePath: "/src/assets/images/menu/toppings/lychee-popping-boba.jpg",
     },
     {
       price: 2.0,
       name: "Waterchestnut Popping Boba",
       imagePath:
-        "../../assets/images/menu/toppings/waterchestnut-popping-boba.jpg",
+        "/src/assets/images/menu/toppings/waterchestnut-popping-boba.jpg",
     },
     {
       price: 2.0,
       name: "Taroballs",
-      imagePath: "../../assets/images/menu/toppings/taroballs.jpg",
+      imagePath: "/src/assets/images/menu/toppings/taroballs.jpg",
     },
     {
       price: 2.0,
       name: "Mini Taroballs",
-      imagePath: "../../assets/images/menu/toppings/mini-taroballs.jpg",
+      imagePath: "/src/assets/images/menu/toppings/mini-taroballs.jpg",
     },
     {
       price: 2.0,
       name: "Soybean Mochi Cube",
-      imagePath: "../../assets/images/menu/toppings/soybean-mochi-cube.jpg",
+      imagePath: "/src/assets/images/menu/toppings/soybean-mochi-cube.jpg",
     },
     {
       price: 2.0,
       name: "Brown Sugar Crystal Jelly",
       imagePath:
-        "../../assets/images/menu/toppings/brown-sugar-crystal-jelly.jpg",
+        "/src/assets/images/menu/toppings/brown-sugar-crystal-jelly.jpg",
     },
     {
       price: 2.0,
       name: "Aiyu Jelly",
-      imagePath: "../../assets/images/menu/toppings/aiyu-jelly.jpg",
+      imagePath: "/src/assets/images/menu/toppings/aiyu-jelly.jpg",
     },
     {
       price: 2.0,
       name: "Red Bean",
-      imagePath: "../../assets/images/menu/toppings/red-bean.jpg",
+      imagePath: "/src/assets/images/menu/toppings/red-bean.jpg",
     },
     {
       price: 2.0,
       name: "Butter Crisp",
-      imagePath: "../../assets/images/menu/toppings/butter-crisp.jpg",
+      imagePath: "/src/assets/images/menu/toppings/butter-crisp.jpg",
     },
     {
       price: 2.0,
       name: "Lotus Biscoff",
-      imagePath: "../../assets/images/menu/toppings/lotus-biscoff.jpg",
+      imagePath: "/src/assets/images/menu/toppings/lotus-biscoff.jpg",
     },
     {
       price: 2.0,
       name: "Toasted Coconut",
-      imagePath: "../../assets/images/menu/toppings/toasted-coconut.jpg",
+      imagePath: "/src/assets/images/menu/toppings/toasted-coconut.jpg",
     },
     {
       price: 2.0,
       name: "Cream Cheese with Soybean Powder",
-      imagePath: "../../assets/images/menu/toppings/cream-cheese.jpg",
+      imagePath: "/src/assets/images/menu/toppings/cream-cheese.jpg",
     },
     {
       price: 2.0,
       name: "Mango",
-      imagePath: "../../assets/images/menu/toppings/mango.jpg",
+      imagePath: "/src/assets/images/menu/toppings/mango.jpg",
     },
     {
       price: 2.0,
       name: "Grapefruit",
-      imagePath: "../../assets/images/menu/toppings/grapefruit.jpg",
+      imagePath: "/src/assets/images/menu/toppings/grapefruit.jpg",
     },
     {
       price: 2.0,
       name: "Passionfruit Popping Boba",
       imagePath:
-        "../../assets/images/menu/toppings/passionfruit-popping-boba.jpg",
+        "/src/assets/images/menu/toppings/passionfruit-popping-boba.jpg",
     },
     {
       price: 2.0,
       name: "Soybean Mochi Cube",
-      imagePath: "../../assets/images/menu/toppings/soybean-mochi-cube.jpg",
+      imagePath: "/src/assets/images/menu/toppings/soybean-mochi-cube.jpg",
     },
   ],
 };
@@ -282,7 +282,19 @@ function handleTypeUpdate(newType: MenuItemType) {
           </button>
         </div>
       </section>
-      <section></section>
+      <section class="grid grid-cols-3 gap-4">
+        <div
+          v-for="item in specificMenuItems"
+          class="grid-cols-subgrid gap-4 col-span-3"
+        >
+          <div class="col-span-2">
+            {{ item.name }}
+          </div>
+          <div>
+            <img class="h-full w-full" :src="item.imagePath" />
+          </div>
+        </div>
+      </section>
     </div>
   </section>
 </template>
