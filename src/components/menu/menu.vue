@@ -259,9 +259,9 @@ function handleTypeUpdate(newType: MenuItemType) {
   </section>
   <section class="px-5 py-24 bg-creamyellowbq flex justify-center">
     <div
-      class="w-full xl:max-w-[1320px] body-font text-xl sm:text-2xl lg:text-sm xl:text-xl xxl:text-2xl text-darkorangebq"
+      class="w-full xl:max-w-[1320px] body-font text-xl sm:text-2xl lg:text-sm xl:text-xl xxl:text-2xl text-darkorangebq border-solid border-2 border-darkorangebq"
     >
-      <div>
+      <section>
         <h2
           class="text-center text-7xl xl:text-8xl header-font pb-10 font-bold"
         >
@@ -271,7 +271,7 @@ function handleTypeUpdate(newType: MenuItemType) {
           <button
             v-for="type in MenuItemType"
             @click="() => handleTypeUpdate(type)"
-            class="p-5 mr-10 rounded-full"
+            class="p-3 md:p-5 mr-5 md:mr-10 rounded-full"
             :class="
               type === selectedType
                 ? 'bg-darkorangebq text-creamwhitebq'
@@ -281,10 +281,8 @@ function handleTypeUpdate(newType: MenuItemType) {
             {{ type }}
           </button>
         </div>
-      </div>
-      <div>
-        <h3>{{ MENU[selectedType].length }} available</h3>
-      </div>
+      </section>
+      <section></section>
     </div>
   </section>
 </template>
