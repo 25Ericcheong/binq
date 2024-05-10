@@ -351,7 +351,10 @@ watch(
               />
             </div>
             <div class="w-2/3 flex flex-col">
-              <p class="pb-2 font-semibold">{{ item.name }}</p>
+              <div class="pb-2 flex justify-between">
+                <p class="pb-2 font-semibold">{{ item.name }}</p>
+                <p class="pb-2 font-semibold">RM{{ item.price.toFixed(2) }}</p>
+              </div>
               <div v-if="selectedType === MenuItemType.Bingsu">
                 Pick your own sides or follow our advice:
                 {{ (item as Bingsu).recommendedToppings.join(" + ") }}
