@@ -242,10 +242,12 @@ const MENU: Menu = {
 };
 
 const selectedType = ref<MenuItemType>(MenuItemType.Bingsu);
-const specificMenuItems = ref<MenuItemBase[]>(MENU[selectedType.value]);
+const specificMenuItems = ref<MenuItemBase[] | Bingsu[]>(
+  MENU[selectedType.value]
+);
 
 const condImgHeight = computed(() => ({
-  "h-[165px]": selectedType.value === MenuItemType.Bingsu,
+  "h-[160px]": selectedType.value === MenuItemType.Bingsu,
   "h-[150px]": selectedType.value !== MenuItemType.Bingsu,
 }));
 
@@ -272,7 +274,7 @@ watch(
   </section>
   <section class="px-5 py-24 bg-creamyellowbq flex justify-center">
     <div
-      class="w-full xl:max-w-[1320px] body-font text-xl sm:text-2xl lg:text-sm xl:text-xl xxl:text-2xl text-darkorangebq border-solid border-2 border-darkorangebq"
+      class="w-full xl:max-w-[1320px] body-font text-xl sm:text-2xl xl:text-xl text-darkorangebq"
     >
       <section>
         <h2
@@ -299,17 +301,21 @@ watch(
         <div class="shrink-0 grid grid-cols-2 gap-10 w-full">
           <div
             v-for="item in specificMenuItems"
-            class="border-solid border-2 border-darkorangebq flex h-[200px] p-5 mx-10"
+            class="border-solid border-2 rounded-md border-darkorangebq flex h-[200px] p-5 shadow-lg"
           >
-            <div class="w-1/3 flex justify-center items-center">
+            <div class="w-1/3 flex justify-center items-center pr-5">
               <img
-                class="rounded-2xl w-[150px]"
+                class="rounded-2xl w-[160px]"
                 :class="condImgHeight"
                 :src="getImageUrlForMenu(item.imagePath)"
               />
             </div>
-            <div class="w-2//3">
+            <div class="w-2/3 flex flex-col">
               {{ item.name }}
+              <div v-if="selectedType === MenuItemType.Bingsu">
+                Pick your own sides or follow our advice:
+                {{ (item as Bingsu).recommendedToppings.join(" + ") }}
+              </div>
             </div>
           </div>
         </div>
