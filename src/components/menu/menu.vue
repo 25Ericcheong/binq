@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { getImageUrlForMenu } from "@/util/Image";
-import { ref, watch } from "vue";
+import { computed, ref, watch } from "vue";
 import "/src/output.css";
 
 enum MenuItemType {
@@ -244,6 +244,11 @@ const MENU: Menu = {
 const selectedType = ref<MenuItemType>(MenuItemType.Bingsu);
 const specificMenuItems = ref<MenuItemBase[]>(MENU[selectedType.value]);
 
+const condImgHeight = computed(() => ({
+  "h-[165px]": selectedType.value === MenuItemType.Bingsu,
+  "h-[150px]": selectedType.value !== MenuItemType.Bingsu,
+}));
+
 function handleTypeUpdate(newType: MenuItemType) {
   selectedType.value = newType;
 }
@@ -290,19 +295,22 @@ watch(
           </button>
         </div>
       </section>
-      <section class="grid grid-cols-3 gap-4">
-        <div
-          v-for="item in specificMenuItems"
-          class="grid grid-cols-subgrid gap-4 col-span-3"
-        >
-          <div class="col-span-2">
-            {{ item.name }}
-          </div>
-          <div>
-            <img
-              class="h-full w-1/2 rounded-2xl"
-              :src="getImageUrlForMenu(item.imagePath)"
-            />
+      <section class="flex my-10">
+        <div class="shrink-0 grid grid-cols-2 gap-10 w-full">
+          <div
+            v-for="item in specificMenuItems"
+            class="border-solid border-2 border-darkorangebq flex h-[200px] p-5 mx-10"
+          >
+            <div class="w-1/3 flex justify-center items-center">
+              <img
+                class="rounded-2xl w-[150px]"
+                :class="condImgHeight"
+                :src="getImageUrlForMenu(item.imagePath)"
+              />
+            </div>
+            <div class="w-2//3">
+              {{ item.name }}
+            </div>
           </div>
         </div>
       </section>
