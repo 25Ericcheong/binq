@@ -15,7 +15,7 @@ function handleQuantityUpdate(numberUpdate: number) {
   quantitySelected.value = quantitySelected.value + numberUpdate;
 }
 
-function handleToppingAddition(quantityConfirmed: number) {
+function handleToppingConfirmation() {
   quantitySelected.value = 0;
 }
 </script>
@@ -43,6 +43,7 @@ function handleToppingAddition(quantityConfirmed: number) {
         class="bg-darkorangebq text-creamwhitebq p-3 rounded-full items-center"
         :disabled="quantitySelected === 0"
         :class="condButtonDisable"
+        @click="handleToppingConfirmation"
       >
         Add item
       </button>

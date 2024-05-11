@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { getImageUrlForMenu } from "@/util/Image";
-import { computed, reactive, ref, watch } from "vue";
+import { computed, ref, watch } from "vue";
 import ToppingMenuCart from "../menu/topping-menu-cart.vue";
 import "/src/output.css";
 
@@ -28,14 +28,6 @@ interface Menu {
   [MenuItemType.Bingsu]: BingsuItem[];
   [MenuItemType.Drink]: DrinkOrToppingItem[];
   [MenuItemType.Topping]: DrinkOrToppingItem[];
-}
-
-interface CartItemBase {
-  index: number;
-  price: number;
-  name: string;
-  quantity: number;
-  instructions?: string;
 }
 
 const MENU: Menu = {
@@ -294,7 +286,6 @@ const selectedType = ref<MenuItemType>(MenuItemType.Bingsu);
 const specificMenuItems = ref<MenuItemBase[] | BingsuItem[]>(
   MENU[selectedType.value]
 );
-const cart = reactive<CartItemBase[]>([]);
 
 const condImgHeight = computed(() => ({
   "h-[160px]": selectedType.value === MenuItemType.Bingsu,
