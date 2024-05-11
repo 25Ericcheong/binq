@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, ref, watch } from "vue";
 import { useRoute } from "vue-router";
-import { PATHS } from "../router";
+import { PATHS } from "../router/router";
 
 const route = useRoute();
 const relativePath = ref(route.path);

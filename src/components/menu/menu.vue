@@ -324,7 +324,7 @@ watch(
   </section>
   <section class="px-5 py-24 bg-creamyellowbq flex justify-center">
     <div
-      class="w-full xl:max-w-[1320px] body-font text-xl sm:text-2xl xl:text-xl text-darkorangebq"
+      class="w-full xl:max-w-[1320px] body-font text-xl xl:text-2xl text-darkorangebq"
     >
       <section>
         <h2
@@ -379,7 +379,10 @@ watch(
               </div>
               <div v-if="selectedType === MenuItemType.Bingsu"></div>
               <div v-else-if="selectedType === MenuItemType.Drink"></div>
-              <ToppingMenuCart v-else="selectedType === MenuItemType.Topping" />
+              <ToppingMenuCart
+                v-else="selectedType === MenuItemType.Topping"
+                :topping-name="item.name"
+              />
             </div>
           </div>
         </div>
