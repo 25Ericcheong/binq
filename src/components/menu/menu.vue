@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { getImageUrlForMenu } from "@/util/Image";
-import { computed, ref, watch } from "vue";
+import { computed, reactive, ref, watch } from "vue";
+import ToppingMenuCart from "../menu/topping-menu-cart.vue";
 import "/src/output.css";
 
 enum MenuItemType {
@@ -15,18 +16,26 @@ interface MenuItemBase {
   imagePath: string;
 }
 
-interface Bingsu extends MenuItemBase {
+interface BingsuItem extends MenuItemBase {
   recommendedToppings: string[];
 }
 
-interface DrinkOrTopping extends MenuItemBase {
+interface DrinkOrToppingItem extends MenuItemBase {
   description: string;
 }
 
 interface Menu {
-  [MenuItemType.Bingsu]: Bingsu[];
-  [MenuItemType.Drink]: DrinkOrTopping[];
-  [MenuItemType.Topping]: DrinkOrTopping[];
+  [MenuItemType.Bingsu]: BingsuItem[];
+  [MenuItemType.Drink]: DrinkOrToppingItem[];
+  [MenuItemType.Topping]: DrinkOrToppingItem[];
+}
+
+interface CartItemBase {
+  index: number;
+  price: number;
+  name: string;
+  quantity: number;
+  instructions?: string;
 }
 
 const MENU: Menu = {
@@ -282,9 +291,10 @@ const MENU: Menu = {
 };
 
 const selectedType = ref<MenuItemType>(MenuItemType.Bingsu);
-const specificMenuItems = ref<MenuItemBase[] | Bingsu[]>(
+const specificMenuItems = ref<MenuItemBase[] | BingsuItem[]>(
   MENU[selectedType.value]
 );
+const cart = reactive<CartItemBase[]>([]);
 
 const condImgHeight = computed(() => ({
   "h-[160px]": selectedType.value === MenuItemType.Bingsu,
@@ -341,9 +351,9 @@ watch(
         <div class="shrink-0 grid grid-cols-2 gap-10 w-full">
           <div
             v-for="item in specificMenuItems"
-            class="border-solid border-2 rounded-md border-darkorangebq flex h-[200px] p-5 shadow-lg"
+            class="border-solid border-2 rounded-md border-darkorangebq flex h-[250px] p-5 shadow-lg"
           >
-            <div class="w-1/3 flex justify-center items-center pr-5">
+            <div class="w-1/3 flex justify-center pr-5">
               <img
                 class="rounded-2xl w-[160px]"
                 :class="condImgHeight"
@@ -355,13 +365,21 @@ watch(
                 <p class="pb-2 font-semibold">{{ item.name }}</p>
                 <p class="pb-2 font-semibold">RM{{ item.price.toFixed(2) }}</p>
               </div>
-              <div v-if="selectedType === MenuItemType.Bingsu">
-                Pick your own sides or follow our advice:
-                {{ (item as Bingsu).recommendedToppings.join(" + ") }}
+              <div class="h-[100px]">
+                <p
+                  v-if="selectedType === MenuItemType.Bingsu"
+                  class="line-clamp-3"
+                >
+                  Pick your own sides or follow our advice:
+                  {{ (item as BingsuItem).recommendedToppings.join(" + ") }}
+                </p>
+                <p v-else class="line-clamp-3">
+                  {{ (item as DrinkOrToppingItem).description }}
+                </p>
               </div>
-              <div v-else>
-                {{ (item as DrinkOrTopping).description }}
-              </div>
+              <div v-if="selectedType === MenuItemType.Bingsu"></div>
+              <div v-else-if="selectedType === MenuItemType.Drink"></div>
+              <ToppingMenuCart v-else="selectedType === MenuItemType.Topping" />
             </div>
           </div>
         </div>

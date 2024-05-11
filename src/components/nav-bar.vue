@@ -28,7 +28,7 @@ const condLogoPosition = computed(() => ({
         ><img
           class="p-5 h-full w-full"
           src="../assets/icons/menu.jpg"
-          alt="Binq logo that signifies a bingsu dessert"
+          alt="Menu logo that showcases binq's options"
       /></RouterLink>
     </div>
     <div
