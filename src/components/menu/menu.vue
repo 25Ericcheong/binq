@@ -152,18 +152,4 @@ watch(
     </div>
   </section>
 </template>
-<style>
-html {
-  &:has(dialog[open]) {
-    overflow: hidden;
-  }
-}
-
-dialog {
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  margin: auto;
-}
-</style>
+<style scoped></style>
