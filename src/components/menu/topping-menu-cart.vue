@@ -1,10 +1,12 @@
 <script setup lang="ts">
+import { useMenuStore } from "@/stores/useMenuStore";
 import { computed, ref } from "vue";
 
 const props = defineProps({
   toppingName: { type: String, required: true },
 });
 
+const store = useMenuStore();
 const quantitySelected = ref<number>(0);
 
 const condButtonDisable = computed(() => ({
@@ -16,6 +18,7 @@ function handleQuantityUpdate(numberUpdate: number) {
 }
 
 function handleToppingConfirmation() {
+  store.addToppingOrder(quantitySelected.value, props.toppingName);
   quantitySelected.value = 0;
 }
 </script>
