@@ -101,7 +101,15 @@ watch(
             </div>
             <div class="w-1/3 flex pr-5">
               <img
-                class="rounded-2xl w-[160px]"
+                v-if="selectedType === MenuItemType.Bingsu"
+                class="rounded-2xl w-[160px] h-full"
+                :class="condImgHeight"
+                :src="getImageUrlForMenu(item.imagePath)"
+                alt="Items available on Binq's menu. It includes drinks, bingsu  sets and a variety of toppings"
+              />
+              <img
+                v-else
+                class="rounded-2xl w-[160px] h-[160px]"
                 :class="condImgHeight"
                 :src="getImageUrlForMenu(item.imagePath)"
                 alt="Items available on Binq's menu. It includes drinks, bingsu  sets and a variety of toppings"
@@ -112,7 +120,7 @@ watch(
                 <p class="pb-2 font-semibold">{{ item.name }}</p>
                 <p class="pb-2 font-semibold">RM{{ item.price.toFixed(2) }}</p>
               </div>
-              <div class="h-[100px]">
+              <div class="h-[100px] text-lg xl:text-xl">
                 <p
                   v-if="selectedType === MenuItemType.Bingsu"
                   class="line-clamp-3"
