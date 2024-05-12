@@ -10,10 +10,21 @@ export interface CartItemBase {
   type: MenuItemType;
 }
 
+export interface CartItemBingsu extends CartItemBase {
+  isNormalMilk?: boolean;
+  hasCreamCheese?: boolean;
+  hasKonjacJelly?: boolean;
+  mangoToppings?: string;
+  toppings: string[];
+}
+
+export type CartItems = CartItemBase | CartItemBingsu;
+
 const TOPPING_PRICE = 2;
+export const OAT_MILK_PRICE = 1;
 
 export const useMenuStore = defineStore("menu", () => {
-  const cart = ref<CartItemBase[]>([]);
+  const cart = ref<CartItems[]>([]);
 
   const getItemOrderByName = computed(() => {
     return (orderedItemName: string) =>

@@ -133,7 +133,13 @@ watch(
                   {{ (item as DrinkOrToppingItem).description }}
                 </p>
               </div>
-              <BingsuMenuModal v-if="selectedType === MenuItemType.Bingsu" />
+              <BingsuMenuModal
+                v-if="selectedType === MenuItemType.Bingsu"
+                :bingsu-image-path="item.imagePath"
+                :bingsu-name="item.name"
+                :price="item.price"
+                :recommended-toppings="(item as BingsuItem).recommendedToppings"
+              />
               <div v-else-if="selectedType === MenuItemType.Drink"></div>
               <ToppingMenu
                 v-else="selectedType === MenuItemType.Topping"
