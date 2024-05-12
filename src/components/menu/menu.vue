@@ -3,7 +3,8 @@ import { useMenuStore } from "@/stores/useMenuStore";
 import { getImageUrlForMenu } from "@/util/Image";
 import { storeToRefs } from "pinia";
 import { computed, ref, watch } from "vue";
-import ToppingMenuCart from "../menu/topping-menu-cart.vue";
+import BingsuMenuModal from "../menu/bingsu-menu-modal.vue";
+import ToppingMenu from "../menu/topping-menu.vue";
 import { MenuItemType } from "./menu-item-type";
 import { MENU } from "./menu-items";
 import "/src/output.css";
@@ -132,9 +133,9 @@ watch(
                   {{ (item as DrinkOrToppingItem).description }}
                 </p>
               </div>
-              <div v-if="selectedType === MenuItemType.Bingsu"></div>
+              <BingsuMenuModal v-if="selectedType === MenuItemType.Bingsu" />
               <div v-else-if="selectedType === MenuItemType.Drink"></div>
-              <ToppingMenuCart
+              <ToppingMenu
                 v-else="selectedType === MenuItemType.Topping"
                 :topping-name="item.name"
               />
@@ -145,4 +146,18 @@ watch(
     </div>
   </section>
 </template>
-<style scoped></style>
+<style>
+html {
+  &:has(dialog[open]) {
+    overflow: hidden;
+  }
+}
+
+dialog {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+</style>

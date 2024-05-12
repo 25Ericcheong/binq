@@ -3,6 +3,7 @@ export default {
   content: ["./src/**/*.{html,js,vue}", "./index.html"],
   theme: {
     colors: {
+      blackbq: "#000000",
       orangebq: "#f05b1b",
       creamwhitebq: "#fff5ea",
       creamyellowbq: "#fbe8b5",
