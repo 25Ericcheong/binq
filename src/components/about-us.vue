@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { getImageUrl } from "../util/Image";
+import { GetImageUrl } from "../util/Image";
 </script>
 
 <template>
@@ -8,7 +8,7 @@ import { getImageUrl } from "../util/Image";
   >
     <img
       class="w-full h-full lg:w-1/2"
-      :src="getImageUrl('bingsu-about-us', 'about-us')"
+      :src="GetImageUrl('bingsu-about-us', 'about-us')"
       alt="Owner carrying a tray containing a typical bingsu set at Binq"
     />
     <div

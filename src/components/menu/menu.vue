@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useMenuStore } from "@/stores/useMenuStore";
-import { getImageUrlForMenu } from "@/util/Image";
+import { GetImageUrlForMenu } from "@/util/Image";
 import { storeToRefs } from "pinia";
 import { computed, ref, watch } from "vue";
 import BingsuMenuModal from "../menu/bingsu-menu-modal.vue";
@@ -105,14 +105,14 @@ watch(
                 v-if="selectedType === MenuItemType.Bingsu"
                 class="rounded-2xl w-[160px] h-full"
                 :class="condImgHeight"
-                :src="getImageUrlForMenu(item.imagePath)"
+                :src="GetImageUrlForMenu(item.imagePath)"
                 alt="Items available on Binq's menu. It includes drinks, bingsu  sets and a variety of toppings"
               />
               <img
                 v-else
                 class="rounded-2xl w-[160px] h-[160px]"
                 :class="condImgHeight"
-                :src="getImageUrlForMenu(item.imagePath)"
+                :src="GetImageUrlForMenu(item.imagePath)"
                 alt="Items available on Binq's menu. It includes drinks, bingsu  sets and a variety of toppings"
               />
             </div>

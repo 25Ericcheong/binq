@@ -39,6 +39,10 @@ const DECREASE_OPACITY_CLASS = "opacity-50";
 function openBingsuMenuModal() {
   dialog.value?.showModal();
 }
+
+function closeBinqsuMenuModal() {
+  dialog.value?.close();
+}
 </script>
 <template class="body-font text-xl xl:text-2xl">
   <section class="w-full h-[50px] flex justify-end">
@@ -53,6 +57,14 @@ function openBingsuMenuModal() {
     ref="dialog"
     class="backdrop:bg-blackbq backdrop:opacity-50 h-full w-[390px] bg-creamyellowbq"
   >
+    <div class="fixed h-0">
+      <button
+        class="w-[40px] h-[40px] bg-darkorangebq absolute top-5 left-[335px] rounded-full"
+        @click="closeBinqsuMenuModal"
+      >
+        <img class="h-full w-full" src="../../assets/icons/cross.jpg" />
+      </button>
+    </div>
     <img
       :src="props.bingsuImagePath"
       alt="Image of bingsu that Binq has specially created"

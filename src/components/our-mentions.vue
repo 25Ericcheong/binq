@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
-import { getImageUrl } from "../util/Image";
+import { GetImageUrl } from "../util/Image";
 
 const moments = ref<string[]>([
   "A variety of flavour that aren't too sweet - making them perfect",
@@ -88,7 +88,7 @@ onMounted(() => {
       </div>
       <img
         class="h-fit w-full lg:w-3/4 p-0 lg:pl-40"
-        :src="getImageUrl('bingsu-our-mentions', 'our-mentions')"
+        :src="GetImageUrl('bingsu-our-mentions', 'our-mentions')"
         alt="A blurred background containing the owners of Binq and a tray of Bingsu on the main counter in the store"
       />
     </section>

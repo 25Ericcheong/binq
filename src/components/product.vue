@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { getImageUrl } from "../util/Image";
+import { GetImageUrl } from "../util/Image";
 </script>
 
 <template>
@@ -31,23 +31,23 @@ import { getImageUrl } from "../util/Image";
           <img
             class="w-full md:w-4/5 h-1/4 self-center"
             :src="
-              getImageUrl('more-prep-bing-product-intro', 'products', 'intro')
+              GetImageUrl('more-prep-bing-product-intro', 'products', 'intro')
             "
             alt="Shaving machine used to create our special bing su at Binq"
           />
           <img
             class="my-20 w-full md:w-4/5 h-1/4 xxl:my-40 self-center"
-            :src="getImageUrl('topping-product-intro', 'products', 'intro')"
+            :src="GetImageUrl('topping-product-intro', 'products', 'intro')"
             alt="Our famous side dishes used to complement our perfect bingsu"
           />
           <img
             class="w-full md:w-4/5 h-1/4 self-center"
-            :src="getImageUrl('binq-store-product-intro', 'products', 'intro')"
+            :src="GetImageUrl('binq-store-product-intro', 'products', 'intro')"
             alt="Store front of our main branch in Damansara that reads binq binq binq"
           />
         </div>
         <img
-          :src="getImageUrl('bingsus-product-intro', 'products', 'intro')"
+          :src="GetImageUrl('bingsus-product-intro', 'products', 'intro')"
           class="h-1/3 rounded-full mb-32 lg:sticky lg:top-0"
           alt="Consists of a variety of bingsu desserts which we have readily available"
         />
@@ -70,18 +70,18 @@ import { getImageUrl } from "../util/Image";
         </div>
         <img
           class="w-full h-3/4 pt-12 self-center"
-          :src="getImageUrl('watermelon-topping-product', 'products', 'detail')"
+          :src="GetImageUrl('watermelon-topping-product', 'products', 'detail')"
           alt="Watermelon topping side dish which we have available at the store"
         />
         <img
           class="w-full h-3/4 pt-16 self-center"
-          :src="getImageUrl('topping-product', 'products', 'detail')"
+          :src="GetImageUrl('topping-product', 'products', 'detail')"
           alt="Coated mochi topping side dish which we have available at the store"
         />
       </div>
       <img
         class="w-full h-3/4 lg:w-1/2 rounded-full pt-20 lg:pt-0"
-        :src="getImageUrl('bingsu-set-product', 'products', 'detail')"
+        :src="GetImageUrl('bingsu-set-product', 'products', 'detail')"
         alt="Our best selling bingsu set at binq. Has 4 toppings and our best selling bingsu; Soybean flavoured bingsu"
       />
     </section>
