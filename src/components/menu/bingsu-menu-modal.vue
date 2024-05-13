@@ -133,4 +133,17 @@ html {
     overflow: hidden;
   }
 }
+
+dialog::-webkit-scrollbar {
+  width: 5px; /* width of the entire scrollbar */
+}
+
+dialog::-webkit-scrollbar-track {
+  background: #fbe8b5; /* color of the tracking area */
+}
+
+dialog::-webkit-scrollbar-thumb {
+  background-color: #d26624; /* color of the scroll thumb */
+  border-radius: 20px; /* roundness of the scroll thumb */
+}
 </style>
