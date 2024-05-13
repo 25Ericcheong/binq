@@ -43,6 +43,8 @@ function openBingsuMenuModal() {
 function closeBinqsuMenuModal() {
   dialog.value?.close();
 }
+
+function handleBingsuConfirmation() {}
 </script>
 <template class="body-font text-xl xl:text-2xl">
   <section class="w-full h-[50px] flex justify-end">
@@ -135,7 +137,7 @@ function closeBinqsuMenuModal() {
           <label>{{ toppingName }}</label>
         </div>
       </div>
-      <div class="py-10 border-b-4 border-darkorangebq border-solid">
+      <div class="py-10 mb-24 border-b-4 border-darkorangebq border-solid">
         <div class="mb-5">
           <label class="font-semibold">Special Instructions</label>
         </div>
@@ -146,7 +148,14 @@ function closeBinqsuMenuModal() {
           type="text"
         ></textarea>
       </div>
-      <form method="dialog"><button>Confirm</button></form>
+      <div class="fixed bottom-10 bg-creamyellowbq block">
+        <button
+          class="w-[365px] p-2 bg-darkorangebq rounded-full text-creamwhitebq"
+          @click="handleBingsuConfirmation"
+        >
+          Confirm
+        </button>
+      </div>
     </section>
   </dialog>
 </template>
