@@ -97,7 +97,7 @@ function openBingsuMenuModal() {
         </div>
       </div>
       <div class="py-10 border-b-4 border-darkorangebq border-solid">
-        <div class="pb-4 flex justify-between">
+        <div class="pb-5 flex justify-between">
           <p class="font-semibold">Select Toppings</p>
           <p>Select 3</p>
         </div>
@@ -122,6 +122,17 @@ function openBingsuMenuModal() {
           />
           <label>{{ toppingName }}</label>
         </div>
+      </div>
+      <div class="py-10 border-b-4 border-darkorangebq border-solid">
+        <div class="mb-5">
+          <label class="font-semibold">Special Instructions</label>
+        </div>
+        <textarea
+          class="bg-creamyellowbq border-solid border-2 border-darkorangebq p-2 placeholder:text-darkorangebq h-[300px] w-full"
+          v-model="cartItemBingsu.instructions"
+          placeholder="Please fill if you have any special request"
+          type="text"
+        ></textarea>
       </div>
       <form method="dialog"><button>Confirm</button></form>
     </section>
