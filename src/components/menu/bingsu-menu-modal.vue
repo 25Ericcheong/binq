@@ -37,8 +37,6 @@ watch(
   { deep: true }
 );
 
-const DECREASE_OPACITY_CLASS = "opacity-50";
-
 function openBingsuMenuModal() {
   dialog.value?.showModal();
 }
@@ -57,7 +55,7 @@ const hasToppingsBeenChosen = computed(() => {
 
 const shouldDisableConfirmationButton = computed(() => {
   if (props.bingsuName === WHITE_PEACH_OOLONG) {
-    return !hasKonjacKellyBeenSelected || !hasToppingsBeenChosen;
+    return !hasKonjacKellyBeenSelected.value || !hasToppingsBeenChosen.value;
   }
 
   // placeholder for now
@@ -151,7 +149,7 @@ function handleBingsuConfirmation() {
               !cartItemBingsu.toppings.includes(toppingName)
             "
             :class="{
-              DECREASE_OPACITY_CLASS:
+              'opacity-50':
                 cartItemBingsu.toppings.length === NUM_REQUIRED_TOPPINGS &&
                 !cartItemBingsu.toppings.includes(toppingName),
             }"
@@ -174,7 +172,7 @@ function handleBingsuConfirmation() {
         <button
           class="w-[365px] p-2 bg-darkorangebq rounded-full text-creamwhitebq"
           :class="{
-            DECREASE_OPACITY_CLASS: shouldDisableConfirmationButton,
+            'opacity-50': shouldDisableConfirmationButton,
           }"
           @click="handleBingsuConfirmation"
           :disabled="shouldDisableConfirmationButton"
