@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { CartItemBingsu } from "@/stores/useMenuStore";
-import { ref, watch } from "vue";
+import { computed, ref, watch } from "vue";
 import { MenuItemType } from "./menu-item-type";
 import { MENU } from "./menu-items";
 
@@ -24,14 +24,17 @@ const cartItemBingsu = ref<CartItemBingsu>({
   hasKonjacJelly: undefined,
   mangoToppings: undefined,
 });
+
+const WHITE_PEACH_OOLONG = "White Peach Oolong";
 const AVAILABLE_TOPPINGS = MENU.Topping.map((t) => t.name);
 const NUM_REQUIRED_TOPPINGS = 3;
 
 watch(
-  () => cartItemBingsu.value.toppings,
+  () => cartItemBingsu,
   (val, _) => {
     console.log(val);
-  }
+  },
+  { deep: true }
 );
 
 const DECREASE_OPACITY_CLASS = "opacity-50";
@@ -44,7 +47,26 @@ function closeBinqsuMenuModal() {
   dialog.value?.close();
 }
 
-function handleBingsuConfirmation() {}
+const hasKonjacKellyBeenSelected = computed(() => {
+  return cartItemBingsu.value.hasKonjacJelly !== undefined;
+});
+
+const hasToppingsBeenChosen = computed(() => {
+  return cartItemBingsu.value.toppings.length === NUM_REQUIRED_TOPPINGS;
+});
+
+const shouldDisableConfirmationButton = computed(() => {
+  if (props.bingsuName === WHITE_PEACH_OOLONG) {
+    return !hasKonjacKellyBeenSelected || !hasToppingsBeenChosen;
+  }
+
+  // placeholder for now
+  return false;
+});
+
+function handleBingsuConfirmation() {
+  console.log("clicked");
+}
 </script>
 <template class="body-font text-xl xl:text-2xl">
   <section class="w-full h-[50px] flex justify-end">
@@ -87,7 +109,7 @@ function handleBingsuConfirmation() {}
         </p>
       </div>
       <div
-        v-if="props.bingsuName === 'White Peach Oolong'"
+        v-if="props.bingsuName === WHITE_PEACH_OOLONG"
         class="py-10 border-b-4 border-darkorangebq border-solid"
       >
         <p class="pb-5 font-semibold">Konjac Jelly</p>
@@ -151,7 +173,11 @@ function handleBingsuConfirmation() {}
       <div class="fixed bottom-10 bg-creamyellowbq block">
         <button
           class="w-[365px] p-2 bg-darkorangebq rounded-full text-creamwhitebq"
+          :class="{
+            DECREASE_OPACITY_CLASS: shouldDisableConfirmationButton,
+          }"
           @click="handleBingsuConfirmation"
+          :disabled="shouldDisableConfirmationButton"
         >
           Confirm
         </button>
