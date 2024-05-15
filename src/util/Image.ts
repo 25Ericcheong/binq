@@ -1,4 +1,4 @@
-export function GetImageUrl(
+export function getImageUrl(
   imageName: string,
   outerDir: string,
   innerDir?: string
@@ -16,6 +16,6 @@ export function GetImageUrl(
   ).href;
 }
 
-export function GetImageUrlForMenu(imagePath: string) {
+export function getImageUrlForMenu(imagePath: string) {
   return new URL(imagePath, import.meta.url).href;
 }
