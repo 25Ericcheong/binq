@@ -31,6 +31,7 @@ const cartItemBingsu = ref<CartItemBingsu>({ ...INITIAL_CART_ITEM });
 const THE_DARK_KNIGHT = "The Dark Knight";
 const WHITE_PEACH_OOLONG = "White Peach Oolong";
 const ROASTED_SOYBEAN_OOLONG = "Roasted Soybean Oolong";
+const MATCHA = "Matcha";
 
 const OAT_MILK = "Oat Milk";
 const NORMAL_MILK = "Milk";
@@ -50,6 +51,7 @@ function openBingsuMenuModal() {
 }
 
 function closeBinqsuMenuModal() {
+  resetCartItem();
   dialog.value?.close();
 }
 
@@ -157,54 +159,7 @@ function handleBingsuConfirmation() {
             <label>Exclude</label>
           </div>
         </div>
-        <div>
-          <p class="pb-5 font-semibold">Konjac Jelly</p>
-          <div class="flex items-center pb-4">
-            <input
-              type="radio"
-              v-bind:value="true"
-              v-model="cartItemBingsu.hasKonjacJelly"
-              class="mr-4 accent-darkorangebq h-[20px] w-[20px]"
-            />
-            <label>Include</label>
-          </div>
-          <div class="flex items-center">
-            <input
-              type="radio"
-              v-bind:value="false"
-              v-model="cartItemBingsu.hasKonjacJelly"
-              class="mr-4 accent-darkorangebq h-[20px] w-[20px]"
-            />
-            <label>Exclude</label>
-          </div>
-        </div>
-      </div>
-      <div
-        v-if="props.bingsuName === THE_DARK_KNIGHT"
-        class="py-10 border-b-4 border-darkorangebq border-solid"
-      >
-        <div class="pb-10">
-          <p class="pb-5 font-semibold">Preferred Milk Type</p>
-          <div class="flex items-center pb-4">
-            <input
-              type="radio"
-              v-bind:value="NORMAL_MILK"
-              v-model="cartItemBingsu.isNormalOrOatMilk"
-              class="mr-4 accent-darkorangebq h-[20px] w-[20px]"
-            />
-            <label>Normal Milk</label>
-          </div>
-          <div class="flex items-center">
-            <input
-              type="radio"
-              v-bind:value="OAT_MILK"
-              v-model="cartItemBingsu.isNormalOrOatMilk"
-              class="mr-4 accent-darkorangebq h-[20px] w-[20px]"
-            />
-            <label>Oat Milk (+RM2)</label>
-          </div>
-        </div>
-        <div class="pb-5">
+        <div v-if="props.bingsuName === THE_DARK_KNIGHT">
           <p class="pb-5 font-semibold">Konjac Jelly</p>
           <div class="flex items-center pb-4">
             <input
