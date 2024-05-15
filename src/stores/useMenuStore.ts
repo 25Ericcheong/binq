@@ -35,6 +35,11 @@ export const useMenuStore = defineStore("menu", () => {
     return (orderedItemName: string) => {
       const orders = cart.value.filter((c) => c.name === orderedItemName);
 
+      if (orders.length === 0) {
+        return;
+      }
+
+      // toppings data structure is stored slightly differently to drinks and bingsus
       if (orders[0].type === MenuItemType.Topping) {
         return orders[0].quantity;
       } else {
