@@ -11,17 +11,18 @@ export interface CartItemBase {
 }
 
 export interface CartItemBingsu extends CartItemBase {
-  isNormalMilk?: boolean;
+  isNormalOrOatMilk?: string;
   hasCreamCheese?: boolean;
   hasKonjacJelly?: boolean;
   mangoToppings?: string;
   toppings: string[];
+  type: MenuItemType.Bingsu;
 }
 
 export type CartItems = CartItemBase | CartItemBingsu;
 
-const TOPPING_PRICE = 2;
 export const OAT_MILK_PRICE = 1;
+const TOPPING_PRICE = 2;
 
 export const useMenuStore = defineStore("menu", () => {
   const cart = ref<CartItems[]>([]);

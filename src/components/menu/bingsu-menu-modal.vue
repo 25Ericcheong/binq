@@ -18,17 +18,21 @@ const INITIAL_CART_ITEM = {
   type: MenuItemType.Bingsu,
   toppings: [],
   instructions: undefined,
-  isNormalMilk: undefined,
+  isNormalOrOatMilk: undefined,
   hasCreamCheese: undefined,
   hasKonjacJelly: undefined,
   mangoToppings: undefined,
-};
+} as CartItemBingsu;
 
 const store = useMenuStore();
 const dialog = ref<HTMLDialogElement>();
 const cartItemBingsu = ref<CartItemBingsu>({ ...INITIAL_CART_ITEM });
 
+const THE_DARK_KNIGHT = "The Dark Knight";
 const WHITE_PEACH_OOLONG = "White Peach Oolong";
+
+const OAT_MILK = "Oat Milk";
+const NORMAL_MILK = "Milk";
 const AVAILABLE_TOPPINGS = MENU.Topping.map((t) => t.name);
 const NUM_REQUIRED_TOPPINGS = 3;
 
@@ -60,9 +64,21 @@ const hasToppingsBeenChosen = computed(() => {
   return cartItemBingsu.value.toppings.length === NUM_REQUIRED_TOPPINGS;
 });
 
+const hasMilkOptionBeenChosen = computed(() => {
+  return cartItemBingsu.value.isNormalOrOatMilk !== undefined;
+});
+
 const shouldDisableConfirmationButton = computed(() => {
   if (props.bingsuName === WHITE_PEACH_OOLONG) {
     return !hasKonjacKellyBeenSelected.value || !hasToppingsBeenChosen.value;
+  }
+
+  if (props.bingsuName === THE_DARK_KNIGHT) {
+    return (
+      !hasKonjacKellyBeenSelected.value ||
+      !hasToppingsBeenChosen.value ||
+      !hasMilkOptionBeenChosen.value
+    );
   }
 
   // placeholder for now
@@ -137,6 +153,53 @@ function handleBingsuConfirmation() {
             class="mr-4 accent-darkorangebq h-[20px] w-[20px]"
           />
           <label>Exclude</label>
+        </div>
+      </div>
+      <div
+        v-if="props.bingsuName === THE_DARK_KNIGHT"
+        class="py-10 border-b-4 border-darkorangebq border-solid"
+      >
+        <div class="pb-10">
+          <p class="pb-5 font-semibold">Preferred Milk Type</p>
+          <div class="flex items-center pb-4">
+            <input
+              type="radio"
+              v-bind:value="NORMAL_MILK"
+              v-model="cartItemBingsu.isNormalOrOatMilk"
+              class="mr-4 accent-darkorangebq h-[20px] w-[20px]"
+            />
+            <label>Normal Milk</label>
+          </div>
+          <div class="flex items-center">
+            <input
+              type="radio"
+              v-bind:value="OAT_MILK"
+              v-model="cartItemBingsu.isNormalOrOatMilk"
+              class="mr-4 accent-darkorangebq h-[20px] w-[20px]"
+            />
+            <label>Oat Milk (+RM2)</label>
+          </div>
+        </div>
+        <div class="pb-5">
+          <p class="pb-5 font-semibold">Konjac Jelly</p>
+          <div class="flex items-center pb-4">
+            <input
+              type="radio"
+              v-bind:value="true"
+              v-model="cartItemBingsu.hasKonjacJelly"
+              class="mr-4 accent-darkorangebq h-[20px] w-[20px]"
+            />
+            <label>Include</label>
+          </div>
+          <div class="flex items-center">
+            <input
+              type="radio"
+              v-bind:value="false"
+              v-model="cartItemBingsu.hasKonjacJelly"
+              class="mr-4 accent-darkorangebq h-[20px] w-[20px]"
+            />
+            <label>Exclude</label>
+          </div>
         </div>
       </div>
       <div class="py-10 border-b-4 border-darkorangebq border-solid">
