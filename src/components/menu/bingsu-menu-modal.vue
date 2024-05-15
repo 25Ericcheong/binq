@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { CartItemBingsu } from "@/stores/useMenuStore";
+import { useMenuStore, type CartItemBingsu } from "@/stores/useMenuStore";
 import { computed, ref, watch } from "vue";
 import { MenuItemType } from "./menu-item-type";
 import { MENU } from "./menu-items";
@@ -11,8 +11,7 @@ const props = defineProps({
   recommendedToppings: { type: Array<String>, required: true },
 });
 
-const dialog = ref<HTMLDialogElement>();
-const cartItemBingsu = ref<CartItemBingsu>({
+const INITIAL_CART_ITEM = {
   price: props.price,
   name: props.bingsuName,
   quantity: 1,
@@ -23,7 +22,11 @@ const cartItemBingsu = ref<CartItemBingsu>({
   hasCreamCheese: undefined,
   hasKonjacJelly: undefined,
   mangoToppings: undefined,
-});
+};
+
+const store = useMenuStore();
+const dialog = ref<HTMLDialogElement>();
+const cartItemBingsu = ref<CartItemBingsu>({ ...INITIAL_CART_ITEM });
 
 const WHITE_PEACH_OOLONG = "White Peach Oolong";
 const AVAILABLE_TOPPINGS = MENU.Topping.map((t) => t.name);
@@ -45,6 +48,10 @@ function closeBinqsuMenuModal() {
   dialog.value?.close();
 }
 
+function resetCartItem() {
+  cartItemBingsu.value = { ...INITIAL_CART_ITEM };
+}
+
 const hasKonjacKellyBeenSelected = computed(() => {
   return cartItemBingsu.value.hasKonjacJelly !== undefined;
 });
@@ -63,7 +70,9 @@ const shouldDisableConfirmationButton = computed(() => {
 });
 
 function handleBingsuConfirmation() {
-  console.log("clicked");
+  resetCartItem();
+  closeBinqsuMenuModal();
+  store.addBingsuOrder(cartItemBingsu.value);
 }
 </script>
 <template class="body-font text-xl xl:text-2xl">

@@ -30,7 +30,7 @@ export interface Menu {
 }
 
 const store = useMenuStore();
-const { getItemOrderByName } = storeToRefs(store);
+const { getItemOrderByName, getNumberOfItemOrderByName } = storeToRefs(store);
 
 const selectedType = ref<MenuItemType>(MenuItemType.Bingsu);
 const specificMenuItems = ref<MenuItemBase[] | BingsuItem[]>(
@@ -98,7 +98,7 @@ watch(
               v-if="getItemOrderByName(item.name) !== undefined"
               class="absolute top-3 left-3 py-2 px-4 rounded-full bg-darkorangebq text-creamwhitebq"
             >
-              {{ getItemOrderByName(item.name)?.quantity }}
+              {{ getNumberOfItemOrderByName(item.name) }}
             </div>
             <div class="w-1/3 flex pr-5">
               <img

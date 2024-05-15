@@ -31,6 +31,18 @@ export const useMenuStore = defineStore("menu", () => {
       cart.value.find((c) => c.name === orderedItemName);
   });
 
+  const getNumberOfItemOrderByName = computed(() => {
+    return (orderedItemName: string) => {
+      const orders = cart.value.filter((c) => c.name === orderedItemName);
+
+      if (orders[0].type === MenuItemType.Topping) {
+        return orders[0].quantity;
+      } else {
+        return orders.length;
+      }
+    };
+  });
+
   function addToppingOrder(quantity: number, toppingName: string) {
     let toppingItem = cart.value.find((c) => c.name === toppingName);
 
@@ -46,9 +58,20 @@ export const useMenuStore = defineStore("menu", () => {
     }
   }
 
+  function addBingsuOrder(bingsuOrder: CartItemBingsu) {
+    cart.value.push(bingsuOrder);
+  }
+
   function $reset() {
     cart.value = [];
   }
 
-  return { cart, getItemOrderByName, addToppingOrder, $reset };
+  return {
+    cart,
+    getItemOrderByName,
+    getNumberOfItemOrderByName,
+    addToppingOrder,
+    addBingsuOrder,
+    $reset,
+  };
 });
