@@ -135,7 +135,11 @@ function handleBingsuConfirmation() {
         </p>
       </div>
       <div
-        v-if="props.bingsuName === WHITE_PEACH_OOLONG || ROASTED_SOYBEAN_OOLONG"
+        v-if="
+          props.bingsuName === WHITE_PEACH_OOLONG ||
+          ROASTED_SOYBEAN_OOLONG ||
+          MATCHA
+        "
         class="py-10 border-b-4 border-darkorangebq border-solid"
       >
         <div v-if="props.bingsuName === ROASTED_SOYBEAN_OOLONG" class="pb-10">
