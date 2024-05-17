@@ -3,10 +3,11 @@ import { useMenuStore } from "@/stores/useMenuStore";
 import { storeToRefs } from "pinia";
 import { computed, ref, watch } from "vue";
 import { getImageUrlForMenu } from "../../util/image";
-import BingsuMenuModal from "../menu/bingsu-menu-modal.vue";
-import ToppingMenu from "../menu/topping-menu.vue";
+import BingsuMenuModal from "./bingsu-menu-modal.vue";
+import DrinksMenuModal from "./drinks-menu-modal.vue";
 import { MenuItemType } from "./menu-item-type";
 import { MENU } from "./menu-items";
+import ToppingMenu from "./topping-menu.vue";
 import "/src/output.css";
 
 interface MenuItemBase {
@@ -140,7 +141,13 @@ watch(
                 :price="item.price"
                 :recommended-toppings="(item as BingsuItem).recommendedToppings"
               />
-              <div v-else-if="selectedType === MenuItemType.Drink"></div>
+              <DrinksMenuModal
+                v-else-if="selectedType === MenuItemType.Drink"
+                :drinks-description="(item as DrinkOrToppingItem).description"
+                :drinks-name="item.name"
+                :drinks-image-path="item.imagePath"
+                :price="item.price"
+              />
               <ToppingMenu
                 v-else="selectedType === MenuItemType.Topping"
                 :topping-name="item.name"

@@ -1,5 +1,5 @@
-import { OAT_MILK } from "@/components/menu/bingsu-menu-modal.vue";
 import { MenuItemType } from "@/components/menu/menu-item-type";
+import { OAT_MILK } from "@/components/menu/menu-items";
 import { defineStore } from "pinia";
 import { computed, ref } from "vue";
 
@@ -18,6 +18,13 @@ export interface CartItemBingsu extends CartItemBase {
   mangoToppings?: string;
   toppings: string[];
   type: MenuItemType.Bingsu;
+}
+
+export interface CartItemDrinks extends CartItemBase {
+  sugarLevel?: number;
+  iceLevel?: number;
+  hasCreamCheese?: boolean;
+  topping?: string;
 }
 
 export type CartItems = CartItemBase | CartItemBingsu;
@@ -73,6 +80,10 @@ export const useMenuStore = defineStore("menu", () => {
     cart.value.push(bingsuOrder);
   }
 
+  function addDrinksOrder(drinksOrder: CartItemDrinks) {
+    cart.value.push(drinksOrder);
+  }
+
   function $reset() {
     cart.value = [];
   }
@@ -83,6 +94,7 @@ export const useMenuStore = defineStore("menu", () => {
     getNumberOfItemOrderByName,
     addToppingOrder,
     addBingsuOrder,
+    addDrinksOrder,
     $reset,
   };
 });

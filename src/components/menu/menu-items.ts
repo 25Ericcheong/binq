@@ -1,5 +1,7 @@
 import type { Menu } from "./menu.vue";
 
+export const OAT_MILK = "Oat Milk";
+
 export const MENU: Menu = {
   Bingsu: [
     {

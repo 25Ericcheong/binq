@@ -4,9 +4,9 @@ import {
   useMenuStore,
   type CartItemBingsu,
 } from "@/stores/useMenuStore";
-import { computed, ref, watch } from "vue";
+import { computed, ref } from "vue";
 import { MenuItemType } from "./menu-item-type";
-import { MENU } from "./menu-items";
+import { MENU, OAT_MILK } from "./menu-items";
 
 const props = defineProps({
   bingsuName: { type: String, required: true },
@@ -40,18 +40,9 @@ const MANGO = "Mango";
 const KAMQUAT_JASMINE = "Kamquat Jasmine";
 const HOJI_CHA_CHA = "Hoji Cha Cha";
 
-export const OAT_MILK = "Oat Milk";
 const NORMAL_MILK = "Milk";
 const AVAILABLE_TOPPINGS = MENU.Topping.map((t) => t.name);
 const NUM_REQUIRED_TOPPINGS = 3;
-
-watch(
-  () => cartItemBingsu,
-  (val, _) => {
-    console.log(val);
-  },
-  { deep: true }
-);
 
 function openBingsuMenuModal() {
   dialog.value?.showModal();
@@ -66,7 +57,7 @@ function resetCartItem() {
   cartItemBingsu.value = { ...INITIAL_CART_ITEM };
 }
 
-const hasKonjacKellyBeenSelected = computed(() => {
+const hasKonjacKellyBeenChosen = computed(() => {
   return cartItemBingsu.value.hasKonjacJelly !== undefined;
 });
 
@@ -87,30 +78,25 @@ const hasMangoToppingsBeenChosen = computed(() => {
 });
 
 const shouldDisableConfirmationButton = computed(() => {
+  if (!hasToppingsBeenChosen.value) {
+    return true;
+  }
+
   if (props.bingsuName === WHITE_PEACH_OOLONG) {
-    return !hasKonjacKellyBeenSelected.value || !hasToppingsBeenChosen.value;
+    return !hasKonjacKellyBeenChosen.value;
   }
 
   if (props.bingsuName === THE_DARK_KNIGHT) {
-    return (
-      !hasKonjacKellyBeenSelected.value ||
-      !hasToppingsBeenChosen.value ||
-      !hasMilkOptionBeenChosen.value
-    );
+    return !hasKonjacKellyBeenChosen.value || !hasMilkOptionBeenChosen.value;
   }
 
   if (props.bingsuName === ROASTED_SOYBEAN_OOLONG) {
-    return (
-      !hasKonjacKellyBeenSelected.value ||
-      !hasToppingsBeenChosen.value ||
-      !hasCreamCheeseBeenChosen.value
-    );
+    return !hasKonjacKellyBeenChosen.value || !hasCreamCheeseBeenChosen.value;
   }
 
   if (props.bingsuName === MATCHA || props.bingsuName === HOJI_CHA_CHA) {
     return (
-      !hasKonjacKellyBeenSelected.value ||
-      !hasToppingsBeenChosen.value ||
+      !hasKonjacKellyBeenChosen.value ||
       !hasCreamCheeseBeenChosen.value ||
       !hasMilkOptionBeenChosen.value
     );
@@ -120,12 +106,13 @@ const shouldDisableConfirmationButton = computed(() => {
     return !hasMangoToppingsBeenChosen.value || !hasToppingsBeenChosen.value;
   }
 
+  // only need to check that toppings have been chosen
   if (props.bingsuName === KAMQUAT_JASMINE) {
-    return !hasToppingsBeenChosen.value;
+    return false;
   }
 
-  // placeholder for now
-  return false;
+  // this should not happen as case has not been handled
+  throw true;
 });
 
 function handleBingsuConfirmation() {
