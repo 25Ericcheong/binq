@@ -222,10 +222,6 @@ function handleDrinksConfirmation() {
               :value="toppingName"
               v-model="cartItemDrink.topping"
               class="mr-4 accent-darkorangebq h-[20px] w-[20px]"
-              :disabled="cartItemDrink.topping === toppingName"
-              :class="{
-                'opacity-50': cartItemDrink.topping === toppingName,
-              }"
             />
             <label>{{ toppingName }}</label>
           </div>
