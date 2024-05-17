@@ -1,5 +1,9 @@
 <script setup lang="ts">
-import { useMenuStore, type CartItemBingsu } from "@/stores/useMenuStore";
+import {
+  OAT_MILK_PRICE,
+  useMenuStore,
+  type CartItemBingsu,
+} from "@/stores/useMenuStore";
 import { computed, ref, watch } from "vue";
 import { MenuItemType } from "./menu-item-type";
 import { MENU } from "./menu-items";
@@ -36,7 +40,7 @@ const MANGO = "Mango";
 const KAMQUAT_JASMINE = "Kamquat Jasmine";
 const HOJI_CHA_CHA = "Hoji Cha Cha";
 
-const OAT_MILK = "Oat Milk";
+export const OAT_MILK = "Oat Milk";
 const NORMAL_MILK = "Milk";
 const AVAILABLE_TOPPINGS = MENU.Topping.map((t) => t.name);
 const NUM_REQUIRED_TOPPINGS = 3;
@@ -254,7 +258,7 @@ function handleBingsuConfirmation() {
               v-model="cartItemBingsu.isNormalOrOatMilk"
               class="mr-4 accent-darkorangebq h-[20px] w-[20px]"
             />
-            <label>Oat Milk (+RM2)</label>
+            <label>Oat Milk (+RM{{ OAT_MILK_PRICE }})</label>
           </div>
           <div class="flex items-center">
             <input

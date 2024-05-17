@@ -1,3 +1,4 @@
+import { OAT_MILK } from "@/components/menu/bingsu-menu-modal.vue";
 import { MenuItemType } from "@/components/menu/menu-item-type";
 import { defineStore } from "pinia";
 import { computed, ref } from "vue";
@@ -65,6 +66,10 @@ export const useMenuStore = defineStore("menu", () => {
   }
 
   function addBingsuOrder(bingsuOrder: CartItemBingsu) {
+    if (bingsuOrder.isNormalOrOatMilk === OAT_MILK) {
+      bingsuOrder.price += OAT_MILK_PRICE;
+    }
+
     cart.value.push(bingsuOrder);
   }
 
