@@ -33,6 +33,8 @@ const WHITE_PEACH_OOLONG = "White Peach Oolong";
 const ROASTED_SOYBEAN_OOLONG = "Roasted Soybean Oolong";
 const MATCHA = "Matcha";
 const MANGO = "Mango";
+const KAMQUAT_JASMINE = "Kamquat Jasmine";
+const HOJI_CHA_CHA = "Hoji Cha Cha";
 
 const OAT_MILK = "Oat Milk";
 const NORMAL_MILK = "Milk";
@@ -101,7 +103,7 @@ const shouldDisableConfirmationButton = computed(() => {
     );
   }
 
-  if (props.bingsuName === MATCHA) {
+  if (props.bingsuName === MATCHA || props.bingsuName === HOJI_CHA_CHA) {
     return (
       !hasKonjacKellyBeenSelected.value ||
       !hasToppingsBeenChosen.value ||
@@ -111,7 +113,11 @@ const shouldDisableConfirmationButton = computed(() => {
   }
 
   if (props.bingsuName === MANGO) {
-    return !hasMangoToppingsBeenChosen || !hasToppingsBeenChosen.value;
+    return !hasMangoToppingsBeenChosen.value || !hasToppingsBeenChosen.value;
+  }
+
+  if (props.bingsuName === KAMQUAT_JASMINE) {
+    return !hasToppingsBeenChosen.value;
   }
 
   // placeholder for now
@@ -170,14 +176,16 @@ function handleBingsuConfirmation() {
           props.bingsuName === THE_DARK_KNIGHT ||
           props.bingsuName === ROASTED_SOYBEAN_OOLONG ||
           props.bingsuName === MATCHA ||
-          props.bingsuName === MANGO
+          props.bingsuName === MANGO ||
+          props.bingsuName === HOJI_CHA_CHA
         "
         class="py-10 border-b-4 border-darkorangebq border-solid"
       >
         <div
           v-if="
             props.bingsuName === ROASTED_SOYBEAN_OOLONG ||
-            props.bingsuName === MATCHA
+            props.bingsuName === MATCHA ||
+            props.bingsuName === HOJI_CHA_CHA
           "
           class="pb-10"
         >
@@ -206,7 +214,8 @@ function handleBingsuConfirmation() {
             props.bingsuName === WHITE_PEACH_OOLONG ||
             props.bingsuName === THE_DARK_KNIGHT ||
             props.bingsuName === ROASTED_SOYBEAN_OOLONG ||
-            props.bingsuName === MATCHA
+            props.bingsuName === MATCHA ||
+            props.bingsuName === HOJI_CHA_CHA
           "
           class="pb-10"
         >
@@ -232,7 +241,9 @@ function handleBingsuConfirmation() {
         </div>
         <div
           v-if="
-            props.bingsuName === THE_DARK_KNIGHT || props.bingsuName === MATCHA
+            props.bingsuName === THE_DARK_KNIGHT ||
+            props.bingsuName === MATCHA ||
+            props.bingsuName === HOJI_CHA_CHA
           "
         >
           <p class="pb-5 font-semibold">Milk Type</p>
