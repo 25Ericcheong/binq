@@ -32,6 +32,7 @@ const THE_DARK_KNIGHT = "The Dark Knight";
 const WHITE_PEACH_OOLONG = "White Peach Oolong";
 const ROASTED_SOYBEAN_OOLONG = "Roasted Soybean Oolong";
 const MATCHA = "Matcha";
+const MANGO = "Mango";
 
 const OAT_MILK = "Oat Milk";
 const NORMAL_MILK = "Milk";
@@ -71,6 +72,14 @@ const hasMilkOptionBeenChosen = computed(() => {
   return cartItemBingsu.value.isNormalOrOatMilk !== undefined;
 });
 
+const hasCreamCheeseBeenChosen = computed(() => {
+  return cartItemBingsu.value.hasCreamCheese !== undefined;
+});
+
+const hasMangoToppingsBeenChosen = computed(() => {
+  return cartItemBingsu.value.mangoToppings !== undefined;
+});
+
 const shouldDisableConfirmationButton = computed(() => {
   if (props.bingsuName === WHITE_PEACH_OOLONG) {
     return !hasKonjacKellyBeenSelected.value || !hasToppingsBeenChosen.value;
@@ -82,6 +91,27 @@ const shouldDisableConfirmationButton = computed(() => {
       !hasToppingsBeenChosen.value ||
       !hasMilkOptionBeenChosen.value
     );
+  }
+
+  if (props.bingsuName === ROASTED_SOYBEAN_OOLONG) {
+    return (
+      !hasKonjacKellyBeenSelected.value ||
+      !hasToppingsBeenChosen.value ||
+      !hasCreamCheeseBeenChosen.value
+    );
+  }
+
+  if (props.bingsuName === MATCHA) {
+    return (
+      !hasKonjacKellyBeenSelected.value ||
+      !hasToppingsBeenChosen.value ||
+      !hasCreamCheeseBeenChosen.value ||
+      !hasMilkOptionBeenChosen.value
+    );
+  }
+
+  if (props.bingsuName === MANGO) {
+    return !hasMangoToppingsBeenChosen || !hasToppingsBeenChosen.value;
   }
 
   // placeholder for now
@@ -137,12 +167,20 @@ function handleBingsuConfirmation() {
       <div
         v-if="
           props.bingsuName === WHITE_PEACH_OOLONG ||
-          ROASTED_SOYBEAN_OOLONG ||
-          MATCHA
+          props.bingsuName === THE_DARK_KNIGHT ||
+          props.bingsuName === ROASTED_SOYBEAN_OOLONG ||
+          props.bingsuName === MATCHA ||
+          props.bingsuName === MANGO
         "
         class="py-10 border-b-4 border-darkorangebq border-solid"
       >
-        <div v-if="props.bingsuName === ROASTED_SOYBEAN_OOLONG" class="pb-10">
+        <div
+          v-if="
+            props.bingsuName === ROASTED_SOYBEAN_OOLONG ||
+            props.bingsuName === MATCHA
+          "
+          class="pb-10"
+        >
           <p class="pb-5 font-semibold">Cream Cheese</p>
           <div class="flex items-center pb-4">
             <input
@@ -163,7 +201,15 @@ function handleBingsuConfirmation() {
             <label>Exclude</label>
           </div>
         </div>
-        <div v-if="props.bingsuName === THE_DARK_KNIGHT">
+        <div
+          v-if="
+            props.bingsuName === WHITE_PEACH_OOLONG ||
+            props.bingsuName === THE_DARK_KNIGHT ||
+            props.bingsuName === ROASTED_SOYBEAN_OOLONG ||
+            props.bingsuName === MATCHA
+          "
+          class="pb-10"
+        >
           <p class="pb-5 font-semibold">Konjac Jelly</p>
           <div class="flex items-center pb-4">
             <input
@@ -182,6 +228,61 @@ function handleBingsuConfirmation() {
               class="mr-4 accent-darkorangebq h-[20px] w-[20px]"
             />
             <label>Exclude</label>
+          </div>
+        </div>
+        <div
+          v-if="
+            props.bingsuName === THE_DARK_KNIGHT || props.bingsuName === MATCHA
+          "
+        >
+          <p class="pb-5 font-semibold">Milk Type</p>
+          <div class="flex items-center pb-4">
+            <input
+              type="radio"
+              v-bind:value="OAT_MILK"
+              v-model="cartItemBingsu.isNormalOrOatMilk"
+              class="mr-4 accent-darkorangebq h-[20px] w-[20px]"
+            />
+            <label>Oat Milk (+RM2)</label>
+          </div>
+          <div class="flex items-center">
+            <input
+              type="radio"
+              v-bind:value="NORMAL_MILK"
+              v-model="cartItemBingsu.isNormalOrOatMilk"
+              class="mr-4 accent-darkorangebq h-[20px] w-[20px]"
+            />
+            <label>Normal Milk</label>
+          </div>
+        </div>
+        <div v-if="props.bingsuName === MANGO">
+          <p class="pb-5 font-semibold">Mango Topping Options</p>
+          <div class="flex items-center pb-4">
+            <input
+              type="radio"
+              value="Sago and Orange"
+              v-model="cartItemBingsu.mangoToppings"
+              class="mr-4 accent-darkorangebq h-[20px] w-[20px]"
+            />
+            <label>Sago and Orange</label>
+          </div>
+          <div class="flex items-center pb-4">
+            <input
+              type="radio"
+              value="Sago only"
+              v-model="cartItemBingsu.mangoToppings"
+              class="mr-4 accent-darkorangebq h-[20px] w-[20px]"
+            />
+            <label>Sago only</label>
+          </div>
+          <div class="flex items-center">
+            <input
+              type="radio"
+              value="Orange only"
+              v-model="cartItemBingsu.mangoToppings"
+              class="mr-4 accent-darkorangebq h-[20px] w-[20px]"
+            />
+            <label>Orange only</label>
           </div>
         </div>
       </div>
