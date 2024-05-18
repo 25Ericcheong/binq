@@ -2,24 +2,39 @@
 export function getImageUrl(
   imageName: string,
   outerDir: string,
-  innerDir?: string
+  innerDir?: string,
+  isWebp: boolean = false
 ) {
+  let extension = "jpg";
+  if (isWebp) {
+    extension = "webp";
+  }
+
   if (innerDir === undefined) {
     return new URL(
-      `/src/assets/images/${outerDir}/${imageName}.jpg`,
+      `/src/assets/images/${outerDir}/${imageName}.${extension}`,
       import.meta.url
     ).href;
   }
 
   return new URL(
-    `/src/assets/images/${outerDir}/${innerDir}/${imageName}.jpg`,
+    `/src/assets/images/${outerDir}/${innerDir}/${imageName}.${extension}`,
     import.meta.url
   ).href;
 }
 
-export function getImageUrlForMenu(imageName: string, outerDir: string) {
+export function getImageUrlForMenu(
+  imageName: string,
+  outerDir: string,
+  isWebp: boolean = false
+) {
+  let extension = "jpg";
+  if (isWebp) {
+    extension = "webp";
+  }
+
   return new URL(
-    `/src/assets/images/menu/${outerDir}/${imageName}.jpg`,
+    `/src/assets/images/menu/${outerDir}/${imageName}.${extension}`,
     import.meta.url
   ).href;
 }

@@ -86,11 +86,19 @@ onMounted(() => {
           , we are proud to highlight some here
         </h2>
       </div>
-      <img
-        class="h-fit w-full lg:w-3/4 p-0 lg:pl-40"
-        :src="getImageUrl('bingsu-our-mentions', 'our-mentions')"
-        alt="A blurred background containing the owners of Binq and a tray of Bingsu on the main counter in the store"
-      />
+      <picture class="ml-0 lg:ml-40 w-full lg:w-[50%]">
+        <source
+          :srcset="
+            getImageUrl('bingsu-our-mentions', 'our-mentions', undefined, true)
+          "
+          type="image/webp"
+        />
+        <img
+          class="h-fit p-0"
+          :src="getImageUrl('bingsu-our-mentions', 'our-mentions')"
+          alt="A blurred background containing the owners of Binq and a tray of Bingsu on the main counter in the store"
+        />
+      </picture>
     </section>
     <section
       class="flex flex-col md:flex-row md:justify-between pt-40 pb-56 font-medium"
