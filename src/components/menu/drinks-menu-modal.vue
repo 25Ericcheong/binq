@@ -230,9 +230,11 @@ function handleDrinksConfirmation() {
             type="text"
           ></textarea>
         </div>
-        <div class="fixed bottom-10 bg-creamyellowbq block">
+        <div
+          class="fixed bottom-10 left-[50%] bg-creamyellowbq block -ml-[160px]"
+        >
           <button
-            class="w-[365px] p-2 bg-darkorangebq rounded-full text-creamwhitebq"
+            class="w-[315px] p-2 bg-darkorangebq rounded-full text-creamwhitebq"
             :class="{
               'opacity-50': shouldDisableConfirmationButton,
             }"
