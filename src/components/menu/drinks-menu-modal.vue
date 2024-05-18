@@ -99,9 +99,9 @@ const shouldDisableConfirmationButton = computed(() => {
 });
 
 function handleDrinksConfirmation() {
+  store.addDrinksOrder(cartItemDrink.value);
   resetCartItem();
   closeDrinksMenuModal();
-  store.addDrinksOrder(cartItemDrink.value);
 }
 </script>
 <template>
@@ -232,6 +232,9 @@ function handleDrinksConfirmation() {
         <div class="fixed bottom-10 bg-creamyellowbq block">
           <button
             class="w-[365px] p-2 bg-darkorangebq rounded-full text-creamwhitebq"
+            :class="{
+              'opacity-50': shouldDisableConfirmationButton,
+            }"
             @click="handleDrinksConfirmation"
             :disabled="shouldDisableConfirmationButton"
           >

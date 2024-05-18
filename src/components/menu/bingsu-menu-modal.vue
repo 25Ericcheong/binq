@@ -116,9 +116,9 @@ const shouldDisableConfirmationButton = computed(() => {
 });
 
 function handleBingsuConfirmation() {
+  store.addBingsuOrder(cartItemBingsu.value);
   resetCartItem();
   closeBinqsuMenuModal();
-  store.addBingsuOrder(cartItemBingsu.value);
 }
 </script>
 <template class="body-font text-xl xl:text-2xl">
