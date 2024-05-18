@@ -7,13 +7,11 @@ concurrency:
 run-name: Building and Deploying
 on:
   push:
-    branches:
-      - "master"
-
   pull_request:
     branches:
       - "dev"
       - "feature-**/"
+      - "master"
 
 env:
   NODE_VERSION: 20.10.0
