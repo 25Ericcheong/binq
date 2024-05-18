@@ -60,13 +60,10 @@ export const useMenuStore = defineStore("menu", () => {
   const getOrderPriceTotal = computed(() => {
     let total = 0;
     cart.value.forEach((item) => {
-      if (item.type === MenuItemType.Bingsu || MenuItemType.Drinks) {
-        const drinks = item as CartItemBingsu;
-        if (drinks.isNormalOrOatMilk === OAT_MILK) {
-          total += OAT_MILK_PRICE;
-        }
-        total += drinks.price;
-      } else {
+      if (
+        item.type === MenuItemType.Bingsu ||
+        item.type === MenuItemType.Drinks
+      ) {
         total += item.price;
       }
 
@@ -80,8 +77,22 @@ export const useMenuStore = defineStore("menu", () => {
     return total;
   });
 
-  const getAllOrders = computed(() => {
-    return cart.value;
+  const getBingsuOrders = computed(() => {
+    return cart.value.filter(
+      (i) => i.type === MenuItemType.Bingsu
+    ) as CartItemBingsu[];
+  });
+
+  const getDrinksOrders = computed(() => {
+    return cart.value.filter(
+      (i) => i.type === MenuItemType.Drinks
+    ) as CartItemDrinks[];
+  });
+
+  const getToppingOrders = computed(() => {
+    return cart.value.filter(
+      (i) => i.type === MenuItemType.Topping
+    ) as CartItemBase[];
   });
 
   function addToppingOrder(quantity: number, toppingName: string) {
@@ -105,6 +116,7 @@ export const useMenuStore = defineStore("menu", () => {
     }
 
     cart.value.push(bingsuOrder);
+    console.log(cart.value);
   }
 
   function addDrinksOrder(drinksOrder: CartItemDrinks) {
@@ -120,7 +132,9 @@ export const useMenuStore = defineStore("menu", () => {
     getItemOrderByName,
     getNumberOfItemOrderByName,
     getOrderPriceTotal,
-    getAllOrders,
+    getBingsuOrders,
+    getDrinksOrders,
+    getToppingOrders,
     addToppingOrder,
     addBingsuOrder,
     addDrinksOrder,

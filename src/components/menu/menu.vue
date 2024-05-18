@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { useMenuStore } from "@/stores/useMenuStore";
+import { getImageUrlForMenu } from "@/util/image";
 import { storeToRefs } from "pinia";
 import { computed, ref, watch } from "vue";
-import { getImageUrlForMenu } from "../../util/image";
 import BingsuMenuModal from "./bingsu-menu-modal.vue";
 import DrinksMenuModal from "./drinks-menu-modal.vue";
 import { MenuItemType } from "./menu-item-type";

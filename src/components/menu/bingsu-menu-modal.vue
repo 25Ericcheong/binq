@@ -4,7 +4,7 @@ import {
   useMenuStore,
   type CartItemBingsu,
 } from "@/stores/useMenuStore";
-import { computed, ref } from "vue";
+import { computed, ref, watch } from "vue";
 import { MenuItemType } from "./menu-item-type";
 import { MENU, OAT_MILK } from "./menu-items";
 
@@ -116,10 +116,19 @@ const shouldDisableConfirmationButton = computed(() => {
 });
 
 function handleBingsuConfirmation() {
+  store.addBingsuOrder(cartItemBingsu.value);
   resetCartItem();
   closeBinqsuMenuModal();
-  store.addBingsuOrder(cartItemBingsu.value);
 }
+
+watch(
+  () => cartItemBingsu.value,
+  (cartItemBingsu) => {
+    // use toRaw here to get a readable console.log result
+    console.log(cartItemBingsu);
+  },
+  { deep: true }
+);
 </script>
 <template class="body-font text-xl xl:text-2xl">
   <section class="w-full h-[50px] flex justify-end">
