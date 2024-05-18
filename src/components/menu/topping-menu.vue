@@ -24,7 +24,7 @@ function handleToppingConfirmation() {
 </script>
 <template>
   <section
-    class="w-full h-[130px] sm:h-[50px] flex flex-col sm:flex-row body-font text-lg sm:text-xl xl:text-2xl"
+    class="w-full h-[130px] sm:h-[50px] flex flex-col justify-between sm:flex-row body-font text-lg sm:text-xl xl:text-2xl"
   >
     <div class="w-2/3 sm:w-1/2 pb-5 sm:pb-0 flex justify-between items-center">
       <button
