@@ -116,7 +116,6 @@ export const useMenuStore = defineStore("menu", () => {
     }
 
     cart.value.push(bingsuOrder);
-    console.log(cart.value);
   }
 
   function addDrinksOrder(drinksOrder: CartItemDrinks) {
