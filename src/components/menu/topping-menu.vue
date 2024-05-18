@@ -23,7 +23,9 @@ function handleToppingConfirmation() {
 }
 </script>
 <template>
-  <section class="w-full h-[50px] flex body-font text-xl xl:text-2xl">
+  <section
+    class="w-full h-[50px] flex body-font text-lg sm:text-xl xl:text-2xl"
+  >
     <div class="w-1/2 flex justify-between items-center">
       <button
         class="bg-darkorangebq h-3/4 p-1 rounded-full"
@@ -43,7 +45,7 @@ function handleToppingConfirmation() {
     </div>
     <div class="w-1/2 flex justify-end">
       <button
-        class="bg-darkorangebq text-creamwhitebq p-3 rounded-full items-center"
+        class="bg-darkorangebq text-creamwhitebq p-2 rounded-full items-center"
         :disabled="quantitySelected === 0"
         :class="condButtonDisable"
         @click="handleToppingConfirmation"

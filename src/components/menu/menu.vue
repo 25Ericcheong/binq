@@ -69,19 +69,21 @@ watch(
       class="w-full xl:max-w-[1320px] body-font text-xl xl:text-2xl text-darkorangebq"
     >
       <section
-        class="sticky top-0 z-40 px-5 py-7 bg-creamyellowbq rounded-full"
+        class="sticky top-0 z-40 px-0 sm:px-5 py-7 bg-creamyellowbq rounded-full"
       >
-        <div class="flex justify-between items-center">
+        <div
+          class="flex flex-col justify-center sm:flex-row sm:justify-between items-center"
+        >
           <h2
-            class="text-center self-center text-5xl xl:text-6xl header-font font-bold sticky top-0"
+            class="text-center self-center text-5xl xl:text-6xl header-font font-bold hidden sm:block"
           >
             {{ selectedType }}
           </h2>
-          <div class="flex justify-between w-[300px]">
+          <div class="flex justify-evenly w-[300px]">
             <button
               v-for="type in MenuItemType"
               @click="() => handleTypeUpdate(type)"
-              class="p-1 md:p-2 rounded-full"
+              class="p-2 md:p-4 rounded-full"
               :class="
                 type === selectedType
                   ? 'bg-darkorangebq text-creamwhitebq'
@@ -94,10 +96,10 @@ watch(
         </div>
       </section>
       <section class="flex mb-10">
-        <div class="shrink-0 grid grid-cols-2 gap-10 w-full">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-14 md:gap-10 w-full">
           <div
             v-for="item in specificMenuItems"
-            class="border-solid border-2 rounded-md border-darkorangebq flex h-[250px] p-5 shadow-lg relative"
+            class="border-solid border-2 rounded-md border-darkorangebq flex h-[300] sm:h-[250px] p-5 shadow-lg relative"
           >
             <div
               v-if="getItemOrderByName(item.name) !== undefined"
@@ -131,7 +133,7 @@ watch(
                   v-if="selectedType === MenuItemType.Bingsu"
                   class="line-clamp-3"
                 >
-                  Pick your own sides or follow our advice:
+                  Go with
                   {{ (item as BingsuItem).recommendedToppings.join(" + ") }}
                 </p>
                 <p v-else class="line-clamp-3">
@@ -164,9 +166,9 @@ watch(
         <p class="p-5 bg-creamyellowbq rounded-full">
           Total: RM{{ store.getOrderPriceTotal }}
         </p>
-        <div class="p-5 bg-creamyellowbq rounded-full">
+        <div>
           <button
-            class="p-1 md:p-2 rounded-lg bg-darkorangebq text-creamwhitebq text-3xl"
+            class="p-3 md:p-4 mr-5 rounded-lg bg-darkorangebq text-creamwhitebq text-xl sm:text-3xl"
           >
             Review Order
           </button>
