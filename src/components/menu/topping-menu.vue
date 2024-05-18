@@ -28,7 +28,7 @@ function handleToppingConfirmation() {
   >
     <div class="w-2/3 sm:w-1/2 pb-5 sm:pb-0 flex justify-between items-center">
       <button
-        class="bg-darkorangebq h-[60%] sm:h-3/4 p-2 rounded-full"
+        class="bg-darkorangebq h-[35px] p-2 rounded-full"
         :disabled="quantitySelected === 0"
         :class="condButtonDisable"
         @click="() => handleQuantityUpdate(-1)"
@@ -37,7 +37,7 @@ function handleToppingConfirmation() {
       </button>
       <p>{{ quantitySelected }}</p>
       <button
-        class="bg-darkorangebq h-[60%] sm:h-3/4 p-2 rounded-full"
+        class="bg-darkorangebq h-[35px] p-2 rounded-full"
         @click="() => handleQuantityUpdate(1)"
       >
         <img class="h-full" src="../../assets/icons/addition.jpg" />
