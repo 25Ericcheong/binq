@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { MenuItemType } from "@/components/menu/menu-item-type";
 import { useMenuStore, type CartItemDrinks } from "@/stores/useMenuStore";
 import { computed, ref } from "vue";
-import { MenuItemType } from "./menu-item-type";
 
 const props = defineProps({
   drinksName: { type: String, required: true },

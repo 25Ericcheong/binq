@@ -1,15 +1,15 @@
 <script setup lang="ts">
+import BingsuMenuModal from "@/components/menu/bingsu-menu-modal.vue";
+import DrinksMenuModal from "@/components/menu/drinks-menu-modal.vue";
+import { MenuItemType } from "@/components/menu/menu-item-type";
+import { MENU } from "@/components/menu/menu-items";
+import SummaryMenuModal from "@/components/menu/summary-menu-modal.vue";
+import ToppingMenu from "@/components/menu/topping-menu.vue";
+import "@/output.css";
 import { useMenuStore } from "@/stores/useMenuStore";
 import { getImageUrlForMenu } from "@/util/image";
 import { storeToRefs } from "pinia";
 import { computed, ref, watch } from "vue";
-import BingsuMenuModal from "./bingsu-menu-modal.vue";
-import DrinksMenuModal from "./drinks-menu-modal.vue";
-import { MenuItemType } from "./menu-item-type";
-import { MENU } from "./menu-items";
-import SummaryMenuModal from "./summary-menu-modal.vue";
-import ToppingMenu from "./topping-menu.vue";
-import "/src/output.css";
 
 interface MenuItemBase {
   price: number;

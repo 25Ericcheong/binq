@@ -1,4 +1,4 @@
-import type { Menu } from "./menu.vue";
+import type { Menu } from "@/components/menu/menu.vue";
 
 export const OAT_MILK = "Oat Milk";
 

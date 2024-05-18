@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 
-import Home from "../views/home.vue";
-import Menu from "../views/menu.vue";
+import Home from "@/views/home.vue";
+import Menu from "@/views/menu.vue";
 
 const PATHS = {
   HOME: "/",
