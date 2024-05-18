@@ -77,7 +77,7 @@ export const MENU: Menu = {
       ],
     },
   ],
-  Drink: [
+  Drinks: [
     {
       price: 15.0,
       name: "Watermelon Cheezo",

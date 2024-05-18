@@ -14,7 +14,7 @@ const INITIAL_CART_ITEM = {
   price: props.price,
   name: props.drinksName,
   quantity: 1,
-  type: MenuItemType.Drink,
+  type: MenuItemType.Drinks,
   topping: undefined,
   instructions: undefined,
   sugarLevel: undefined,

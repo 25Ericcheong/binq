@@ -57,6 +57,29 @@ export const useMenuStore = defineStore("menu", () => {
     };
   });
 
+  const getOrderPriceTotal = computed(() => {
+    let total = 0;
+    cart.value.forEach((item) => {
+      if (item.type === MenuItemType.Bingsu || MenuItemType.Drinks) {
+        const drinks = item as CartItemBingsu;
+        if (drinks.isNormalOrOatMilk === OAT_MILK) {
+          total += OAT_MILK_PRICE;
+        }
+        total += drinks.price;
+      } else {
+        total += item.price;
+      }
+
+      if (item.type === MenuItemType.Topping) {
+        const quantity = item.quantity;
+
+        total += TOPPING_PRICE * quantity;
+      }
+    });
+
+    return total;
+  });
+
   function addToppingOrder(quantity: number, toppingName: string) {
     let toppingItem = cart.value.find((c) => c.name === toppingName);
 
@@ -92,6 +115,7 @@ export const useMenuStore = defineStore("menu", () => {
     cart,
     getItemOrderByName,
     getNumberOfItemOrderByName,
+    getOrderPriceTotal,
     addToppingOrder,
     addBingsuOrder,
     addDrinksOrder,

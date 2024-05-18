@@ -26,7 +26,7 @@ interface DrinkOrToppingItem extends MenuItemBase {
 
 export interface Menu {
   [MenuItemType.Bingsu]: BingsuItem[];
-  [MenuItemType.Drink]: DrinkOrToppingItem[];
+  [MenuItemType.Drinks]: DrinkOrToppingItem[];
   [MenuItemType.Topping]: DrinkOrToppingItem[];
 }
 
@@ -68,7 +68,9 @@ watch(
     <div
       class="w-full xl:max-w-[1320px] body-font text-xl xl:text-2xl text-darkorangebq"
     >
-      <section class="sticky top-0 z-40 p-7 bg-creamyellowbq rounded-full">
+      <section
+        class="sticky top-0 z-40 px-5 py-7 bg-creamyellowbq rounded-full"
+      >
         <div class="flex justify-between items-center">
           <h2
             class="text-center self-center text-5xl xl:text-6xl header-font font-bold sticky top-0"
@@ -144,7 +146,7 @@ watch(
                 :recommended-toppings="(item as BingsuItem).recommendedToppings"
               />
               <DrinksMenuModal
-                v-else-if="selectedType === MenuItemType.Drink"
+                v-else-if="selectedType === MenuItemType.Drinks"
                 :drinks-description="(item as DrinkOrToppingItem).description"
                 :drinks-name="item.name"
                 :drinks-image-path="item.imagePath"
@@ -156,6 +158,18 @@ watch(
               />
             </div>
           </div>
+        </div>
+      </section>
+      <section class="sticky bottom-0 z-40 flex justify-between items-center">
+        <p class="p-5 bg-creamyellowbq rounded-full">
+          Total: RM{{ store.getOrderPriceTotal }}
+        </p>
+        <div class="p-5 bg-creamyellowbq rounded-full">
+          <button
+            class="p-1 md:p-2 rounded-lg bg-darkorangebq text-creamwhitebq text-3xl"
+          >
+            Review Order
+          </button>
         </div>
       </section>
     </div>

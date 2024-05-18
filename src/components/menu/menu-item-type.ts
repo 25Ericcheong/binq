@@ -1,5 +1,5 @@
 export enum MenuItemType {
   Bingsu = "Bingsu",
-  Drink = "Drink",
+  Drinks = "Drinks",
   Topping = "Topping",
 }
