@@ -66,7 +66,7 @@ watch(
   </section>
   <section class="px-5 py-24 bg-creamyellowbq flex justify-center">
     <div
-      class="w-full xl:max-w-[1320px] body-font text-xl xl:text-2xl text-darkorangebq"
+      class="w-full xl:max-w-[1320px] body-font text-lg sm:text-xl xl:text-2xl text-darkorangebq"
     >
       <section
         class="sticky top-0 z-40 px-0 sm:px-5 py-7 bg-creamyellowbq rounded-full"
@@ -128,7 +128,7 @@ watch(
                 <p class="pb-2 font-semibold">{{ item.name }}</p>
                 <p class="pb-2 font-semibold">RM{{ item.price.toFixed(2) }}</p>
               </div>
-              <div class="h-[100px] text-lg xl:text-xl">
+              <div class="h-[90px] sm:h-[100px] text-lg xl:text-xl">
                 <p
                   v-if="selectedType === MenuItemType.Bingsu"
                   class="line-clamp-3"
