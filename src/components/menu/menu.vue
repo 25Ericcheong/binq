@@ -68,28 +68,30 @@ watch(
     <div
       class="w-full xl:max-w-[1320px] body-font text-xl xl:text-2xl text-darkorangebq"
     >
-      <section>
-        <h2
-          class="text-center text-7xl xl:text-8xl header-font pb-10 font-bold"
-        >
-          {{ selectedType }}
-        </h2>
-        <div class="flex justify-center">
-          <button
-            v-for="type in MenuItemType"
-            @click="() => handleTypeUpdate(type)"
-            class="p-3 md:p-5 mr-5 md:mr-10 rounded-full"
-            :class="
-              type === selectedType
-                ? 'bg-darkorangebq text-creamwhitebq'
-                : ' text-darkorangebq border-solid border-2 border-darkorangebq'
-            "
+      <section class="sticky top-0 z-40 p-7 bg-creamyellowbq rounded-full">
+        <div class="flex justify-between items-center">
+          <h2
+            class="text-center self-center text-5xl xl:text-6xl header-font font-bold sticky top-0"
           >
-            {{ type }}
-          </button>
+            {{ selectedType }}
+          </h2>
+          <div class="flex justify-between w-[300px]">
+            <button
+              v-for="type in MenuItemType"
+              @click="() => handleTypeUpdate(type)"
+              class="p-1 md:p-2 rounded-full"
+              :class="
+                type === selectedType
+                  ? 'bg-darkorangebq text-creamwhitebq'
+                  : ' text-darkorangebq border-solid border-2 border-darkorangebq'
+              "
+            >
+              {{ type }}
+            </button>
+          </div>
         </div>
       </section>
-      <section class="flex my-10">
+      <section class="flex mb-10">
         <div class="shrink-0 grid grid-cols-2 gap-10 w-full">
           <div
             v-for="item in specificMenuItems"
