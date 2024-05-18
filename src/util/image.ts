@@ -1,3 +1,4 @@
+// used to get image url of files to be used in multiple components
 export function getImageUrl(
   imageName: string,
   outerDir: string,
