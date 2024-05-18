@@ -80,6 +80,10 @@ export const useMenuStore = defineStore("menu", () => {
     return total;
   });
 
+  const getAllOrders = computed(() => {
+    return cart.value;
+  });
+
   function addToppingOrder(quantity: number, toppingName: string) {
     let toppingItem = cart.value.find((c) => c.name === toppingName);
 
@@ -116,6 +120,7 @@ export const useMenuStore = defineStore("menu", () => {
     getItemOrderByName,
     getNumberOfItemOrderByName,
     getOrderPriceTotal,
+    getAllOrders,
     addToppingOrder,
     addBingsuOrder,
     addDrinksOrder,

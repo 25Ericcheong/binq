@@ -7,6 +7,7 @@ import BingsuMenuModal from "./bingsu-menu-modal.vue";
 import DrinksMenuModal from "./drinks-menu-modal.vue";
 import { MenuItemType } from "./menu-item-type";
 import { MENU } from "./menu-items";
+import SummaryMenuModal from "./summary-menu-modal.vue";
 import ToppingMenu from "./topping-menu.vue";
 import "/src/output.css";
 
@@ -166,13 +167,7 @@ watch(
         <p class="p-5 bg-creamyellowbq rounded-full">
           Total: RM{{ store.getOrderPriceTotal }}
         </p>
-        <div>
-          <button
-            class="p-3 md:p-4 mr-5 rounded-lg bg-darkorangebq text-creamwhitebq text-xl sm:text-3xl"
-          >
-            Review Order
-          </button>
-        </div>
+        <SummaryMenuModal />
       </section>
     </div>
   </section>
