@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import { MenuItemType } from "@/components/menu/menu-item-type";
 import { useMenuStore, type CartItemDrinks } from "@/stores/useMenuStore";
+import { getImageUrlForMenu } from "@/util/image";
 import { computed, ref } from "vue";
 
 const props = defineProps({
   drinksName: { type: String, required: true },
-  drinksImagePath: { type: String, required: true },
+  drinksImageName: { type: String, required: true },
   drinksDescription: { type: String, required: true },
   price: { type: Number, required: true },
 });
@@ -126,7 +127,7 @@ function handleDrinksConfirmation() {
       </button>
     </div>
     <img
-      :src="props.drinksImagePath"
+      :src="getImageUrlForMenu(props.drinksImageName, 'drinks')"
       alt="Image of drinks that Binq has specially created"
       class="h-[40%] w-full mb-8"
     />

@@ -1,16 +1,17 @@
 <script setup lang="ts">
+import { MenuItemType } from "@/components/menu/menu-item-type";
+import { MENU, OAT_MILK } from "@/components/menu/menu-items";
 import {
   OAT_MILK_PRICE,
   useMenuStore,
   type CartItemBingsu,
 } from "@/stores/useMenuStore";
+import { getImageUrlForMenu } from "@/util/image";
 import { computed, ref } from "vue";
-import { MenuItemType } from "./menu-item-type";
-import { MENU, OAT_MILK } from "./menu-items";
 
 const props = defineProps({
   bingsuName: { type: String, required: true },
-  bingsuImagePath: { type: String, required: true },
+  bingsuImageName: { type: String, required: true },
   price: { type: Number, required: true },
   recommendedToppings: { type: Array<String>, required: true },
 });
@@ -143,7 +144,7 @@ function handleBingsuConfirmation() {
       </button>
     </div>
     <img
-      :src="props.bingsuImagePath"
+      :src="getImageUrlForMenu(props.bingsuImageName, 'bingsus')"
       alt="Image of bingsu that Binq has specially created"
       class="h-[40%] w-full mb-8"
     />

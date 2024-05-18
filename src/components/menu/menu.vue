@@ -14,7 +14,7 @@ import { computed, ref, watch } from "vue";
 interface MenuItemBase {
   price: number;
   name: string;
-  imagePath: string;
+  imageName: string;
 }
 
 interface BingsuItem extends MenuItemBase {
@@ -113,14 +113,19 @@ watch(
                 v-if="selectedType === MenuItemType.Bingsu"
                 class="rounded-2xl w-[160px] h-full"
                 :class="condImgHeight"
-                :src="getImageUrlForMenu(item.imagePath)"
+                :src="getImageUrlForMenu(item.imageName, 'bingsus')"
                 alt="Items available on Binq's menu. It includes drinks, bingsu  sets and a variety of toppings"
               />
               <img
                 v-else
                 class="rounded-2xl w-[160px] h-[160px]"
                 :class="condImgHeight"
-                :src="getImageUrlForMenu(item.imagePath)"
+                :src="
+                  getImageUrlForMenu(
+                    item.imageName,
+                    selectedType === MenuItemType.Drinks ? 'drinks' : 'toppings'
+                  )
+                "
                 alt="Items available on Binq's menu. It includes drinks, bingsu  sets and a variety of toppings"
               />
             </div>
@@ -143,7 +148,7 @@ watch(
               </div>
               <BingsuMenuModal
                 v-if="selectedType === MenuItemType.Bingsu"
-                :bingsu-image-path="item.imagePath"
+                :bingsu-image-name="item.imageName"
                 :bingsu-name="item.name"
                 :price="item.price"
                 :recommended-toppings="(item as BingsuItem).recommendedToppings"
@@ -152,7 +157,7 @@ watch(
                 v-else-if="selectedType === MenuItemType.Drinks"
                 :drinks-description="(item as DrinkOrToppingItem).description"
                 :drinks-name="item.name"
-                :drinks-image-path="item.imagePath"
+                :drinks-image-name="item.imageName"
                 :price="item.price"
               />
               <ToppingMenu

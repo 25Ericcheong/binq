@@ -17,6 +17,9 @@ export function getImageUrl(
   ).href;
 }
 
-export function getImageUrlForMenu(imagePath: string) {
-  return new URL(imagePath, import.meta.url).href;
+export function getImageUrlForMenu(imageName: string, outerDir: string) {
+  return new URL(
+    `/src/assets/images/menu/${outerDir}/${imageName}.jpg`,
+    import.meta.url
+  ).href;
 }
