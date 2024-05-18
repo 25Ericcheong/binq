@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useMenuStore, type CartItemDrinks } from "@/stores/useMenuStore";
-import { computed, ref, watch } from "vue";
+import { computed, ref } from "vue";
 import { MenuItemType } from "./menu-item-type";
 
 const props = defineProps({
@@ -31,14 +31,6 @@ const SIGNATURE_BINQ_TEA = "Signature Binq Tea";
 const LYCHEE_CHEEZO = "Lychee Cheezo";
 const GRAPE_CHEEZO = "Grape Cheezo";
 const ROASTED_DA_HONG_PAO_MILK_TEA = "Roasted Da Hong Pao Milk Tea";
-
-watch(
-  () => cartItemDrink,
-  (val, _) => {
-    console.log(val);
-  },
-  { deep: true }
-);
 
 const SPECIFIC_AVAILABLE_TOPPINGS = [
   "White Crystal Jelly",
