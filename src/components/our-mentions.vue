@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
-import { getImageUrl } from "../util/Image";
+import { getImageUrl } from "../util/image";
 
 const moments = ref<string[]>([
   "A variety of flavour that aren't too sweet - making them perfect",
