@@ -135,9 +135,9 @@ function handleBingsuConfirmation() {
     ref="dialog"
     class="backdrop:bg-blackbq backdrop:opacity-50 h-full w-[390px] bg-creamyellowbq"
   >
-    <div class="fixed h-0">
+    <div class="fixed top-14 left-[50%] ml-[125px]">
       <button
-        class="w-[40px] h-[40px] bg-darkorangebq absolute top-5 left-[335px] rounded-full"
+        class="w-[40px] h-[40px] bg-darkorangebq rounded-full"
         @click="closeBinqsuMenuModal"
       >
         <img class="h-full w-full" src="../../assets/icons/cross.jpg" />
@@ -146,7 +146,7 @@ function handleBingsuConfirmation() {
     <img
       :src="getImageUrlForMenu(props.bingsuImageName, 'bingsus')"
       alt="Image of bingsu that Binq has specially created"
-      class="h-[40%] w-full mb-8"
+      class="h-[50%] w-full mb-8"
     />
     <section class="mx-3 text-darkorangebq">
       <div

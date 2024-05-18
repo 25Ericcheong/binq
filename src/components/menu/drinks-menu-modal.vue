@@ -118,9 +118,9 @@ function handleDrinksConfirmation() {
     ref="dialog"
     class="backdrop:bg-blackbq backdrop:opacity-50 h-full w-[390px] bg-creamyellowbq"
   >
-    <div class="fixed h-0">
+    <div class="fixed top-14 left-[50%] ml-[125px]">
       <button
-        class="w-[40px] h-[40px] bg-darkorangebq absolute top-5 left-[335px] rounded-full"
+        class="w-[40px] h-[40px] bg-darkorangebq rounded-full"
         @click="closeDrinksMenuModal"
       >
         <img class="h-full w-full" src="../../assets/icons/cross.jpg" />
