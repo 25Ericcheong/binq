@@ -9,13 +9,17 @@ const PATHS = {
 };
 
 const routes = [
-  { path: PATHS.HOME, component: Home },
-  { path: PATHS.MENU, component: Menu },
+  { name: "home", path: PATHS.HOME, component: Home },
+  { name: "menu", path: PATHS.MENU, component: Menu },
 ];
 
 const router = createRouter({
   history: createWebHistory(),
   routes,
+});
+
+router.onError(() => {
+  return { name: "home", path: PATHS.HOME, component: Home };
 });
 
 export { PATHS, router };
