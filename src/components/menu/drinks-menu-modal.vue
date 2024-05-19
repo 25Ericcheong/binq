@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { MenuItemType } from "@/components/menu/menu-item-type";
 import { useMenuStore, type CartItemDrinks } from "@/stores/useMenuStore";
-import { getImageUrlForMenu } from "@/util/image";
+import { getImageUrl } from "@/util/image";
 import { computed, ref } from "vue";
 
 const props = defineProps({
@@ -126,11 +126,23 @@ function handleDrinksConfirmation() {
         <img class="h-full w-full" src="../../assets/icons/cross.jpg" />
       </button>
     </div>
-    <img
-      :src="getImageUrlForMenu(props.drinksImageName, 'drinks')"
-      alt="Image of drinks that Binq has specially created"
-      class="h-[40%] w-full mb-8"
-    />
+
+    <picture class="h-[40%] w-full mb-8">
+      <source
+        :srcset="getImageUrl(props.drinksImageName, 'menu', 'drinks', true)"
+        type="image/webp"
+      />
+      <source
+        :srcset="getImageUrl(props.drinksImageName, 'menu', 'drinks')"
+        type="image/jpg"
+      />
+      <img
+        class="w-full h-[40%]"
+        :src="getImageUrl(props.drinksImageName, 'menu', 'drinks')"
+        alt="Image of drinks that Binq has specially created"
+      />
+    </picture>
+
     <section class="mx-3 text-darkorangebq">
       <div
         class="flex flex-col pb-10 border-b-4 border-darkorangebq border-solid"

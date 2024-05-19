@@ -7,7 +7,7 @@ import SummaryMenuModal from "@/components/menu/summary-menu-modal.vue";
 import ToppingMenu from "@/components/menu/topping-menu.vue";
 import "@/output.css";
 import { useMenuStore } from "@/stores/useMenuStore";
-import { getImageUrlForMenu } from "@/util/image";
+import { getImageUrl } from "@/util/image";
 import { storeToRefs } from "pinia";
 import { computed, ref, watch } from "vue";
 
@@ -109,25 +109,49 @@ watch(
               {{ getNumberOfItemOrderByName(item.name) }}
             </div>
             <div class="w-1/3 flex pr-5">
-              <img
+              <picture
                 v-if="selectedType === MenuItemType.Bingsu"
-                class="rounded-2xl w-[160px] h-full"
-                :class="condImgHeight"
-                :src="getImageUrlForMenu(item.imageName, 'bingsus')"
-                alt="Items available on Binq's menu. It includes drinks, bingsu  sets and a variety of toppings"
-              />
-              <img
-                v-else
-                class="rounded-2xl w-[160px] h-[160px]"
-                :class="condImgHeight"
-                :src="
-                  getImageUrlForMenu(
-                    item.imageName,
-                    selectedType === MenuItemType.Drinks ? 'drinks' : 'toppings'
-                  )
-                "
-                alt="Items available on Binq's menu. It includes drinks, bingsu  sets and a variety of toppings"
-              />
+                class="w-[160px] h-full"
+              >
+                <source
+                  :srcset="getImageUrl(item.imageName, 'menu', 'bingsus', true)"
+                  type="image/webp"
+                />
+                <source
+                  :srcset="getImageUrl(item.imageName, 'menu', 'bingsus')"
+                  type="image/jpg"
+                />
+                <img
+                  class="w-[160px] h-full rounded-2xl"
+                  :src="getImageUrl(item.imageName, 'menu', 'bingsus')"
+                  alt="Items available on Binq's menu. It includes drinks, bingsu  sets and a variety of toppings"
+                />
+              </picture>
+
+              <picture v-else class="w-[160px] h-[160px]">
+                <source
+                  :srcset="
+                    getImageUrl(
+                      item.imageName,
+                      'menu',
+                      selectedType === MenuItemType.Drinks
+                        ? 'drinks'
+                        : 'toppings',
+                      true
+                    )
+                  "
+                  type="image/webp"
+                />
+                <source
+                  :srcset="getImageUrl(item.imageName, 'menu', 'bingsus')"
+                  type="image/jpg"
+                />
+                <img
+                  class="w-[160px] h-[160px] rounded-2xl"
+                  :src="getImageUrl(item.imageName, 'menu', 'bingsus')"
+                  alt="Items available on Binq's menu. It includes drinks, bingsu  sets and a variety of toppings"
+                />
+              </picture>
             </div>
             <div class="w-2/3 flex flex-col">
               <div class="pb-2 flex justify-between">

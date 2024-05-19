@@ -6,7 +6,7 @@ import {
   useMenuStore,
   type CartItemBingsu,
 } from "@/stores/useMenuStore";
-import { getImageUrlForMenu } from "@/util/image";
+import { getImageUrl } from "@/util/image";
 import { computed, ref } from "vue";
 
 const props = defineProps({
@@ -143,11 +143,23 @@ function handleBingsuConfirmation() {
         <img class="h-full w-full" src="../../assets/icons/cross.jpg" />
       </button>
     </div>
-    <img
-      :src="getImageUrlForMenu(props.bingsuImageName, 'bingsus')"
-      alt="Image of bingsu that Binq has specially created"
-      class="h-[50%] w-full mb-8"
-    />
+
+    <picture class="h-[50%] w-full mb-8">
+      <source
+        :srcset="getImageUrl(props.bingsuImageName, 'menu', 'bingsus', true)"
+        type="image/webp"
+      />
+      <source
+        :srcset="getImageUrl(props.bingsuImageName, 'menu', 'bingsus')"
+        type="image/jpg"
+      />
+      <img
+        class="w-full h-[50%]"
+        :src="getImageUrl(props.bingsuImageName, 'menu', 'bingsus')"
+        alt="Image of bingsu that Binq has specially created"
+      />
+    </picture>
+
     <section class="mx-3 text-darkorangebq">
       <div
         class="flex flex-col pb-10 border-b-4 border-darkorangebq border-solid"
