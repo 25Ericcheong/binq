@@ -22,19 +22,3 @@ export function getImageUrl(
     import.meta.url
   ).href;
 }
-
-export function getImageUrlForMenu(
-  imageName: string,
-  outerDir: string,
-  isWebp: boolean = false
-) {
-  let extension = "jpg";
-  if (isWebp) {
-    extension = "webp";
-  }
-
-  return new URL(
-    `/src/assets/images/menu/${outerDir}/${imageName}.${extension}`,
-    import.meta.url
-  ).href;
-}
