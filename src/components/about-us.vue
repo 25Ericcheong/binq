@@ -4,9 +4,9 @@ import { getImageUrl } from "@/util/image";
 
 <template>
   <div
-    class="bg-creamyellowbq flex flex-col lg:flex-row h-full py-32 lg:py-72 px-12 sm:px-14 md:px-20"
+    class="bg-creamyellowbq flex flex-col justify-between lg:flex-row h-full py-32 lg:py-72 px-12 sm:px-14 md:px-20"
   >
-    <picture class="w-full lg:w-3/4">
+    <picture class="w-full h-full lg:w-1/2">
       <source
         :srcset="getImageUrl('bingsu-about-us', 'about-us', undefined, true)"
         type="image/webp"
@@ -18,7 +18,7 @@ import { getImageUrl } from "@/util/image";
       />
     </picture>
     <div
-      class="flex flex-col justify-center items-center pt-10 lg:pt-0 pl-0 lg:pl-32 text-darkorangebq"
+      class="w-full lg:w-[40%] flex flex-col justify-center items-center pt-10 lg:pt-0 pl-0 lg:pl-32 text-darkorangebq"
     >
       <h1 class="text-6xl xl:text-7xl xxl:text-9xl header-font font-bold">
         Binq

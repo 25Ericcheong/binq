@@ -86,7 +86,7 @@ onMounted(() => {
           , we are proud to highlight some here
         </h2>
       </div>
-      <picture class="ml-0 lg:ml-40 w-full lg:w-[50%]">
+      <picture class="ml-0 lg:ml-40 w-full h-full lg:w-[50%]">
         <source
           :srcset="
             getImageUrl('bingsu-our-mentions', 'our-mentions', undefined, true)
@@ -94,7 +94,7 @@ onMounted(() => {
           type="image/webp"
         />
         <img
-          class="h-fit p-0"
+          class="h-full p-0"
           :src="getImageUrl('bingsu-our-mentions', 'our-mentions')"
           alt="A blurred background containing the owners of Binq and a tray of Bingsu on the main counter in the store"
         />

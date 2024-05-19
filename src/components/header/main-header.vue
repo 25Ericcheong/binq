@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { getImageUrl } from "@/util/image";
+
 const TITLE = "Binq";
 
 function openNewTab(url: string) {
@@ -28,17 +30,21 @@ function openNewTab(url: string) {
       </h1>
     </div>
   </section>
-  <section class="mb-72 lg:mb-0 lg:w-2/5 flex flex-col">
-    <div class="lg:-mt-32">
-      <div
-        class="flex justify-center rounded-b-full drop-shadow-2xl bg-creamyellowbq"
-      >
+  <section class="mb-72 lg:mb-0 lg:w-2/5 flex flex-col mt-0 lg:-mt-32">
+    <div
+      class="flex justify-center rounded-b-full drop-shadow-2xl bg-creamyellowbq"
+    >
+      <picture class="w-full h-full">
+        <source
+          :srcset="getImageUrl('cheesey-bingsu', 'header', undefined, true)"
+          type="image/webp"
+        />
         <img
           class="h-full w-full drop-shadow-2xl"
-          src="../../assets/images/header/cheesey-bingsu.jpg"
+          :src="getImageUrl('cheesey-bingsu', 'header')"
           alt="Binq homemade cheese oozing over bing su located at the centre of header for attention"
         />
-      </div>
+      </picture>
     </div>
   </section>
   <section
