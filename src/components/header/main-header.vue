@@ -84,11 +84,18 @@ function openNewTab(url: string) {
           Visit us and experience the Binq process firsthand where it is freshly
           made to perfection!
         </p>
-        <img
+        <picture
           class="block lg:hidden xl:block h-full w-full sm:w-1/12 xl:w-1/5 mt-5 sm:mt-0"
-          src="../../assets/images/header/bingsu-in-store.jpg"
-          alt="Signage of Binq's store front that reads 'binq binq binq'"
-        />
+        >
+          <source
+            :srcset="getImageUrl('bingsu-in-store', 'header', undefined, true)"
+            type="image/webp"
+          />
+          <img
+            :src="getImageUrl('bingsu-in-store', 'header')"
+            alt="Signage of Binq's store front that reads 'binq binq binq'"
+          />
+        </picture>
       </div>
       <div class="flex w-full xl:w-3/4 justify-center items-center">
         <hr class="w-2/5" />
@@ -105,11 +112,18 @@ function openNewTab(url: string) {
           Watch this space and imagine what it could have been but beware as it
           tastes as good as it looks
         </p>
-        <img
+        <picture
           class="lg:hidden xl:block w-full h-full sm:w-1/12 xl:w-1/5 mt-5 sm:mt-0"
-          src="../../assets/images/header/bingsu.jpg"
-          alt="An innovate bingsu created at home at Binq"
-        />
+        >
+          <source
+            :srcset="getImageUrl('bingsu', 'header', undefined, true)"
+            type="image/webp"
+          />
+          <img
+            :src="getImageUrl('bingsu', 'header')"
+            alt="An innovate bingsu created at home at Binq'"
+          />
+        </picture>
       </div>
     </div>
   </section>
