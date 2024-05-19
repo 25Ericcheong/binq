@@ -74,7 +74,7 @@ onMounted(() => {
     class="bg-creamyellowbq w-full h-full py-52 lg:py-72 px-12 sm:px-14 md:px-20 text-darkorangebq"
   >
     <section class="flex flex-col lg:flex-row lg:justify-between">
-      <div class="lg:w-1/5">
+      <div class="w-full lg:w-[30%]">
         <h1
           class="text-5xl sm:text-7xl xl:text-8xl xxl:text-10xl header-font font-extrabold pb-3"
         >
@@ -86,15 +86,20 @@ onMounted(() => {
           , we are proud to highlight some here
         </h2>
       </div>
-      <picture class="ml-0 lg:ml-40 w-full h-full lg:w-[50%]">
+      <picture class="ml-0 p-0 lg:ml-40 w-full h-full lg:w-[50%]">
         <source
           :srcset="
             getImageUrl('bingsu-our-mentions', 'our-mentions', undefined, true)
           "
           type="image/webp"
         />
+        <source
+          :srcset="
+            getImageUrl('bingsu-our-mentions', 'our-mentions', undefined)
+          "
+          type="image/jpg"
+        />
         <img
-          class="h-full p-0"
           :src="getImageUrl('bingsu-our-mentions', 'our-mentions')"
           alt="A blurred background containing the owners of Binq and a tray of Bingsu on the main counter in the store"
         />

@@ -28,29 +28,96 @@ import { getImageUrl } from "@/util/image";
             best combination of flavors out there but we want to ensure each and
             every single order is made to perfection for all to enjoy.
           </p>
-          <img
-            class="w-full md:w-4/5 h-1/4 self-center"
-            :src="
-              getImageUrl('more-prep-bing-product-intro', 'products', 'intro')
-            "
-            alt="Shaving machine used to create our special bing su at Binq"
-          />
-          <img
-            class="my-20 w-full md:w-4/5 h-1/4 xxl:my-40 self-center"
-            :src="getImageUrl('topping-product-intro', 'products', 'intro')"
-            alt="Our famous side dishes used to complement our perfect bingsu"
-          />
-          <img
-            class="w-full md:w-4/5 h-1/4 self-center"
-            :src="getImageUrl('binq-store-product-intro', 'products', 'intro')"
-            alt="Store front of our main branch in Damansara that reads binq binq binq"
-          />
+
+          <picture class="w-full md:w-4/5 h-1/4 self-center">
+            <source
+              :srcset="
+                getImageUrl(
+                  'more-prep-bing-product-intro',
+                  'products',
+                  'intro',
+                  true
+                )
+              "
+              type="image/webp"
+            />
+            <source
+              :srcset="
+                getImageUrl('more-prep-bing-product-intro', 'products', 'intro')
+              "
+              type="image/jpg"
+            />
+            <img
+              :src="
+                getImageUrl('more-prep-bing-product-intro', 'products', 'intro')
+              "
+              alt="Shaving machine used to create our special bing su at Binq"
+            />
+          </picture>
+
+          <picture class="my-20 w-full md:w-4/5 h-1/4 xxl:my-40 self-center">
+            <source
+              :srcset="
+                getImageUrl('topping-product-intro', 'products', 'intro', true)
+              "
+              type="image/webp"
+            />
+            <source
+              :srcset="
+                getImageUrl('topping-product-intro', 'products', 'intro')
+              "
+              type="image/jpg"
+            />
+            <img
+              :src="getImageUrl('topping-product-intro', 'products', 'intro')"
+              alt="Our famous side dishes used to complement our perfect bingsu"
+            />
+          </picture>
+
+          <picture class="w-full md:w-4/5 h-1/4 self-center">
+            <source
+              :srcset="
+                getImageUrl(
+                  'binq-store-product-intro',
+                  'products',
+                  'intro',
+                  true
+                )
+              "
+              type="image/webp"
+            />
+            <source
+              :srcset="
+                getImageUrl('binq-store-product-intro', 'products', 'intro')
+              "
+              type="image/jpg"
+            />
+            <img
+              :src="
+                getImageUrl('binq-store-product-intro', 'products', 'intro')
+              "
+              alt="Store front of our main branch in Damansara that reads binq binq binq"
+            />
+          </picture>
         </div>
-        <img
-          :src="getImageUrl('bingsus-product-intro', 'products', 'intro')"
-          class="h-1/3 rounded-full mb-32 lg:sticky lg:top-0"
-          alt="Consists of a variety of bingsu desserts which we have readily available"
-        />
+
+        <picture class="h-1/3 mb-32 lg:sticky lg:top-0">
+          <source
+            :srcset="
+              getImageUrl('bingsus-product-intro', 'products', 'intro', true)
+            "
+            type="image/webp"
+          />
+          <source
+            :srcset="getImageUrl('bingsus-product-intro', 'products', 'intro')"
+            type="image/jpg"
+          />
+          <img
+            class="rounded-full"
+            :src="getImageUrl('bingsus-product-intro', 'products', 'intro')"
+            alt="Consists of a variety of bingsu desserts which we have readily available"
+          />
+        </picture>
       </div>
     </section>
     <section
@@ -68,22 +135,66 @@ import { getImageUrl } from "@/util/image";
             pairings available.
           </h2>
         </div>
-        <img
-          class="w-full h-3/4 pt-12 self-center"
-          :src="getImageUrl('watermelon-topping-product', 'products', 'detail')"
-          alt="Watermelon topping side dish which we have available at the store"
-        />
-        <img
-          class="w-full h-3/4 pt-16 self-center"
-          :src="getImageUrl('topping-product', 'products', 'detail')"
-          alt="Coated mochi topping side dish which we have available at the store"
-        />
+
+        <picture class="w-full h-3/4 pt-12 self-center">
+          <source
+            :srcset="
+              getImageUrl(
+                'watermelon-topping-product',
+                'products',
+                'detail',
+                true
+              )
+            "
+            type="image/webp"
+          />
+          <source
+            :srcset="
+              getImageUrl('watermelon-topping-product', 'products', 'detail')
+            "
+            type="image/jpg"
+          />
+          <img
+            :src="
+              getImageUrl('watermelon-topping-product', 'products', 'detail')
+            "
+            alt="Watermelon topping side dish which we have available at the store"
+          />
+        </picture>
+
+        <picture class="w-full h-3/4 pt-16 self-center">
+          <source
+            :srcset="getImageUrl('topping-product', 'products', 'detail', true)"
+            type="image/webp"
+          />
+          <source
+            :srcset="getImageUrl('topping-product', 'products', 'detail')"
+            type="image/jpg"
+          />
+          <img
+            :src="getImageUrl('topping-product', 'products', 'detail')"
+            alt="Watermelon topping side dish which we have available at the store"
+          />
+        </picture>
       </div>
-      <img
-        class="w-full h-3/4 lg:w-1/2 rounded-full pt-20 lg:pt-0"
-        :src="getImageUrl('bingsu-set-product', 'products', 'detail')"
-        alt="Our best selling bingsu set at binq. Has 4 toppings and our best selling bingsu; Soybean flavoured bingsu"
-      />
+
+      <picture class="w-full h-3/4 lg:w-1/2 pt-20 lg:pt-0">
+        <source
+          :srcset="
+            getImageUrl('bingsu-set-product', 'products', 'detail', true)
+          "
+          type="image/webp"
+        />
+        <source
+          :srcset="getImageUrl('bingsu-set-product', 'products', 'detail')"
+          type="image/jpg"
+        />
+        <img
+          class="rounded-full"
+          :src="getImageUrl('bingsu-set-product', 'products', 'detail')"
+          alt="Our best selling bingsu set at binq. Has 4 toppings and our best selling bingsu; Soybean flavoured bingsu"
+        />
+      </picture>
     </section>
   </div>
 </template>
