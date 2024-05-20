@@ -4,8 +4,65 @@
     <meta charset="UTF-8" />
     <link rel="shortcut icon" type="image/png" href="/static/binq.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Binq</title>
+    <meta
+      name="description"
+      content="At Binq, we have delicious bingsu (shaved ice dessert) and toppings that comes in sets"
+    />
+    <title>Binq Dessert: Uniqe Homemade Bingsus</title>
   </head>
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "Restaurant",
+      "name": "Binq",
+      "image": "https://binqdessert.com/assets/bingsu-about-us-__XT3Z6X.webp",
+      "telephone": "0169007070",
+      "email": "",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Desa Sri Hartamas"
+      },
+      "menu": "https://binqdessert.com/menu",
+      "servesCuisine": ["Korean", "dessert"],
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": {
+            "@type": "DayOfWeek",
+            "name": "Sun - Thu"
+          },
+          "opens": "Please insert valid ISO 8601 date/time here. Examples: 2015-07-27 or 2015-07-27T15:30"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": {
+            "@type": "DayOfWeek",
+            "name": "Fri - Sat"
+          },
+          "opens": "Please insert valid ISO 8601 date/time here. Examples: 2015-07-27 or 2015-07-27T15:30"
+        }
+      ],
+      "url": "https://binqdessert.com/",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.7 / 5.0",
+        "ratingCount": "100+"
+      },
+      "review": {
+        "@type": "Review",
+        "author": {
+          "@type": "Person",
+          "name": "J K"
+        },
+        "datePublished": "2024-12-03",
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "11/10"
+        },
+        "reviewBody": "Especially to all the bingsu lovers out there. They&#39;ve got several choices of flavour which none are too sweet so it&#39;s also a perfect place for the older audience as well. Service wise, super friendly staff especially the young couple which are actually the owners of the place! Very attentive and are also super helpful to give suggestions if you&#39;re not sure what to try."
+      }
+    }
+  </script>
   <body>
     <div id="app"></div>
     <script type="module" src="/src/main.ts"></script>
