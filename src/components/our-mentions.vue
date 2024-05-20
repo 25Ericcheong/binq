@@ -131,7 +131,7 @@ onMounted(() => {
             href="https://maps.app.goo.gl/GbsjxS6GdFXhUJso8"
             target="_blank"
             rel="noreferrer"
-            >More</a
+            >Full Review</a
           >
           <p>J K - 12/03/2024</p>
         </div>
@@ -158,7 +158,7 @@ onMounted(() => {
             href="https://maps.app.goo.gl/c8iAMvf23wuFSoBN6"
             target="_blank"
             rel="noreferrer"
-            >More</a
+            >Full Review</a
           >
           <p>Kathryn - 18/01/2024</p>
         </div>
@@ -185,7 +185,7 @@ onMounted(() => {
             href="https://maps.app.goo.gl/RCc2zopeopnzvsfq9"
             target="_blank"
             rel="noreferrer"
-            >More</a
+            >Full Review</a
           >
           <p>Lizzie - 18/01/2024</p>
         </div>
