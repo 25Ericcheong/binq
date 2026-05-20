@@ -5,111 +5,197 @@ export const OAT_MILK = "Oat Milk";
 export const MENU: Menu = {
   Bingsu: [
     {
-      price: 28.5,
-      name: "White Peach Oolong",
-      imageName: "white-peach-oolong",
-      recommendedToppings: [
-        "Brown sugar jelly",
-        "Peach popping boba",
-        "Taroball",
-      ],
-    },
-    {
-      price: 30.0,
-      name: "The Dark Knight",
-      imageName: "the-dark-knight",
-      recommendedToppings: [
-        "White sugar jelly",
-        "Soybean mochi",
-        "Butter crisp",
-      ],
-    },
-    {
-      price: 26.5,
+      price: 23,
+      priceSmall: 17,
       name: "Roasted Soybean Oolong",
       imageName: "roasted-soybean-oolong",
       recommendedToppings: [
-        "Brown sugar jelly",
-        "Soybean mochi cube",
-        "Butter crisp",
-        "Cream cheese",
+        "Butter Crisps",
+        "Soybean Mochi",
+        "Brown Sugar Jelly",
+        "Cream Cheese w/ Soybean Powder",
       ],
     },
     {
-      price: 30.0,
-      name: "Matcha",
-      imageName: "matcha",
+      price: 23,
+      priceSmall: 17,
+      name: "White Peach Oolong",
+      imageName: "white-peach-oolong",
       recommendedToppings: [
-        "Brown sugar jelly",
-        "Soybean mochi cube",
-        "Red Bean",
-        "Cream cheese",
+        "Brown Sugar Jelly",
+        "Peach Popping Boba",
+        "Taro Ball",
       ],
     },
     {
-      price: 32.0,
-      name: "Mango",
+      price: 26,
+      priceSmall: 18.5,
+      name: "Mango Sago",
       imageName: "mango",
       recommendedToppings: [
-        "Passionfruit popping boba",
-        "Nata de coco",
+        "Nata De Coco",
+        "Passionfruit Popping Boba",
         "Mango",
       ],
     },
     {
-      price: 28.5,
-      name: "Kamquat Jasmine",
-      imageName: "kumquat-jasmine",
+      price: 26,
+      priceSmall: 18.5,
+      name: "Thai Milk Tea",
+      imageName: "thai-milk-tea",
       recommendedToppings: [
-        "Nata de coco",
-        "Passionfruit popping boba",
-        "Aiyu jelly",
+        "Water Chestnut Popping Boba",
+        "Ondeh-ondeh Mochi",
+        "Lotus Biscoff",
       ],
     },
     {
-      price: 32.0,
+      price: 33,
+      priceSmall: 23.5,
+      name: "Pistachio",
+      imageName: "pistachio",
+      recommendedToppings: [
+        "Chocolate Butter Crisps",
+        "Glazed Pistachio Crumbs",
+        "White Sugar Jelly",
+      ],
+    },
+    {
+      price: 26,
+      priceSmall: 18.5,
+      name: "Dark Chocolate",
+      imageName: "the-dark-knight",
+      recommendedToppings: [
+        "Butter Crisps",
+        "Dark Chocolate Mochi",
+        "White Sugar Jelly",
+      ],
+    },
+    {
+      price: 28,
+      priceSmall: 20,
+      name: "Matcha",
+      imageName: "matcha",
+      recommendedToppings: [
+        "Brown Sugar Jelly",
+        "Red Bean",
+        "Soybean Mochi",
+        "Cream Cheese",
+      ],
+    },
+    {
+      price: 28,
+      priceSmall: 20,
       name: "Hoji Cha Cha",
       imageName: "hoji-cha-cha",
       recommendedToppings: [
-        "Brown sugar jelly",
-        "Soybean mochi cube",
-        "Cream cheese",
+        "Brown Sugar Jelly",
+        "Red Bean",
+        "Soybean Mochi",
+        "Cream Cheese",
+      ],
+    },
+    {
+      price: 23,
+      priceSmall: 17,
+      name: "Kumquat Jasmine",
+      imageName: "kumquat-jasmine",
+      recommendedToppings: [
+        "Nata De Coco",
+        "Passionfruit Popping Boba",
+        "Aiyu Jelly",
+      ],
+    },
+    {
+      price: 28,
+      priceSmall: 20,
+      name: "Tiramisu",
+      imageName: "tiramisu",
+      recommendedToppings: [
+        "Brown Sugar Jelly",
+        "Chocolate Butter Crisps",
+        "Mascarpone Cream",
+      ],
+    },
+    {
+      price: 25,
+      priceSmall: 18,
+      name: "Soybean Longan",
+      imageName: "soybean-longan",
+      recommendedToppings: [
+        "Water Chestnut Popping Boba",
+        "Brown Sugar Jelly",
+        "Longan",
+      ],
+    },
+    {
+      // TODO: verify small price from POS
+      price: 30,
+      priceSmall: 22,
+      name: "Matcha Creme Brulee",
+      imageName: "matcha-creme-brulee",
+      recommendedToppings: [
+        "Brown Sugar Jelly",
+        "Red Bean",
+        "Soybean Mochi",
+        "Cream Cheese",
+      ],
+    },
+    {
+      // TODO: verify small price from POS
+      price: 29,
+      priceSmall: 21,
+      name: "Dark Chocolate Pistachio Kunafa",
+      imageName: "dark-chocolate-pistachio-kunafa",
+      recommendedToppings: [
+        "Dark Chocolate Mochi",
+        "White Sugar Jelly",
+        "Pistachio Kunafa",
       ],
     },
   ],
   Drinks: [
     {
-      price: 15.0,
-      name: "Watermelon Cheezo",
-      imageName: "watermelon-cheezo",
-      description:
-        "A refreshing blend of watermelon and cheese, perfect for a cool and creamy treat",
+      price: 13,
+      name: "Da Hong Pao Milk Tea",
+      imageName: "roasted-da-hong-pao-milk-tea",
+      description: "Our TOP 1 drink — a comforting roasted milk tea with cream cheese and crystal jelly",
     },
     {
-      price: 15.0,
+      price: 15,
       name: "Signature Binq Tea",
       imageName: "signature-binq-tea",
-      description: "Our staple signature drink at Binq",
+      description: "Our TOP 2 signature — jasmine tea with watermelon cube, mango cube, and crystal jelly",
     },
     {
-      price: 15.0,
+      price: 15,
+      name: "Watermelon Cheezo",
+      imageName: "watermelon-cheezo",
+      description: "Refreshing watermelon with jasmine tea, watermelon cube, and crystal jelly",
+    },
+    {
+      price: 15,
       name: "Lychee Cheezo",
       imageName: "lychee-cheezo",
-      description:
-        "Exotic sweetness of lychee combined with the creamy richness of cheese",
+      description: "Exotic sweetness of lychee with jasmine tea, lychee cube, and crystal jelly",
     },
     {
-      price: 15.0,
-      name: "Grape Cheezo",
-      imageName: "grape-cheezo",
-      description:
-        "Refreshing taste of grapes that cuts through the cheesey goodness",
+      price: 9,
+      name: "Chamomile Tea",
+      imageName: "chamomile-tea",
+      description: "Hot — gentle and floral. A calming cup to end your meal",
     },
     {
-      price: 13.0,
-      name: "Roasted Da Hong Pao Milk Tea",
-      imageName: "roasted-da-hong-pao-milk-tea",
-      description: "A comforting drink that will warm your soul with every sip",
+      price: 9,
+      name: "Green Tea",
+      imageName: "green-tea",
+      description: "Hot — classic and light. Clean and refreshing",
+    },
+    {
+      price: 9,
+      name: "English Breakfast Tea",
+      imageName: "english-breakfast-tea",
+      description: "Hot — full-bodied and robust. Perfect with or without milk",
     },
   ],
   Topping: [
@@ -129,8 +215,7 @@ export const MENU: Menu = {
       price: 2.0,
       name: "Nata De Coco",
       imageName: "nata-de-coco",
-      description:
-        "With its' chewy texture and refreshing taste, it is perfect for adding a tropical twist to your bingsu",
+      description: "Chewy texture and refreshing taste — perfect for a tropical twist",
     },
     {
       price: 2.0,
@@ -148,56 +233,55 @@ export const MENU: Menu = {
       price: 2.0,
       name: "Lychee Popping Boba",
       imageName: "lychee-popping-boba",
-      description: "Popping sweet lychee - it can't get better than this",
+      description: "Popping sweet lychee — it can't get better than this",
     },
     {
       price: 2.0,
       name: "Waterchestnut Popping Boba",
       imageName: "waterchestnut-popping-boba",
-      description:
-        "Savor the unique texture and subtle sweetness of our Waterchestnut Popping Boba",
+      description: "Unique texture and subtle sweetness in every pop",
     },
     {
       price: 2.0,
       name: "Taroballs",
       imageName: "taroballs",
-      description:
-        "Featuring chewy taro balls that add a comforting and nostalgic touch to your bingsu",
+      description: "Chewy taro balls that add a comforting and nostalgic touch",
     },
     {
       price: 2.0,
       name: "Mini Taroballs",
       imageName: "mini-taroballs",
-      description:
-        "Delight in bite-sized bliss with our Mini Taroballs, perfect for adding a quick chew with bingsu",
+      description: "Bite-sized bliss — perfect for adding a quick chew",
     },
     {
       price: 2.0,
       name: "Soybean Mochi Cube",
       imageName: "soybean-mochi-cube",
-      description:
-        "The difference in chewy profile cannot be compared when it is coated with soybean",
+      description: "The difference in chewy profile cannot be compared when coated with soybean",
+    },
+    {
+      price: 2.0,
+      name: "Dark Chocolate Mochi Cube",
+      imageName: "dark-chocolate-mochi-cube",
+      description: "Rich dark chocolate coating with a satisfying mochi chew",
     },
     {
       price: 2.0,
       name: "Brown Sugar Crystal Jelly",
       imageName: "brown-sugar-crystal-jelly",
-      description:
-        "Indulge in the rich caramel flavor and jelly-like texture of our Brown Sugar Crystal Jelly topping",
+      description: "Rich caramel flavor with a jelly-like texture",
     },
     {
       price: 2.0,
       name: "Aiyu Jelly",
       imageName: "aiyu-jelly",
-      description:
-        "Translucent jelly with a delicate flavor that complements your bingsu perfectly",
+      description: "Translucent jelly with a delicate flavor that complements your bingsu perfectly",
     },
     {
       price: 2.0,
       name: "Red Bean",
       imageName: "red-bean",
-      description:
-        "A classic and comforting taste; perfect for it to be eaten with any of our bingsu",
+      description: "A classic and comforting taste — pairs perfectly with any bingsu",
     },
     {
       price: 2.0,
@@ -209,42 +293,25 @@ export const MENU: Menu = {
       price: 2.0,
       name: "Lotus Biscoff",
       imageName: "lotus-biscoff",
-      description: "A crunch, plus a caramalized touch to your bingsu",
+      description: "A crunch, plus a caramelised touch to your bingsu",
     },
     {
       price: 2.0,
       name: "Toasted Coconut",
       imageName: "toasted-coconut",
-      description:
-        "Featuring crispy toasted coconut flakes that transport you to paradise with every bite",
-    },
-    {
-      price: 2.0,
-      name: "Cream Cheese with Soybean Powder",
-      imageName: "cream-cheese",
-      description:
-        "Cheese and soybean powder - creating multiple indulgent layers to your bingsu",
+      description: "Crispy toasted coconut flakes that transport you to paradise",
     },
     {
       price: 2.0,
       name: "Mango",
       imageName: "mango",
-      description:
-        "Delight in the sweetness of ripe mango with our Mango topping",
+      description: "Delight in the sweetness of ripe mango",
     },
     {
       price: 2.0,
       name: "Grapefruit",
       imageName: "grapefruit",
-      description:
-        "Experience a burst of citrusy freshness with our Grapefruit topping, adding a tangy and refreshing twist to your bingsu",
-    },
-    {
-      price: 2.0,
-      name: "Passionfruit Popping Boba",
-      imageName: "passionfruit-popping-boba",
-      description:
-        "Add a zing to your bingsu with our Passionfruit Popping Boba",
+      description: "A burst of citrusy freshness — tangy and refreshing",
     },
   ],
 };

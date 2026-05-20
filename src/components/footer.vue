@@ -55,7 +55,6 @@ const CURRENT_YEAR = new Date().getFullYear();
         >
           <p>Binqdessert@gmail.com</p>
           <p class="pt-2">0358885453</p>
-          <p class="pt-2">0169007070</p>
         </div>
       </div>
       <div class="w-full lg:w-[25%] pt-10 lg:pt-0">
@@ -80,15 +79,20 @@ const CURRENT_YEAR = new Date().getFullYear();
         <div
           class="body-font text-xl sm:text-2xl lg:text-sm xl:text-xl xxl:text-2xl my-3 tracking-wide flex flex-col"
         >
-          <a href="https://maps.app.goo.gl/psBb4HSo5bvRc6nP6" target="_blank">
+          <a href="https://share.google/rTjNqgakWm7zmJuGe" target="_blank" rel="noreferrer">
             Desa Sri Hartamas
           </a>
-          <a
-            class="pt-2"
-            href="https://maps.app.goo.gl/UXRnQEntwuw11ad78"
-            target="_blank"
-          >
+          <a class="pt-2" href="https://share.google/ePjDMj9NlJb2gqDq1" target="_blank" rel="noreferrer">
             SS15, Subang Jaya
+          </a>
+          <a class="pt-2" href="https://share.google/QkxXFiHSPKRwaYhTu" target="_blank" rel="noreferrer">
+            SS2, Petaling Jaya
+          </a>
+          <a class="pt-2" href="https://share.google/ml9FNXW9d7f2KjGOQ" target="_blank" rel="noreferrer">
+            Damansara Uptown
+          </a>
+          <a class="pt-2" href="https://share.google/rOz3Vn5V7U1X9V51T" target="_blank" rel="noreferrer">
+            Taman Segar, Cheras
           </a>
         </div>
       </div>

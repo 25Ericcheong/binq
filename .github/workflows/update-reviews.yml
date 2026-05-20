@@ -1,0 +1,70 @@
+name: Update Google Reviews
+
+on:
+  schedule:
+    - cron: "0 1 * * 1" # Every Monday at 9am KL time (1am UTC)
+  workflow_dispatch: # Allow manual trigger from GitHub Actions tab
+
+concurrency:
+  group: production
+  cancel-in-progress: true
+
+env:
+  NODE_VERSION: 20.10.0
+
+jobs:
+  update-and-deploy:
+    name: Fetch Reviews, Build and Deploy
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Use Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+
+      - name: Fetch Google Reviews
+        env:
+          GOOGLE_PLACES_API_KEY: ${{ secrets.GOOGLE_PLACES_API_KEY }}
+          PLACE_IDS: ${{ secrets.PLACE_IDS }}
+        run: node scripts/fetch-reviews.js
+
+      - name: Commit updated reviews
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add src/data/google-reviews.json
+          git diff --staged --quiet || git commit -m "chore: update Google reviews"
+          git push
+
+      - name: Install dependencies and build
+        run: |
+          npm ci
+          npx tailwindcss build -i ./src/input.css -o ./src/output.css --minify
+          npm run build --f-present
+
+      - name: Copy index.html to 404.html
+        run: cd dist && cp index.html 404.html
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "./dist"
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}

@@ -71,7 +71,7 @@ function createRequest(): Request {
       "message",
     ]),
     formGoogleSheetName: "responses",
-    formGoogleSendEmail: "ericcheongkaikit@gmail.com",
+    formGoogleSendEmail: "binqdessert@gmail.com",
     ...request.value,
   };
   return { data: data };

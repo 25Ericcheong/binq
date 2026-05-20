@@ -30,8 +30,8 @@ const cartItemDrink = ref<CartItemDrinks>({ ...INITIAL_CART_ITEM });
 const WATERMELON_CHEEZO = "Watermelon Cheezo";
 const SIGNATURE_BINQ_TEA = "Signature Binq Tea";
 const LYCHEE_CHEEZO = "Lychee Cheezo";
-const GRAPE_CHEEZO = "Grape Cheezo";
-const ROASTED_DA_HONG_PAO_MILK_TEA = "Roasted Da Hong Pao Milk Tea";
+const DA_HONG_PAO_MILK_TEA = "Da Hong Pao Milk Tea";
+const HOT_DRINKS = ["Chamomile Tea", "Green Tea", "English Breakfast Tea"];
 
 const SPECIFIC_AVAILABLE_TOPPINGS = [
   "White Crystal Jelly",
@@ -75,6 +75,10 @@ const hasToppingBeenChosen = computed(() => {
 });
 
 const shouldDisableConfirmationButton = computed(() => {
+  if (HOT_DRINKS.includes(props.drinksName)) {
+    return !hasSugarLevelBeenChosen.value;
+  }
+
   if (!hasToppingBeenChosen.value || !hasSugarLevelBeenChosen.value) {
     return true;
   }
@@ -85,18 +89,17 @@ const shouldDisableConfirmationButton = computed(() => {
 
   if (
     props.drinksName === LYCHEE_CHEEZO ||
-    props.drinksName === GRAPE_CHEEZO ||
     props.drinksName === WATERMELON_CHEEZO
   ) {
     return !hasCreamCheeseBeenChosen.value;
   }
 
-  if (props.drinksName === ROASTED_DA_HONG_PAO_MILK_TEA) {
+  if (props.drinksName === DA_HONG_PAO_MILK_TEA) {
     return !hasCreamCheeseBeenChosen.value || !hasIceLevelBeenChosen.value;
   }
 
-  // this should not happen as case has not been handled
-  throw true;
+  // all other drinks just need topping and sugar level
+  return false;
 });
 
 function handleDrinksConfirmation() {
@@ -157,6 +160,9 @@ function handleDrinksConfirmation() {
       </div>
 
       <div class="py-10 border-b-4 border-darkorangebq border-solid">
+        <div v-if="HOT_DRINKS.includes(props.drinksName)" class="pb-5 text-darkorangebq italic">
+          Served hot. Choose your preferred sweetness level below.
+        </div>
         <div class="pb-10">
           <p class="pb-5 font-semibold">Sugar Level</p>
           <div
@@ -172,7 +178,7 @@ function handleDrinksConfirmation() {
             <label>{{ sugarNumLevel }}%</label>
           </div>
         </div>
-        <div v-if="props.drinksName === SIGNATURE_BINQ_TEA" class="pb-10">
+        <div v-if="props.drinksName === SIGNATURE_BINQ_TEA && !HOT_DRINKS.includes(props.drinksName)" class="pb-10">
           <p class="pb-5 font-semibold">Ice Level</p>
           <div v-for="iceNumLevel in ICE_LEVELS" class="flex items-center pb-4">
             <input
@@ -186,10 +192,10 @@ function handleDrinksConfirmation() {
         </div>
         <div
           v-if="
-            props.drinksName === WATERMELON_CHEEZO ||
+            (props.drinksName === WATERMELON_CHEEZO ||
             props.drinksName === LYCHEE_CHEEZO ||
-            props.drinksName === GRAPE_CHEEZO ||
-            props.drinksName === ROASTED_DA_HONG_PAO_MILK_TEA
+            props.drinksName === DA_HONG_PAO_MILK_TEA) &&
+            !HOT_DRINKS.includes(props.drinksName)
           "
           class="pb-10"
         >
@@ -213,7 +219,7 @@ function handleDrinksConfirmation() {
             <label>Exclude</label>
           </div>
         </div>
-        <div class="py-10 border-b-4 border-darkorangebq border-solid">
+        <div v-if="!HOT_DRINKS.includes(props.drinksName)" class="py-10 border-b-4 border-darkorangebq border-solid">
           <div class="pb-5 flex justify-between">
             <p class="font-semibold">Select Topping</p>
             <p>Select 1</p>

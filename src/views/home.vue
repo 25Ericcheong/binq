@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import AboutUs from "@/components/about-us.vue";
 import Feedback from "@/components/feedback.vue";
+import FindUs from "@/components/find-us.vue";
 import Footer from "@/components/footer.vue";
 import LandingPageHeader from "@/components/header/wrapper-header.vue";
+import NewOfferings from "@/components/new-offerings.vue";
 import OurMentions from "@/components/our-mentions.vue";
 import Product from "@/components/product.vue";
 
@@ -12,6 +14,8 @@ import "@/output.css";
   <div class="bg-creamwhitebq">
     <LandingPageHeader />
     <AboutUs />
+    <FindUs />
+    <NewOfferings />
     <Product />
     <OurMentions />
     <Feedback />

@@ -1,39 +1,44 @@
 <script setup lang="ts">
+import reviewsData from "@/data/google-reviews.json";
 import { getImageUrl } from "@/util/image";
-import { onMounted, ref } from "vue";
+import { computed, onMounted, ref } from "vue";
 
-const moments = ref<string[]>([
-  "A variety of flavour that aren't too sweet - making them perfect",
-  "Hoji Cha 10/10 - As a hijocha lover, this hits the spot perfectly",
-  "My 4th time here and I still love their oolong peach, soybean and matcha",
-  "Roasted Soybean 10/10 - Sweet but balanced",
-  "First time trying Binq and flavors were unique and different; making them refreshing!",
-  "Matcha 9/10 - Full of matcha flavour in every bite",
-  "Roasted soybean oolong paired really well with cream cheese",
-  "Soybean mochi cube was springy and nicely paired with sugar jelly",
-  "Their soya bean coated mochi cubes were absolutely delish!",
-  "Roasted soybean oolong 4.75/5 on flavour alone!",
-  "One of the most delicious bingsu I&apos;ve tried",
-  "Perhaps one of the best bingsu in town",
-  "My favourite will be their signature oolong and soya",
-  "Roasted soybean oolong has perfect fragrant, taste, and texture",
-  "Can confidently recommend this to all the bingsu lovers",
-  "As a korean, it is similar to Korean red bean shaved ice - tastes just like home",
-  "Flavors are unique from other bingsu places",
-  "Their bingsu is very unique and not too sweet",
-  "Hojicha is by far the richest bingsu I have ever tried!",
-  "Their soya bean coated mochi cubes were absolutely delish",
-]);
+interface Review {
+  author: string;
+  rating: number;
+  text: string;
+  outlet: string;
+  publishTime: string;
+  relativeTime: string;
+  googleMapsUri: string;
+}
 
-// only used for/when animation is in effect
-const momentsParts = ref<string[][]>([
-  moments.value.slice(0, 3),
-  moments.value.slice(3, 6),
-  moments.value.slice(6, 9),
-  moments.value.slice(9, 13),
-  moments.value.slice(13, 16),
-  moments.value.slice(16),
-]);
+const reviews = reviewsData.reviews as Review[];
+
+// Top 3 reviews with enough text for the featured section
+const featuredReviews = computed(() =>
+  reviews.filter((r) => r.text.length > 80).slice(0, 3)
+);
+
+// Short quote snippets for the scrolling section
+const moments = computed(() =>
+  reviews.map((r) => {
+    const snippet = r.text.length > 90 ? r.text.slice(0, 87).trimEnd() + "…" : r.text;
+    return snippet;
+  })
+);
+
+const momentsParts = computed(() => {
+  const m = moments.value;
+  return [
+    m.slice(0, 3),
+    m.slice(3, 6),
+    m.slice(6, 9),
+    m.slice(9, 13),
+    m.slice(13, 16),
+    m.slice(16),
+  ].filter((part) => part.length > 0);
+});
 
 const isReducedMotion = ref<boolean>(
   window.matchMedia("(prefers-reduced-motion: reduce)").matches
@@ -41,32 +46,28 @@ const isReducedMotion = ref<boolean>(
 
 function addAnimation() {
   const scrollers = document.querySelectorAll(".scroller");
-
   scrollers.forEach((scroller) => {
     scroller.setAttribute("data-animated", "true");
-
     const scrollerInner = scroller.querySelector(".scroller-inner");
-
     if (scrollerInner !== null) {
-      const scrollerContent = Array.from(scrollerInner.children);
-
-      scrollerContent.forEach((item) => {
-        // so animated translation has no odd gap in repeating translation animation
-        const duplicatedItem = item.cloneNode(true) as Element;
-
-        // ensure this doesn't show up for screen readers
-        duplicatedItem.setAttribute("aria-hidden", "true");
-        scrollerInner.appendChild(duplicatedItem);
+      Array.from(scrollerInner.children).forEach((item) => {
+        const dup = item.cloneNode(true) as Element;
+        dup.setAttribute("aria-hidden", "true");
+        scrollerInner.appendChild(dup);
       });
     }
   });
 }
 
 onMounted(() => {
-  if (!isReducedMotion.value) {
-    addAnimation();
-  }
+  if (!isReducedMotion.value) addAnimation();
 });
+
+function formatDate(publishTime: string) {
+  if (!publishTime) return "";
+  const d = new Date(publishTime);
+  return d.toLocaleDateString("en-GB", { day: "2-digit", month: "2-digit", year: "numeric" });
+}
 </script>
 
 <template>
@@ -82,21 +83,17 @@ onMounted(() => {
         </h1>
         <h2 class="text-2xl xl:text-3xl xxl:text-5xl body-font mb-10">
           With an average of
-          <h2 class="underline inline">4.7 / 5.0 stars over 100+ reviews</h2>
+          <span class="underline inline">4.7 / 5.0 stars over 100+ reviews</span>
           , we are proud to highlight some here
         </h2>
       </div>
       <picture class="ml-0 p-0 lg:ml-40 w-full h-full lg:w-[50%]">
         <source
-          :srcset="
-            getImageUrl('bingsu-our-mentions', 'our-mentions', undefined, true)
-          "
+          :srcset="getImageUrl('bingsu-our-mentions', 'our-mentions', undefined, true)"
           type="image/webp"
         />
         <source
-          :srcset="
-            getImageUrl('bingsu-our-mentions', 'our-mentions', undefined)
-          "
+          :srcset="getImageUrl('bingsu-our-mentions', 'our-mentions', undefined)"
           type="image/jpg"
         />
         <img
@@ -105,92 +102,36 @@ onMounted(() => {
         />
       </picture>
     </section>
+
     <section
       class="flex flex-col md:flex-row md:justify-between pt-40 pb-56 font-medium"
     >
-      <div class="md:w-2/5 xl:w-1/4">
+      <div
+        v-for="review in featuredReviews"
+        :key="review.author"
+        class="md:w-2/5 xl:w-1/4 mt-16 md:mt-0 first:mt-0"
+      >
         <h2 class="text-2xl xl:text-3xl xxl:text-5xl body-font mb-5">
-          "11/10 Can confidently recommend this to anyone"
+          "{{ review.text.slice(0, 60).trimEnd() }}…"
         </h2>
-        <p class="text-xl xxl:text-2xl body-font tracking-wide overflow-hidden">
-          Especially to all the bingsu lovers out there. They&apos;ve got
-          several choices of flavour which none are too sweet so it&apos;s also
-          a perfect place for the older audience as well. Service wise, super
-          friendly staff especially the young couple which are actually the
-          owners of the place! Very attentive and are also super helpful to give
-          suggestions if you&apos;re not sure what to try. Bingsu wise: Hoji Cha
-          10/10 - As a hojicha lover this hit the spot perfectly, with the
-          alternative oatmilk option it was super rich in flavour but also
-          balanced ...
+        <p class="text-xl xxl:text-2xl body-font tracking-wide overflow-hidden line-clamp-6">
+          {{ review.text }}
         </p>
         <div
           class="flex flex-row justify-between text-xl xxl:text-2xl body-font tracking-wide mt-5"
         >
           <a
+            v-if="review.googleMapsUri"
             class="p-2 rounded-lg text-creamwhitebq bg-darkorangebq"
-            href="https://maps.app.goo.gl/GbsjxS6GdFXhUJso8"
+            :href="review.googleMapsUri"
             target="_blank"
             rel="noreferrer"
-            >Full Review</a
-          >
-          <p>J K - 12/03/2024</p>
-        </div>
-      </div>
-      <div class="hidden xl:block w-1/4">
-        <h2 class="text-2xl xl:text-3xl xxl:text-5xl body-font mb-5">
-          "Perfect hangout place with good dessert!"
-        </h2>
-        <p class="text-xl xxl:text-2xl body-font tracking-wide overflow-hidden">
-          Love their hojicha bingsu!!! By far the richest taste I&apos;ve tried!
-          And every time I come here this is a confirmed repeat order. (This is
-          my 4th time here already) I also like their - oolong peach (imagine a
-          chagee but shaved ice version) - soybean (you will love it if u like
-          injeolmi) - matcha Each bingsu comes with 3-4 toppings. U can also
-          modify ur toppings. But I think the combination is already good so I
-          never modify. Environment is chill and cozy, also provide drinking
-          water. Overall a perfect hangout place ...
-        </p>
-        <div
-          class="flex flex-row justify-between text-xl xxl:text-2xl body-font tracking-wide mt-5"
-        >
-          <a
-            class="p-2 rounded-lg text-creamwhitebq bg-darkorangebq"
-            href="https://maps.app.goo.gl/c8iAMvf23wuFSoBN6"
-            target="_blank"
-            rel="noreferrer"
-            >Full Review</a
-          >
-          <p>Kathryn - 18/01/2024</p>
-        </div>
-      </div>
-      <div class="mt-16 md:mt-0 md:w-2/5 xl:w-1/4">
-        <h2 class="text-2xl xl:text-3xl xxl:text-5xl body-font mb-5">
-          "Flavors were different than other bingsu places"
-        </h2>
-        <p class="text-xl xxl:text-2xl body-font tracking-wide overflow-hidden">
-          Tried Binq for the first time and had a pleasant experience. Flavors
-          were different than other bingsu places, worth trying because so far
-          no other places has these flavours, it&apos;s always the same old
-          thing (always green tea..oreo or yogurt) so this is something
-          refreshing. Appreciate the fact that we can change toppings if we
-          like. Space was quite clean, if there&apos;s any space to improve..the
-          tables were a little sticky. I noticed the guy owner cleaning up
-          constantly, looking around and keeping the place ...
-        </p>
-        <div
-          class="flex flex-row justify-between text-xl xxl:text-2xl body-font tracking-wide mt-5"
-        >
-          <a
-            class="p-2 rounded-lg text-creamwhitebq bg-darkorangebq"
-            href="https://maps.app.goo.gl/RCc2zopeopnzvsfq9"
-            target="_blank"
-            rel="noreferrer"
-            >Full Review</a
-          >
-          <p>Lizzie - 18/01/2024</p>
+          >Full Review</a>
+          <p>{{ review.author }} · {{ review.relativeTime || formatDate(review.publishTime) }}</p>
         </div>
       </div>
     </section>
+
     <section class="flex flex-col lg:flex-row">
       <div class="lg:w-1/2">
         <h1
@@ -207,16 +148,18 @@ onMounted(() => {
             <li
               class="text-creamwhitebq bg-darkorangebq p-1 rounded-lg shadow-xl"
               v-for="moment in moments"
+              :key="moment"
             >
               {{ moment }}
             </li>
           </ul>
         </div>
-        <div v-else v-for="momentPart in momentsParts" class="scroller">
+        <div v-else v-for="(part, i) in momentsParts" :key="i" class="scroller">
           <ul class="scroller-inner">
             <li
               class="text-creamwhitebq bg-darkorangebq p-1 rounded-lg shadow-xl"
-              v-for="moment in momentPart"
+              v-for="moment in part"
+              :key="moment"
             >
               {{ moment }}
             </li>
@@ -237,8 +180,6 @@ onMounted(() => {
 
 .scroller[data-animated="true"] {
   overflow: hidden;
-
-  /* fadding effect on each tag */
   -webkit-mask: linear-gradient(
     90deg,
     transparent,
@@ -260,10 +201,8 @@ onMounted(() => {
   }
 }
 
-/* will be in effect when reduced motion is not selected by user */
 @keyframes scroll {
   to {
-    /* -0.5rem came from the 1rem gap for each tag where 0.5rem is used per side of tag */
     transform: translate(calc(-50% - 0.5rem));
   }
 }

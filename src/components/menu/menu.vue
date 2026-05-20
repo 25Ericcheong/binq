@@ -13,6 +13,7 @@ import { computed, ref, watch } from "vue";
 
 interface MenuItemBase {
   price: number;
+  priceSmall?: number;
   name: string;
   imageName: string;
 }
@@ -156,7 +157,7 @@ watch(
             <div class="w-2/3 flex flex-col">
               <div class="pb-2 flex justify-between">
                 <p class="pb-2 font-semibold">{{ item.name }}</p>
-                <p class="pb-2 font-semibold">RM{{ item.price.toFixed(2) }}</p>
+                <p class="pb-2 font-semibold">RM{{ item.price.toFixed(0) }}</p>
               </div>
               <div class="h-[90px] sm:h-[100px] text-lg xl:text-xl">
                 <p
@@ -175,6 +176,7 @@ watch(
                 :bingsu-image-name="item.imageName"
                 :bingsu-name="item.name"
                 :price="item.price"
+                :price-small="item.priceSmall"
                 :recommended-toppings="(item as BingsuItem).recommendedToppings"
               />
               <DrinksMenuModal
