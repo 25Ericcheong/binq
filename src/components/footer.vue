@@ -55,7 +55,6 @@ const CURRENT_YEAR = new Date().getFullYear();
         >
           <p>Binqdessert@gmail.com</p>
           <p class="pt-2">0358885453</p>
-          <p class="pt-2">0169007070</p>
         </div>
       </div>
       <div class="w-full lg:w-[25%] pt-10 lg:pt-0">
