@@ -29,11 +29,13 @@ import { getImageUrl } from "@/util/image";
       <p
         class="body-font text-xl sm:text-2xl lg:text-sm xl:text-xl xxl:text-2xl my-10 lg:my-2 xl:my-6 tracking-wide"
       >
-        What started of as a habit that happened on a weekly basis turned into
-        an obsession to create something that we can call our own. After
-        countless of hours, days and perhaps even months; Binq was born. From
-        then on, it manifested to providing the one and only Binq-experience for
-        everyone to be a part of. This, is our beginning.
+        It started during MCO. A couple with a weekly bingsu habit and one
+        question: why doesn't Malaysia have a bingsu that actually tastes like
+        us? The more they searched, the more they realised there was so much
+        more to be offered. So they built it themselves — a machine ordered off
+        Taobao, months of kitchen testing, and a group of friends who didn't
+        mind being taste-testers for every new flavour. Binq was born from that
+        conviction. Bingsu, the Malaysian way.
       </p>
       <h2
         class="text-2xl sm:text-4xl lg:text-xl xl:text-2xl xxl:text-4xl header-font font-semibold"
