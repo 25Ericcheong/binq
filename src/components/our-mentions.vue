@@ -22,16 +22,19 @@ const CUSTOMER_PHOTOS = [
     imageName: "customer-bingsu",
     alt: "A roasted green tea bingsu with cream, red bean, and soybean toppings, photographed by a Binq customer",
     credit: "KK Liew",
+    googleMapsUri: "https://www.google.com/maps/place//data=!3m4!1e2!3m2!1sCIHM0ogKEICAgICNj9zoew!2e10!4m2!3m1!1s0x31cc49f125736025:0x3bbdba03a57f99ab",
   },
   {
     imageName: "customer-pistachio",
     alt: "A pistachio bingsu with crushed nuts and condensed milk, photographed by a Binq customer",
     credit: "Hữu Tài Nguyễn",
+    googleMapsUri: "https://www.google.com/maps/place//data=!3m4!1e2!3m2!1sCIABIhD43WXbNBLgmG5hDRW7rJsi!2e10!4m2!3m1!1s0x31cc49f125736025:0x3bbdba03a57f99ab",
   },
   {
     imageName: "customer-darkchoc",
     alt: "A dark chocolate bingsu with chocolate truffles and matcha, photographed by a Binq customer",
     credit: "boey ka loon",
+    googleMapsUri: "https://www.google.com/maps/place//data=!3m4!1e2!3m2!1sCIABIhDPlopcIzJoecsmH2_i-Zfo!2e10!4m2!3m1!1s0x31cc49f125736025:0x3bbdba03a57f99ab",
   },
 ];
 
@@ -110,13 +113,15 @@ function formatDate(publishTime: string) {
       <div class="ml-0 p-0 lg:ml-40 w-full h-full lg:w-[50%]">
         <div class="grid grid-cols-3 gap-3">
           <div v-for="photo in CUSTOMER_PHOTOS" :key="photo.imageName">
-            <picture>
-              <img
-                :src="getImageUrl(photo.imageName, 'our-mentions')"
-                :alt="photo.alt"
-                class="w-full h-[140px] sm:h-[180px] lg:h-[220px] object-cover rounded-2xl"
-              />
-            </picture>
+            <a :href="photo.googleMapsUri" target="_blank" rel="noreferrer" class="block">
+              <picture>
+                <img
+                  :src="getImageUrl(photo.imageName, 'our-mentions')"
+                  :alt="photo.alt"
+                  class="w-full h-[140px] sm:h-[180px] lg:h-[220px] object-cover rounded-2xl hover:opacity-80 transition-opacity duration-200"
+                />
+              </picture>
+            </a>
             <p class="body-font text-xs sm:text-sm pt-2 opacity-70">Photo by {{ photo.credit }}</p>
           </div>
         </div>

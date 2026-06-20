@@ -15,12 +15,12 @@ import "@/output.css";
   <div class="bg-creamwhitebq">
     <LandingPageHeader />
     <AboutUs />
-    <FindUs />
     <NewOfferings />
     <Product />
     <Catering />
     <OurMentions />
     <Feedback />
+    <FindUs />
     <Footer />
   </div>
 </template>
