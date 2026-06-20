@@ -8,7 +8,7 @@
         New flavours, new locations, and new treats — follow along on Instagram to stay up to date
       </p>
     </div>
-    <behold-widget feed-id="s97rR" />
+    <behold-widget feed-id="i4JCIdZM3CZgHNacmLAL" />
   </div>
 </template>
 
