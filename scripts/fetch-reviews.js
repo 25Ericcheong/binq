@@ -1,8 +1,11 @@
 // Fetches top Google reviews for all Binq outlets and saves to src/data/google-reviews.json.
 // Run via GitHub Actions weekly — never from the browser (API key stays server-side only).
-const https = require("https");
-const fs = require("fs");
-const path = require("path");
+import https from "https";
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const API_KEY = process.env.GOOGLE_PLACES_API_KEY;
 const PLACE_IDS = process.env.PLACE_IDS ? process.env.PLACE_IDS.split(",").map((s) => s.trim()) : [];
@@ -44,6 +47,11 @@ async function main() {
       const place = await fetchPlace(placeId);
       const outlet = place.displayName?.text || placeId;
 
+      if (place.error) {
+        console.error(`API error for ${placeId}: ${JSON.stringify(place.error)}`);
+        continue;
+      }
+
       if (!place.reviews?.length) {
         console.log(`No reviews returned for ${outlet}`);
         continue;
@@ -70,6 +78,13 @@ async function main() {
     }
   }
 
+  const outPath = path.join(__dirname, "..", "src", "data", "google-reviews.json");
+
+  if (allReviews.length === 0) {
+    console.error("No reviews fetched from any outlet — keeping existing file untouched.");
+    process.exit(1);
+  }
+
   // Best reviews first (rating desc, then most recent)
   allReviews.sort((a, b) => {
     if (b.rating !== a.rating) return b.rating - a.rating;
@@ -81,7 +96,6 @@ async function main() {
     reviews: allReviews.slice(0, 25),
   };
 
-  const outPath = path.join(__dirname, "..", "src", "data", "google-reviews.json");
   fs.writeFileSync(outPath, JSON.stringify(output, null, 2));
   console.log(`Saved ${output.reviews.length} reviews → ${outPath}`);
 }

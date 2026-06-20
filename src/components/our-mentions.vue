@@ -72,16 +72,16 @@ function formatDate(publishTime: string) {
 
 <template>
   <div
-    class="bg-creamyellowbq w-full h-full py-52 lg:py-72 px-12 sm:px-14 md:px-20 text-darkorangebq"
+    class="bg-creamyellowbq w-full h-full py-24 lg:py-32 px-12 sm:px-14 md:px-20 text-darkorangebq"
   >
     <section class="flex flex-col lg:flex-row lg:justify-between">
       <div class="w-full lg:w-[30%]">
         <h1
-          class="text-5xl sm:text-7xl xl:text-8xl xxl:text-10xl header-font font-extrabold pb-3"
+          class="text-4xl sm:text-6xl xl:text-7xl xxl:text-8xl header-font font-extrabold pb-3"
         >
           Binq buzzing
         </h1>
-        <h2 class="text-2xl xl:text-3xl xxl:text-5xl body-font mb-10">
+        <h2 class="text-xl xl:text-2xl xxl:text-4xl body-font mb-10">
           With an average of
           <span class="underline inline">4.7 / 5.0 stars over 100+ reviews</span>
           , we are proud to highlight some here
@@ -104,17 +104,17 @@ function formatDate(publishTime: string) {
     </section>
 
     <section
-      class="flex flex-col md:flex-row md:justify-between pt-40 pb-56 font-medium"
+      class="flex flex-col md:flex-row md:justify-between pt-16 pb-20 font-medium"
     >
       <div
         v-for="review in featuredReviews"
         :key="review.author"
-        class="md:w-2/5 xl:w-1/4 mt-16 md:mt-0 first:mt-0"
+        class="md:w-2/5 xl:w-1/4 mt-10 md:mt-0 first:mt-0"
       >
-        <h2 class="text-2xl xl:text-3xl xxl:text-5xl body-font mb-5">
+        <h2 class="text-xl xl:text-2xl xxl:text-4xl body-font mb-4">
           "{{ review.text.slice(0, 60).trimEnd() }}…"
         </h2>
-        <p class="text-xl xxl:text-2xl body-font tracking-wide overflow-hidden line-clamp-6">
+        <p class="text-lg xxl:text-xl body-font tracking-wide overflow-hidden line-clamp-6">
           {{ review.text }}
         </p>
         <div
@@ -135,13 +135,13 @@ function formatDate(publishTime: string) {
     <section class="flex flex-col lg:flex-row">
       <div class="lg:w-1/2">
         <h1
-          class="text-5xl sm:text-7xl xl:text-8xl xxl:text-10xl header-font font-extrabold"
+          class="text-4xl sm:text-6xl xl:text-7xl xxl:text-8xl header-font font-extrabold"
         >
           Buzzworthy moments
         </h1>
       </div>
       <div
-        class="mt-10 lg:mt-0 lg:max-w-[50%] text-sm sm:text-base lg:text-xl xxl:text-2xl body-font tracking-wide"
+        class="mt-8 lg:mt-0 lg:max-w-[50%] text-sm sm:text-base lg:text-lg xxl:text-xl body-font tracking-wide"
       >
         <div class="scroller" v-if="isReducedMotion">
           <ul class="scroller-inner">

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import AboutUs from "@/components/about-us.vue";
+import Catering from "@/components/catering.vue";
 import Feedback from "@/components/feedback.vue";
 import FindUs from "@/components/find-us.vue";
 import Footer from "@/components/footer.vue";
@@ -17,6 +18,7 @@ import "@/output.css";
     <FindUs />
     <NewOfferings />
     <Product />
+    <Catering />
     <OurMentions />
     <Feedback />
     <Footer />
