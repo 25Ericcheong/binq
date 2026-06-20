@@ -87,20 +87,16 @@ function formatDate(publishTime: string) {
           , we are proud to highlight some here
         </h2>
       </div>
-      <picture class="ml-0 p-0 lg:ml-40 w-full h-full lg:w-[50%]">
-        <source
-          :srcset="getImageUrl('bingsu-our-mentions', 'our-mentions', undefined, true)"
-          type="image/webp"
-        />
-        <source
-          :srcset="getImageUrl('bingsu-our-mentions', 'our-mentions', undefined)"
-          type="image/jpg"
-        />
-        <img
-          :src="getImageUrl('bingsu-our-mentions', 'our-mentions')"
-          alt="A blurred background containing the owners of Binq and a tray of Bingsu on the main counter in the store"
-        />
-      </picture>
+      <div class="ml-0 p-0 lg:ml-40 w-full h-full lg:w-[50%]">
+        <picture>
+          <img
+            :src="getImageUrl('customer-bingsu', 'our-mentions')"
+            alt="A roasted green tea bingsu with cream, red bean, and soybean toppings, photographed by a Binq customer"
+            class="w-full h-full object-cover rounded-2xl"
+          />
+        </picture>
+        <p class="body-font text-sm pt-2 opacity-70">Photo by KK Liew, via Google</p>
+      </div>
     </section>
 
     <section
