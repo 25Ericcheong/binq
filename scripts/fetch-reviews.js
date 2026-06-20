@@ -41,6 +41,8 @@ function fetchPlace(placeId) {
 
 async function main() {
   const allReviews = [];
+  let weightedRatingSum = 0;
+  let totalRatingCount = 0;
 
   for (const placeId of PLACE_IDS) {
     try {
@@ -50,6 +52,11 @@ async function main() {
       if (place.error) {
         console.error(`API error for ${placeId}: ${JSON.stringify(place.error)}`);
         continue;
+      }
+
+      if (typeof place.rating === "number" && typeof place.userRatingCount === "number") {
+        weightedRatingSum += place.rating * place.userRatingCount;
+        totalRatingCount += place.userRatingCount;
       }
 
       if (!place.reviews?.length) {
@@ -93,11 +100,14 @@ async function main() {
 
   const output = {
     lastUpdated: new Date().toISOString(),
+    aggregateRating: totalRatingCount > 0 ? Math.round((weightedRatingSum / totalRatingCount) * 10) / 10 : null,
+    aggregateRatingCount: totalRatingCount,
     reviews: allReviews.slice(0, 25),
   };
 
   fs.writeFileSync(outPath, JSON.stringify(output, null, 2));
   console.log(`Saved ${output.reviews.length} reviews → ${outPath}`);
+  console.log(`Aggregate: ${output.aggregateRating} stars over ${output.aggregateRatingCount} reviews`);
 }
 
 main().catch((err) => { console.error(err); process.exit(1); });

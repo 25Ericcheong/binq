@@ -14,6 +14,26 @@ interface Review {
 }
 
 const reviews = reviewsData.reviews as Review[];
+const aggregateRating = reviewsData.aggregateRating ?? 4.9;
+const aggregateRatingCount = reviewsData.aggregateRatingCount ?? 100;
+
+const CUSTOMER_PHOTOS = [
+  {
+    imageName: "customer-bingsu",
+    alt: "A roasted green tea bingsu with cream, red bean, and soybean toppings, photographed by a Binq customer",
+    credit: "KK Liew",
+  },
+  {
+    imageName: "customer-pistachio",
+    alt: "A pistachio bingsu with crushed nuts and condensed milk, photographed by a Binq customer",
+    credit: "Hữu Tài Nguyễn",
+  },
+  {
+    imageName: "customer-darkchoc",
+    alt: "A dark chocolate bingsu with chocolate truffles and matcha, photographed by a Binq customer",
+    credit: "boey ka loon",
+  },
+];
 
 // Top 3 reviews with enough text for the featured section
 const featuredReviews = computed(() =>
@@ -83,19 +103,23 @@ function formatDate(publishTime: string) {
         </h1>
         <h2 class="text-xl xl:text-2xl xxl:text-4xl body-font mb-10">
           With an average of
-          <span class="underline inline">4.7 / 5.0 stars over 100+ reviews</span>
+          <span class="underline inline">{{ aggregateRating }} / 5.0 stars over {{ aggregateRatingCount.toLocaleString() }}+ reviews</span>
           , we are proud to highlight some here
         </h2>
       </div>
       <div class="ml-0 p-0 lg:ml-40 w-full h-full lg:w-[50%]">
-        <picture>
-          <img
-            :src="getImageUrl('customer-bingsu', 'our-mentions')"
-            alt="A roasted green tea bingsu with cream, red bean, and soybean toppings, photographed by a Binq customer"
-            class="w-full h-full object-cover rounded-2xl"
-          />
-        </picture>
-        <p class="body-font text-sm pt-2 opacity-70">Photo by KK Liew, via Google</p>
+        <div class="grid grid-cols-3 gap-3">
+          <div v-for="photo in CUSTOMER_PHOTOS" :key="photo.imageName">
+            <picture>
+              <img
+                :src="getImageUrl(photo.imageName, 'our-mentions')"
+                :alt="photo.alt"
+                class="w-full h-[140px] sm:h-[180px] lg:h-[220px] object-cover rounded-2xl"
+              />
+            </picture>
+            <p class="body-font text-xs sm:text-sm pt-2 opacity-70">Photo by {{ photo.credit }}</p>
+          </div>
+        </div>
       </div>
     </section>
 
