@@ -30,7 +30,18 @@ export interface Menu {
   [MenuItemType.Bingsu]: BingsuItem[];
   [MenuItemType.Drinks]: DrinkOrToppingItem[];
   [MenuItemType.Topping]: DrinkOrToppingItem[];
+  [MenuItemType.DubaiCookie]: DrinkOrToppingItem[];
+  [MenuItemType.Croffle]: DrinkOrToppingItem[];
+  [MenuItemType.IcedChocolate]: DrinkOrToppingItem[];
 }
+
+const NON_BINGSU_IMAGE_FOLDER: Record<string, string> = {
+  [MenuItemType.Drinks]: "drinks",
+  [MenuItemType.Topping]: "toppings",
+  [MenuItemType.DubaiCookie]: "cookies",
+  [MenuItemType.Croffle]: "croffles",
+  [MenuItemType.IcedChocolate]: "iced-chocolate",
+};
 
 const store = useMenuStore();
 const { getItemOrderByName, getNumberOfItemOrderByName } = storeToRefs(store);
@@ -70,22 +81,19 @@ watch(
     <div
       class="w-full xl:max-w-[1320px] body-font text-lg sm:text-xl xl:text-2xl text-darkorangebq"
     >
-      <section
-        class="sticky top-0 z-40 px-0 sm:px-5 py-7 bg-creamyellowbq rounded-full"
-      >
-        <div
-          class="flex flex-col justify-center sm:flex-row sm:justify-between items-center"
-        >
+      <section class="sticky top-0 z-40 px-0 sm:px-5 py-7 bg-creamyellowbq">
+        <div class="flex flex-col items-center gap-4">
           <h2
             class="text-center self-center text-5xl xl:text-6xl header-font font-bold hidden sm:block"
           >
             {{ selectedType }}
           </h2>
-          <div class="flex justify-evenly w-[300px]">
+          <div class="flex flex-wrap justify-center gap-2 max-w-full overflow-x-auto">
             <button
               v-for="type in MenuItemType"
+              :key="type"
               @click="() => handleTypeUpdate(type)"
-              class="p-2 md:p-4 rounded-full"
+              class="p-2 md:px-4 md:py-2 rounded-full whitespace-nowrap text-sm md:text-base xl:text-lg"
               :class="
                 type === selectedType
                   ? 'bg-darkorangebq text-creamwhitebq'
@@ -135,9 +143,7 @@ watch(
                     getImageUrl(
                       item.imageName,
                       'menu',
-                      selectedType === MenuItemType.Drinks
-                        ? 'drinks'
-                        : 'toppings',
+                      NON_BINGSU_IMAGE_FOLDER[selectedType],
                       true
                     )
                   "
@@ -187,9 +193,15 @@ watch(
                 :price="item.price"
               />
               <ToppingMenu
-                v-else="selectedType === MenuItemType.Topping"
+                v-else-if="selectedType === MenuItemType.Topping"
                 :topping-name="item.name"
               />
+              <p
+                v-else
+                class="body-font text-sm xl:text-base opacity-70 italic"
+              >
+                Order via our online ordering platform
+              </p>
             </div>
           </div>
         </div>

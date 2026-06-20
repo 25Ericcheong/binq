@@ -38,7 +38,7 @@ const DARK_CHOCOLATE = "Dark Chocolate";
 const WHITE_PEACH_OOLONG = "White Peach Oolong";
 const ROASTED_SOYBEAN_OOLONG = "Roasted Soybean Oolong";
 const MATCHA = "Matcha";
-const MATCHA_CREME_BRULEE = "Matcha Creme Brulee";
+const MATCHA_CREME_BRULEE = "Matcha Crème Brulee";
 const HOJI_CHA_CHA = "Hoji Cha Cha";
 
 const NORMAL_MILK = "Milk";
