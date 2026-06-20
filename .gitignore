@@ -22,6 +22,10 @@
 .DS_Store
 .claude/
 .env.local
+
+# internal business data — not for the public repo
+/Binq Menu/
+/Binq Investment Ask*.pdf
 .env.development.local
 .env.test.local
 .env.production.local
