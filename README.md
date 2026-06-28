@@ -6,4 +6,4 @@ After pulling this project, you should be able to run `npm install` and `npm run
 
 This project is built with Vue.js, TypeScript and TailwindCSS. 
 
-I used these tools for fun and I've always wanted to used a CSS frameworkv like Tailwind. I used React for about 2 years and was thinking of getting some experience with Vue for fun (with TypeScript too)
+I used these tools for fun and I've always wanted to used a CSS framework like Tailwind. I used React for about 2 years and was thinking of getting some experience with Vue for fun (with TypeScript too)
