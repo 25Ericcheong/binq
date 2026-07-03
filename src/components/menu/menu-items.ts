@@ -76,6 +76,47 @@ export const MENU: Menu = {
         "Cream cheese",
       ],
     },
+    {
+      price: 32.0,
+      name: "Pistachio",
+      imageName: "pistachio",
+      recommendedToppings: [
+        "Brown sugar jelly",
+        "Soybean mochi cube",
+        "Cream cheese",
+      ],
+    },
+    {
+      price: 32.0,
+      name: "Thai Milk Tea",
+      imageName: "thai-milk-tea",
+      recommendedToppings: [
+        "Brown sugar jelly",
+        "Taroballs",
+        "Cream cheese",
+      ],
+    },
+    {
+      price: 32.0,
+      name: "Matcha Creme Brulee",
+      imageName: "matcha-creme-brulee",
+      recommendedToppings: [
+        "Brown sugar jelly",
+        "Soybean mochi cube",
+        "Red Bean",
+        "Cream cheese",
+      ],
+    },
+    {
+      price: 32.0,
+      name: "Dark Chocolate Pistachio Kunafa",
+      imageName: "dark-chocolate-pistachio-kunafa",
+      recommendedToppings: [
+        "White sugar jelly",
+        "Soybean mochi",
+        "Butter crisp",
+      ],
+    },
   ],
   Drinks: [
     {
