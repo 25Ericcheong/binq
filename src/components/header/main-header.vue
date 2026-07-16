@@ -24,7 +24,7 @@ function openNewTab(url: string) {
     </h1>
     <div class="flex gap-8 xl:gap-12 body-font text-creamwhitebq">
       <div class="flex flex-col items-center">
-        <span class="text-3xl xl:text-4xl font-bold">5</span>
+        <span class="text-3xl xl:text-4xl font-bold">6</span>
         <span class="text-sm xl:text-base opacity-80">Outlets</span>
       </div>
       <div class="flex flex-col items-center">
@@ -36,6 +36,12 @@ function openNewTab(url: string) {
         <span class="text-sm xl:text-base opacity-80">Flavours</span>
       </div>
     </div>
+    <button
+      v-on:click="openNewTab('https://feedme.cc/6a02e38d71b30e001c39b38c')"
+      class="mt-10 body-font font-bold text-lg xl:text-xl text-orangebq bg-creamwhitebq rounded-full px-10 py-3 drop-shadow-2xl cursor-pointer hover:opacity-90 transition-opacity"
+    >
+      Order Now
+    </button>
   </section>
   <section class="mb-20 lg:mb-0 lg:w-2/5 flex flex-col mt-0 lg:-mt-32">
     <div

@@ -4,5 +4,4 @@ export enum MenuItemType {
   Topping = "Topping",
   DubaiCookie = "Dubai Chewy Cookie",
   Croffle = "Croffle",
-  IcedChocolate = "Iced Chocolate",
 }

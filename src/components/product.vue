@@ -18,7 +18,7 @@ const VALUE_PROPS = [
     icon: "heart",
   },
   {
-    title: "5 Outlets & Growing",
+    title: "6 Outlets & Growing",
     detail: "Find us across the Klang Valley",
     icon: "pin",
   },
