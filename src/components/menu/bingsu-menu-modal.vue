@@ -13,6 +13,7 @@ const props = defineProps({
   bingsuName: { type: String, required: true },
   bingsuImageName: { type: String, required: true },
   price: { type: Number, required: true },
+  priceSmall: { type: Number, required: false },
   recommendedToppings: { type: Array<String>, required: true },
 });
 
@@ -33,12 +34,11 @@ const store = useMenuStore();
 const dialog = ref<HTMLDialogElement>();
 const cartItemBingsu = ref<CartItemBingsu>({ ...INITIAL_CART_ITEM });
 
-const THE_DARK_KNIGHT = "The Dark Knight";
+const DARK_CHOCOLATE = "Dark Chocolate";
 const WHITE_PEACH_OOLONG = "White Peach Oolong";
 const ROASTED_SOYBEAN_OOLONG = "Roasted Soybean Oolong";
 const MATCHA = "Matcha";
-const MANGO = "Mango";
-const KAMQUAT_JASMINE = "Kamquat Jasmine";
+const MATCHA_CREME_BRULEE = "Matcha Crème Brulee";
 const HOJI_CHA_CHA = "Hoji Cha Cha";
 
 const NORMAL_MILK = "Milk";
@@ -87,7 +87,7 @@ const shouldDisableConfirmationButton = computed(() => {
     return !hasKonjacKellyBeenChosen.value;
   }
 
-  if (props.bingsuName === THE_DARK_KNIGHT) {
+  if (props.bingsuName === DARK_CHOCOLATE) {
     return !hasKonjacKellyBeenChosen.value || !hasMilkOptionBeenChosen.value;
   }
 
@@ -95,7 +95,11 @@ const shouldDisableConfirmationButton = computed(() => {
     return !hasKonjacKellyBeenChosen.value || !hasCreamCheeseBeenChosen.value;
   }
 
-  if (props.bingsuName === MATCHA || props.bingsuName === HOJI_CHA_CHA) {
+  if (
+    props.bingsuName === MATCHA ||
+    props.bingsuName === MATCHA_CREME_BRULEE ||
+    props.bingsuName === HOJI_CHA_CHA
+  ) {
     return (
       !hasKonjacKellyBeenChosen.value ||
       !hasCreamCheeseBeenChosen.value ||
@@ -103,17 +107,8 @@ const shouldDisableConfirmationButton = computed(() => {
     );
   }
 
-  if (props.bingsuName === MANGO) {
-    return !hasMangoToppingsBeenChosen.value || !hasToppingsBeenChosen.value;
-  }
-
-  // only need to check that toppings have been chosen
-  if (props.bingsuName === KAMQUAT_JASMINE) {
-    return false;
-  }
-
-  // this should not happen as case has not been handled
-  throw true;
+  // all other items only require toppings to be chosen
+  return false;
 });
 
 function handleBingsuConfirmation() {
@@ -166,7 +161,7 @@ function handleBingsuConfirmation() {
       >
         <div class="flex justify-between">
           <p class="pb-2 font-semibold">{{ props.bingsuName }}</p>
-          <p class="pb-2 font-semibold">RM{{ props.price.toFixed(2) }}</p>
+          <p class="pb-2 font-semibold">RM{{ props.price.toFixed(0) }}</p>
         </div>
         <p>
           Customise your experience with your favorite sides or go with our
@@ -177,10 +172,10 @@ function handleBingsuConfirmation() {
       <div
         v-if="
           props.bingsuName === WHITE_PEACH_OOLONG ||
-          props.bingsuName === THE_DARK_KNIGHT ||
+          props.bingsuName === DARK_CHOCOLATE ||
           props.bingsuName === ROASTED_SOYBEAN_OOLONG ||
           props.bingsuName === MATCHA ||
-          props.bingsuName === MANGO ||
+          props.bingsuName === MATCHA_CREME_BRULEE ||
           props.bingsuName === HOJI_CHA_CHA
         "
         class="py-10 border-b-4 border-darkorangebq border-solid"
@@ -189,6 +184,7 @@ function handleBingsuConfirmation() {
           v-if="
             props.bingsuName === ROASTED_SOYBEAN_OOLONG ||
             props.bingsuName === MATCHA ||
+            props.bingsuName === MATCHA_CREME_BRULEE ||
             props.bingsuName === HOJI_CHA_CHA
           "
           class="pb-10"
@@ -216,9 +212,10 @@ function handleBingsuConfirmation() {
         <div
           v-if="
             props.bingsuName === WHITE_PEACH_OOLONG ||
-            props.bingsuName === THE_DARK_KNIGHT ||
+            props.bingsuName === DARK_CHOCOLATE ||
             props.bingsuName === ROASTED_SOYBEAN_OOLONG ||
             props.bingsuName === MATCHA ||
+            props.bingsuName === MATCHA_CREME_BRULEE ||
             props.bingsuName === HOJI_CHA_CHA
           "
           class="pb-10"
@@ -245,8 +242,9 @@ function handleBingsuConfirmation() {
         </div>
         <div
           v-if="
-            props.bingsuName === THE_DARK_KNIGHT ||
+            props.bingsuName === DARK_CHOCOLATE ||
             props.bingsuName === MATCHA ||
+            props.bingsuName === MATCHA_CREME_BRULEE ||
             props.bingsuName === HOJI_CHA_CHA
           "
         >
@@ -268,36 +266,6 @@ function handleBingsuConfirmation() {
               class="mr-4 accent-darkorangebq h-[20px] w-[20px]"
             />
             <label>Normal Milk</label>
-          </div>
-        </div>
-        <div v-if="props.bingsuName === MANGO">
-          <p class="pb-5 font-semibold">Mango Topping Options</p>
-          <div class="flex items-center pb-4">
-            <input
-              type="radio"
-              value="Sago and Orange"
-              v-model="cartItemBingsu.mangoToppings"
-              class="mr-4 accent-darkorangebq h-[20px] w-[20px]"
-            />
-            <label>Sago and Orange</label>
-          </div>
-          <div class="flex items-center pb-4">
-            <input
-              type="radio"
-              value="Sago only"
-              v-model="cartItemBingsu.mangoToppings"
-              class="mr-4 accent-darkorangebq h-[20px] w-[20px]"
-            />
-            <label>Sago only</label>
-          </div>
-          <div class="flex items-center">
-            <input
-              type="radio"
-              value="Orange only"
-              v-model="cartItemBingsu.mangoToppings"
-              class="mr-4 accent-darkorangebq h-[20px] w-[20px]"
-            />
-            <label>Orange only</label>
           </div>
         </div>
       </div>

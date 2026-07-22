@@ -29,7 +29,7 @@ export interface CartItemDrinks extends CartItemBase {
 
 export type CartItems = CartItemBase | CartItemBingsu;
 
-export const OAT_MILK_PRICE = 1;
+export const OAT_MILK_PRICE = 2;
 const TOPPING_PRICE = 2;
 
 export const useMenuStore = defineStore("menu", () => {

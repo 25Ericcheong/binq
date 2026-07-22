@@ -10,27 +10,40 @@ function openNewTab(url: string) {
 
 <template>
   <section
-    class="my-64 lg:my-0 lg:w-1/3 flex flex-col justify-center items-center"
+    class="py-20 lg:py-0 lg:w-1/3 flex flex-col justify-center items-center text-center"
   >
-    <div
-      class="text-2xl lg:text-2xl xl:text-3xl xxl:text-5xl body-font mb-10 flex flex-col items-center"
+    <p
+      class="body-font text-creamwhitebq text-lg sm:text-xl xl:text-2xl tracking-wide opacity-90 mb-4"
     >
-      <h2 class="text-creamwhitebq pb-3">A <i>mountain</i> of deliciousness</h2>
-      <button
-        class="border-solid font-bold border-2 p-5 rounded-full text-creamwhitebq"
-      >
-        Binqsu
-      </button>
+      Your local fully flavoured bingsu cafe
+    </p>
+    <h1
+      class="text-7xl xl:text-8xl xxl:text-9xl header-font font-extrabold text-creamwhitebq mb-10"
+    >
+      {{ TITLE }}
+    </h1>
+    <div class="flex gap-8 xl:gap-12 body-font text-creamwhitebq">
+      <div class="flex flex-col items-center">
+        <span class="text-3xl xl:text-4xl font-bold">6</span>
+        <span class="text-sm xl:text-base opacity-80">Outlets</span>
+      </div>
+      <div class="flex flex-col items-center">
+        <span class="text-3xl xl:text-4xl font-bold">4.9★</span>
+        <span class="text-sm xl:text-base opacity-80">Rated</span>
+      </div>
+      <div class="flex flex-col items-center">
+        <span class="text-3xl xl:text-4xl font-bold">13</span>
+        <span class="text-sm xl:text-base opacity-80">Flavours</span>
+      </div>
     </div>
-    <div v-for="n in 3">
-      <h1
-        class="text-7xl xl:text-8xl xxl:text-10xl header-font font-extrabold text-creamwhitebq"
-      >
-        {{ TITLE }}
-      </h1>
-    </div>
+    <button
+      v-on:click="openNewTab('https://feedme.cc/6a02e38d71b30e001c39b38c')"
+      class="mt-10 body-font font-bold text-lg xl:text-xl text-orangebq bg-creamwhitebq rounded-full px-10 py-3 drop-shadow-2xl cursor-pointer hover:opacity-90 transition-opacity"
+    >
+      Order Now
+    </button>
   </section>
-  <section class="mb-72 lg:mb-0 lg:w-2/5 flex flex-col mt-0 lg:-mt-32">
+  <section class="mb-20 lg:mb-0 lg:w-2/5 flex flex-col mt-0 lg:-mt-32">
     <div
       class="flex justify-center rounded-b-full drop-shadow-2xl bg-creamyellowbq"
     >

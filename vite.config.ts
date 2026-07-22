@@ -6,7 +6,17 @@ import { defineConfig } from "vite";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue(), vueJsx()],
+  plugins: [
+    vue({
+      template: {
+        compilerOptions: {
+          // Behold.so's Instagram widget registers this as a native custom element
+          isCustomElement: (tag) => tag === "behold-widget",
+        },
+      },
+    }),
+    vueJsx(),
+  ],
   server: {
     port: 8080,
   },

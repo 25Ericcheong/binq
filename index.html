@@ -13,6 +13,7 @@
       content="bingsu, korean dessert, shaved ice, toppings, drinks, homemade"
     />
     <title>Binq Dessert: Bingsus, Toppings & Drinks</title>
+    <script type="module" src="https://w.behold.so/widget.js"></script>
   </head>
   <!-- Google tag (gtag.js) -->
   <script
@@ -34,37 +35,37 @@
       "@type": "Restaurant",
       "name": "Binq",
       "image": "https://binqdessert.com/assets/bingsu-about-us-__XT3Z6X.webp",
-      "telephone": "0169007070",
+      "telephone": "0358885453",
       "email": "binqdessert@gmail.com",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Desa Sri Hartamas"
-      },
+      "address": [
+        { "@type": "PostalAddress", "streetAddress": "Desa Sri Hartamas, Kuala Lumpur" },
+        { "@type": "PostalAddress", "streetAddress": "SS15, Subang Jaya, Selangor" },
+        { "@type": "PostalAddress", "streetAddress": "SS2, Petaling Jaya, Selangor" },
+        { "@type": "PostalAddress", "streetAddress": "Damansara Uptown, Petaling Jaya, Selangor" },
+        { "@type": "PostalAddress", "streetAddress": "Taman Segar, Cheras, Kuala Lumpur" },
+        { "@type": "PostalAddress", "streetAddress": "Sunway Square Mall, Bandar Sunway, Petaling Jaya, Selangor" }
+      ],
       "menu": "https://binqdessert.com/menu",
       "servesCuisine": ["Korean", "dessert", "bingsu"],
       "openingHoursSpecification": [
         {
           "@type": "OpeningHoursSpecification",
-          "dayOfWeek": {
-            "@type": "DayOfWeek",
-            "name": "Sun - Thu"
-          },
-          "opens": "Please insert valid ISO 8601 date/time here. Examples: 2015-07-27 or 2015-07-27T15:30"
+          "dayOfWeek": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"],
+          "opens": "13:00",
+          "closes": "23:00"
         },
         {
           "@type": "OpeningHoursSpecification",
-          "dayOfWeek": {
-            "@type": "DayOfWeek",
-            "name": "Fri - Sat"
-          },
-          "opens": "Please insert valid ISO 8601 date/time here. Examples: 2015-07-27 or 2015-07-27T15:30"
+          "dayOfWeek": ["Friday", "Saturday"],
+          "opens": "13:00",
+          "closes": "23:30"
         }
       ],
       "url": "https://binqdessert.com/",
       "aggregateRating": {
         "@type": "AggregateRating",
-        "ratingValue": "4.7 / 5.0",
-        "ratingCount": "100+"
+        "ratingValue": "4.7",
+        "ratingCount": "100"
       },
       "review": {
         "@type": "Review",
