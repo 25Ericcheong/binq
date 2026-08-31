@@ -37,7 +37,7 @@ const SLIDESHOW_RIGHT = [
     <!-- Hero -->
     <section class="bg-gradient-to-tr from-darkorangebq from-15% via-orangebq via-25% to-dullorangebq px-10 py-20 flex flex-col lg:flex-row lg:items-center gap-12 lg:gap-6">
       <div class="lg:w-2/5">
-        <h1 class="header-font font-extrabold text-6xl xl:text-8xl text-creamwhitebq pb-4">
+        <h1 class="header-font font-extrabold text-5xl sm:text-6xl xl:text-8xl text-creamwhitebq pb-4">
           Bingsu, the<br />Malaysian way.
         </h1>
         <p class="body-font text-xl xl:text-2xl text-creamwhitebq opacity-90 max-w-xl pb-8">
@@ -76,10 +76,10 @@ const SLIDESHOW_RIGHT = [
           {{ item.name }}
         </span>
       </div>
-      <div>
+      <div class="flex flex-wrap justify-center gap-4">
         <RouterLink
           :to="PATHS.MENU"
-          class="inline-block border-2 border-darkorangebq text-darkorangebq font-semibold px-8 py-3 rounded-full body-font mr-4"
+          class="inline-block border-2 border-darkorangebq text-darkorangebq font-semibold px-8 py-3 rounded-full body-font"
         >
           View Full Menu
         </RouterLink>
