@@ -68,7 +68,7 @@ onMounted(async () => {
   if (!mapEl.value) return;
   const L = await import("leaflet");
 
-  map = L.map(mapEl.value, { zoomControl: true }).setView([3.113, 101.659], 11);
+  map = L.map(mapEl.value, { zoomControl: true });
 
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
@@ -82,7 +82,7 @@ onMounted(async () => {
         <div style="background:#fff5ea;border:2px solid #d26624;border-radius:50%;width:38px;height:38px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.25)">
           <img src="${binqLogo}" style="width:100%;height:100%;object-fit:cover;border-radius:50%" />
         </div>
-        <div style="background:#d26624;color:#fff5ea;padding:2px 7px;border-radius:20px;font-size:11px;font-weight:600;white-space:nowrap;box-shadow:0 1px 4px rgba(0,0,0,.2)">${label}</div>
+        <div class="outlet-pin-label" style="background:#d26624;color:#fff5ea;padding:2px 7px;border-radius:20px;font-size:11px;font-weight:600;white-space:nowrap;box-shadow:0 1px 4px rgba(0,0,0,.2)">${label}</div>
       </div>`,
       iconSize: [38, 60],
       iconAnchor: [19, 60],
@@ -103,6 +103,12 @@ onMounted(async () => {
           </a>
         </div>`
       );
+  });
+
+  // Fit the viewport to the outlets instead of a fixed zoom, so the pins stay
+  // spaced apart on narrow screens rather than piling into the top-left corner.
+  map.fitBounds(L.latLngBounds(OUTLETS.map((o) => o.coords)), {
+    padding: [60, 60],
   });
 });
 
@@ -161,3 +167,15 @@ onUnmounted(() => {
     </div>
   </div>
 </template>
+
+<style>
+/* Leaflet builds the pin markup with innerHTML, so this cannot be scoped.
+   Below lg the map is too narrow for the name pills to sit side by side —
+   they collide. Outlet names stay reachable via the pin popups and the
+   outlet cards directly below the map. */
+@media (max-width: 1023px) {
+  .outlet-pin-label {
+    display: none;
+  }
+}
+</style>
